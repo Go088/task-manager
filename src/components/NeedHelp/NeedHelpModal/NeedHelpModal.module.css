@@ -1,0 +1,30 @@
+.helpModal {
+  width: 335px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 24px;
+  background-color: red;
+}
+
+.helpModal.dark {
+  border: 1px solid rgba(190, 219, 176, 0.5);
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+  background-color: #151515;
+}
+
+.helpFormWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.helpModalTitle {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.helpModalTitle.dark {
+  color: #fff;
+}
