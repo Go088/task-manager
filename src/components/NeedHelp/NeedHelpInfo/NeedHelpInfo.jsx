@@ -1,7 +1,10 @@
 import css from "./NeedHelpInfo.module.css";
 import clsx from "clsx";
+import { useDispatch } from "react-redux";
+import { openModal } from "../../../redux/features/modals/needHelpModalSlice";
 
 export const NeedHelpInfo = () => {
+  const dispatch = useDispatch();
   return (
     <div className={clsx(css.helpWrapper, css.dark)}>
       <img
@@ -16,7 +19,11 @@ export const NeedHelpInfo = () => {
         check out our support resources or reach out to our customer support
         team.
       </p>
-      <button className={clsx(css.helpButton, css.dark)} type="submit">
+      <button
+        onClick={dispatch(openModal(true))}
+        className={clsx(css.helpButton, css.dark)}
+        type="submit"
+      >
         <svg className={clsx(css.helpIcon, css.dark)} width="20" height="20">
           <use href="/src/sprite.svg#icon-help-circle"></use>
         </svg>
