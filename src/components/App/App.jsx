@@ -1,8 +1,6 @@
 import { Suspense, lazy, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "../Layout/Layout";
-import { NeedHelpModal } from "../NeedHelp/NeedHelpModal/NeedHelpModal";
-import { NeedHelpInfo } from "../NeedHelp/NeedHelpInfo/NeedHelpInfo";
 
 const WelcomePage = lazy(() => import("../../pages/WelcomePage/WelcomePage"));
 const AuthPage = lazy(() => import("../../pages/AuthPage/AuthPage"));
@@ -15,8 +13,6 @@ const App = () => {
 
   return (
     <Layout>
-      <NeedHelpModal />
-
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/welcome" element={<WelcomePage />} />
