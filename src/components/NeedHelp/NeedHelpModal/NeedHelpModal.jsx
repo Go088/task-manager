@@ -16,8 +16,8 @@ export const NeedHelpModal = () => {
     actions.resetForm();
   };
   return (
-    <div className={css.helpModal}>
-      <h2 className={css.helpModalTitle}>Need help</h2>
+    <div className={clsx(css.helpModal, css.isOpen, css.violet)}>
+      <h2 className={clsx(css.helpModalTitle, css.violet)}>Need help</h2>
 
       <Formik
         initialValues={{
@@ -29,15 +29,26 @@ export const NeedHelpModal = () => {
       >
         <Form>
           <div>
-            <Field name="email" type="email" placeholder="Email address" />
             <Field
+              className={clsx(css.helpFormInput, css.violet)}
+              name="email"
+              type="email"
+              placeholder="Email address"
+            />
+            <Field
+              className={clsx(css.helpFormTextarea, css.violet)}
               name="comment"
               type="text"
               as="textarea"
               placeholder="Comment"
             />
           </div>
-          <button type="submit">Send</button>
+          <button
+            className={clsx(css.helpModalButton, css.violet)}
+            type="submit"
+          >
+            Send
+          </button>
         </Form>
       </Formik>
     </div>
