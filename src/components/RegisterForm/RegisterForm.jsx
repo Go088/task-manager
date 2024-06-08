@@ -8,12 +8,18 @@ const schema = yup.object().shape({
     .string()
     .required("Name is required")
     .min(3, "Name should be at least 3 characters")
-    .matches(/^\S*$/, "Name should not contain spaces"),
-  email: yup.string().required("Email is required").matches(/^\S*$/, "Email should not contain spaces").email("Email is invalid"),
+    .matches(/^[\S].*[\S]$/, "Name cannot start or end with whitespace")
+    .matches(/^[\S\s]{3,}$/, "Name should contain at least three characters"),
+  email: yup
+    .string()
+    .required("Email is required")
+    .matches(/^\S*$/, "Email should not contain spaces")
+    .matches(/^[\S].*[\S]$/, "Email cannot start or end with whitespace")
+    .email("Email is invalid"),
   password: yup
     .string()
     .required("Password is required")
-    .matches(/^\S*$/, "Password should not contain spaces")
+    .matches(/^\S*$/, "Password cannot contain spaces")
     .min(6, "Name should be at least 6 characters"),
 });
 
@@ -35,26 +41,38 @@ const RegisterForm = () => {
 
   return (
     <>
-    <br />
+      <br />
       <h3>Registration</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
           Name
-          <input type="text" {...register("name")} placeholder="Enter your name"/>
+          <input
+            type="text"
+            {...register("name")}
+            placeholder="Enter your name"
+          />
           {errors.name && <p>{errors.name.message}</p>}
         </label>
         <label>
           Email
-          <input type="email" {...register("email")} placeholder="Enter your email"/>
+          <input
+            type="email"
+            {...register("email")}
+            placeholder="Enter your email"
+          />
           {errors.email && <p>{errors.email.message}</p>}
         </label>
         <label>
           Password
-          <input type="password" {...register("password")} placeholder="Create a password"/>
+          <input
+            type="password"
+            {...register("password")}
+            placeholder="Create a password"
+          />
           {errors.password && <p>{errors.password.message}</p>}
         </label>
 
-        <input type="submit" value={"Register Now"}/>
+        <input type="submit" value={"Register Now"} />
       </form>
     </>
   );

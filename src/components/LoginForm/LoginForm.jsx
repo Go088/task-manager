@@ -4,10 +4,16 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 // Схема валідації
 const schema = yup.object().shape({
-  email: yup.string().required("Email is required").email("Email is invalid"),
+  email: yup
+    .string()
+    .required("Email is required")
+    .matches(/^\S*$/, "Email should not contain spaces")
+    .matches(/^[\S].*[\S]$/, "Email cannot start or end with whitespace")
+    .email("Email is invalid"),
   password: yup
     .string()
     .required("Password is required")
+    .matches(/^\S*$/, "Password cannot contain spaces")
     .min(6, "Name should be at least 6 characters"),
 });
 
@@ -31,16 +37,24 @@ const LoginForm = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
           Email
-          <input type="email" {...register("email")} placeholder="Enter your email"/>
+          <input
+            type="email"
+            {...register("email")}
+            placeholder="Enter your email"
+          />
           {errors.email && <p>{errors.email.message}</p>}
         </label>
         <label>
           Password
-          <input type="password" {...register("password")} placeholder="Confirm a password"/>
+          <input
+            type="password"
+            {...register("password")}
+            placeholder="Confirm a password"
+          />
           {errors.password && <p>{errors.password.message}</p>}
         </label>
 
-        <input type="submit" value={'Log In Now'}/>
+        <input type="submit" value={"Log In Now"} />
       </form>
     </>
   );
