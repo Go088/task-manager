@@ -8,7 +8,8 @@ const Auth = () => {
   const [register, setRegister] = useState(id === "register");
 
   return (
-    <div>
+    <div >
+      <br />
       <Link to="/auth/register">
         <button
           onClick={() => {

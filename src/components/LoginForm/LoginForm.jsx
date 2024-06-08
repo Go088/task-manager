@@ -27,7 +27,7 @@ const LoginForm = () => {
 
   return (
     <>
-      <h3>React Hook Form</h3>
+      <h3>Login</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
           Email

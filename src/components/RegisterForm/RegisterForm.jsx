@@ -7,11 +7,13 @@ const schema = yup.object().shape({
   name: yup
     .string()
     .required("Name is required")
-    .min(3, "Name should be at least 3 characters"),
-  email: yup.string().required("Email is required").email("Email is invalid"),
+    .min(3, "Name should be at least 3 characters")
+    .matches(/^\S*$/, "Name should not contain spaces"),
+  email: yup.string().required("Email is required").matches(/^\S*$/, "Email should not contain spaces").email("Email is invalid"),
   password: yup
     .string()
     .required("Password is required")
+    .matches(/^\S*$/, "Password should not contain spaces")
     .min(6, "Name should be at least 6 characters"),
 });
 
@@ -21,17 +23,20 @@ const RegisterForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: yupResolver(schema),
   });
 
   const onSubmit = (userData) => {
     console.log(JSON.stringify(userData));
+    reset();
   };
 
   return (
     <>
-      <h3>React Hook Form</h3>
+    <br />
+      <h3>Registration</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
           Name

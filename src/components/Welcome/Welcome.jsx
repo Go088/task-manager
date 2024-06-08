@@ -5,11 +5,12 @@ import Container from "../Container/Container";
 const Welcome = () => {
   return (
     <Container>
-      <img srcSet="/img/user.png 124w, /user.png 162w" alt="" />
+      <br />
       <p>
         Supercharge your productivity and take control of your tasks with Task
         Pro - Don&apost wait, start achieving your goals now!
       </p>
+      <br />
       <ul>
         <Link to="/auth/register">
           <button type="submit">Registration</button>
