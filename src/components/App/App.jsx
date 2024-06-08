@@ -5,6 +5,7 @@ import Layout from "../Layout/Layout";
 const WelcomePage = lazy(() => import("../../pages/WelcomePage/WelcomePage"));
 const AuthPage = lazy(() => import("../../pages/AuthPage/AuthPage"));
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
+import { Header } from "../Header/Header";
 
 const App = () => {
   useEffect(() => {
@@ -13,6 +14,7 @@ const App = () => {
 
   return (
     <Layout>
+      <Header />
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/welcome" element={<WelcomePage />} />

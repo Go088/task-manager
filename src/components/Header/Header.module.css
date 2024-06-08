@@ -1,0 +1,186 @@
+.headerContainer {
+  height: 60px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerContainer.dark {
+  background-color: #161616;
+}
+
+.headerContainer.light {
+  background-color: #fcfcfc;
+}
+
+.headerContainer.violet {
+  background-color: #fcfcfc;
+}
+
+.mobileMenuIcon {
+  display: inline-block;
+}
+
+.mobileMenuIcon.dark {
+  stroke: #fff;
+}
+
+.mobileMenuIcon.light {
+  stroke: #161616;
+}
+
+.mobileMenuIcon.violet {
+  stroke: #161616;
+}
+
+.selectTitle {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.selectTitle.dark {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.selectTitle.light {
+  color: rgba(22, 22, 22, 0.8);
+}
+
+.selectTitle.violet {
+  color: rgba(22, 22, 22, 0.8);
+}
+
+.selectThemeIcon.dark {
+  stroke: rgba(255, 255, 255, 0.8);
+}
+
+.selectThemeIcon.light {
+  color: rgba(22, 22, 22, 0.8);
+}
+
+.selectThemeIcon.violet {
+  color: rgba(22, 22, 22, 0.8);
+}
+
+.themeList {
+  position: absolute;
+  top: 50px;
+  left: -20px;
+  padding: 18px;
+  border-radius: 8px;
+  width: 100px;
+  min-height: 107px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.themeList.isOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.themeList.dark {
+  border: 1px solid #bedbb0;
+  box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
+  background-color: #151515;
+}
+
+.themeList.light {
+  border: 1px solid #bedbb0;
+  box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
+  background: #fcfcfc;
+}
+
+.themeList.violet {
+  border: 1px solid #ecedfd;
+  box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
+  background: #fcfcfc;
+}
+
+.themeListItem {
+  font-family: "Poppins";
+  font-size: 14px;
+}
+
+.themeListItem.dark {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.themeListItem.dark.active {
+  color: #bedbb0;
+}
+
+.themeListItem.light {
+  color: #161616;
+}
+
+.themeListItem.light.active {
+  color: #bedbb0;
+}
+
+.themeListItem.violet {
+  color: #161616;
+}
+
+.themeListItem.violet.active {
+  color: #5255bc;
+}
+
+.userName {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.userName.dark {
+  color: #fff;
+}
+
+.userName.light {
+  color: #161616;
+}
+
+.userName.violet {
+  color: #161616;
+}
+
+.avatar {
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+}
+
+.themeWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.userWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.infoWrapper {
+  display: flex;
+  gap: 14px;
+}
+
+@media screen and (min-width: 1440px) {
+  .mobileMenuIcon {
+    display: none;
+  }
+  .infoWrapper {
+    margin-left: auto;
+  }
+}
