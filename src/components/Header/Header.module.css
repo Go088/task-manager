@@ -72,7 +72,6 @@
   padding: 18px;
   border-radius: 8px;
   width: 100px;
-  min-height: 107px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -152,10 +151,11 @@
   color: #161616;
 }
 
-.avatar {
+.avatarWrapper {
   border-radius: 8px;
   width: 32px;
   height: 32px;
+  overflow: hidden;
 }
 
 .themeWrapper {
