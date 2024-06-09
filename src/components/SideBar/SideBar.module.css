@@ -1,0 +1,26 @@
+.list{
+    width: 260px;
+    min-height:770px;
+    background-color: rgba(18, 18, 18, 1);
+    padding: 24px;
+}
+.listItem{
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: -0.02em;
+    color: rgba(255, 255, 255, 0.5);
+
+    margin-top: 60px;
+}
+.textLogo{
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: -0.04em;
+    color: #fff;
+}
+.Logolist{
+    display: flex;
+}
+.LogoSVG{
+    fill: #fff;
+}
