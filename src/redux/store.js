@@ -9,8 +9,8 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import storage from "redux-persist/lib/storage";
-import authReducer from "./features/auth/authSlice";
+ import storage from "redux-persist/lib/storage";
+ import authReducer from "./features/auth/authSlice";
 import boardsReducer from "./features/boards/boardsSlice";
 import createBoardModalReducer from "./features/modals/createBoardModalSlice";
 import createCardModalReducer from "./features/modals/createCardModalSlice";
