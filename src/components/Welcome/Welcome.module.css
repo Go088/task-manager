@@ -1,6 +1,6 @@
 .icon_bg{
   display: flex;
-  background-color: #161616;
+  background-color: green;
   width: 48px;
   height: 48px;
   border-radius: 8px;
@@ -8,5 +8,7 @@
 }
 
 .icon_task_light {
-  fill: #fff;
+  /* fill: #fff; */
+  fill: red;
+  stroke: orange;
 }
