@@ -11,7 +11,7 @@ import Icon from "../Icon/Icon";
 const icons = [
   {
     value: "project",
-    spriteId: "icon-help-circle",
+    spriteId: "icon-project",
   },
   {
     value: "star",
@@ -23,7 +23,7 @@ const icons = [
   },
   {
     value: "puzzle",
-    spriteId: "icon-puzzle",
+    spriteId: "icon-puzzle-piece",
   },
   {
     value: "cube",
@@ -44,12 +44,6 @@ const icons = [
 ];
 
 const backgrounds = [
-  {
-    value: "default",
-    srcSet: "/img/bg/3d.png 1x, /img/bg/3d.png 2x",
-    src: "/img/bg/3d.png.png",
-    alt: "3d sphere",
-  },
   {
     value: "sakura",
     srcSet: "/img/bg/sacura.png 1x, /img/bg/sacura.png 2x",
@@ -175,8 +169,6 @@ export default function BoardForm({ isOpen, onRequestClose }) {
     reset();
   };
 
-  console.log(errors);
-
   return (
     <Modal
       isOpen={isOpen}
@@ -230,6 +222,25 @@ export default function BoardForm({ isOpen, onRequestClose }) {
         </ul>
         <h4 className={clsx(css.subtitle, css[themeType])}>Background</h4>
         <ul className={css.backgroundList}>
+          <li className={clsx(css.backgroundItem, css[themeType])}>
+            <input
+              className={clsx(css.radioBackground, css.visuallyHidden)}
+              id={backgroundFieldId}
+              {...register("background", { required: true })}
+              type="radio"
+              value={`default`}
+            />
+            <label className={css.backgroundLabel} htmlFor={backgroundFieldId}>
+              <div className={clsx(css.backgroundWrapIcon, css[themeType])}>
+                <Icon
+                  className={clsx(css.backgroundIcon, css[themeType])}
+                  width={16}
+                  height={16}
+                  id={"icon-new_board_bg"}
+                />
+              </div>
+            </label>
+          </li>
           {backgrounds.map((background) => (
             <li
               className={clsx(css.backgroundItem, css[themeType])}
@@ -270,7 +281,11 @@ export default function BoardForm({ isOpen, onRequestClose }) {
           <span> Create</span>
         </button>
       </form>
-      <button className={css.btnClose} type="button" onClick={onRequestClose}>
+      <button
+        className={clsx(css.btnClose, css[themeType])}
+        type="button"
+        onClick={onRequestClose}
+      >
         <Icon
           className={clsx(css.btnCloseIcon, css[themeType])}
           width={18}
