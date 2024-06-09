@@ -167,12 +167,13 @@ export default function BoardForm({ isOpen, onRequestClose }) {
   const onSubmit = (data) => {
     console.log(data);
     reset();
+    onRequestClose();
   };
 
   return (
     <Modal
       isOpen={isOpen}
-      // onRequestClose={onRequestClose}
+      onRequestClose={onRequestClose}
       className={css.Modal}
       overlayClassName={css.Overlay}
       contentLabel="Modal window for create a new board"
