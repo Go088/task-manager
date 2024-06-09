@@ -1,8 +1,8 @@
-const RegisterForm = () => {
+const ScreenPage = () => {
     return (
   <h1>Hi</h1>
     );
   };
   
-  export default RegisterForm;
+  export default ScreenPage;
   
