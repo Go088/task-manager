@@ -1,6 +1,4 @@
 import { useId } from "react";
-
-import sprite from "../../sprite.svg";
 import css from "./BoardForm.module.css";
 import clsx from "clsx";
 import * as yup from "yup";
@@ -8,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
+import Icon from "../Icon/Icon";
 
 const icons = [
   {
@@ -19,8 +18,8 @@ const icons = [
     spriteId: "icon-star",
   },
   {
-    value: "wheel",
-    spriteId: "icon-wheel",
+    value: "loading",
+    spriteId: "icon-loading",
   },
   {
     value: "puzzle",
@@ -47,99 +46,99 @@ const icons = [
 const backgrounds = [
   {
     value: "default",
-    srcSet: "/img/cactus.png 1x, /img/cactus@2x.png 2x",
-    src: "/img/cactus.png",
-    alt: "Smiling cactus",
+    srcSet: "/img/bg/3d.png 1x, /img/bg/3d.png 2x",
+    src: "/img/bg/3d.png.png",
+    alt: "3d sphere",
   },
   {
-    value: "flowers",
-    srcSet: "/img/cactus.png 1x, /img/cactus@2x.png 2x",
-    src: "/img/cactus.png",
-    alt: "Smiling cactus",
+    value: "sakura",
+    srcSet: "/img/bg/sacura.png 1x, /img/bg/sacura.png 2x",
+    src: "/img/bg/3d.png.png",
+    alt: "sakura",
   },
   {
-    value: "stars",
-    srcSet: "/img/cactus.png 1x, /img/cactus@2x.png 2x",
-    src: "/img/cactus.png",
-    alt: "Smiling cactus",
+    value: "nightMoutains.png",
+    srcSet: "/img/bg/nightMoutains.png 1x, /img/bg/nightMoutains.png 2x",
+    src: "/img/bg/nightMoutains.png",
+    alt: "3d sphere",
   },
   {
-    value: "stars",
-    srcSet: "/img/cactus.png 1x, /img/cactus@2x.png 2x",
-    src: "/img/cactus.png",
-    alt: "Smiling cactus",
+    value: "greatTree",
+    srcSet: "/img/bg/greatTree.png 1x, /img/bg/greatTree.png 2x",
+    src: "/img/bg/greatTree.png",
+    alt: "Great tree",
   },
   {
-    value: "stars",
-    srcSet: "/img/cactus.png 1x, /img/cactus@2x.png 2x",
-    src: "/img/cactus.png",
-    alt: "Smiling cactus",
+    value: "newMoon",
+    srcSet: "/img/bg/newMoon.png 1x, /img/bg/newMoon.png 2x",
+    src: "/img/bg/newMoon.png",
+    alt: "New moon",
   },
   {
-    value: "stars",
-    srcSet: "/img/cactus.png 1x, /img/cactus@2x.png 2x",
-    src: "/img/cactus.png",
-    alt: "Smiling cactus",
+    value: "leaves",
+    srcSet: "/img/bg/leaves.png 1x, /img/bg/leaves.png 2x",
+    src: "/img/bg/leaves.png",
+    alt: "Leaves",
   },
   {
-    value: "stars",
-    srcSet: "/img/cactus.png 1x, /img/cactus@2x.png 2x",
-    src: "/img/cactus.png",
-    alt: "Smiling cactus",
+    value: "clouds",
+    srcSet: "/img/bg/clouds.png 1x, /img/bg/clouds.png 2x",
+    src: "/img/bg/clouds.png",
+    alt: "Clouds",
   },
   {
-    value: "stars",
-    srcSet: "/img/cactus.png 1x, /img/cactus@2x.png 2x",
-    src: "/img/cactus.png",
-    alt: "Smiling cactus",
+    value: "seaSunset",
+    srcSet: "/img/bg/seaSunset.png 1x, /img/bg/seaSunset.png 2x",
+    src: "/img/bg/seaSunset.png",
+    alt: "Sea sunset",
   },
   {
-    value: "stars",
-    srcSet: "/img/cactus.png 1x, /img/cactus@2x.png 2x",
-    src: "/img/cactus.png",
-    alt: "Smiling cactus",
+    value: "3d",
+    srcSet: "/img/bg/3d.png 1x, /img/bg/3d.png 2x",
+    src: "/img/bg/3d.png",
+    alt: "3d sphere",
   },
   {
-    value: "stars",
-    srcSet: "/img/cactus.png 1x, /img/cactus@2x.png 2x",
-    src: "/img/cactus.png",
-    alt: "Smiling cactus",
+    value: "mars",
+    srcSet: "/img/bg/mars.png 1x, /img/bg/mars.png 2x",
+    src: "/img/bg/mars.png",
+    alt: "Mars",
   },
   {
-    value: "stars",
-    srcSet: "/img/cactus.png 1x, /img/cactus@2x.png 2x",
-    src: "/img/cactus.png",
-    alt: "Smiling cactus",
+    value: "jacht",
+    srcSet: "/img/bg/jacht.png 1x, /img/bg/jacht.png 2x",
+    src: "/img/bg/jacht.png",
+    alt: "Jacht",
   },
   {
-    value: "stars",
-    srcSet: "/img/cactus.png 1x, /img/cactus@2x.png 2x",
-    src: "/img/cactus.png",
-    alt: "Smiling cactus",
+    value: "aerostatViev",
+    srcSet: "/img/bg/aerostatViev.png 1x, /img/bg/aerostatViev.png 2x",
+    src: "/img/bg/aerostatViev.png",
+    alt: "AerostatViev",
   },
   {
-    value: "stars",
-    srcSet: "/img/cactus.png 1x, /img/cactus@2x.png 2x",
-    src: "/img/cactus.png",
-    alt: "Smiling cactus",
+    value: "canyon",
+    srcSet: "/img/bg/canyon.png 1x, /img/bg/canyon.png 2x",
+    src: "/img/bg/canyon.png",
+    alt: "Canyon",
   },
   {
-    value: "stars",
-    srcSet: "/img/cactus.png 1x, /img/cactus@2x.png 2x",
-    src: "/img/cactus.png",
-    alt: "Smiling cactus",
+    value: "seabed",
+    srcSet: "/img/bg/seabed.png 1x, /img/bg/seabed.png 2x",
+    src: "/img/bg/seabed.png",
+    alt: "Seabed",
   },
   {
-    value: "stars",
-    srcSet: "/img/cactus.png 1x, /img/cactus@2x.png 2x",
-    src: "/img/cactus.png",
-    alt: "Smiling cactus",
+    value: "aerostat",
+    srcSet: "/img/bg/aerostat.png 1x, /img/bg/aerostat.png 2x",
+    src: "/img/bg/aerostat.png",
+    alt: "Aerostat",
   },
   {
-    value: "stars",
-    srcSet: "/img/cactus.png 1x, /img/cactus@2x.png 2x",
-    src: "/img/cactus.png",
-    alt: "Smiling cactus",
+    value: "starCamping",
+    srcSet: "/img/bg/starCamping.png 1x, /img/bg/starCamping.png 2x",
+    src: "/img/bg/starCamping.png",
+    alt: "Star camping",
   },
 ];
 
@@ -219,13 +218,12 @@ export default function BoardForm({ isOpen, onRequestClose }) {
                 className={css.iconLabel}
                 htmlFor={`${iconFieldId}${icons.indexOf(icon)}`}
               >
-                <svg
+                <Icon
                   className={clsx(css.iconSvg, css[themeType])}
-                  width="18"
-                  height="18"
-                >
-                  <use xlinkHref={`${sprite}#${icon.spriteId}`}></use>
-                </svg>
+                  width={18}
+                  height={18}
+                  id={icon.spriteId}
+                />
               </label>
             </li>
           ))}
@@ -262,25 +260,23 @@ export default function BoardForm({ isOpen, onRequestClose }) {
         </ul>
         <button className={clsx(css.btn, css[themeType])} type="submit">
           <div className={clsx(css.btnWrapIcon, css[themeType])}>
-            <svg
+            <Icon
               className={clsx(css.btnIcon, css[themeType])}
-              width="14"
-              height="14"
-            >
-              <use xlinkHref={`${sprite}#icon-wheel`}></use>
-            </svg>
+              width={14}
+              height={14}
+              id={"icon-plus_card_modal"}
+            />
           </div>
           <span> Create</span>
         </button>
       </form>
       <button className={css.btnClose} type="button" onClick={onRequestClose}>
-        <svg
+        <Icon
           className={clsx(css.btnCloseIcon, css[themeType])}
-          width="18"
-          height="18"
-        >
-          <use xlinkHref={`${sprite}#icon-wheel`}></use>
-        </svg>
+          width={18}
+          height={18}
+          id={"icon-x-close_modal"}
+        />
       </button>
     </Modal>
   );
