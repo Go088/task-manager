@@ -1,4 +1,3 @@
-import sprite from "../../sprite.svg";
 import css from "./CoulmnForm.module.css";
 import clsx from "clsx";
 import * as yup from "yup";
@@ -6,8 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
-
-
+import Icon from "../Icon/Icon";
 
 const schema = yup.object().shape({
   title: yup
@@ -16,8 +14,6 @@ const schema = yup.object().shape({
     .min(2, "Title should be at least 2 characters")
     .trim(),
 });
-
-
 
 export default function BoardForm({ isOpen, onRequestClose }) {
   const themeType = "dark";
@@ -38,14 +34,13 @@ export default function BoardForm({ isOpen, onRequestClose }) {
   const onSubmit = (data) => {
     console.log(data);
     reset();
+    onRequestClose();
   };
-
-  console.log(errors);
 
   return (
     <Modal
       isOpen={isOpen}
-      // onRequestClose={onRequestClose}
+      onRequestClose={onRequestClose}
       className={css.Modal}
       overlayClassName={css.Overlay}
       contentLabel="Modal window for create a new column"
@@ -70,25 +65,27 @@ export default function BoardForm({ isOpen, onRequestClose }) {
         </p>
         <button className={clsx(css.btn, css[themeType])} type="submit">
           <div className={clsx(css.btnWrapIcon, css[themeType])}>
-            <svg
+            <Icon
               className={clsx(css.btnIcon, css[themeType])}
-              width="14"
-              height="14"
-            >
-              <use xlinkHref={`${sprite}#icon-wheel`}></use>
-            </svg>
+              width={14}
+              height={14}
+              id={"icon-plus_card_modal"}
+            />
           </div>
-          <span>Add</span>
+          <span> Create</span>
         </button>
       </form>
-      <button className={css.btnClose} type="button" onClick={onRequestClose}>
-        <svg
+      <button
+        className={clsx(css.btnClose, css[themeType])}
+        type="button"
+        onClick={onRequestClose}
+      >
+        <Icon
           className={clsx(css.btnCloseIcon, css[themeType])}
-          width="18"
-          height="18"
-        >
-          <use xlinkHref={`${sprite}#icon-wheel`}></use>
-        </svg>
+          width={18}
+          height={18}
+          id={"icon-x-close_modal"}
+        />
       </button>
     </Modal>
   );
