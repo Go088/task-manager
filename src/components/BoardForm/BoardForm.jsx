@@ -3,8 +3,8 @@ import { useId } from "react";
 import sprite from "../../sprite.svg";
 import css from "./BoardForm.module.css";
 import clsx from "clsx";
-// import * as yup from "yup";
-// import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
@@ -143,13 +143,13 @@ const backgrounds = [
   },
 ];
 
-// const schema = yup.object().shape({
-//   title: yup
-//     .string()
-//     .required("Title is required")
-//     .min(2, "Title should be at least 2 characters")
-//     .matches(/^\S*$/, "Title should not contain spaces"),
-// });
+const schema = yup.object().shape({
+  title: yup
+    .string()
+    .required("Title is required")
+    .min(2, "Title should be at least 2 characters")
+    .trim(),
+});
 
 export default function BoardForm({ isOpen, onRequestClose }) {
   const themeType = "dark";
@@ -162,7 +162,7 @@ export default function BoardForm({ isOpen, onRequestClose }) {
     formState: { errors },
     reset,
   } = useForm({
-    // resolver: yupResolver(schema),
+    resolver: yupResolver(schema),
 
     defaultValues: {
       title: "",
@@ -172,7 +172,7 @@ export default function BoardForm({ isOpen, onRequestClose }) {
   });
 
   const onSubmit = (data) => {
-    console.log({ ...data, title: data.title.trim() });
+    console.log(data);
     reset();
   };
 
@@ -198,7 +198,7 @@ export default function BoardForm({ isOpen, onRequestClose }) {
           placeholder="Title"
           {...register("title", {
             required: "This is required",
-            min: { value: 1, message: "Min length is 1" },
+            min: { value: 2, message: "Min length is 2" },
           })}
         />
         <p className={clsx(css.error, css[themeType])}>
