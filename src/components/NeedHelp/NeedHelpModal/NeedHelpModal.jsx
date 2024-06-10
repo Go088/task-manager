@@ -17,6 +17,7 @@ const validationSchema = Yup.object().shape({
 });
 
 export const NeedHelpModal = () => {
+  const themeType = "dark";
   const {
     register,
     handleSubmit,
@@ -31,41 +32,49 @@ export const NeedHelpModal = () => {
   });
   const onSubmit = (data) => {
     console.log(data);
+    //dispatch(helpComment(data));
     reset();
   };
   return (
-    <div className={clsx(css.helpModal, css.isOpen, css.dark)}>
-      <h2 className={clsx(css.helpModalTitle, css.dark)}>Need help</h2>
+    <div className={clsx(css.helpModal, css.isOpen, css[themeType])}>
+      <h2 className={clsx(css.helpModalTitle, css[themeType])}>Need help</h2>
 
-      <Icon id="" className={clsx(css.helpModalIcon, css.dark)} width="18" height="18"/>
-  
+      <Icon
+        id=""
+        className={clsx(css.helpModalIcon, css[themeType])}
+        width="18"
+        height="18"
+      />
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <input
-            className={clsx(css.helpFormInput, css.dark)}
+            className={clsx(css.helpFormInput, css[themeType])}
             {...register("email")}
             type="email"
             placeholder="Email address"
           />
           {errors.email && (
-            <p className={clsx(css.error, css.dark)} role="alert">
+            <p className={clsx(css.error, css[themeType])} role="alert">
               {errors.email.message}
             </p>
           )}
           <textarea
-            className={clsx(css.helpFormTextarea, css.dark)}
+            className={clsx(css.helpFormTextarea, css[themeType])}
             {...register("comment")}
             type="text"
             placeholder="Comment"
           />
           {errors.comment && (
-            <p className={clsx(css.error, css.dark)} role="alert">
+            <p className={clsx(css.error, css[themeType])} role="alert">
               {errors.comment.message}
             </p>
           )}
         </div>
-        <button className={clsx(css.helpModalButton, css.dark)} type="submit">
+        <button
+          className={clsx(css.helpModalButton, css[themeType])}
+          type="submit"
+        >
           Send
         </button>
       </form>

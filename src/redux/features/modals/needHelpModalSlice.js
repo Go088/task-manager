@@ -9,12 +9,6 @@ const helpSlice = createSlice({
     },
     loading: false,
     error: null,
-    isModalOpen: false,
-  },
-  reducers: {
-    openModal(state, action) {
-      state.isModalOpen = action.payload.isModalOpen;
-    },
   },
   /*extraReducers: (builder) =>
     builder
@@ -30,8 +24,6 @@ const helpSlice = createSlice({
         state.error = true;
       }),*/
 });
-
-export const { openModal } = helpSlice.actions;
 
 const needHelpModalReducer = helpSlice.reducer;
 
