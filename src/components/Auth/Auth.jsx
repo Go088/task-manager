@@ -2,33 +2,34 @@ import { Link, useParams } from "react-router-dom";
 import RegisterForm from "../RegisterForm/RegisterForm";
 import LoginForm from "../LoginForm/LoginForm";
 import { useState } from "react";
+import clsx from "clsx";
+import css from "./Auth.module.css";
 
 const Auth = () => {
   const { id } = useParams();
   const [register, setRegister] = useState(id === "register");
 
   return (
-    <div >
+    <div>
       <br />
-      <Link to="/auth/register">
-        <button
-          onClick={() => {
-            setRegister(true);
-          }}
-        >
-          Registration
-        </button>
+      <Link
+        to="/auth/register"
+        className={clsx(css.link, css.activeLink)}
+        onClick={() => {
+          setRegister(true);
+        }}
+      >
+        Registration
       </Link>
-      <Link to="/auth/login">
-        <button
-          onClick={() => {
-            setRegister(false);
-          }}
-        >
-          Log In
-        </button>
+      <Link
+        to="/auth/login"
+        onClick={() => {
+          setRegister(false);
+        }}
+      >
+        Log In
       </Link>
-          {register ? <RegisterForm/> : <LoginForm/>}
+      {register ? <RegisterForm /> : <LoginForm />}
     </div>
   );
 };
