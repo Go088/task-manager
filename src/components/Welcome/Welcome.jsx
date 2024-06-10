@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Container from "../Container/Container";
 import Icon from "../Icon/Icon";
 import css from "./Welcome.module.css";
 
@@ -8,7 +7,7 @@ import css from "./Welcome.module.css";
 
 const Welcome = () => {
   return (
-    <Container>
+    <div>
       {/* <img
         srcSet={`${WelcomeIcon} 124w, ${WelcomeIconRetina} 248w`}
         src={`${WelcomeIcon}`}
@@ -53,7 +52,7 @@ const Welcome = () => {
           <button type="submit">Log in</button>
         </Link>
       </ul>
-    </Container>
+    </div>
   );
 };
 
