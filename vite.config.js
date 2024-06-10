@@ -8,5 +8,5 @@ export default defineConfig({
   build: {
     sourcemap: true,
 },
-base: '/task-manager/',
+base: '/task-manager',
 });
