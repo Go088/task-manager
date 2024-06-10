@@ -8,13 +8,12 @@ export const Header = () => {
     <div
       className={clsx(layout.container, css.headerContainer, css[themeType])}
     >
-      <svg
+      <Icon
+        id=""
         className={clsx(css.mobileMenuIcon, css[themeType])}
         width="24"
         height="24"
-      >
-        <use href="/src/sprite.svg#icon-help-circle"></use>
-      </svg>
+      />
       <div className={css.infoWrapper}>
         <div className={css.themeWrapper}>
           <p className={clsx(css.selectTitle, css[themeType])}>Theme</p>
