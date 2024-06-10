@@ -10,9 +10,9 @@ const Auth = () => {
   const [register, setRegister] = useState(id === "register");
 
   return (
-    <div>
+    <div className={css.links}>
       <br />
-      <Link
+      <Link 
         to="/auth/register"
         className={clsx(css.link, css.activeLink)}
         onClick={() => {

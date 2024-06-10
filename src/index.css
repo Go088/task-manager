@@ -34,24 +34,23 @@ img {
 }
 
 body {
-  font-family: "DM Sans", sans-serif;
-  background-color: #f6f6f6;
+  font-family: "Poppins", sans-serif;
 }
 
 @font-face {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins";
   src: url(./fonts/Poppins-Regular.ttf) format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins";
   src: url(./fonts/Poppins-Medium.ttf) format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins";
   src: url(./fonts/Poppins-SemiBold.ttf) format("truetype");
   font-weight: 600;
   font-style: normal;

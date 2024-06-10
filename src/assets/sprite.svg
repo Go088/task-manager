@@ -78,5 +78,10 @@
     <symbol id="icon-arror_edit_prifile" viewBox="0 0 30 32">
       <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.8235" d="M7.529 12.235l7.529 7.529 7.529-7.529"></path>
     </symbol>
+    <symbol id="icon-menu-01" viewBox="0 0 32 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.5" d="M4 16h24"></path>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.5" d="M4 8h24"></path>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.5" d="M4 24h24"></path>
+    </symbol>
   </defs>
 </svg>

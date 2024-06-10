@@ -1,6 +1,7 @@
 import { Suspense, lazy, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "../Layout/Layout";
+//import ScreenPage from "../ScreenPage/ScreenPage";
 import { NeedHelpModal } from "../NeedHelp/NeedHelpModal/NeedHelpModal";
 
 const WelcomePage = lazy(() => import("../../pages/WelcomePage/WelcomePage"));
