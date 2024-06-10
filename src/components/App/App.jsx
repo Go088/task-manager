@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "../Layout/Layout";
 import ScreenPage from "../ScreenPage/ScreenPage";
 
-
 const WelcomePage = lazy(() => import("../../pages/WelcomePage/WelcomePage"));
 const AuthPage = lazy(() => import("../../pages/AuthPage/AuthPage"));
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
