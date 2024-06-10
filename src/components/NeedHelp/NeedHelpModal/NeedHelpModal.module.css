@@ -71,7 +71,6 @@
 }
 
 .helpFormInput {
-  position: relative;
   font-size: 14px;
   outline: none;
   font-family: "Poppins";
@@ -116,8 +115,11 @@
   border: 1px solid #5255bc;
 }
 
+.helpFormInputError {
+  margin-bottom: 32px;
+}
+
 .helpFormTextarea {
-  position: relative;
   font-size: 14px;
   outline: none;
   font-family: "Poppins";
@@ -206,6 +208,8 @@
 .error {
   font-family: "Poppins";
   font-size: 12px;
+  position: absolute;
+  top: 53px;
 }
 
 .error.dark,
@@ -215,6 +219,26 @@
 
 .error.violet {
   color: #5255bc;
+}
+
+.errorTextarea {
+  font-family: "Poppins";
+  font-size: 12px;
+  position: absolute;
+  top: 124px;
+}
+
+.errorTextarea.dark,
+.errorTextarea.light {
+  color: #bedbb0;
+}
+
+.errorTextarea.violet {
+  color: #5255bc;
+}
+
+.wrapper {
+  position: relative;
 }
 
 @media screen and (min-width: 768px) {

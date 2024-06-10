@@ -46,28 +46,39 @@ export const NeedHelpModal = () => {
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <input
-            className={clsx(css.helpFormInput, css[themeType])}
-            {...register("email")}
-            type="email"
-            placeholder="Email address"
-          />
-          {errors.email && (
-            <p className={clsx(css.error, css[themeType])} role="alert">
-              {errors.email.message}
-            </p>
-          )}
-          <textarea
-            className={clsx(css.helpFormTextarea, css[themeType])}
-            {...register("comment")}
-            type="text"
-            placeholder="Comment"
-          />
-          {errors.comment && (
-            <p className={clsx(css.error, css[themeType])} role="alert">
-              {errors.comment.message}
-            </p>
-          )}
+          <div className={css.wrapper}>
+            <input
+              className={clsx(
+                css.helpFormInput,
+                errors.email && css.helpFormInputError,
+                css[themeType]
+              )}
+              {...register("email")}
+              type="email"
+              placeholder="Email address"
+            />
+            {errors.email && (
+              <p className={clsx(css.error, css[themeType])} role="alert">
+                {errors.email.message}
+              </p>
+            )}
+          </div>
+          <div className={css.wrapper}>
+            <textarea
+              className={clsx(css.helpFormTextarea, css[themeType])}
+              {...register("comment")}
+              type="text"
+              placeholder="Comment"
+            />
+            {errors.comment && (
+              <p
+                className={clsx(css.errorTextarea, css[themeType])}
+                role="alert"
+              >
+                {errors.comment.message}
+              </p>
+            )}
+          </div>
         </div>
         <button
           className={clsx(css.helpModalButton, css[themeType])}
