@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { helpComment } from "./operations";
 
 const helpSlice = createSlice({
   name: "help",
@@ -10,7 +11,7 @@ const helpSlice = createSlice({
     loading: false,
     error: null,
   },
-  /*extraReducers: (builder) =>
+  extraReducers: (builder) =>
     builder
       .addCase(helpComment.pending, (state) => {
         state.error = null;
@@ -22,7 +23,7 @@ const helpSlice = createSlice({
       .addCase(helpComment.rejected, (state) => {
         state.loading = false;
         state.error = true;
-      }),*/
+      }),
 });
 
 const needHelpModalReducer = helpSlice.reducer;

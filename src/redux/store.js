@@ -9,15 +9,15 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
- import storage from "redux-persist/lib/storage";
- import authReducer from "./features/auth/authSlice";
-import boardsReducer from "./features/boards/boardsSlice";
-import createBoardModalReducer from "./features/modals/createBoardModalSlice";
-import createCardModalReducer from "./features/modals/createCardModalSlice";
+import storage from "redux-persist/lib/storage";
+import authReducer from "./features/auth/authSlice";
+//import  boardsReducer  from "./features/boards/boardsSlice";
+//import createBoardModalReducer from "./features/modals/createBoardModalSlice";
+//import createCardModalReducer from "./features/modals/createCardModalSlice";
 import needHelpModalReducer from "./features/modals/needHelpModalSlice";
-import createColumnModalReducer from "./features/modals/createColumnModalSlice";
-import themeReducer from "./features/theme/themeSlice";
-import userProfileReducer from "./features/userProfile/userProfileSlice";
+//import createColumnModalReducer from "./features/modals/createColumnModalSlice";
+//import themeReducer from "./features/theme/themeSlice";
+//import userProfileReducer from "./features/userProfile/userProfileSlice";
 
 const authPersistConfig = {
   key: "authSlice",
@@ -29,13 +29,8 @@ const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
 
 const rootReducer = combineReducers({
   auth: persistedAuthReducer,
-  theme: themeReducer,
-  userProfile: userProfileReducer,
-  boards: boardsReducer,
-  createBoardModal: createBoardModalReducer,
+
   needHelpModal: needHelpModalReducer,
-  createColumnModal: createColumnModalReducer,
-  createCardModal: createCardModalReducer,
 });
 
 export const store = configureStore({

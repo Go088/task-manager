@@ -4,7 +4,8 @@ import clsx from "clsx";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Icon from "../../Icon/Icon";
-//import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { helpComment } from "../../../redux/features/modals/operations";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -16,6 +17,7 @@ const validationSchema = Yup.object().shape({
 
 export const NeedHelpModal = () => {
   const themeType = "dark";
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -30,7 +32,7 @@ export const NeedHelpModal = () => {
   });
   const onSubmit = (data) => {
     console.log(data);
-    //dispatch(helpComment(data));
+    dispatch(helpComment(data));
     reset();
   };
   return (
