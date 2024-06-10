@@ -22,8 +22,19 @@
 }
 .Logolist{
     display: flex;
+    align-items: center;
+    gap: 8px;
 
 }
 .LogoSVG{
     fill: #fff;
+}
+.LogoContainer{
+    width: 32px ;
+    height: 32px; 
+    background-color:rgba(31, 31, 31, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
 }

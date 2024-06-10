@@ -1,8 +1,14 @@
+
+import Icon from "../Icon/Icon"
 import css from "./LogOut.module.css"
 export default function LogOut() {
+
     return(
         <button className={css.logOutText} >
-            <svg width="32" height="32"><use href=".../sprite.svg#icon-logout" ></use></svg> Log Out
+            <Icon id="icon-log_out_side_bar"
+        width="32"
+        height="32"
+        className={css.logo}/> Log Out
         </button>
     )
 }

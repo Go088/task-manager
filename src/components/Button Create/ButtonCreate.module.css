@@ -9,7 +9,11 @@
     height: 36px;
     padding: 0;
     border: 0;
-    background-color: rgba(18, 18, 18, 1);
+    background-color:rgba(190, 219, 176, 1);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .list{
@@ -20,7 +24,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     margin-top: 8px;
 
+}
+.icon{
+    stroke: rgba(18, 18, 18, 1);
 }
