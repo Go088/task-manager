@@ -3,6 +3,7 @@ import * as Yup from "yup";
 import clsx from "clsx";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Icon from "../../Icon/Icon";
 //import { useDispatch, useSelector } from "react-redux";
 //import { selectIsNeedHelpModalOpen } from "../../../redux/features/modals/selectors";
 //import { openModal } from "../../../redux/features/modals/needHelpModalSlice";
@@ -36,9 +37,8 @@ export const NeedHelpModal = () => {
     <div className={clsx(css.helpModal, css.isOpen, css.dark)}>
       <h2 className={clsx(css.helpModalTitle, css.dark)}>Need help</h2>
 
-      <svg className={clsx(css.helpModalIcon, css.dark)} width="18" height="18">
-        <use href="/src/sprite.svg#icon-help-circle"></use>
-      </svg>
+      <Icon id="" className={clsx(css.helpModalIcon, css.dark)} width="18" height="18"/>
+  
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
