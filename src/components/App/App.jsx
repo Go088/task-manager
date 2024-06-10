@@ -1,6 +1,7 @@
 import { Suspense, lazy, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "../Layout/Layout";
+import ScreenPage from "../ScreenPage/ScreenPage";
 
 const WelcomePage = lazy(() => import("../../pages/WelcomePage/WelcomePage"));
 const AuthPage = lazy(() => import("../../pages/AuthPage/AuthPage"));
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/welcome" element={<WelcomePage />} />
           <Route path="/auth/:id" element={<AuthPage />} />
           <Route path="/home" element={<HomePage />} />
+          <Route path="/home/:boardName" element={<ScreenPage />} />
         </Routes>
       </Suspense>
     </Layout>

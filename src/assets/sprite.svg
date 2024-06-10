@@ -72,5 +72,16 @@
     <symbol id="icon-puzzle-piece" viewBox="0 0 32 32">
       <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.667" d="m16 2.667 4.8 4.8C24-.933 32.933 8 24.533 11.2l4.8 4.8-4.8 4.8c-3.2-8.4-12.133.533-3.733 3.733l-4.8 4.8-4.8-4.8C8 32.933-.933 24 7.467 20.8l-4.8-4.8 4.8-4.8c3.2 8.4 12.133-.533 3.733-3.733l4.8-4.8z"/>
     </symbol>
+    <symbol id="icon-arrow_down_calendar" viewBox="0 0 55 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="9.1429" d="M6.857 5.714l20.571 20.571 20.571-20.571"></path>
+    </symbol>
+    <symbol id="icon-arror_edit_prifile" viewBox="0 0 30 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.8235" d="M7.529 12.235l7.529 7.529 7.529-7.529"></path>
+    </symbol>
+    <symbol id="icon-menu-01" viewBox="0 0 32 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.5" d="M4 16h24"></path>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.5" d="M4 8h24"></path>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.5" d="M4 24h24"></path>
+    </symbol>
   </defs>
 </svg>

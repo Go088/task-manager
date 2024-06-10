@@ -1,0 +1,21 @@
+.screenPageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .screenPageText {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 248px;
+    width: 486px;
+    text-align: center;
+    font-size: 14px;
+    color: rgb(255, 255, 255, 0.5);
+    font-weight: 400;
+  }
+  .screenPageSpan {
+    color: #bedbb0;
+    margin-left: 4px;
+    margin-right: 4px;
+  }
