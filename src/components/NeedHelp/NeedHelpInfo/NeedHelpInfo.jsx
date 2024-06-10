@@ -1,11 +1,8 @@
 import css from "./NeedHelpInfo.module.css";
 import clsx from "clsx";
 import Icon from "../../Icon/Icon";
-//import { useDispatch } from "react-redux";
-//import { openModal } from "../../../redux/features/modals/needHelpModalSlice";
 
 export const NeedHelpInfo = () => {
-  //const dispatch = useDispatch();
   const themeType = "dark";
   return (
     <div className={clsx(css.helpWrapper, css[themeType])}>
@@ -21,11 +18,7 @@ export const NeedHelpInfo = () => {
         , check out our support resources or reach out to our customer support
         team.
       </p>
-      <button
-        //onClick={dispatch(openModal(true))}
-        className={clsx(css.helpButton, css[themeType])}
-        type="submit"
-      >
+      <button className={clsx(css.helpButton, css[themeType])} type="submit">
         <Icon
           id="icon-help-circle"
           className={clsx(css.helpIcon, css[themeType])}

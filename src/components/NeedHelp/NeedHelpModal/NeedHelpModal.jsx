@@ -4,9 +4,7 @@ import clsx from "clsx";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Icon from "../../Icon/Icon";
-//import { useDispatch, useSelector } from "react-redux";
-//import { selectIsNeedHelpModalOpen } from "../../../redux/features/modals/selectors";
-//import { openModal } from "../../../redux/features/modals/needHelpModalSlice";
+//import { useDispatch } from "react-redux";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
