@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useDispatch } from "react-redux";
+import { registerUser } from "../../redux/features/auth/operations";
 
 // Схема валідації
 const schema = yup.object().shape({
@@ -26,6 +28,8 @@ const schema = yup.object().shape({
 
 // Форма
 const RegisterForm = () => {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -36,7 +40,7 @@ const RegisterForm = () => {
   });
 
   const onSubmit = (userData) => {
-    console.log(JSON.stringify(userData));
+    dispatch(registerUser(userData));
     reset();
   };
 
