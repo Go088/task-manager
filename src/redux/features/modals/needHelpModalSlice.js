@@ -18,7 +18,9 @@ const helpSlice = createSlice({
         state.loading = true;
       })
       .addCase(helpComment.fulfilled, (state, action) => {
-        state.user = action.payload.user;
+        console.log(action.payload);
+        state.user.email = action.payload.user.email;
+        state.user.comment = action.payload.user.comment;
       })
       .addCase(helpComment.rejected, (state) => {
         state.loading = false;
