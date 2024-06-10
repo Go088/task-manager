@@ -31,7 +31,7 @@ const helpSlice = createSlice({
       }),*/
 });
 
-export const openModal = helpSlice.actions;
+export const { openModal } = helpSlice.actions;
 
 const needHelpModalReducer = helpSlice.reducer;
 

@@ -1,10 +1,10 @@
 import css from "./NeedHelpInfo.module.css";
 import clsx from "clsx";
-import { useDispatch } from "react-redux";
-import { openModal } from "../../../redux/features/modals/needHelpModalSlice";
+//import { useDispatch } from "react-redux";
+//import { openModal } from "../../../redux/features/modals/needHelpModalSlice";
 
 export const NeedHelpInfo = () => {
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
   return (
     <div className={clsx(css.helpWrapper, css.dark)}>
       <img
@@ -20,7 +20,7 @@ export const NeedHelpInfo = () => {
         team.
       </p>
       <button
-        onClick={dispatch(openModal(true))}
+        //onClick={dispatch(openModal(true))}
         className={clsx(css.helpButton, css.dark)}
         type="submit"
       >
