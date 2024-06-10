@@ -6,12 +6,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 const schema = yup.object().shape({
   email: yup
     .string()
+    .trim()
     .required("Email is required")
     .matches(/^\S*$/, "Email should not contain spaces")
     .matches(/^[\S].*[\S]$/, "Email cannot start or end with whitespace")
     .email("Email is invalid"),
   password: yup
     .string()
+    .trim()
     .required("Password is required")
     .matches(/^\S*$/, "Password cannot contain spaces")
     .min(6, "Name should be at least 6 characters"),
