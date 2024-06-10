@@ -9,7 +9,7 @@ export const Header = () => {
       className={clsx(layout.container, css.headerContainer, css[themeType])}
     >
       <Icon
-        id=""
+        id="icon-menu-01"
         className={clsx(css.mobileMenuIcon, css[themeType])}
         width="24"
         height="24"
@@ -19,7 +19,7 @@ export const Header = () => {
           <p className={clsx(css.selectTitle, css[themeType])}>Theme</p>
           <Icon
             className={clsx(css.selectThemeIcon, css[themeType])}
-            id="icon-bell"
+            id="icon-arror_edit_prifile"
             width="16"
             height="16"
           />
