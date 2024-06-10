@@ -1,5 +1,6 @@
 import css from "./NeedHelpInfo.module.css";
 import clsx from "clsx";
+import Icon from "../../Icon/Icon";
 //import { useDispatch } from "react-redux";
 //import { openModal } from "../../../redux/features/modals/needHelpModalSlice";
 
@@ -24,9 +25,12 @@ export const NeedHelpInfo = () => {
         className={clsx(css.helpButton, css.dark)}
         type="submit"
       >
-        <svg className={clsx(css.helpIcon, css.dark)} width="20" height="20">
-          <use href="/src/sprite.svg#icon-help-circle"></use>
-        </svg>
+        <Icon
+          id="icon-help-circle"
+          className={clsx(css.helpIcon, css.dark)}
+          width="20"
+          height="20"
+        />
         Need help?
       </button>
     </div>
