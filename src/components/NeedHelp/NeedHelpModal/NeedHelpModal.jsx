@@ -38,7 +38,7 @@ export const NeedHelpModal = () => {
       <h2 className={clsx(css.helpModalTitle, css[themeType])}>Need help</h2>
 
       <Icon
-        id=""
+        id="icon-x-close_modal"
         className={clsx(css.helpModalIcon, css[themeType])}
         width="18"
         height="18"
