@@ -3,7 +3,8 @@ import Icon from "../Icon/Icon";
 import css from "./Welcome.module.css";
 const Welcome = () => {
   return (
-    <div className={css.section}>
+    <div className={css.background}>
+      <div className={css.section}>
       <div className={css.container}>
         <div className={css.avatar}>
           <img
@@ -14,7 +15,7 @@ const Welcome = () => {
           />
         </div>
         <div className={css.logoName}>
-          <Icon id="icon-app" width="40" height="40" className={css.iconApp} />
+          <Icon id="icon-main-logo" width="40" height="40" className={css.iconApp} />
           <h1 className={css.title}>Task Pro</h1>
         </div>
         <p className={css.description}>
@@ -32,6 +33,7 @@ const Welcome = () => {
           </button>
         </Link>
       </div>
+    </div>
     </div>
   );
 };

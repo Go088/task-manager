@@ -1,6 +1,10 @@
+.background {
+  background: linear-gradient(to bottom, #ffffff, #bedbb0);
+  width: 100vh;
+}
+
 .section {
   margin: 0;
-  background: linear-gradient(to bottom, #ffffff, #bedbb0);
   align-items: center;
   display: flex;
   justify-content: center;
