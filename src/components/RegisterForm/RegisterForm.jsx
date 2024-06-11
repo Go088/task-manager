@@ -3,6 +3,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../redux/features/auth/operations";
+import css from "./RegisterForm.module.css"
 
 // Схема валідації
 const schema = yup.object().shape({
@@ -45,13 +46,10 @@ const RegisterForm = () => {
   };
 
   return (
-    <>
-      <br />
-      <h3>Registration</h3>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <div className={css}>
+      <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
         <label>
-          Name
-          <input
+          <input className={css.input}
             type="text"
             {...register("name")}
             placeholder="Enter your name"
@@ -59,8 +57,7 @@ const RegisterForm = () => {
           {errors.name && <p>{errors.name.message}</p>}
         </label>
         <label>
-          Email
-          <input
+          <input className={css.input}
             type="email"
             {...register("email")}
             placeholder="Enter your email"
@@ -68,8 +65,7 @@ const RegisterForm = () => {
           {errors.email && <p>{errors.email.message}</p>}
         </label>
         <label>
-          Password
-          <input
+          <input className={css.input}
             type="password"
             {...register("password")}
             placeholder="Create a password"
@@ -77,9 +73,9 @@ const RegisterForm = () => {
           {errors.password && <p>{errors.password.message}</p>}
         </label>
 
-        <input type="submit" value={"Register Now"} />
+        <input type="submit" value={"Register Now"} className={css.button}/>
       </form>
-    </>
+    </div>
   );
 };
 

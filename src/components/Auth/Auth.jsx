@@ -2,7 +2,6 @@ import { Link, useParams } from "react-router-dom";
 import RegisterForm from "../RegisterForm/RegisterForm";
 import LoginForm from "../LoginForm/LoginForm";
 import { useState } from "react";
-import clsx from "clsx";
 import css from "./Auth.module.css";
 
 const Auth = () => {
@@ -10,26 +9,28 @@ const Auth = () => {
   const [register, setRegister] = useState(id === "register");
 
   return (
-    <div className={css.links}>
-      <br />
-      <Link 
-        to="/auth/register"
-        className={clsx(css.link, css.activeLink)}
-        onClick={() => {
-          setRegister(true);
-        }}
-      >
-        Registration
-      </Link>
-      <Link
-        to="/auth/login"
-        onClick={() => {
-          setRegister(false);
-        }}
-      >
-        Log In
-      </Link>
-      {register ? <RegisterForm /> : <LoginForm />}
+    <div className={css.section}>
+      <div className={css.container}>
+        <div className={css.links}>
+          <Link className={css.renderComponent}
+            to="/auth/register"
+            onClick={() => {
+              setRegister(true);
+            }}
+          >
+            Registration
+          </Link>
+          <Link className={css.renderComponent}
+            to="/auth/login"
+            onClick={() => {
+              setRegister(false);
+            }}
+          >
+            Log In
+          </Link>
+        </div>
+        {register ? <RegisterForm /> : <LoginForm />}
+      </div>
     </div>
   );
 };

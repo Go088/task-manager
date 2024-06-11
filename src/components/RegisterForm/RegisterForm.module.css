@@ -1,0 +1,26 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 24px;
+}
+
+.button {
+  color: 161616;
+  background-color: #bedbb0;
+  border-radius: 8px;
+  width: 287px;
+  height: 49px;
+  border: none;
+}
+
+.input {
+  border: 1px solid #bedbb0;
+  border-radius: 8px;
+  width: 287px;
+  height: 49px;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
