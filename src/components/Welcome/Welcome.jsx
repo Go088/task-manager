@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import Icon from "../Icon/Icon";
 import css from "./Welcome.module.css";
+
+
 const Welcome = () => {
   return (
     <div className={css.background}>
