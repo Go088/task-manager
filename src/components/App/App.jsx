@@ -1,6 +1,5 @@
 import { Suspense, lazy, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import Layout from "../Layout/Layout";
 import ScreenPage from "../ScreenPage/ScreenPage";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -24,7 +23,7 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <Layout>
+    <div>
       {isRefreshing ? (
         <Loader />
       ) : (
@@ -63,7 +62,7 @@ const App = () => {
           </Routes>
         </Suspense>
       )}
-    </Layout>
+    </div>
   );
 };
 

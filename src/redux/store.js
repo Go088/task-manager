@@ -16,7 +16,7 @@ import authReducer from "./features/auth/authSlice";
 // import createCardModalReducer from "./features/modals/createCardModalSlice";
 // import needHelpModalReducer from "./features/modals/needHelpModalSlice";
 // import createColumnModalReducer from "./features/modals/createColumnModalSlice";
-// import themeReducer from "./features/theme/themeSlice";
+import themeReducer from "./features/theme/themeSlice";
 // import userProfileReducer from "./features/userProfile/userProfileSlice";
 
 const authPersistConfig = {
@@ -29,7 +29,7 @@ const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
 
 const rootReducer = {
   auth: persistedAuthReducer,
-  // theme: themeReducer,
+  theme: themeReducer,
   // userProfile: userProfileReducer,
   // boards: boardsReducer,
   // createBoardModal: createBoardModalReducer,

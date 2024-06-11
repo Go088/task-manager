@@ -25,3 +25,18 @@
     width: 1440px;
   }
 }
+
+body.dark-theme {
+  --background-color: #232323;
+  --text-color: #ffffff;
+}
+
+body.light-theme {
+  --background-color: #fdfdfd;
+  --text-color: #161616;
+}
+
+body.violet-theme {
+  --background-color: #d6d8ff;
+  --text-color: #ffffff;
+}
