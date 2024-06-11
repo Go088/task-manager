@@ -1,0 +1,7 @@
+.message {
+  display: block;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-size: 24px;
+  color: grey;
+}

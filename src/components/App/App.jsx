@@ -9,6 +9,7 @@ import { selectIsRefreshing } from "../../redux/features/auth/selectors";
 import Loader from "../Loader/Loader";
 import RestrictedRoute from "../RestrictedRoute";
 import PrivateRoute from "../PrivateRoute";
+import { Toaster } from "react-hot-toast";
 
 const WelcomePage = lazy(() => import("../../pages/WelcomePage/WelcomePage"));
 const AuthPage = lazy(() => import("../../pages/AuthPage/AuthPage"));
@@ -24,46 +25,55 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <Layout>
-      {isRefreshing ? (
-        <Loader />
-      ) : (
-        <Suspense fallback={<Loader />}>
-          <Routes>
-            <Route
-              path="/welcome"
-              element={
-                <RestrictedRoute
-                  component={<WelcomePage />}
-                  redirectTo="/home"
-                />
-              }
-            />
-            <Route
-              path="/auth/:id"
-              element={
-                <RestrictedRoute component={<AuthPage />} redirectTo="/home" />
-              }
-            />
-            <Route
-              path="/home"
-              element={
-                <PrivateRoute component={<HomePage />} redirectTo="/welcome" />
-              }
-            />
-            <Route
-              path="/home/:boardName"
-              element={
-                <PrivateRoute
-                  component={<ScreenPage />}
-                  redirectTo="/welcome"
-                />
-              }
-            />
-          </Routes>
-        </Suspense>
-      )}
-    </Layout>
+    <>
+      <Layout>
+        {isRefreshing ? (
+          <Loader />
+        ) : (
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route
+                path="/welcome"
+                element={
+                  <RestrictedRoute
+                    component={<WelcomePage />}
+                    redirectTo="/home"
+                  />
+                }
+              />
+              <Route
+                path="/auth/:id"
+                element={
+                  <RestrictedRoute
+                    component={<AuthPage />}
+                    redirectTo="/home"
+                  />
+                }
+              />
+              <Route
+                path="/home"
+                element={
+                  <PrivateRoute
+                    component={<HomePage />}
+                    redirectTo="/welcome"
+                  />
+                }
+              />
+              <Route
+                path="/home/:boardName"
+                element={
+                  <PrivateRoute
+                    component={<ScreenPage />}
+                    redirectTo="/welcome"
+                  />
+                }
+              />
+            </Routes>
+          </Suspense>
+        )}
+      </Layout>
+      <Toaster position="top-center" reverseOrder={false} />
+    </>
   );
 };
 
