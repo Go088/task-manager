@@ -1,6 +1,9 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useDispatch } from "react-redux";
+import { logIn } from "../../redux/features/auth/operations";
+import css from "./LoginForm.module.css";
 
 // Схема валідації
 const schema = yup.object().shape({
@@ -21,25 +24,26 @@ const schema = yup.object().shape({
 
 // Форма
 const LoginForm = () => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: yupResolver(schema),
   });
-
   const onSubmit = (userData) => {
     console.log(JSON.stringify(userData));
+    dispatch(logIn(userData));
+    reset();
   };
-
   return (
-    <>
-      <h3>Login</h3>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <div>
+      <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
         <label>
-          Email
           <input
+            className={css.input}
             type="email"
             {...register("email")}
             placeholder="Enter your email"
@@ -47,19 +51,17 @@ const LoginForm = () => {
           {errors.email && <p>{errors.email.message}</p>}
         </label>
         <label>
-          Password
           <input
+            className={css.input}
             type="password"
             {...register("password")}
             placeholder="Confirm a password"
           />
           {errors.password && <p>{errors.password.message}</p>}
         </label>
-
-        <input type="submit" value={"Log In Now"} />
+        <input type="submit" value={"Log In Now"} className={css.button} />
       </form>
-    </>
+    </div>
   );
 };
-
 export default LoginForm;

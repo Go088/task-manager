@@ -1,0 +1,101 @@
+.helpWrapper {
+  height: 238px;
+  width: 197px;
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.helpWrapper.dark {
+  background-color: #1f1f1f;
+}
+
+.helpWrapper.light {
+  background-color: #f6f6f7;
+}
+
+.helpWrapper.violet {
+  background-color: rgba(236, 237, 253, 0.4);
+}
+
+.helpText {
+  font-family: "Poppins";
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1.33;
+}
+
+.helpText.dark {
+  color: #fff;
+}
+
+.helpText.light {
+  color: #161616;
+}
+
+.helpText.violet {
+  color: #fff;
+}
+
+.highlightText.dark {
+  color: #bedbb0;
+}
+
+.highlightText.light {
+  color: #bedbb0;
+}
+
+.highlightText.violet {
+  color: #5255bc;
+}
+
+.helpImg {
+  width: 54px;
+  height: 78px;
+}
+
+.helpIcon.dark {
+  stroke: #fff;
+}
+
+.helpIcon.light {
+  stroke: #161616;
+}
+
+.helpIcon.violet {
+  stroke: #fff;
+}
+
+.helpButton {
+  font-family: "Poppins";
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+  font-weight: 500;
+}
+.helpButton.dark {
+  color: #fff;
+}
+.helpButton.light {
+  color: #161616;
+}
+.helpButton.violet {
+  color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .helpWrapper {
+    padding: 20px;
+    width: 212px;
+    height: 272px;
+  }
+  .helpText {
+    font-size: 14px;
+  }
+}
