@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Icon from "../Icon/Icon";
 import css from "./Welcome.module.css";
+import clsx from "clsx";
 
 
 const Welcome = () => {
@@ -25,7 +26,7 @@ const Welcome = () => {
           Pro - Don&apost wait, start achieving your goals now!
         </p>
         <Link to="/auth/register" className={css.authLink}>
-          <button type="submit" className={css.button}>
+          <button type="submit" className={clsx(css.button, css.buttonActive)}>
             Registration
           </button>
         </Link>
