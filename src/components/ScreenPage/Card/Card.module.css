@@ -1,0 +1,89 @@
+.cardContainer {
+  border-radius: 8px;
+  background-color: #121212;
+  display: flex;
+  overflow: hidden;
+}
+.line {
+  width: 8px;
+  /* height: 100%; */
+  background-color: #e09cb5;
+  border-radius: 4px 0px 0px 4px;
+  line-height: 0;
+}
+.innerLine {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 14px;
+}
+.cardWrapper {
+  padding: 14px 20px 14px 24px;
+}
+.title {
+  color: #fff;
+  /* font-family: Poppins; */
+  font-size: 14px;
+  /* font-style: normal; */
+  font-weight: 600;
+  /* line-height: normal; */
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.text {
+  /* overflow: hidden; */
+  color: rgba(255, 255, 255, 0.5);
+
+  /* text-overflow: ellipsis;
+  white-space: nowrap; */
+  /* font-family: Poppins; */
+  font-size: 12px;
+  /* font-style: normal; */
+  font-weight: 400;
+  line-height: 1.33; /* 133.333% */
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+.priority {
+  color: rgba(255, 255, 255, 0.5);
+  /* font-family: Poppins; */
+  font-size: 8px;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.innerPriorityWrapper {
+  display: flex;
+}
+.circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #e09cb5;
+  margin-right: 4px;
+  display: block;
+}
+.priorityType {
+  color: #fff;
+  /* font-family: Poppins; */
+  font-size: 10px;
+  letter-spacing: -0.02em;
+}
+.deadlineText {
+  color: rgba(255, 255, 255, 0.5);
+  /* font-family: Poppins; */
+  font-size: 8px;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.date {
+  color: #fff;
+  /* font-family: Poppins; */
+  font-size: 10px;
+  letter-spacing: -0.02em;
+}
+.priorityDateWrapper {
+  display: flex;
+}
+.priorityWrapper {
+  margin-right: 14px;
+}

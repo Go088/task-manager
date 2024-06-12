@@ -1,0 +1,34 @@
+.columnNameContainer {
+  width: 100%;
+  padding: 18px 20px 17px;
+  background-color: #121212;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.columNameText {
+  color: #fff;
+  /* font-family: Poppins; */
+  font-size: 14px;
+  /* font-style: normal; */
+  font-weight: 500;
+  /* line-height: normal; */
+  letter-spacing: -0.02em;
+}
+.iconPensil {
+  stroke: rgba(255, 255, 255, 0.5);
+}
+.iconTrash {
+  stroke: rgba(255, 255, 255, 0.5);
+}
+.button {
+  line-height: 0;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+.iconWrapper {
+  display: flex;
+  gap: 8px;
+}
