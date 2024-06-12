@@ -4,6 +4,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../redux/features/auth/operations";
 import css from "./RegisterForm.module.css";
+import {Icon} from "react-icons-kit";
+import {eye} from 'react-icons-kit/feather/eye';
+import {eyeOff} from 'react-icons-kit/feather/eyeOff';
+import { useState } from "react";
+
 
 // Схема валідації
 const schema = yup.object().shape({
@@ -42,6 +47,21 @@ const RegisterForm = () => {
     dispatch(registerUser(userData));
     reset();
   };
+
+  const [icon, setIcon] = useState(eyeOff);
+  const [type, setType] = useState('password');
+
+  const handleToglePassword = () => {
+    if(type==='password'){
+      setIcon(eye);
+      setType('text');
+    } else {
+      setIcon(eyeOff);
+      setType('password');
+    }
+
+  }
+
   return (
     <div className={css}>
       <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
@@ -55,24 +75,29 @@ const RegisterForm = () => {
           {errors.name && <p>{errors.name.message}</p>}
         </label>
         <label>
+          <div>
           <input
             className={css.input}
             type="email"
             {...register("email")}
             placeholder="Enter your email"
           />
+          </div>
           {errors.email && <p>{errors.email.message}</p>}
         </label>
         <label>
+          <div className={css.inputContainer}>
           <input
             className={css.input}
-            type="password"
+            type={type}
             {...register("password")}
             placeholder="Create a password"
           />
-          {errors.password && <p>{errors.password.message}</p>}
+          <Icon icon={icon} size={18} className={css.icon} onClick={handleToglePassword}/>
+          </div>
         </label>
         <input type="submit" value={"Register Now"} className={css.button} />
+        {errors.password && <p>{errors.password.message}</p>}
       </form>
     </div>
   );

@@ -18,6 +18,7 @@
   background-color: #9dc888;
 }
 .input {
+  background-color: #151515;
   border: 1px solid #bedbb0;
   border-radius: 8px;
   width: 287px;
@@ -25,5 +26,5 @@
   padding: 10px;
   margin-bottom: 15px;
   font-size: 16px;
-  outline: none;
+  outline: #1F1F1F;
 }

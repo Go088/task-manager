@@ -3,9 +3,11 @@
   flex-direction: column;
   align-items: center;
   gap: 14px;
-  padding: 0 24px 24px 24px;
+  padding: 0 24px 0 24px;
 }
+
 .button {
+  margin-top: 10px;
   color: 161616;
   background-color: #bedbb0;
   border-radius: 8px;
@@ -14,16 +16,41 @@
   border: none;
   cursor: pointer;
 }
+
 .button:hover {
   background-color: #9dc888;
 }
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .input {
-  border: 1px solid #bedbb0;
+  background-color: #151515;
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 8px;
   width: 287px;
   height: 49px;
-  padding: 10px;
+  padding: 14px 40px 14px 18px;
   margin-bottom: 15px;
   font-size: 16px;
   outline: none;
+  margin: 0;
+  color:rgba(255, 255, 255, 0.4);
+}
+
+.input::placeholder{
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.icon {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color:  rgba(255, 255, 255, 0.4); 
 }
