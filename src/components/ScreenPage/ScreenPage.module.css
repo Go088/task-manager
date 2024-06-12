@@ -1,21 +1,32 @@
-.screenPageContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-  }
-  .screenPageText {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 248px;
-    width: 486px;
-    text-align: center;
-    font-size: 14px;
-    color: rgb(255, 255, 255, 0.5);
-    font-weight: 400;
-  }
-  .screenPageSpan {
-    color: #bedbb0;
-    margin-left: 4px;
-    margin-right: 4px;
-  }
+.screenContainer {
+  background-color: #1f1f1f;
+  padding: 14px 20px 24px 20px;
+}
+.title {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.02em;
+}
+.spanFilter {
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.02em;
+}
+.iconFilter {
+  stroke: rgba(255, 255, 255, 0.8);
+}
+.filterWrapper {
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+}
+.titleFilterWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 39px;
+}

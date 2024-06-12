@@ -1,0 +1,31 @@
+.iconList {
+  display: flex;
+  margin-left: auto;
+  margin-top: auto;
+  column-gap: 8px;
+}
+.button {
+  background-color: transparent;
+  padding: 0;
+  line-height: 0;
+  border: none;
+}
+.icon {
+  stroke: rgba(255, 255, 255, 0.5);
+  /* fill: aliceblue; */
+}
+.iconBell {
+  stroke: rgba(190, 219, 176, 1);
+}
+
+.li {
+  display: block;
+  line-height: 0;
+}
+.buttonBell {
+  background-color: transparent;
+  padding: 0;
+  line-height: 0;
+  border: none;
+  padding-right: 5px;
+}

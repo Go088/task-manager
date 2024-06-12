@@ -13,7 +13,7 @@
   font-size: 14px;
   /* font-style: normal; */
   font-weight: 500;
-  /* line-height: normal; */
+  line-height: normal;
   letter-spacing: -0.02em;
 }
 .iconPensil {
@@ -31,4 +31,14 @@
 .iconWrapper {
   display: flex;
   gap: 8px;
+}
+.cardContainer {
+  overflow-y: auto;
+  height: 478px;
+  margin-bottom: 14px;
+}
+.cardWraper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
 }

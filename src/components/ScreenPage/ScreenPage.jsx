@@ -1,9 +1,22 @@
+import Icon from "../Icon/Icon";
 import Column from "./Column/Colume";
 import css from "./ScreenPage.module.css";
 const ScreanPage = () => {
   return (
-    <div>
-      <div>boardName</div>
+    <div className={css.screenContainer}>
+      <div className={css.titleFilterWrapper}>
+        <h2 className={css.title}>boardName</h2>
+        <div className={css.filterWrapper}>
+          <Icon
+            className={css.iconFilter}
+            width="16px"
+            height="16px"
+            id="icon-filter"
+          />
+          <span className={css.spanFilter}>Filters</span>
+        </div>
+      </div>
+
       <div>
         <Column />
       </div>

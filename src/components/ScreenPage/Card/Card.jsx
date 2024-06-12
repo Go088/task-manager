@@ -1,4 +1,5 @@
-import Icon from "../../Icon/Icon";
+// import Icon from "../../Icon/Icon";
+import IconGroup from "../IconGroup/IconGroup";
 import css from "./Card.module.css";
 
 const Card = () => {
@@ -12,20 +13,22 @@ const Card = () => {
           embodies our brand...
         </p>
         <div className={css.innerLine}></div>
-        <div className={css.priorityDateWrapper}>
-          <div className={css.priorityWrapper}>
-            <p className={css.priority}>Priority</p>
-            <div className={css.innerPriorityWrapper}>
-              <span className={css.circle}></span>
-              <p className={css.priorityType}>Medium</p>
+        <div className={css.bottomCardWrapper}>
+          <div className={css.priorityDateWrapper}>
+            <div className={css.priorityWrapper}>
+              <p className={css.priority}>Priority</p>
+              <div className={css.innerPriorityWrapper}>
+                <span className={css.circle}></span>
+                <p className={css.priorityType}>Medium</p>
+              </div>
+            </div>
+            <div>
+              <p className={css.deadlineText}>Deadline</p>
+              <p className={css.date}>12/05/2023</p>
             </div>
           </div>
-          <div>
-            <p className={css.deadlineText}>Deadline</p>
-            <p className={css.date}>12/05/2023</p>
-          </div>
+          <IconGroup />
         </div>
-        <div className={css.iconWrapper}></div>
       </div>
     </div>
   );
