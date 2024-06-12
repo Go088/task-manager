@@ -1,9 +1,8 @@
-import sprite from "../../assets/sprite.svg";
-
 const Icon = ({ className, width, height, id }) => {
+  const spritePath = new URL("../../assets/sprite.svg", import.meta.url).href;
   return (
     <svg className={className} width={width} height={height}>
-      <use href={`${sprite}#${id}`} />
+      <use href={`${spritePath}#${id}`} />
     </svg>
   );
 };
