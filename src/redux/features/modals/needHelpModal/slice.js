@@ -6,7 +6,7 @@ const helpSlice = createSlice({
   initialState: {
     user: {
       email: null,
-      comment: null,
+      message: null,
     },
     loading: false,
     error: null,
@@ -18,9 +18,7 @@ const helpSlice = createSlice({
         state.loading = true;
       })
       .addCase(helpComment.fulfilled, (state, action) => {
-        console.log(action.payload);
-        state.user.email = action.payload.user.email;
-        state.user.comment = action.payload.user.comment;
+        state.user = action.payload;
       })
       .addCase(helpComment.rejected, (state) => {
         state.loading = false;
