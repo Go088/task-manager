@@ -8,8 +8,8 @@ const Welcome = () => {
         <div className={css.avatar}>
           <img
             className={css.developerAvatar}
-            srcSet="/img/user_mob.png 124w, /img/user_mob@2x.png 248w, /img/user.png "
-            src="/img/user.png"
+            srcSet="/public/img/user_mob.png 124w, /public/img/user_mob@2x.png 248w, /public/img/user.png "
+            src="/public/img/user.png"
             alt="Developers Avatar"
           />
         </div>
