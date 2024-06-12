@@ -33,7 +33,7 @@ export const Header = () => {
         </div>
 
         <div className={css.userWrapper}>
-          <p className={clsx(css.userName, css.css[themeType])}>Ivetta</p>
+          <p className={clsx(css.userName, css[themeType])}>Ivetta</p>
           <div className={css.avatarWrapper}>
             <img src="/img/user.png" alt="Avatar"></img>
           </div>
