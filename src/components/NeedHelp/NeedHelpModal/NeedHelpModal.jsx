@@ -5,17 +5,17 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Icon from "../../Icon/Icon";
 import { useDispatch } from "react-redux";
-import { helpComment } from "../../../redux/features/modals/operations";
+import { helpComment } from "../../../redux/features/modals/needHelpModal/operations";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email("You should enter a valid email")
     .trim()
     .required("Required"),
-  comment: Yup.string().min(3, "Too short!").trim().required("Required"),
+  message: Yup.string().min(3, "Too short!").trim().required("Required"),
 });
 
-export const NeedHelpModal = () => {
+export const NeedHelpModal = ({isOpen,onClick}) => {
   const themeType = "dark";
   const dispatch = useDispatch();
   const {
@@ -26,11 +26,12 @@ export const NeedHelpModal = () => {
   } = useForm({
     defaultValues: {
       email: "",
-      comment: "",
+      message: "",
     },
     resolver: yupResolver(validationSchema),
   });
   const onSubmit = (data) => {
+    onClick
     console.log(data);
     dispatch(helpComment(data));
     reset();
@@ -68,16 +69,16 @@ export const NeedHelpModal = () => {
           <div className={css.wrapper}>
             <textarea
               className={clsx(css.helpFormTextarea, css[themeType])}
-              {...register("comment")}
+              {...register("message")}
               type="text"
               placeholder="Comment"
             />
-            {errors.comment && (
+            {errors.message && (
               <p
                 className={clsx(css.errorTextarea, css[themeType])}
                 role="alert"
               >
-                {errors.comment.message}
+                {errors.message.message}
               </p>
             )}
           </div>

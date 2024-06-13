@@ -4,6 +4,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/features/auth/operations";
 import css from "./LoginForm.module.css";
+import {Icon} from "react-icons-kit";
+import {eye} from 'react-icons-kit/feather/eye';
+import {eyeOff} from 'react-icons-kit/feather/eyeOff';
+import { useState } from "react";
 
 // Схема валідації
 const schema = yup.object().shape({
@@ -38,6 +42,21 @@ const LoginForm = () => {
     dispatch(logIn(userData));
     reset();
   };
+
+
+  const [icon, setIcon] = useState(eyeOff);
+  const [type, setType] = useState('password');
+
+  const handleToglePassword = () => {
+    if(type==='password'){
+      setIcon(eye);
+      setType('text');
+    } else {
+      setIcon(eyeOff);
+      setType('password');
+    }
+  }
+
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
@@ -48,16 +67,19 @@ const LoginForm = () => {
             {...register("email")}
             placeholder="Enter your email"
           />
-          {errors.email && <p>{errors.email.message}</p>}
+          {errors.email && <p className={css.errorMessage}>{errors.email.message}</p>}
         </label>
         <label>
+          <div className={css.inputContainer}>
           <input
             className={css.input}
-            type="password"
+            type={type}
             {...register("password")}
             placeholder="Confirm a password"
           />
-          {errors.password && <p>{errors.password.message}</p>}
+          <Icon icon={icon} size={18} className={css.icon} onClick={handleToglePassword}/>
+          </div>
+          {errors.email && <p className={css.errorMessage}>{errors.email.message}</p>}
         </label>
         <input type="submit" value={"Log In Now"} className={css.button} />
       </form>
