@@ -5,8 +5,6 @@ import FilterButton from "./FilterButton/FilterButton";
 import NoBoardText from "./NoBoardText/NoBoardText";
 import css from "./ScreenPage.module.css";
 import clsx from "clsx";
-import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
-import "overlayscrollbars/overlayscrollbars.css";
 
 const ScreanPage = () => {
   const isBoard = true;
