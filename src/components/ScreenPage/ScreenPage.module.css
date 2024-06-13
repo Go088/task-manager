@@ -2,6 +2,12 @@
   background-color: #1f1f1f;
   padding: 14px 20px 24px 20px;
 }
+.light.screenContainer {
+  background-color: #f6f6f7;
+}
+.violet.screenContainer {
+  background-color: #ecedfd;
+}
 .title {
   color: #fff;
   font-size: 14px;
@@ -9,23 +15,12 @@
   line-height: normal;
   letter-spacing: -0.02em;
 }
-/* .spanFilter {
-  color: rgba(255, 255, 255, 0.8);
-
-  font-size: 14px;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: -0.02em;
-} */
-/* .iconFilter {
-  stroke: rgba(255, 255, 255, 0.8);
-} */
-/* .filterWrapper {
-  display: flex;
-  column-gap: 8px;
-  align-items: center;
-  margin-left: auto;
-} */
+.light.title {
+  color: #161616;
+}
+.violet.title {
+  color: #161616;
+}
 .titleFilterWrapper {
   display: flex;
   /* justify-content: space-between; */
@@ -40,4 +35,11 @@
   flex-direction: row;
   gap: 18px;
   flex-wrap: nowrap;
+}
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 1440px) {
 }

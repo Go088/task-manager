@@ -6,6 +6,7 @@
 }
 .iconFilter {
   stroke: rgba(255, 255, 255, 0.8);
+  fill: transparent;
 }
 .spanFilter {
   color: rgba(255, 255, 255, 0.8);
@@ -14,4 +15,18 @@
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.02em;
+}
+.lightFilter {
+  color: rgba(22, 22, 22, 0.8);
+}
+.light.iconFilter {
+  stroke: rgba(22, 22, 22, 0.8);
+  fill: transparent;
+}
+.violetFilter {
+  color: rgba(22, 22, 22, 0.8);
+}
+.violet.iconFilter {
+  stroke: rgba(22, 22, 22, 0.8);
+  fill: transparent;
 }

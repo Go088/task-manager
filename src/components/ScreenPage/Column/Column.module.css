@@ -47,3 +47,10 @@
   flex-direction: column;
   row-gap: 8px;
 }
+@media screen and (min-width: 768px) {
+  .columnContainer {
+    flex: 0 0;
+  }
+}
+@media screen and (min-width: 1440px) {
+}
