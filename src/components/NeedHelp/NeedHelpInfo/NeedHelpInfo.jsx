@@ -2,7 +2,7 @@ import css from "./NeedHelpInfo.module.css";
 import clsx from "clsx";
 import Icon from "../../Icon/Icon";
 
-export const NeedHelpInfo = ({onClick}) => {
+export const NeedHelpInfo = ({ setNeedHelpOpenModal }) => {
   const themeType = "dark";
   return (
     <div className={clsx(css.helpWrapper, css[themeType])}>
@@ -18,9 +18,13 @@ export const NeedHelpInfo = ({onClick}) => {
         , check out our support resources or reach out to our customer support
         team.
       </p>
-      <button className={clsx(css.helpButton, css[themeType])} type="submit" onClick={onClick}>
+      <button
+        className={clsx(css.helpButton, css[themeType])}
+        type="button"
+        onClick={() => setNeedHelpOpenModal(true)}
+      >
         <Icon
-          id="icon-help-circle"
+          id="icon-help-circle_side_bar"
           className={clsx(css.helpIcon, css[themeType])}
           width="20"
           height="20"

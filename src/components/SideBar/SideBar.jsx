@@ -10,28 +10,29 @@ import { useEffect, useState } from "react";
 import { NeedHelpModal } from "../NeedHelp/NeedHelpModal/NeedHelpModal";
 
 export default function SideBar() {
-   const dispatch= useDispatch()
-   const[needHelpOpen,setNeedHelpOpen]=useState(false);
-   const[needHelpOpenModal,setNeedHelpOpenModal]=useState(false);
-   const handleOpen = () => setNeedHelpOpenModal(true);
-    useEffect(() => {
-        dispatch(fetchBoard())
-      }, [dispatch]);
-return (
+  const dispatch = useDispatch();
+  const [needHelpOpenModal, setNeedHelpOpenModal] = useState(false);
+  useEffect(() => {
+    dispatch(fetchBoard());
+  }, [dispatch]);
+  return (
     <div className={css.list}>
-    <div className={css.Logolist}>
+      <div className={css.Logolist}>
         <div className={css.LogoContainer}>
-        <Icon id="icon-logo" width="12" height="16" className={css.LogoSVG} />
+          <Icon id="icon-logo" width="12" height="16" className={css.LogoSVG} />
         </div>
         <h1 className={css.textLogo}>Task Pro</h1>
-    </div>
-    <p className={css.listItem}>My boards</p>
+      </div>
+      <p className={css.listItem}>My boards</p>
 
-    <ButtonCreate />
-    <BoardList/>
-    <NeedHelpInfo  onClick={handleOpen}  />
-    {needHelpOpenModal && <NeedHelpModal isOpen={needHelpOpen}  onClick={()=>handleOpen(false)}/>}
-    <LogOut />
+      <ButtonCreate />
+      <BoardList />
+      <NeedHelpInfo setNeedHelpOpenModal={setNeedHelpOpenModal} />
+      <NeedHelpModal
+        isOpen={needHelpOpenModal}
+        setNeedHelpOpenModal={setNeedHelpOpenModal}
+      />
+      <LogOut />
     </div>
-)
+  );
 }
