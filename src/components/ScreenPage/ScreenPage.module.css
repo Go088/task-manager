@@ -9,25 +9,26 @@
   line-height: normal;
   letter-spacing: -0.02em;
 }
-.spanFilter {
+/* .spanFilter {
   color: rgba(255, 255, 255, 0.8);
 
   font-size: 14px;
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.02em;
-}
-.iconFilter {
+} */
+/* .iconFilter {
   stroke: rgba(255, 255, 255, 0.8);
-}
-.filterWrapper {
+} */
+/* .filterWrapper {
   display: flex;
   column-gap: 8px;
   align-items: center;
-}
+  margin-left: auto;
+} */
 .titleFilterWrapper {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   margin-bottom: 39px;
 }
 .columnContainer {

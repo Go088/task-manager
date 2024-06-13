@@ -1,0 +1,17 @@
+.filterWrapper {
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+  margin-left: auto;
+}
+.iconFilter {
+  stroke: rgba(255, 255, 255, 0.8);
+}
+.spanFilter {
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.02em;
+}

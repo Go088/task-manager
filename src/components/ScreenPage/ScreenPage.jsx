@@ -1,30 +1,39 @@
 import Icon from "../Icon/Icon";
 import AddAnotherButton from "./AddAnotherButton/AddAnotherButton";
 import Column from "./Column/Colume";
+import FilterButton from "./FilterButton/FilterButton";
+import NoBoardText from "./NoBoardText/NoBoardText";
 import css from "./ScreenPage.module.css";
+
 const ScreanPage = () => {
+  const isBoard = false;
+  const theme = "light";
+
   return (
     <div className={css.screenContainer}>
       <div className={css.titleFilterWrapper}>
-        <h2 className={css.title}>boardName</h2>
-        <div className={css.filterWrapper}>
-          <Icon
-            className={css.iconFilter}
-            width="16px"
-            height="16px"
-            id="icon-filter"
-          />
-          <span className={css.spanFilter}>Filters</span>
-        </div>
+        {isBoard && <h2 className={css.title}>boardName</h2>}
+        <FilterButton />
       </div>
+      {isBoard ? (
+        <div className={css.columnContainer}>
+          <div className={css.columnWrapper}>
+            <Column />
+            <Column />
+            <AddAnotherButton />
+          </div>
+        </div>
+      ) : (
+        <NoBoardText theme={theme} />
+      )}
 
-      <div className={css.columnContainer}>
+      {/* <div className={css.columnContainer}>
         <div className={css.columnWrapper}>
           <Column />
           <Column />
-          <AddAnotherButton />
+          /<AddAnotherButton />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

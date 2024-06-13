@@ -7,7 +7,7 @@ const Card = () => {
     <div className={css.cardContainer}>
       <div className={css.line}></div>
       <div className={css.cardWrapper}>
-        <p className={css.title}>cardName</p>
+        <h4 className={css.title}>cardName</h4>
         <p className={css.text}>
           Create a visually stunning and eye-catching watch dial design that
           embodies our brand...
