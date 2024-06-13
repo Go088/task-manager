@@ -1,6 +1,7 @@
 .screenContainer {
   background-color: #1f1f1f;
-  padding: 14px 20px 24px 20px;
+  padding: 14px 8px 24px 20px;
+  min-height: 752px;
 }
 .light.screenContainer {
   background-color: #f6f6f7;
@@ -28,7 +29,7 @@
 }
 .columnContainer {
   overflow-x: auto;
-  max-width: 355px;
+  /* max-width: 355px; */
 }
 .columnWrapper {
   display: flex;

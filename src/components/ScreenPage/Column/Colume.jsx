@@ -3,6 +3,8 @@ import Icon from "../../Icon/Icon";
 // import sprite from "../../../sprite.svg";
 import Card from "../Card/Card";
 import AddCardButton from "../AddCardButton/AddCardButton";
+import CustomScrollBar from "../CustemScrollBar/CustomScrollBar";
+import clsx from "clsx";
 
 const Column = () => {
   return (
@@ -28,14 +30,15 @@ const Column = () => {
           </button>
         </div>
       </div>
-      <div className={css.cardContainer}>
-        <div className={css.cardWraper}>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-        </div>
+      <div className={clsx(css.cardContainer, "secondScrol")}>
+        <CustomScrollBar className={css.scrolBar}>
+          <div className={css.cardWraper}>
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </div>
+        </CustomScrollBar>
       </div>
 
       <AddCardButton />

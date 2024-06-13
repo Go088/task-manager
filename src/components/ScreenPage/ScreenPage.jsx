@@ -5,6 +5,8 @@ import FilterButton from "./FilterButton/FilterButton";
 import NoBoardText from "./NoBoardText/NoBoardText";
 import css from "./ScreenPage.module.css";
 import clsx from "clsx";
+import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
+import "overlayscrollbars/overlayscrollbars.css";
 
 const ScreanPage = () => {
   const isBoard = true;
@@ -27,28 +29,7 @@ const ScreanPage = () => {
       ) : (
         <NoBoardText theme={theme} />
       )}
-
-      {/* <div className={css.columnContainer}>
-        <div className={css.columnWrapper}>
-          <Column />
-          <Column />
-          /<AddAnotherButton />
-        </div>
-      </div> */}
     </div>
   );
 };
 export default ScreanPage;
-// export default function ScreenPage() {
-//   return (
-//     <div className={css.screenPageContainer}>
-//       <p className={css.screenPagetext}>
-//         Before starting your project, it is essential
-//         <span className={css.screenPageSpan}>to create a board</span> to visualize and
-//         track all the necessary tasks and milestones. This board serves as a
-//         powerful tool to organize the workflow and ensure effective
-//         collaboration among team members.
-//       </p>
-//     </div>
-//   );
-// }

@@ -1,9 +1,9 @@
 .columnContainer {
-  flex: 0 0 335px;
+  flex: 0 0 355px;
 }
 
 .columnNameContainer {
-  width: 100%;
+  width: 335px;
   padding: 18px 20px 17px;
   background-color: #121212;
   border-radius: 8px;
@@ -38,14 +38,17 @@
   margin-left: auto;
 }
 .cardContainer {
-  overflow-y: auto;
-  height: 478px;
+  /* overflow-y: auto;
+  height: 478px; */
   margin-bottom: 14px;
 }
 .cardWraper {
   display: flex;
   flex-direction: column;
   row-gap: 8px;
+}
+.scrolBar {
+  max-height: 478px;
 }
 @media screen and (min-width: 768px) {
   .columnContainer {

@@ -3,6 +3,7 @@
   column-gap: 8px;
   align-items: center;
   margin-left: auto;
+  padding-right: 20px;
 }
 .iconFilter {
   stroke: rgba(255, 255, 255, 0.8);

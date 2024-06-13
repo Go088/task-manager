@@ -1,0 +1,20 @@
+.secondScrol .os-scrollbar.os-scrollbar-vertical.os-scrollbar-cornerless {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  width: 8px;
+  padding: 0;
+  transform: translateX(-8px);
+}
+.secondScrol .os-scrollbar .os-scrollbar-track {
+  width: 100%;
+}
+.secondScrol
+  .os-scrollbar.os-scrollbar-handle-interactive
+  .os-scrollbar-handle {
+  background-color: #121212;
+  border-radius: 100px;
+}
+.secondScrol .os-scrollbar-auto-hide.os-scrollbar-auto-hide-hidden {
+  opacity: 1;
+  visibility: visible;
+}

@@ -3,6 +3,7 @@
   background-color: #121212;
   display: flex;
   overflow: hidden;
+  width: 335px;
   /* border-left: 4px solid #e09cb5; */
   /* border-left-color: #e09cb5; */
 }
@@ -97,4 +98,10 @@
 }
 .bottomCardWrapper {
   display: flex;
+}
+.test {
+  display: flex;
+}
+.test2 {
+  width: 12px;
 }
