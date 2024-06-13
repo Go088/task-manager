@@ -1,0 +1,42 @@
+.text{
+    font-weight: 500;
+font-size: 14px;
+letter-spacing: -0.02em;
+color: #fff;
+margin-left: 8px;
+
+}
+.button{
+    padding: 0;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+}
+.wrapper{
+    width: 260px;
+    height: 61px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(31, 31, 31, 1);
+    padding-left: 24px;
+    padding-right: 24px;
+}
+.btnList{
+    display: flex;
+    gap: 8px;
+    margin-left:  auto;
+    border: none;
+    
+}
+.LogoSVG{
+    stroke: rgba(255, 255, 255, 0.5);
+    fill: transparent;
+}
+.titleSVG{
+    stroke: #fff;
+    fill: transparent;
+}

@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import {
   persistStore,
   persistReducer,
@@ -10,14 +10,14 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import authReducer from "./features/auth/authSlice";
-// import boardsReducer from "./features/boards/boardsSlice";
-// import createBoardModalReducer from "./features/modals/createBoardModalSlice";
-// import createCardModalReducer from "./features/modals/createCardModalSlice";
-// import needHelpModalReducer from "./features/modals/needHelpModalSlice";
-// import createColumnModalReducer from "./features/modals/createColumnModalSlice";
-// import themeReducer from "./features/theme/themeSlice";
-// import userProfileReducer from "./features/userProfile/userProfileSlice";
+import authReducer from "./features/auth/authSlice.js";
+import boardsReducer from "./features/boards/boardsSlice.js";
+// import createBoardModalReducer from "./features/modals/createBoardModalSlice.js";
+// import createCardModalReducer from "./features/modals/createCardModalSlice.js";
+// import needHelpModalReducer from "./features/modals/needHelpModalSlice.js";
+// import createColumnModalReducer from "./features/modals/createColumnModalSlice.js";
+// import themeReducer from "./features/theme/themeSlice.js";
+// import userProfileReducer from "./features/userProfile/userProfileSlice.js";
 
 const authPersistConfig = {
   key: "authSlice",
@@ -27,16 +27,16 @@ const authPersistConfig = {
 
 const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
 
-const rootReducer = {
+const rootReducer = combineReducers({
   auth: persistedAuthReducer,
   // theme: themeReducer,
   // userProfile: userProfileReducer,
-  // boards: boardsReducer,
+  boards: boardsReducer,
   // createBoardModal: createBoardModalReducer,
   // needHelpModal: needHelpModalReducer,
   // createColumnModal: createColumnModalReducer,
   // createCardModal: createCardModalReducer,
-};
+});
 
 export const store = configureStore({
   reducer: rootReducer,

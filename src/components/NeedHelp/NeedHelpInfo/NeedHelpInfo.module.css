@@ -7,6 +7,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  margin-left: 24px;
 }
 
 .helpWrapper.dark {

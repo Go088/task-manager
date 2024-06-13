@@ -15,7 +15,7 @@ const validationSchema = Yup.object().shape({
   comment: Yup.string().min(3, "Too short!").trim().required("Required"),
 });
 
-export const NeedHelpModal = () => {
+export const NeedHelpModal = ({isOpen,onClick}) => {
   const themeType = "dark";
   const dispatch = useDispatch();
   const {
@@ -31,6 +31,7 @@ export const NeedHelpModal = () => {
     resolver: yupResolver(validationSchema),
   });
   const onSubmit = (data) => {
+    onClick
     console.log(data);
     dispatch(helpComment(data));
     reset();
