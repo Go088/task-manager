@@ -7,6 +7,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
+import { useDispatch } from 'react-redux';
+import { addBoard } from "../../redux/features/boards/operations";
 
 const icons = [
   {
@@ -163,9 +165,10 @@ export default function BoardForm({ isOpen, onRequestClose }) {
       background: "default",
     },
   });
+  const dispatch = useDispatch()
 
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(addBoard(data))
     reset();
     onRequestClose();
   };
