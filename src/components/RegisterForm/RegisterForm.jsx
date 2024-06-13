@@ -44,8 +44,6 @@ const RegisterForm = () => {
     reset();
   };
 
-
-
   return (
     <div className={css}>
       <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
