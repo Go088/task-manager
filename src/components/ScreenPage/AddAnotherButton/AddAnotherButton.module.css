@@ -1,0 +1,33 @@
+.iconSpan {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button {
+  border-radius: 8px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  background-color: #121212;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 335px;
+  column-gap: 8px;
+
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.02em;
+
+  height: 56px;
+  flex: 0 0 335px;
+}
+.icon {
+  stroke: #121212;
+}

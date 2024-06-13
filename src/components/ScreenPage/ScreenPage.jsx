@@ -1,4 +1,5 @@
 import Icon from "../Icon/Icon";
+import AddAnotherButton from "./AddAnotherButton/AddAnotherButton";
 import Column from "./Column/Colume";
 import css from "./ScreenPage.module.css";
 const ScreanPage = () => {
@@ -17,8 +18,12 @@ const ScreanPage = () => {
         </div>
       </div>
 
-      <div>
-        <Column />
+      <div className={css.columnContainer}>
+        <div className={css.columnWrapper}>
+          <Column />
+          <Column />
+          <AddAnotherButton />
+        </div>
       </div>
     </div>
   );

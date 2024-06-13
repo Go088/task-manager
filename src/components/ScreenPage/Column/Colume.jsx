@@ -6,7 +6,7 @@ import AddCardButton from "../AddCardButton/AddCardButton";
 
 const Column = () => {
   return (
-    <div>
+    <div className={css.columnContainer}>
       <div className={css.columnNameContainer}>
         <h3 className={css.columNameText}>columnName</h3>
         <div className={css.iconWrapper}>
