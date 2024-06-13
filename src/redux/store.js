@@ -14,7 +14,7 @@ import authReducer from "./features/auth/authSlice.js";
 import boardsReducer from "./features/boards/boardsSlice.js";
 // import createBoardModalReducer from "./features/modals/createBoardModalSlice.js";
 // import createCardModalReducer from "./features/modals/createCardModalSlice.js";
-// import needHelpModalReducer from "./features/modals/needHelpModalSlice.js";
+import needHelpModalReducer from "./features/modals/needHelpModal/slice";
 // import createColumnModalReducer from "./features/modals/createColumnModalSlice.js";
 // import themeReducer from "./features/theme/themeSlice.js";
 // import userProfileReducer from "./features/userProfile/userProfileSlice.js";
@@ -29,16 +29,16 @@ const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
 
 const rootReducer = combineReducers({
   auth: persistedAuthReducer,
+  boards: boardsReducer,
+  needHelpModal: needHelpModalReducer,
+  // createBoardModal: createBoardModalReducer,
+  // createCardModal: createCardModalReducer,
+  // createColumnModal: createColumnModalReducer,
   // theme: themeReducer,
   // userProfile: userProfileReducer,
-  boards: boardsReducer,
-  // createBoardModal: createBoardModalReducer,
-  // needHelpModal: needHelpModalReducer,
-  // createColumnModal: createColumnModalReducer,
-  // createCardModal: createCardModalReducer,
 });
 
-export const store = configureStore({
+const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -48,4 +48,6 @@ export const store = configureStore({
     }),
 });
 
-export const persistor = persistStore(store);
+const persistor = persistStore(store);
+
+export { store, persistor };

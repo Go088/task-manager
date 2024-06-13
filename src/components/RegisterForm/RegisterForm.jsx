@@ -3,6 +3,8 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../redux/features/auth/operations";
+import css from "./RegisterForm.module.css";
+
 
 // Схема валідації
 const schema = yup.object().shape({
@@ -29,7 +31,6 @@ const schema = yup.object().shape({
 // Форма
 const RegisterForm = () => {
   const dispatch = useDispatch();
-
   const {
     register,
     handleSubmit,
@@ -38,49 +39,47 @@ const RegisterForm = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-
   const onSubmit = (userData) => {
     dispatch(registerUser(userData));
     reset();
   };
 
   return (
-    <>
-      <br />
-      <h3>Registration</h3>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <div className={css}>
+      <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
         <label>
-          Name
           <input
+            className={css.input}
             type="text"
             {...register("name")}
             placeholder="Enter your name"
           />
-          {errors.name && <p>{errors.name.message}</p>}
+          {errors.name && <p className={css.errorMessage}>{errors.name.message}</p>}
         </label>
         <label>
-          Email
+          <div>
           <input
+            className={css.input}
             type="email"
             {...register("email")}
             placeholder="Enter your email"
           />
-          {errors.email && <p>{errors.email.message}</p>}
+          </div>
+          {errors.email && <p className={css.errorMessage}>{errors.email.message}</p>}
         </label>
         <label>
-          Password
           <input
+            className={css.input}
             type="password"
             {...register("password")}
             placeholder="Create a password"
           />
-          {errors.password && <p>{errors.password.message}</p>}
+          {errors.password && <p className={css.errorMessage}>{errors.password.message}</p>}
         </label>
-
-        <input type="submit" value={"Register Now"} />
+        <input type="submit" value={"Register Now"} className={css.button} />
+        {errors.password && <p>{errors.password.message}</p>}
       </form>
-    </>
+    </div>
   );
 };
-
 export default RegisterForm;
