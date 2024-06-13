@@ -1,10 +1,10 @@
 import { Link, useParams } from "react-router-dom";
-
 import { useState } from "react";
 // import clsx from "clsx";
 import css from "./Auth.module.css";
-import RegisterForm from "../Form/RegisterForm";
-import LoginForm from "../Form/LoginForm";
+import RegisterForm from "../RegisterForm/RegisterForm";
+import LoginForm from "../LoginForm/LoginForm";
+
 const Auth = () => {
   const { id } = useParams();
   const [register, setRegister] = useState(id === "register");
