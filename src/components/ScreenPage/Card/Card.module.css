@@ -4,8 +4,9 @@
   display: flex;
   overflow: hidden;
   width: 335px;
-  /* border-left: 4px solid #e09cb5; */
-  /* border-left-color: #e09cb5; */
+}
+.white.cardContainer {
+  background-color: #ffffff;
 }
 .line {
   width: 8px;
@@ -20,6 +21,9 @@
   background-color: rgba(255, 255, 255, 0.1);
   margin-bottom: 14px;
 }
+.white.innerLine {
+  background-color: rgba(22, 22, 22, 0.1);
+}
 .cardWrapper {
   padding: 14px 20px 14px 24px;
 }
@@ -32,6 +36,9 @@
   line-height: normal;
   letter-spacing: -0.02em;
   margin-bottom: 8px;
+}
+.white.title {
+  color: rgba(22, 22, 22, 1);
 }
 .text {
   /* overflow: hidden; */
@@ -49,6 +56,9 @@
   padding-bottom: 3px;
   margin-bottom: 14px;
 }
+.white.text {
+  color: rgba(22, 22, 22, 0.7);
+}
 .priority {
   color: rgba(255, 255, 255, 0.5);
   /* font-family: Poppins; */
@@ -56,6 +66,9 @@
   letter-spacing: -0.02em;
   line-height: normal;
   margin-bottom: 4px;
+}
+.white.priority {
+  color: rgba(22, 22, 22, 0.5);
 }
 .innerPriorityWrapper {
   display: flex;
@@ -75,20 +88,29 @@
   letter-spacing: -0.02em;
   line-height: normal;
 }
+.white.priorityType {
+  color: rgba(22, 22, 22, 1);
+}
 .deadlineText {
   color: rgba(255, 255, 255, 0.5);
-  /* font-family: Poppins; */
+
   font-size: 8px;
   line-height: normal;
   letter-spacing: -0.02em;
   margin-bottom: 4px;
 }
+.white.deadlineText {
+  color: rgba(22, 22, 22, 0.5);
+}
 .date {
   color: #fff;
-  /* font-family: Poppins; */
+
   font-size: 10px;
   line-height: normal;
   letter-spacing: -0.02em;
+}
+.white.date {
+  color: rgba(22, 22, 22, 1);
 }
 .priorityDateWrapper {
   display: flex;
@@ -104,4 +126,11 @@
 }
 .test2 {
   width: 12px;
+}
+@media screen and (min-width: 768px) {
+  .cardContainer {
+    width: 334px;
+  }
+}
+@media screen and (min-width: 1440px) {
 }

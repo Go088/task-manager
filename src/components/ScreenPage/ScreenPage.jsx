@@ -6,9 +6,13 @@ import NoBoardText from "./NoBoardText/NoBoardText";
 import css from "./ScreenPage.module.css";
 import clsx from "clsx";
 
+import SimpleBar from "simplebar-react";
+import "simplebar-react/dist/simplebar.min.css";
+import "./CustomScrollbar.css";
+
 const ScreanPage = () => {
   const isBoard = true;
-  const theme = "ligh";
+  const theme = "dark";
 
   return (
     <div className={clsx(css.screenContainer, css[theme])}>
@@ -17,12 +21,15 @@ const ScreanPage = () => {
         <FilterButton theme={theme} />
       </div>
       {isBoard ? (
-        <div className={css.columnContainer}>
-          <div className={css.columnWrapper}>
-            <Column theme={theme} />
-            <Column theme={theme} />
-            <AddAnotherButton theme={theme} />
-          </div>
+        <div className={clsx(theme + "firstScrol")}>
+          <SimpleBar autoHide={false}>
+            <div className={css.columnWrapper}>
+              <Column theme={theme} />
+              <Column theme={theme} />
+              <Column theme={theme} />
+              <AddAnotherButton theme={theme} />
+            </div>
+          </SimpleBar>
         </div>
       ) : (
         <NoBoardText theme={theme} />

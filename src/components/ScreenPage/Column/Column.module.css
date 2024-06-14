@@ -11,6 +11,10 @@
   /* justify-content: space-between; */
   margin-bottom: 14px;
 }
+.white.columnNameContainer {
+  background-color: #ffffff;
+}
+
 .columNameText {
   color: #fff;
   /* font-family: Poppins; */
@@ -20,17 +24,31 @@
   line-height: normal;
   letter-spacing: -0.02em;
 }
+.white.columNameText {
+  color: #161616;
+}
+
 .iconPensil {
   stroke: rgba(255, 255, 255, 0.5);
+  fill: transparent;
 }
 .iconTrash {
   stroke: rgba(255, 255, 255, 0.5);
+  fill: transparent;
+}
+.white.iconPensil {
+  stroke: rgba(22, 22, 22, 0.5);
+}
+.white.iconTrash {
+  stroke: rgba(22, 22, 22, 0.5);
+  fill: transparent;
 }
 .button {
   line-height: 0;
   border: none;
   background-color: transparent;
   padding: 0;
+  cursor: pointer;
 }
 .iconWrapper {
   display: flex;
@@ -52,7 +70,10 @@
 }
 @media screen and (min-width: 768px) {
   .columnContainer {
-    flex: 0 0;
+    flex: 0 0 335px;
+  }
+  .columnNameContainer {
+    width: 334px;
   }
 }
 @media screen and (min-width: 1440px) {

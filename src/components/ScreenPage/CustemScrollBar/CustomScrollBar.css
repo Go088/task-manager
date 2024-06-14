@@ -3,7 +3,8 @@
   border-radius: 100px;
   width: 8px;
   padding: 0;
-  transform: translateX(-8px);
+  /* transform: translateX(-8px); */
+  right: 7px;
 }
 .secondScrol .os-scrollbar .os-scrollbar-track {
   width: 100%;
@@ -17,4 +18,20 @@
 .secondScrol .os-scrollbar-auto-hide.os-scrollbar-auto-hide-hidden {
   opacity: 1;
   visibility: visible;
+}
+.lightsecondScrol .os-scrollbar.os-scrollbar-vertical.os-scrollbar-cornerless {
+  background-color: #e8e8e8;
+}
+.lightsecondScrol
+  .os-scrollbar.os-scrollbar-handle-interactive
+  .os-scrollbar-handle {
+  background-color: rgba(22, 22, 22, 0.1);
+}
+.violetsecondScrol .os-scrollbar.os-scrollbar-vertical.os-scrollbar-cornerless {
+  background-color: #ffffff;
+}
+.violetsecondScrol
+  .os-scrollbar.os-scrollbar-handle-interactive
+  .os-scrollbar-handle {
+  background-color: #b8bcfd;
 }

@@ -16,6 +16,10 @@
   letter-spacing: -0.02em;
   width: 335px;
 }
+.violet.button {
+  background-color: #5255bc;
+  color: #ffffff;
+}
 .span {
   padding: 7px;
   background-color: #161616;
@@ -24,4 +28,10 @@
 }
 .iconPlus {
   stroke: #ffffff;
+}
+.violet.span {
+  background-color: #ffffff;
+}
+.violet.iconPlus {
+  stroke: #161616;
 }

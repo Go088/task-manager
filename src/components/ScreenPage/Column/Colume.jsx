@@ -6,15 +6,16 @@ import AddCardButton from "../AddCardButton/AddCardButton";
 import CustomScrollBar from "../CustemScrollBar/CustomScrollBar";
 import clsx from "clsx";
 
-const Column = () => {
+const Column = ({ theme }) => {
+  const whiteTheme = theme === "dark" ? "" : "white";
   return (
     <div className={css.columnContainer}>
-      <div className={css.columnNameContainer}>
-        <h3 className={css.columNameText}>columnName</h3>
+      <div className={clsx(css.columnNameContainer, css[whiteTheme])}>
+        <h3 className={clsx(css.columNameText, css[whiteTheme])}>columnName</h3>
         <div className={css.iconWrapper}>
           <button type="button" className={css.button}>
             <Icon
-              className={css.iconPensil}
+              className={clsx(css.iconPensil, css[whiteTheme])}
               width="16px"
               height="16px"
               id="icon-pencil"
@@ -22,7 +23,7 @@ const Column = () => {
           </button>
           <button type="button" className={css.button}>
             <Icon
-              className={css.iconTrash}
+              className={clsx(css.iconTrash, css[whiteTheme])}
               width="16px"
               height="16px"
               id="icon-trash"
@@ -31,17 +32,17 @@ const Column = () => {
         </div>
       </div>
       <div className={clsx(css.cardContainer, "secondScrol")}>
-        <CustomScrollBar className={css.scrolBar}>
+        <CustomScrollBar className={css.scrolBar} theme={theme}>
           <div className={css.cardWraper}>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <Card theme={theme} />
+            <Card theme={theme} />
+            <Card theme={theme} />
+            <Card theme={theme} />
           </div>
         </CustomScrollBar>
       </div>
 
-      <AddCardButton />
+      <AddCardButton theme={theme} />
     </div>
   );
 };

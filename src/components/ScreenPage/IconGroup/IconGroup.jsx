@@ -1,13 +1,15 @@
 import Icon from "../../Icon/Icon";
 import css from "./IconGroup.module.css";
+import clsx from "clsx";
 
-const IconGroup = () => {
+const IconGroup = ({ theme }) => {
+  const whiteTheme = theme === "dark" ? "" : "white";
   return (
     <ul className={css.iconList}>
       <li className={css.li}>
         <button className={css.buttonBell}>
           <Icon
-            className={css.iconBell}
+            className={clsx(css.iconBell, css[theme], css[whiteTheme])}
             width="16px"
             height="16px"
             id="icon-bell"
@@ -17,7 +19,7 @@ const IconGroup = () => {
       <li className={css.li}>
         <button className={css.button}>
           <Icon
-            className={css.icon}
+            className={clsx(css.icon, css[whiteTheme])}
             width="16px"
             height="16px"
             id="icon-arrow-circle-broken-right"
@@ -27,7 +29,7 @@ const IconGroup = () => {
       <li className={css.li}>
         <button className={css.button}>
           <Icon
-            className={css.icon}
+            className={clsx(css.icon, css[whiteTheme])}
             width="16px"
             height="16px"
             id="icon-pencil"
@@ -37,7 +39,7 @@ const IconGroup = () => {
       <li className={css.li}>
         <button className={css.button}>
           <Icon
-            className={css.icon}
+            className={clsx(css.icon, css[whiteTheme])}
             width="16px"
             height="16px"
             id="icon-trash"

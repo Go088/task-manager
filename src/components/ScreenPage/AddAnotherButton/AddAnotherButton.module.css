@@ -7,6 +7,12 @@
   justify-content: center;
   align-items: center;
 }
+.light.iconSpan {
+  background-color: #161616;
+}
+.violet.iconSpan {
+  background-color: #5255bc;
+}
 .button {
   border-radius: 8px;
   padding-top: 14px;
@@ -27,7 +33,15 @@
 
   height: 56px;
   flex: 0 0 335px;
+  cursor: pointer;
+}
+.white.button {
+  background-color: #fff;
+  color: #161616;
 }
 .icon {
   stroke: #121212;
+}
+.white.icon {
+  stroke: #ffffff;
 }

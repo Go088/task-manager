@@ -9,15 +9,23 @@
   padding: 0;
   line-height: 0;
   border: none;
+  cursor: pointer;
 }
 .icon {
   stroke: rgba(255, 255, 255, 0.5);
-  /* fill: aliceblue; */
+  fill: transparent;
+}
+.white.icon {
+  stroke: rgba(22, 22, 22, 0.5);
+  fill: transparent;
 }
 .iconBell {
   stroke: rgba(190, 219, 176, 1);
+  fill: none;
 }
-
+.violet.iconBell {
+  stroke: rgba(82, 85, 188, 1);
+}
 .li {
   display: block;
   line-height: 0;
