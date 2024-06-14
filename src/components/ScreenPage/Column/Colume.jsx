@@ -36,8 +36,8 @@ const Column = ({ theme }) => {
           <div className={css.cardWraper}>
             <Card theme={theme} />
             <Card theme={theme} />
-            <Card theme={theme} />
-            <Card theme={theme} />
+            {/* <Card theme={theme} />
+            <Card theme={theme} /> */}
           </div>
         </CustomScrollBar>
       </div>

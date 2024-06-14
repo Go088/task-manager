@@ -1,4 +1,3 @@
-// import Icon from "../Icon/Icon";
 import AddAnotherButton from "./AddAnotherButton/AddAnotherButton";
 import Column from "./Column/Colume";
 import FilterButton from "./FilterButton/FilterButton";
@@ -26,7 +25,7 @@ const ScreanPage = () => {
             <div className={css.columnWrapper}>
               <Column theme={theme} />
               <Column theme={theme} />
-              <Column theme={theme} />
+              {/* <Column theme={theme} /> */}
               <AddAnotherButton theme={theme} />
             </div>
           </SimpleBar>

@@ -34,3 +34,13 @@
 .violetfirstScrol .simplebar-scrollbar:before {
   background-color: #b8bcfd;
 }
+@media screen and (min-width: 768px) {
+  .simplebar-track.simplebar-horizontal {
+    bottom: -64px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .simplebar-track.simplebar-horizontal {
+    bottom: -28px;
+  }
+}
