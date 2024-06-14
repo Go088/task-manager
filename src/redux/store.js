@@ -18,6 +18,7 @@ import needHelpModalReducer from "./features/modals/needHelpModal/slice";
 // import createColumnModalReducer from "./features/modals/createColumnModalSlice.js";
 // import themeReducer from "./features/theme/themeSlice.js";
 // import userProfileReducer from "./features/userProfile/userProfileSlice.js";
+import { boardReducer } from "./features/boardss/slice.js";
 
 const authPersistConfig = {
   key: "authSlice",
@@ -28,6 +29,7 @@ const authPersistConfig = {
 const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
 
 const rootReducer = combineReducers({
+  board: boardReducer,
   auth: persistedAuthReducer,
   boards: boardsReducer,
   needHelpModal: needHelpModalReducer,

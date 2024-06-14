@@ -6,12 +6,14 @@ import AddCardButton from "../AddCardButton/AddCardButton";
 import CustomScrollBar from "../CustemScrollBar/CustomScrollBar";
 import clsx from "clsx";
 
-const Column = ({ theme }) => {
+const Column = ({ theme, column }) => {
   const whiteTheme = theme === "dark" ? "" : "white";
   return (
     <div className={css.columnContainer}>
       <div className={clsx(css.columnNameContainer, css[whiteTheme])}>
-        <h3 className={clsx(css.columNameText, css[whiteTheme])}>columnName</h3>
+        <h3 className={clsx(css.columNameText, css[whiteTheme])}>
+          {column?.title}
+        </h3>
         <div className={css.iconWrapper}>
           <button type="button" className={css.button}>
             <Icon
