@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { registerUser, logIn, logOut, refreshUser } from "./operations";
+import { ThemeTypes } from "../../../themeConstants";
 
 const authSlice = createSlice({
   name: "auth",
@@ -9,6 +10,7 @@ const authSlice = createSlice({
       email: null,
     },
     token: null,
+    theme: ThemeTypes.DARK,
     loading: false,
     error: null,
     isLoggedIn: false,
@@ -24,6 +26,7 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        state.theme = ThemeTypes.DARK;
       })
       .addCase(registerUser.rejected, (state) => {
         state.error = true;
@@ -37,6 +40,7 @@ const authSlice = createSlice({
       .addCase(logIn.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
+        state.theme = action.payload.theme;
         state.isLoggedIn = true;
       })
       .addCase(logIn.rejected, (state) => {
@@ -64,6 +68,7 @@ const authSlice = createSlice({
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
+        state.theme = action.payload.theme;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })

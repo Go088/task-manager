@@ -17,7 +17,7 @@ import cardsReducer from "./features/cards/cardsSlice.js";
 // import createCardModalReducer from "./features/modals/createCardModalSlice.js";
 import needHelpModalReducer from "./features/modals/needHelpModal/slice";
 // import createColumnModalReducer from "./features/modals/createColumnModalSlice.js";
-// import themeReducer from "./features/theme/themeSlice.js";
+import themeReducer from "./features/theme/themeSlice.js";
 // import userProfileReducer from "./features/userProfile/userProfileSlice.js";
 
 const authPersistConfig = {
@@ -36,7 +36,7 @@ const rootReducer = combineReducers({
   // createBoardModal: createBoardModalReducer,
   // createCardModal: createCardModalReducer,
   // createColumnModal: createColumnModalReducer,
-  // theme: themeReducer,
+  theme: themeReducer,
   // userProfile: userProfileReducer,
 });
 

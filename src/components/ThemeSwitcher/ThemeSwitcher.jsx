@@ -1,54 +1,56 @@
-// import { useDispatch, useSelector } from "react-redux"
-// import {Icon} from "../Icon/Icon";
-// import { changeTheme, selectTheme } from "../../redux/features/theme/themeSlice";
-// import { useEffect, useState } from "react";
-// import { fetchTheme } from "../../redux/features/theme/operations";
+import Icon from "../Icon/Icon";
+import { useDispatch, useSelector } from "react-redux";
+// import { useEffect } from "react";
+import { changeTheme } from "../../redux/features/theme/operations";
+import { selectTheme } from "../../redux/features/auth/selectors";
+import { ThemeTypes } from "../../themeConstants";
+import Select from "react-dropdown-select";
 
-// export default function ThemeSwitcher() {
-//     const dispatch = useDispatch();
-//     useEffect(()=>{
-//       dispatch(fetchTheme())
-//     }, [dispatch])
+const ThemeSwitcer = () => {
 
-//     const [isOpenSelect, setIsOpenSelect] = useState(false);
-//     const theme = useSelector(selectTheme);
-//     const error = useSelector((state) => state.error)
+  const currentTheme = useSelector(selectTheme) || ThemeTypes.DARK;
+  const dispatch = useDispatch();
 
-//     const showSelectOptions = () => {
-//       setIsOpenSelect((prev)=>!prev)
-//     }
+  // useEffect(() => {
+  //   dispatch(changeTheme(currentTheme));
+  // }, [dispatch, currentTheme]);
 
-//     const handleThemeChange = (newTheme) => {
-//       dispatch(changeTheme(newTheme))
-//   }
+  const options = [
+    { label: "Light", value: ThemeTypes.LIGTH },
+    { label: "Violet", value: ThemeTypes.VIOLET },
+    { label: "Dark", value: ThemeTypes.DARK },
+  ];
 
-// return (
-//     <div>
-//         <div>
-//         <div>
-//           <p>Theme</p>
-//           <Icon
-//             onClick={showSelectOptions}
-//             // className={clsx(css.selectThemeIcon, css[themeType])}
-//             id="icon-arror_edit_prifile"
-//             width="16"
-//             height="16"
-//           />
-//           {isOpenSelect && (<select value={theme} onChange={(e) => dispatch(handleThemeChange(e.target.value))}>
-//             <option value="light">Light</option>
-//             <option value="violet">Violet</option>
-//             <option value="dark">Dark</option>
-//           </select>)}
-//           {/* <ul className={clsx(css.themeList, css.isOpen, css[themeType])}>
-//             <li className={clsx(css.themeListItem, css[themeType], css.active)}>
-//               Light
-//             </li>
-//             <li className={clsx(css.themeListItem, css[themeType])}>Dark</li>
-//             <li className={clsx(css.themeListItem, css[themeType])}>Violet</li>
-//           </ul> */}
-//           {error && <p>Error</p>}
-//         </div>
-//     </div>
-//     </div>
-// )
-// }
+  const handleThemeChange = (selectedOption) => {
+    if (selectedOption.length > 0) {
+      const newTheme = selectedOption[0].value;
+      dispatch(changeTheme(newTheme)); // Записуємо нову тему в Redux-стор
+    }
+  };
+
+  return (
+    <div>
+      <p>Theme</p>
+      <Icon id="icon-arror_edit_prifile" width="16" height="16" />
+      <Select
+        name="select"
+        options={options}
+        values={[{ label: currentTheme.charAt(0).toUpperCase() + currentTheme.slice(1), value: currentTheme }]} 
+        onChange={handleThemeChange}
+      ></Select>
+    </div>
+  );
+};
+
+export default ThemeSwitcer;
+
+{
+  /* <select
+              value={themeType}
+              onChange={(e) => dispatch(handleThemeChange(e.target.value))}
+            >
+              <option value={ThemeTypes.LIGTH}>Light</option>
+              <option value={ThemeTypes.VIOLET}>Violet</option>
+              <option value={ThemeTypes.DARK}>Dark</option>
+            </select> */
+}

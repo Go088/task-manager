@@ -1,35 +1,41 @@
-// import { createSlice } from "@reduxjs/toolkit";
-// import { fetchTheme } from "./operations";
+import { createSlice } from "@reduxjs/toolkit";
+import { changeTheme } from "./operations";
+import { ThemeTypes } from "../../../themeConstants";
 
-// const initialState = {
-//   theme: "dark",
-//   loading: false,
-//   error: false,
-// };
+const initialState = {
+  theme: ThemeTypes.DARK,
+  loading: false,
+  error: false,
+};
 
-// const themeSlice = createSlice({
-//   name: "theme",
-//   initialState,
-//   extraReducers: (builder) =>
-//     builder
-//       .addCase(fetchTheme.pending, (state) => {
-//         state.error = false;
-//         state.loading = true;
-//       })
-//       .addCase(fetchTheme.fulfilled, (state, action) => {
-//         state.theme = action.payload;
-//         state.loading = false;
-//       })
-//       .addCase(fetchTheme.rejected, (state) => {
-//         state.error = true;
-//         state.loading = false;
-//       }),
-// });
+const themeSlice = createSlice({
+  name: "theme",
+  initialState,
+  // reducers: {
+  //   setTheme(state, action){
+  //     state.theme = action.payload;
+  //   }
+  // },
+  extraReducers: (builder) =>
+    builder
+      .addCase(changeTheme.pending, (state) => {
+        state.error = false;
+        state.loading = true;
+      })
+      .addCase(changeTheme.fulfilled, (state, action) => {
+        state.theme = action.payload.theme;
+        state.loading = false;
+      })
+      .addCase(changeTheme.rejected, (state) => {
+        state.error = true;
+        state.loading = false;
+      }),
+});
 
-// export const { changeTheme } = themeSlice.actions;
+export const { setTheme } = themeSlice.actions;
 
-// export default themeSlice.reducer;
+export default themeSlice.reducer;
 
-// // changeTheme(state, action) {
-// //   state.theme = action.payload;
-// // },
+// changeTheme(state, action) {
+//   state.theme = action.payload;
+// },
