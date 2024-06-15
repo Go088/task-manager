@@ -1,10 +1,11 @@
 import SideBar from "../../components/SideBar/SideBar";
-import css from "./HomePage.module.css";
+import Header from "../../components/Header/Header";
 
 export default function HomePage() {
   return (
-    <div className={css.home}>
+    <>
       <SideBar />
-    </div>
+      <Header />
+    </>
   );
 }

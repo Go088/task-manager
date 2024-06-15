@@ -4,15 +4,19 @@
   align-items: center;
   gap: 14px;
   /* padding: 0 24px 0 24px; */
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    width: 100%;
+  }
 }
 
 .button {
-  font-size: 14px;
-  font-weight: 500;
   margin-top: 10px;
-  line-height: 21px;
-  letter-spacing: -0.02em;
-  color: #161616;
+  color: 161616;
+  font-weight: 500;
   background-color: #bedbb0;
   border-radius: 8px;
   width: 287px;
@@ -22,11 +26,16 @@
   transition: background-color 400ms ease-in-out;
 }
 
+@media only screen and (min-width: 768px) {
+  .button {
+    width: 344px;
+  }
+}
 
 .button:hover {
   background-color: #9dc888;
 }
- 
+
 .inputContainer {
   position: relative;
   display: flex;
@@ -43,14 +52,19 @@
   padding: 14px 40px 14px 18px;
   margin-bottom: 15px;
   font-size: 14px;
-  font-weight: 400;
   outline: none;
   margin: 0;
-  color:rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.4);
 }
 
-.input::placeholder{
+.input::placeholder {
   color: rgba(255, 255, 255, 0.4);
+}
+
+@media only screen and (min-width: 768px) {
+  .input {
+    width: 344px;
+  }
 }
 
 .icon {
@@ -59,10 +73,10 @@
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  color:  rgba(255, 255, 255, 0.4); 
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .errorMessage {
-  color: #BEDBB0;
+  color: #bedbb0;
   padding: 5px 0 5px 18px;
 }
