@@ -5,13 +5,14 @@ import "./datepicker-overrides.css";
 import css from "./Calendar.module.css";
 import Icon from "../Icon/Icon";
 
-const Calendar = () => {
+const Calendar = ({ onDateChange }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
     setIsCalendarOpen(false);
+    onDateChange(date);
   };
 
   const formatDate = (date) => {
