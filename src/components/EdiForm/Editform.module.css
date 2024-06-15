@@ -1,0 +1,431 @@
+.visuallyHidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+  
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+  
+  .Modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+  }
+  
+  .Overlay {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(21, 21, 21, 0.3);
+  }
+  
+  .form {
+    padding: 24px;
+    border-radius: 8px;
+    width: 335px;
+    height: 100%;
+  }
+  
+  .form.dark {
+    border: 1px solid rgba(190, 219, 176, 0.5);
+    box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+    background-color: #151515;
+  }
+  
+  .form.light {
+    box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+    background-color: #fcfcfc;
+  }
+  
+  .form.violet {
+    box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+    background-color: #fcfcfc;
+  }
+  
+  /* Title */
+  
+  .title {
+    margin-bottom: 24px;
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+  
+  .title.dark {
+    color: #fff;
+  }
+  
+  .title.light,
+  .title.violet {
+    stroke: #161616;
+  }
+  
+  /* Input */
+  
+  .input {
+    font-size: 14px;
+    outline: transparent;
+    font-family: "Poppins";
+    padding: 14px 18px;
+    opacity: 0.4;
+    background-color: transparent;
+    border-radius: 8px;
+    width: 100%;
+    height: 49px;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .input:hover,
+  .input:focus {
+    opacity: 1;
+    box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+  }
+  
+  .input.dark {
+    color: #fff;
+    border: 1px solid #bedbb0;
+  }
+  
+  .input.light {
+    color: #161616;
+    border: 1px solid #bedbb0;
+  }
+  
+  .input.violet {
+    color: #161616;
+    border: 1px solid #5255bc;
+  }
+  
+  .input.dark::placeholder {
+    color: #fff;
+  }
+  
+  .input.light::placeholder,
+  .input.violet::placeholder {
+    color: #161616;
+  }
+  
+  /* Error */
+  
+  .error {
+    top: 124px;
+    left: 24px;
+  
+    position: absolute;
+    font-family: "Poppins";
+    font-size: 12px;
+  }
+  
+  .error.dark,
+  .error.light {
+    color: #bedbb0;
+  }
+  
+  .error.violet {
+    color: #5255bc;
+  }
+  
+  /*   Subtitle   */
+  
+  .subtitle {
+    margin-top: 24px;
+    margin-bottom: 14px;
+  
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+  }
+  
+  .subtitle.dark {
+    color: #fff;
+  }
+  
+  .subtitle.light,
+  .subtitle.violet {
+    color: #161616;
+  }
+  
+  /*   Icons    */
+  
+  .iconList {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .iconItem {
+    line-height: 0;
+  }
+  
+  .iconItem:hover .iconSvg.dark,
+  .iconItem:focus .iconSvg.dark {
+    stroke: #bedbb0;
+  }
+  
+  .iconItem:hover .iconSvg.light,
+  .iconItem:focus .iconSvg.light {
+    stroke: #bedbb0;
+  }
+  
+  .iconItem:hover .iconSvg.violet,
+  .iconItem:focus .iconSvg.violet {
+    stroke: #5255bc;
+  }
+  
+  .iconSvg {
+    fill: none;
+    transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .iconSvg.dark {
+    stroke: rgba(255, 255, 255, 0.5);
+  }
+  
+  .iconSvg.light,
+  .iconSvg.violet {
+    stroke: rgba(22, 22, 22, 0.5);
+  }
+  
+  .radioIcon:checked + .iconLabel > .iconSvg.dark {
+    stroke: #fff;
+  }
+  
+  .radioIcon:checked + .iconLabel > .iconSvg.light,
+  .radioIcon:checked + .iconLabel > .iconSvg.violet {
+    stroke: #161616;
+  }
+  
+  /*   Background  */
+  
+  .backgroundList {
+    padding-right: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  
+  .backgroundItem {
+    line-height: 0;
+    border-radius: 6px;
+  }
+  
+  .backgroundWrapIcon,
+  .img {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /*   Background SVG     */
+  
+  .backgroundWrapIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .backgroundWrapIcon.dark {
+    background-color: #1f1f1f;
+  }
+  
+  .backgroundWrapIcon.light {
+    background-color: #f6f6f7;
+  }
+  
+  .backgroundWrapIcon.violet {
+    background-color: #ecedfd;
+  }
+  
+  .backgroundIcon {
+    fill: none;
+  }
+  
+  .backgroundIcon.dark {
+    stroke: rgba(255, 255, 255, 0.1);
+  }
+  
+  .backgroundIcon.light,
+  .backgroundIcon.violet {
+    stroke: rgba(22, 22, 22, 0.1);
+  }
+  
+  /*   Background Images      */
+  
+  .backgroundItem:hover .backgroundWrapIcon.dark,
+  .backgroundtem:focus .backgroundWrapIcon.dark,
+  .backgroundItem:hover .img.dark,
+  .backgroundtem:focus .img.dark {
+    border: 1px solid #bedbb0;
+  }
+  
+  .backgroundItem:hover .backgroundWrapIcon.light,
+  .backgroundItem:focus .backgroundWrapIcon.light,
+  .backgroundItem:hover .img.light,
+  .backgroundItem:focus .img.light {
+    border: 1px solid rgba(22, 22, 22, 0.5);
+    box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+  }
+  
+  .backgroundItem:hover .backgroundWrapIcon.violet,
+  .backgroundItem:focus .backgroundWrapIcon.violet,
+  .backgroundItem:hover .img.violet,
+  .backgroundItem:focus .img.violet {
+    border: 1px solid #5255bc;
+    box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+  }
+  
+  .radioBackground:checked + .backgroundLabel .backgroundWrapIcon.dark,
+  .radioBackground:checked + .backgroundLabel .img.dark {
+    border: 1px solid #fff;
+  }
+  
+  .radioBackground:checked + .backgroundLabel .backgroundWrapIcon.light,
+  .radioBackground:checked + .backgroundLabel .backgroundWrapIcon.violet,
+  .radioBackground:checked + .backgroundLabel .img.light,
+  .radioBackground:checked + .backgroundLabel .img.violet {
+    border-radius: 6px;
+    border: 1px solid #161616;
+  }
+  
+  /*    Button    */
+  
+  .btn {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    padding: 10px;
+    outline: transparent;
+  
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 8px;
+    width: 100%;
+    height: 49px;
+    border: transparent;
+  
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .btn.dark,
+  .btn.light {
+    color: #161616;
+    background-color: #bedbb0;
+  }
+  
+  .btn.dark:hover,
+  .btn.dark:focus,
+  .btn.light:hover,
+  .btn.light:focus {
+    background-color: #9dc888;
+  }
+  
+  .btn.violet {
+    color: #fff;
+    background-color: #5255bc;
+  }
+  
+  .btn.violet:hover,
+  .btn.violet:focus {
+    background-color: #7b7ede;
+  }
+  
+  .btnWrapIcon {
+    display: flex;
+    padding: 7px;
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+  }
+  .btnWrapIcon.dark,
+  .btnWrapIcon.light {
+    background-color: #161616;
+  }
+  
+  .btnWrapIcon.violet {
+    background-color: #fff;
+  }
+  
+  .btnIcon.dark,
+  .btnIcon.light {
+    stroke: #fff;
+  }
+  
+  .btnIcon.violet {
+    stroke: #161616;
+  }
+  
+  /*    Button Close    */
+  
+  .btnClose {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    line-height: 0;
+    padding: 0;
+  
+    background-color: transparent;
+    outline: transparent;
+    border-radius: 4px;
+    border: transparent;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .btnClose.dark:hover,
+  .btnClose.dark:focus,
+  .btnClose.light:hover,
+  .btnClose.light:focus {
+    background-color: #9dc888;
+  }
+  
+  .btnClose.violet:hover,
+  .btnClose.violet:focus {
+    background-color: #7b7ede;
+  }
+  
+  .btnClose.dark:hover .btnCloseIcon,
+  .btnClose.dark:focus .btnCloseIcon {
+    stroke: #161616;
+  }
+  
+  .btnClose.violet:hover .btnCloseIcon,
+  .btnClose.violet:focus .btnCloseIcon {
+    stroke: #fff;
+  }
+  
+  .btnCloseIcon {
+    transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .btnCloseIcon.dark {
+    stroke: #fff;
+  }
+  
+  .btnCloseIcon.light,
+  .btnCloseIcon.violet {
+    stroke: #161616;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .form {
+      width: 350px;
+    }
+  }
+  
