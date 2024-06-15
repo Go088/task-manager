@@ -8,7 +8,7 @@
   background-color: #121212;
   border-radius: 8px;
   display: flex;
-  /* justify-content: space-between; */
+
   margin-bottom: 14px;
 }
 .white.columnNameContainer {
@@ -17,9 +17,9 @@
 
 .columNameText {
   color: #fff;
-  /* font-family: Poppins; */
+
   font-size: 14px;
-  /* font-style: normal; */
+
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.02em;

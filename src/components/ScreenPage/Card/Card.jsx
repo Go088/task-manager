@@ -1,19 +1,17 @@
-// import Icon from "../../Icon/Icon";
 import IconGroup from "../IconGroup/IconGroup";
 import css from "./Card.module.css";
 import clsx from "clsx";
 
-const Card = ({ theme }) => {
+const Card = ({ theme, card }) => {
   const whiteTheme = theme === "dark" ? "" : "white";
   return (
     <div className={css.test}>
       <div className={clsx(css.cardContainer, css[whiteTheme])}>
         <div className={clsx(css.line, css[whiteTheme])}></div>
         <div className={css.cardWrapper}>
-          <h4 className={clsx(css.title, css[whiteTheme])}>cardName</h4>
+          <h4 className={clsx(css.title, css[whiteTheme])}>{card?.title}</h4>
           <p className={clsx(css.text, css[whiteTheme], css.limit)}>
-            Create a visually stunning and eye-catching watch dial design that
-            embodies odscsdcdsc rtdggg grreg rgreg ergeg ur brand...
+            {card.description}
           </p>
           <div className={clsx(css.innerLine, css[whiteTheme])}></div>
           <div className={css.bottomCardWrapper}>
@@ -23,7 +21,7 @@ const Card = ({ theme }) => {
                 <div className={css.innerPriorityWrapper}>
                   <span className={css.circle}></span>
                   <p className={clsx(css.priorityType, css[whiteTheme])}>
-                    Medium
+                    {card.priority}
                   </p>
                 </div>
               </div>
@@ -31,7 +29,9 @@ const Card = ({ theme }) => {
                 <p className={clsx(css.deadlineText, css[whiteTheme])}>
                   Deadline
                 </p>
-                <p className={clsx(css.date, css[whiteTheme])}>12/05/2023</p>
+                <p className={clsx(css.date, css[whiteTheme])}>
+                  {card.deadline}
+                </p>
               </div>
             </div>
             <IconGroup theme={theme} />
@@ -43,9 +43,3 @@ const Card = ({ theme }) => {
   );
 };
 export default Card;
-{
-  /* <div className={css.test}>
-  <Card />
-  <div className={css.test2}></div>
-</div>; */
-}

@@ -1,11 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 // import { logOut } from "../author/operations";
-import {
-  fetchBoardById,
-  addContact,
-  deleteContact,
-  editContact,
-} from "./operations.js";
+import { fetchBoardById, fetchAllCards } from "./operations.js";
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -20,7 +15,7 @@ const boardSlice = createSlice({
   name: "board",
   initialState: {
     board: {},
-    items: [],
+    cards: [],
     isLoading: false,
     error: null,
     toast: "",
@@ -43,39 +38,13 @@ const boardSlice = createSlice({
         state.board = action.payload;
       })
       .addCase(fetchBoardById.rejected, handleRejected)
-      .addCase(addContact.pending, handlePending)
-      .addCase(addContact.fulfilled, (state, action) => {
+      .addCase(fetchAllCards.pending, handlePending)
+      .addCase(fetchAllCards.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items.push(action.payload);
-        state.toast = "add";
+        state.cards = action.payload;
       })
-      .addCase(addContact.rejected, handleRejected)
-      .addCase(deleteContact.pending, handlePending)
-      .addCase(deleteContact.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        const index = state.items.findIndex(
-          (task) => task.id === action.payload.id
-        );
-        state.items.splice(index, 1);
-        state.toast = "del";
-      })
-      .addCase(deleteContact.rejected, handleRejected)
-      // .addCase(logOut.fulfilled, (state) => {
-      //   state.items = [];
-      //   state.error = null;
-      //   state.isLoading = false;
-      // })
-      .addCase(editContact.pending, handlePending)
-      .addCase(editContact.fulfilled, (state, action) => {
-        state.toast = "edit";
-        state.isLoading = false;
-        state.items = state.items.map((contact) => {
-          return contact.id === action.payload.id ? action.payload : contact;
-        });
-      })
-      .addCase(editContact.rejected, handleRejected);
+      .addCase(fetchAllCards.rejected, handleRejected);
   },
 });
 export const { setToast, setContactError } = boardSlice.actions;

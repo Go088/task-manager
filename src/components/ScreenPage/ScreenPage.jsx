@@ -9,8 +9,14 @@ import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
 import "./CustomScrollbar.css";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchBoardById } from "../../redux/features/boardss/operations";
-import { selectBoard } from "../../redux/features/boardss/selectors";
+import {
+  fetchAllCards,
+  fetchBoardById,
+} from "../../redux/features/boardss/operations";
+import {
+  selectAllCards,
+  selectBoard,
+} from "../../redux/features/boardss/selectors";
 import { useEffect } from "react";
 // import { selectUserr } from "../../redux/features/auth/selectors";
 // import { ThreeCircles } from "react-loader-spinner";
@@ -22,11 +28,18 @@ const ScreanPage = ({ id = "666c45b30031e4827c3c972e" }) => {
 
   useEffect(() => {
     dispatch(fetchBoardById(id));
+    dispatch(fetchAllCards());
   }, [dispatch, id]);
+
+  const allCards = useSelector(selectAllCards);
+  useEffect(() => {
+    console.log(board);
+    console.log(allCards);
+  }, [allCards, board]);
 
   const isBoard = board._id ? true : false;
   const isColumns = board.columns?.length > 0;
-  console.log(board);
+  // console.log(board);
   // const the = useSelector(selectUserr);
   // console.log(the);
   return (

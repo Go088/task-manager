@@ -1,12 +1,30 @@
 import css from "./Column.module.css";
 import Icon from "../../Icon/Icon";
-// import sprite from "../../../sprite.svg";
+
 import Card from "../Card/Card";
 import AddCardButton from "../AddCardButton/AddCardButton";
 import CustomScrollBar from "../CustemScrollBar/CustomScrollBar";
 import clsx from "clsx";
 
+import { selectAllCards } from "../../../redux/features/boardss/selectors";
+import { useSelector } from "react-redux";
+import useMedia from "../../../hooks/useMediaQuery";
+
 const Column = ({ theme, column }) => {
+  const allCards = useSelector(selectAllCards);
+
+  const getColumnCards = () => {
+    if (allCards) {
+      return allCards.filter((c) => c?.owner === column._id);
+    }
+    return [];
+  };
+
+  const cards = getColumnCards();
+
+  const isCards = cards.length > 0;
+  const quantityOfcards = useMedia.isTablet ? 4 : 3;
+  const isVisibleScrol = cards.length > quantityOfcards;
   const whiteTheme = theme === "dark" ? "" : "white";
   return (
     <div className={css.columnContainer}>
@@ -37,13 +55,13 @@ const Column = ({ theme, column }) => {
         <CustomScrollBar
           className={css.scrolBar}
           theme={theme}
-          isVisibal={false}
+          isVisibal={isVisibleScrol}
         >
           <div className={css.cardWraper}>
-            <Card theme={theme} />
-            <Card theme={theme} />
-            {/* <Card theme={theme} />
-            <Card theme={theme} /> */}
+            {isCards &&
+              cards.map((card) => {
+                return <Card key={card._id} card={card} theme={theme} />;
+              })}
           </div>
         </CustomScrollBar>
       </div>
