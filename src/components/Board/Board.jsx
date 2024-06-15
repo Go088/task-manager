@@ -5,14 +5,13 @@ import Icon from "../Icon/Icon";
 import clsx from "clsx";
 import EditBoard from "../EditBoard/EditBoard";
 import { useEffect, useState } from "react";
-import Modal from "react-modal"
-
-
+import Modal from "react-modal";
 
 export const Board = ({ _id, title, icon }) => {
+  const themeType = "dark";
   const dispatch = useDispatch();
   const handleDelete = () => dispatch(deleteBoard(_id));
-  const handlEdit = () => dispatch(EditBoard({_id}));
+  const handlEdit = () => dispatch(EditBoard({ _id }));
   const titleSVG = `icon-${icon.trim()}`;
   const [editIsOpen, setIsOpen] = useState(false);
 
@@ -20,23 +19,31 @@ export const Board = ({ _id, title, icon }) => {
     Modal.setAppElement("#root");
   }, []);
 
-  
   const closeModal = () => {
     setIsOpen(false);
   };
   const handleOpen = () => setIsOpen(true);
- 
+
   return (
-    <div className={css.wrapper}>
-      <Icon id={titleSVG} width="18" height="18" className={css.titleSVG} />
-      <h2 className={clsx(css.text)}>{title}</h2>
+    <div className={clsx(css.wrapper, css[themeType], css.isActive)}>
+      <div className={css.infoWrapper}>
+        <Icon
+          id={`icon-${titleSVG}`}
+          width="18"
+          height="18"
+          className={css.titleSVG}
+        />
+        <h2 className={clsx(css.text, css[themeType], css.isActive)}>
+          {title}
+        </h2>
+      </div>
       <div className={css.btnList}>
         <button type="button" className={css.button} onClick={handleOpen}>
           <Icon
             id="icon-pencil"
             width="16"
             height="16"
-            className={css.LogoSVG}
+            className={clsx(css.LogoSVG, css.isActive)}
           />
         </button>
         <button type="button" className={css.button} onClick={handleDelete}>
@@ -44,15 +51,19 @@ export const Board = ({ _id, title, icon }) => {
             id="icon-trash"
             width="16"
             height="16"
-            className={css.LogoSVG}
+            className={clsx(css.LogoSVG, css.isActive)}
           />
         </button>
+        <div className={clsx(css.boxModel, css[themeType], css.isActive)}></div>
       </div>
-       {editIsOpen && (
-        <EditBoard isOpen={editIsOpen} onRequestClose={closeModal}  onclick={handlEdit} _id={_id}/>
-    )}
+      {editIsOpen && (
+        <EditBoard
+          isOpen={editIsOpen}
+          onRequestClose={closeModal}
+          onclick={handlEdit}
+          _id={_id}
+        />
+      )}
     </div>
-   
-    
-);
+  );
 };

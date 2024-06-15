@@ -23,6 +23,7 @@
 }
 
 .list {
+  flex-shrink: 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -30,13 +31,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 40px;
   width: 225px;
   height: 812px;
   padding-top: 14px;
+  padding-bottom: 24px;
+}
+.wrapper {
   padding-left: 14px;
   padding-right: 14px;
-  padding-bottom: 24px;
 }
 
 .list.dark {
@@ -111,14 +113,24 @@
   background-color: #ecedfd;
 }
 
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 @media screen and (min-width: 768px) {
   .list {
     width: 260px;
     height: 1024px;
-    padding: 24px;
+    padding-top: 24px;
   }
   .listItem {
     margin-top: 60px;
+  }
+  .wrapper {
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }
 
