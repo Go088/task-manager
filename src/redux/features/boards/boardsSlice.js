@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import {addBoard,deleteBoard,fetchBoard} from "./operations.js"
+import {addBoard,deleteBoard,fetchBoard,editBoard} from "./operations.js"
+
 
 
 
@@ -49,11 +50,27 @@ extraReducers:(builder)=>{
         state.isLoading = false;
         state.error = null;
         const index = state.items.findIndex(
-        (task) => task.id === action.payload.id
+        (board) => board._id === action.payload._id
         );
         state.items.splice(index, 1);
     })
     .addCase(deleteBoard.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+    })
+    .addCase(editBoard.pending, (state) => {
+        state.isLoading = true;
+    })
+    .addCase(editBoard.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        const index = state.items.findIndex(
+            (board) => board._id === action.payload._id
+            );
+        state.items.splice(index, 1);
+        state.items.push(action.payload);
+    })
+    .addCase(editBoard.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
     })

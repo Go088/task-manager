@@ -1,0 +1,49 @@
+.filterWrapper {
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+  margin-left: auto;
+  padding-right: 20px;
+  cursor: pointer;
+}
+.iconFilter {
+  stroke: rgba(255, 255, 255, 0.8);
+  fill: transparent;
+  transition: stroke 250ms linear;
+}
+.spanFilter {
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.02em;
+  transition: color 250ms linear;
+}
+.lightFilter {
+  color: rgba(22, 22, 22, 0.8);
+}
+.light.iconFilter {
+  stroke: rgba(22, 22, 22, 0.8);
+  fill: transparent;
+}
+.violetFilter {
+  color: rgba(22, 22, 22, 0.8);
+}
+.violet.iconFilter {
+  stroke: rgba(22, 22, 22, 0.8);
+  fill: transparent;
+}
+.filterWrapper:hover .iconFilter,
+.filterWrapper:focus .iconFilter {
+  stroke: #bedbb0;
+}
+
+.filterWrapper:hover .violet.iconFilter,
+.filterWrapper:focus .violrt.iconFilter {
+  stroke: #5255bc;
+}
+/* .filterWrapper:hover .spanFilter,
+.filterWrapper:focus .spanFilter {
+  color: #bedbb0;
+} */

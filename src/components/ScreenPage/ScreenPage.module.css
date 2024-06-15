@@ -1,21 +1,64 @@
-.screenPageContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+.screenContainer {
+  background-color: #1f1f1f;
+  padding: 14px 8px 24px 20px;
+  min-height: 752px;
+  /* width: ; */
+}
+.light.screenContainer {
+  background-color: #f6f6f7;
+}
+.violet.screenContainer {
+  background-color: #ecedfd;
+}
+.title {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.02em;
+}
+.light.title {
+  color: #161616;
+}
+.violet.title {
+  color: #161616;
+}
+.titleFilterWrapper {
+  display: flex;
+  /* justify-content: space-between; */
+  margin-bottom: 39px;
+}
+.columnContainer {
+  overflow-x: auto;
+  /* max-width: 355px; */
+}
+.columnWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  /* flex-wrap: nowrap; */
+  width: max-content;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 18px;
   }
-  .screenPageText {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 248px;
-    width: 486px;
-    text-align: center;
-    font-size: 14px;
-    color: rgb(255, 255, 255, 0.5);
-    font-weight: 400;
+  .screenContainer {
+    padding: 26px 18px 32px 32px;
+    min-height: 956px;
   }
-  .screenPageSpan {
-    color: #bedbb0;
-    margin-left: 4px;
-    margin-right: 4px;
+  .titleFilterWrapper {
+    margin-bottom: 26px;
   }
+}
+@media screen and (min-width: 1440px) {
+  .screenContainer {
+    padding: 10px 18px 8px 24px;
+    min-height: 702px;
+    width: 1180px;
+  }
+  .titleFilterWrapper {
+    margin-bottom: 10px;
+  }
+}
