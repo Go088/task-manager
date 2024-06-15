@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchTheme } from "./operations";
+import { changeTheme } from "./operations";
+import { ThemeTypes } from "../../../themeConstants";
 
 const initialState = {
-  theme: "dark",
+  theme: ThemeTypes.DARK,
   loading: false,
   error: false,
 };
@@ -10,27 +11,31 @@ const initialState = {
 const themeSlice = createSlice({
   name: "theme",
   initialState,
+  // reducers: {
+  //   setTheme(state, action){
+  //     state.theme = action.payload;
+  //   }
+  // },
   extraReducers: (builder) =>
     builder
-      .addCase(fetchTheme.pending, (state) => {
+      .addCase(changeTheme.pending, (state) => {
         state.error = false;
         state.loading = true;
       })
-      .addCase(fetchTheme.fulfilled, (state, action) => {
-        state.theme = action.payload;
+      .addCase(changeTheme.fulfilled, (state, action) => {
+        state.theme = action.payload.theme;
         state.loading = false;
       })
-      .addCase(fetchTheme.rejected, (state) => {
+      .addCase(changeTheme.rejected, (state) => {
         state.error = true;
         state.loading = false;
       }),
 });
 
-export const { changeTheme } = themeSlice.actions;
+export const { setTheme } = themeSlice.actions;
 
 export default themeSlice.reducer;
 
 // changeTheme(state, action) {
 //   state.theme = action.payload;
 // },
-

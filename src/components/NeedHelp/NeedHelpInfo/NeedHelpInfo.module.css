@@ -1,13 +1,12 @@
 .helpWrapper {
   height: 238px;
-  width: 197px;
+  width: 100%;
   border-radius: 8px;
   padding: 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  margin-left: 24px;
 }
 
 .helpWrapper.dark {
@@ -26,7 +25,7 @@
   font-family: "Poppins";
   font-size: 12px;
   font-weight: 400;
-  letter-spacing: 1.33;
+  line-height: 133%;
 }
 
 .helpText.dark {
@@ -75,9 +74,11 @@
   display: flex;
   gap: 8px;
   justify-content: center;
+  align-items: center;
   background-color: transparent;
   border: none;
   padding: 0px;
+  font-size: 12px;
   font-weight: 500;
 }
 .helpButton.dark {
@@ -93,10 +94,10 @@
 @media screen and (min-width: 768px) {
   .helpWrapper {
     padding: 20px;
-    width: 212px;
     height: 272px;
   }
   .helpText {
+    line-height: 143%;
     font-size: 14px;
   }
 }

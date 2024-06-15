@@ -1,33 +1,74 @@
-.text{
-    font-weight: 500;
-    font-size: 14px;
-    letter-spacing: -0.02em;
-    color: #fff;
-}
-.button{
-    width: 40px;
-    height: 36px;
-    padding: 0;
-    border: 0;
-    background-color:rgba(190, 219, 176, 1);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.text {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
 }
 
-.list{
-    width: 212px;
-    height: 70px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 8px;
-    margin-left: 24px;
-
+.text.dark,
+.text.violet {
+  color: #fff;
 }
-.icon{
-    stroke: rgba(18, 18, 18, 1);
+
+.text.light {
+  color: #161616;
+}
+
+.button {
+  width: 40px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button.dark,
+.button.light {
+  background-color: #bedbb0;
+}
+
+.button.violet {
+  background-color: #b8bcfd;
+}
+
+.button.dark:hover,
+.button.dark:focus,
+.button.light:hover,
+.button.light:focus {
+  background-color: #9dc888;
+}
+
+.button.violet:hover,
+.button.violet:focus {
+  background-color: #979cea;
+}
+
+.list {
+  width: 100%;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list.dark,
+.list.violet {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.list.light {
+  border-top: 1px solid rgba(22, 22, 22, 0.1);
+  border-bottom: 1px solid rgba(22, 22, 22, 0.1);
+}
+.icon.dark,
+.icon.light {
+  stroke: #121212;
+}
+
+.icon.violet {
+  stroke: #fff;
 }
