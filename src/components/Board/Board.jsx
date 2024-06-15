@@ -4,7 +4,7 @@ import css from './Board.module.css';
 import Icon from '../Icon/Icon';
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
-import EditBoard from '../EdiForm/EditBoard';
+import EditBoard from '../EditBoard/EditBoard';
 
 
 export const Board = ({ _id, title ,icon}) => {

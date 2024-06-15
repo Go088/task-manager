@@ -169,7 +169,6 @@ export default function EditBoard({ isOpen, onRequestClose, _id}) {
   const dispatch = useDispatch()
 
   const onSubmit = (data) => {
-    console.log({data})
     dispatch(editBoard({_id,data}))
     reset();
     onRequestClose();

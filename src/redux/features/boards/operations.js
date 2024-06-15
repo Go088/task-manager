@@ -46,9 +46,7 @@ export const editBoard = createAsyncThunk(
     'board/editBoard',
     async ({_id,data}, thunkAPI) => {
     try {
-    
         const response = await axios.put(`/editBoard/${_id}`,data);
-        console.log("resp",response.data);
         return response.data;
         
         } catch (e) {

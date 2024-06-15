@@ -64,7 +64,6 @@ extraReducers:(builder)=>{
     .addCase(editBoard.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        console.log(action.payload);
         const index = state.items.findIndex(
             (board) => board._id === action.payload._id
             );
