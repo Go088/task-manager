@@ -1,6 +1,12 @@
+import { Link } from "react-router-dom";
+import css from "../Welcome/Welcome.module.css";
+import { clsx } from "clsx";
+
 const NotFound = () => {
   return (
-    <div>
+    <div className={css.section}>
+      <div className={css.fix}>
+      <h3 className={css.titleNotFound}>Oops, something went wrong...</h3>
       <div className={css.avatar}>
         <img
           className={css.developerAvatar}
@@ -9,7 +15,15 @@ const NotFound = () => {
           alt="Developers Avatar"
         />
       </div>
-      <h2>Oops, something went wrong...</h2>
+
+      <div className={css.btnBox}>
+      <Link to="/auth/register" className={css.authLink}>
+          <button type="submit" className={clsx(css.button, css.buttonActive)}>
+            TRY AGAIN
+          </button>
+        </Link>
+      </div>
+      </div>
     </div>
   );
 };
