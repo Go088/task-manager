@@ -1,0 +1,106 @@
+.columnContainer {
+  flex: 0 0 355px;
+}
+
+.columnNameContainer {
+  width: 335px;
+  padding: 18px 20px 17px;
+  background-color: #121212;
+  border-radius: 8px;
+  display: flex;
+
+  margin-bottom: 14px;
+}
+.white.columnNameContainer {
+  background-color: #ffffff;
+}
+
+.columNameText {
+  color: #fff;
+
+  font-size: 14px;
+
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.02em;
+}
+.white.columNameText {
+  color: #161616;
+}
+
+.iconPensil {
+  stroke: rgba(255, 255, 255, 0.5);
+  fill: transparent;
+  transition: stroke 250ms linear;
+}
+.iconTrash {
+  stroke: rgba(255, 255, 255, 0.5);
+  fill: transparent;
+  transition: stroke 250ms linear;
+}
+.white.iconPensil {
+  stroke: rgba(22, 22, 22, 0.5);
+}
+.white.iconTrash {
+  stroke: rgba(22, 22, 22, 0.5);
+  fill: transparent;
+}
+.button {
+  line-height: 0;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline: transparent;
+}
+.iconWrapper {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+.cardContainer {
+  /* overflow-y: auto;
+  height: 478px; */
+  margin-bottom: 14px;
+}
+.cardWraper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+.scrolBar {
+  height: 478px;
+}
+@media screen and (min-width: 768px) {
+  .columnContainer {
+    flex: 0 0 335px;
+  }
+  .columnNameContainer {
+    width: 334px;
+  }
+  .scrolBar {
+    height: 638px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .scrolBar {
+    height: 478px;
+  }
+  .button:hover .iconPensil,
+  .button:focus .iconPensil {
+    stroke: #bedbb0;
+  }
+  .button:hover .iconTrash,
+  .button:focus .iconTrash {
+    stroke: #bedbb0;
+  }
+  /* ======================================= */
+  .button:hover .violet.iconPensil,
+  .button:focus .violet.iconPensil {
+    stroke: #5255bc;
+  }
+  .button:hover .violet.iconTrash,
+  .button:focus .violet.iconTrash {
+    stroke: #5255bc;
+  }
+}

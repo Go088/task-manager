@@ -140,5 +140,10 @@
         stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.8"
         d="M3.2 3.2l12.8 12.8-12.8 12.8"></path>
     </symbol>
+    <symbol id="icon-arrow-circle-broken-right" viewBox="0 0 32 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M4.45 9.334c2.305-3.985 6.614-6.667 11.55-6.667 7.364 0 13.333 5.97 13.333 13.333s-5.97 13.333-13.333 13.333c-4.935 0-9.244-2.681-11.55-6.667"></path>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M16 21.334l5.333-5.333-5.333-5.333"></path>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M2.667 16h18.667"></path>
+    </symbol>
   </defs>
 </svg>

@@ -7,7 +7,7 @@ import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
 import { useDispatch } from 'react-redux';
-import css from "./Editform.module.css"
+import css from "./EditBoard.module.css"
 import { editBoard } from "../../redux/features/boards/operations";
 
 
@@ -147,7 +147,7 @@ const schema = yup.object().shape({
     .trim(),
 });
 
-export default function EditForm({ isOpen, onRequestClose, _id}) {
+export default function EditBoard({ isOpen, onRequestClose, _id}) {
   const themeType = "dark";
   const iconFieldId = useId();
   const backgroundFieldId = useId();
@@ -162,14 +162,14 @@ export default function EditForm({ isOpen, onRequestClose, _id}) {
 
     defaultValues: {
       title: "",
-      icons: "project",
+      icon: "project",
       background: "default",
     },
   });
   const dispatch = useDispatch()
 
   const onSubmit = (data) => {
-    dispatch(editBoard(_id,data))
+    dispatch(editBoard({_id,data}))
     reset();
     onRequestClose();
   };
@@ -207,7 +207,7 @@ export default function EditForm({ isOpen, onRequestClose, _id}) {
               <input
                 className={clsx(css.radioIcon, css.visuallyHidden)}
                 id={`${iconFieldId}${icons.indexOf(icon)}`}
-                {...register("icons", { required: true })}
+                {...register("icon", { required: true })}
                 type="radio"
                 value={icon.value}
               />

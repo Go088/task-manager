@@ -1,0 +1,43 @@
+.textWrapper {
+  width: 100%;
+  padding-top: 218px;
+  padding-bottom: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+.light .text {
+  color: rgba(22, 22, 22, 0.7);
+}
+.violet .text {
+  color: rgba(22, 22, 22, 0.7);
+}
+.textSpan {
+  color: #bedbb0;
+}
+.violet .textSpan {
+  color: #5255bc;
+}
+@media screen and (min-width: 768px) {
+  .text {
+    font-size: 14px;
+    line-height: 1.29;
+  }
+  .textWrapper {
+    padding-top: 328px;
+    padding-bottom: 476px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .textWrapper {
+    padding-top: 237px;
+    padding-bottom: 349px;
+  }
+}
