@@ -1,22 +1,35 @@
-.logOutText{
-
-font-weight: 500;
-font-size: 16px;
-color: #fff;
-width: 105px;
-height: 32px;
-background-color: rgba(18, 18, 18, 1);
-
-display: flex;
-align-items: center;
-gap: 11px;
-padding: 0;
-border: 0;
-margin-top: 24px;
-margin-left: 24px;
-margin-bottom: auto;
+.logOutText {
+  font-weight: 500;
+  font-size: 14px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0;
+  border: 0;
+  margin-top: 24px;
 }
-.logo{
-    stroke: rgba(190, 219, 176, 1);
-    fill: transparent;
+
+.logOutText.dark,
+.logOutText.violet {
+  color: #fff;
+}
+
+.logOutText.light {
+  color: #161616;
+}
+
+.logo.dark,
+.logo.light {
+  stroke: #bedbb0;
+}
+
+.logo.violet {
+  stroke: #fff;
+}
+
+@media (min-width: 1440px) {
+  .logOutText {
+    font-size: 16px;
+  }
 }

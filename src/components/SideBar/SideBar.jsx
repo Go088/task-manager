@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import ButtonCreate from "../Button Create/ButtonCreate";
 import LogOut from "../LogOut/LogOut";
 import css from "./SideBar.module.css";
@@ -10,29 +11,38 @@ import { useEffect, useState } from "react";
 import { NeedHelpModal } from "../NeedHelp/NeedHelpModal/NeedHelpModal";
 
 export default function SideBar() {
+  const themeType = "dark";
   const dispatch = useDispatch();
   const [needHelpOpenModal, setNeedHelpOpenModal] = useState(false);
   useEffect(() => {
     dispatch(fetchBoard());
   }, [dispatch]);
   return (
-    <div className={css.list}>
-      <div className={css.Logolist}>
-        <div className={css.LogoContainer}>
-          <Icon id="icon-logo" width="12" height="16" className={css.LogoSVG} />
+    <div className={clsx(css.list, css[themeType])}>
+      <div>
+        <div className={clsx(css.Logolist, css[themeType])}>
+          <div className={css.LogoContainer}>
+            <Icon
+              id="icon-logo"
+              width="12"
+              height="16"
+              className={clsx(css.LogoSVG, css[themeType])}
+            />
+          </div>
+          <h1 className={clsx(css.textLogo, css[themeType])}>Task Pro</h1>
         </div>
-        <h1 className={css.textLogo}>Task Pro</h1>
+        <p className={clsx(css.listItem, css[themeType])}>My boards</p>
+        <ButtonCreate />
+        <BoardList />
       </div>
-      <p className={css.listItem}>My boards</p>
-
-      <ButtonCreate />
-      <BoardList />
-      <NeedHelpInfo setNeedHelpOpenModal={setNeedHelpOpenModal} />
+      <div>
+        <NeedHelpInfo setNeedHelpOpenModal={setNeedHelpOpenModal} />
+        <LogOut />
+      </div>
       <NeedHelpModal
         isOpen={needHelpOpenModal}
         setNeedHelpOpenModal={setNeedHelpOpenModal}
       />
-      <LogOut />
     </div>
   );
 }

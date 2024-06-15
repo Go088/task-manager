@@ -1,41 +1,101 @@
-.list{
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+  width: 225px;
+  max-height: 812px;
+  padding-top: 14px;
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-bottom: 24px;
+}
+
+.list.dark {
+  background-color: #121212;
+}
+
+.list.light {
+  background-color: #fff;
+}
+
+.list.violet {
+  background-color: #5255bc;
+}
+.listItem {
+  margin-top: 70px;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.listItem.dark,
+.listItem.violet {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.listItem.light {
+  color: rgba(22, 22, 22, 0.5);
+}
+.textLogo {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+
+.textLogo.dark,
+.textLogo.violet {
+  color: #fff;
+}
+.textLogo.light {
+  color: #161616;
+}
+
+.Logolist {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.LogoSVG.dark,
+.LogoSVG.light {
+  fill: #fff;
+}
+.LogoSVG.violet {
+  fill: #5255bc;
+}
+.LogoContainer {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.LogoConteiner.dark,
+.LogoConteiner.light {
+  background-color: #1f1f1f;
+}
+
+.LogoContainer.violet {
+  background-color: #ecedfd;
+}
+
+@media screen and (min-width: 768px) {
+  .list {
     width: 260px;
-    min-height:770px;
-    background-color: rgba(18, 18, 18, 1);
-    padding-top: 24px;
-    padding-bottom: 24px;
-}
-.listItem{
-    font-weight: 400;
-    font-size: 12px;
-    letter-spacing: -0.02em;
-    color: rgba(255, 255, 255, 0.5);
-    margin-left: 24px;
+    max-height: 1024px;
+    padding: 24px;
+  }
+  .listItem {
     margin-top: 60px;
+  }
+}
 
-}
-.textLogo{
-    font-weight: 600;
-    font-size: 16px;
-    letter-spacing: -0.04em;
-    color: #fff;
-}
-.Logolist{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-left: 24px;
-
-}
-.LogoSVG{
-    fill: #fff;
-}
-.LogoContainer{
-    width: 32px ;
-    height: 32px; 
-    background-color:rgba(31, 31, 31, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
+@media (min-width: 1440px) {
+  .list {
+    max-height: 770px;
+  }
 }
