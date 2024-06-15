@@ -22,17 +22,10 @@ import themeReducer from "./features/theme/themeSlice.js";
 const authPersistConfig = {
   key: "authSlice",
   storage,
-  whitelist: ["token", "theme"],
-};
-
-const themePersistConfig = {
-  key: "theme",
-  storage,
-  whitelist: ["theme"],
+  whitelist: ["token"],
 };
 
 const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
-const persistedThemeReducer = persistReducer(themePersistConfig, themeReducer);
 
 const rootReducer = combineReducers({
   auth: persistedAuthReducer,
@@ -41,7 +34,7 @@ const rootReducer = combineReducers({
   // createBoardModal: createBoardModalReducer,
   // createCardModal: createCardModalReducer,
   // createColumnModal: createColumnModalReducer,
-  theme: persistedThemeReducer,
+  theme: themeReducer,
   // userProfile: userProfileReducer,
 });
 
@@ -58,5 +51,3 @@ const store = configureStore({
 const persistor = persistStore(store);
 
 export { store, persistor };
-
-export const selectTheme = (state) => state.auth.theme;

@@ -1,5 +1,5 @@
 export const ThemeTypes = {
     DARK: "dark",
-    LIGTH: "light",
+    LIGHT: "light",
     VIOLET: "violet",
 }

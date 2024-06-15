@@ -8,9 +8,11 @@ export const changeTheme = createAsyncThunk(
   "theme/changeTheme",
   async (newTheme, thunkAPI) => {
     try {
-      const response = await axios.patch("/users/theme", {theme: newTheme});
+     const response = await axios.patch("/users/theme", {theme: newTheme});
+     const data = response.data;
       toast.success(`Theme changed to ${newTheme}`)
-      return response.data;
+      console.log(newTheme, data);
+      return { theme: response.data.theme };
     } catch (error) {
         toast.error('Failed to change theme')
         return thunkAPI.rejectWithValue(error.message)
