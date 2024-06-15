@@ -18,31 +18,33 @@ export default function SideBar() {
     dispatch(fetchBoard());
   }, [dispatch]);
   return (
-    <div className={clsx(css.list, css[themeType])}>
-      <div>
-        <div className={clsx(css.Logolist, css[themeType])}>
-          <div className={css.LogoContainer}>
-            <Icon
-              id="icon-logo"
-              width="12"
-              height="16"
-              className={clsx(css.LogoSVG, css[themeType])}
-            />
+    <div className={clsx(css.backdrop, css.isOpen)}>
+      <div className={clsx(css.list, css.isOpen, css[themeType])}>
+        <div>
+          <div className={clsx(css.Logolist, css[themeType])}>
+            <div className={css.LogoContainer}>
+              <Icon
+                id="icon-logo"
+                width="12"
+                height="16"
+                className={clsx(css.LogoSVG, css[themeType])}
+              />
+            </div>
+            <h1 className={clsx(css.textLogo, css[themeType])}>Task Pro</h1>
           </div>
-          <h1 className={clsx(css.textLogo, css[themeType])}>Task Pro</h1>
+          <p className={clsx(css.listItem, css[themeType])}>My boards</p>
+          <ButtonCreate />
+          <BoardList />
         </div>
-        <p className={clsx(css.listItem, css[themeType])}>My boards</p>
-        <ButtonCreate />
-        <BoardList />
+        <div>
+          <NeedHelpInfo setNeedHelpOpenModal={setNeedHelpOpenModal} />
+          <LogOut />
+        </div>
+        <NeedHelpModal
+          isOpen={needHelpOpenModal}
+          setNeedHelpOpenModal={setNeedHelpOpenModal}
+        />
       </div>
-      <div>
-        <NeedHelpInfo setNeedHelpOpenModal={setNeedHelpOpenModal} />
-        <LogOut />
-      </div>
-      <NeedHelpModal
-        isOpen={needHelpOpenModal}
-        setNeedHelpOpenModal={setNeedHelpOpenModal}
-      />
     </div>
   );
 }

@@ -77,6 +77,18 @@
   border: none;
 }
 
+.closeButton.dark:hover .helpModalIcon,
+.closeButton.light:hover .helpModalIcon,
+.closeButton.dark:focus .helpModalIcon,
+.closeButton.light:focus .helpModalIcon {
+  stroke: #bedbb0;
+}
+
+.closeButton.violet:hover .helpModalIcon,
+.closeButton.violet:focus .helpModalIcon {
+  stroke: #5255bc;
+}
+
 .helpModalIcon.dark {
   stroke: #fff;
 }

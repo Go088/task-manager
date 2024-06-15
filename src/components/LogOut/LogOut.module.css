@@ -19,6 +19,18 @@
   color: #161616;
 }
 
+.logOutText.dark:hover .logo,
+.logOutText.dark:focus .logo,
+.logOutText.light:hover .logo,
+.logOutText.light:focus .logo {
+  stroke: #9dc888;
+}
+
+.logOutText.violet:hover .logo,
+.logOutText.violet:focus .logo {
+  stroke: #b8bcfd;
+}
+
 .logo.dark,
 .logo.light {
   stroke: #bedbb0;

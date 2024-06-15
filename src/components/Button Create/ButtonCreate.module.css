@@ -33,6 +33,18 @@
   background-color: #b8bcfd;
 }
 
+.button.dark:hover,
+.button.dark:focus,
+.button.light:hover,
+.button.light:focus {
+  background-color: #9dc888;
+}
+
+.button.violet:hover,
+.button.violet:focus {
+  background-color: #979cea;
+}
+
 .list {
   width: 100%;
   padding-top: 14px;
