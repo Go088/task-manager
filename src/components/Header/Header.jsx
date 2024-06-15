@@ -2,7 +2,8 @@ import css from "./Header.module.css";
 import layout from "../Layout/Layout.module.css";
 import clsx from "clsx";
 import Icon from "../Icon/Icon";
-export const Header = () => {
+
+const Header = () => {
   const themeType = "dark";
   return (
     <div
@@ -42,3 +43,5 @@ export const Header = () => {
     </div>
   );
 };
+
+export default Header;
