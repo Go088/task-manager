@@ -7,22 +7,31 @@ export const Board = ({ id, title, icons }) => {
   const dispatch = useDispatch();
   const handleDelete = () => dispatch(deleteBoard(id));
   const handlEdit = () => dispatch(deleteBoard(id));
-  const titleSVG = `icon-${icons.trim()}`;
+  //const titleSVG = `icon-${icons.trim()}`;
+
+  const themeType = "dark";
 
   return (
-    <div className={css.wrapper}>
-      <Icon id={titleSVG} width="18" height="18" className={css.titleSVG} />
-      <h2 className={clsx(css.text)}>{title}</h2>
+    <div className={clsx(css.wrapper, css[themeType], css.isActive)}>
+      <div className={css.infoWrapper}>
+        <Icon
+          id={`icon-${icons}`}
+          width="18"
+          height="18"
+          className={css.titleSVG}
+        />
+        <h2 className={clsx(css.text, css[themeType])}>{title}</h2>
+      </div>
       <div className={css.btnList}>
         <button type="button" className={css.button} onClick={handleDelete}>
           <Icon
             id="icon-pencil"
             width="16"
             height="16"
-            className={css.LogoSVG}
+            className={clsx(css.LogoSVG)}
           />
         </button>
-        <button type="button" className={css.button} onClick={handlEdit}>
+        <button type="button" className={clsx(css.button)} onClick={handlEdit}>
           <Icon
             id="icon-trash"
             width="16"
@@ -30,6 +39,7 @@ export const Board = ({ id, title, icons }) => {
             className={css.LogoSVG}
           />
         </button>
+        <div className={clsx(css.boxModel, css[themeType], css.isActive)}></div>
       </div>
     </div>
   );
