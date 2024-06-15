@@ -19,9 +19,15 @@ export const registerUser = createAsyncThunk(
     try {
       const response = await axios.post("/users/register", newUser);
       setAuthHeader(response.data.token);
-      toast.success(`${response.data.name}, your account successfully created!`);
+      toast.success(
+        `${response.data.name}, your account successfully created!`
+      );
       // return { ...response.data, theme: ThemeTypes.DARK };
-      return { user: response.data.user, theme: ThemeTypes.DARK };
+      return {
+        user: response.data.user,
+        token: response.data.token,
+        theme: ThemeTypes.DARK,
+      };
     } catch (error) {
       toast.error("Oops! Something went wrong. Please try again");
       return thunAPI.rejectWithValue(error.message);
@@ -37,7 +43,11 @@ export const logIn = createAsyncThunk(
       setAuthHeader(response.data.token);
       toast.success(`Your account successfully logged in!`);
       // return response.data;
-      return { user: response.data.user, token: response.data.token, theme: response.data.theme }
+      return {
+        user: response.data.user,
+        token: response.data.token,
+        theme: response.data.theme,
+      };
     } catch (error) {
       toast.error("Oops! Something went wrong. Please try again");
       return thunkAPI.rejectWithValue(error.message);

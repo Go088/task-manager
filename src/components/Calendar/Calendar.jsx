@@ -5,13 +5,13 @@ import "./datepicker-overrides.css";
 import css from "./Calendar.module.css";
 import Icon from "../Icon/Icon";
 
-const Calendar = ({setSelectedDateq}) => {
+const Calendar = ({onDateChange}) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
-    setSelectedDateq(date);
+    onDateChange(date);
     setIsCalendarOpen(false);
   };
 
@@ -30,8 +30,6 @@ const Calendar = ({setSelectedDateq}) => {
     month: "long",
     day: "numeric",
   });
-  console.log(selectedDate ? formatDate(selectedDate) : today.getTime());
-  // setSelectedDateq(selectedDate ? formatDate(selectedDate) : today.getTime());
   return (
     <div className={css.wrap}>
       <div className={css.wrapPicker}>

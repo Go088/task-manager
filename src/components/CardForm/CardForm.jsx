@@ -42,7 +42,11 @@ const schema = yup.object().shape({
 });
 
 export default function CardForm({ isOpen, onRequestClose }) {
-  const [selectedDate, setSelectedDate] = useState(null);
+const [deadline, setDeadline] = useState(null);
+
+  const handleDateChange = (date) => {
+    setDeadline(date)
+  };
 
   const themeType = "dark";
   const labelFieldId = useId();
@@ -60,7 +64,7 @@ export default function CardForm({ isOpen, onRequestClose }) {
       title: "",
       description: "",
       priority: "low",
-      deadline: selectedDate,
+      deadline,
     },
   });
   // const dispatch = useDispatch()
@@ -136,7 +140,7 @@ export default function CardForm({ isOpen, onRequestClose }) {
           ))}
         </ul>
         <p className={clsx(css.subtitle, css[themeType])}>Deadline</p>
-        <Calendar setSelectedDateq={setSelectedDate} />
+        <Calendar onDateChange={handleDateChange} />
         <button className={clsx(css.btn, css[themeType])} type="submit">
           <div className={clsx(css.btnWrapIcon, css[themeType])}>
             <Icon
