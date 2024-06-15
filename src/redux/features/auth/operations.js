@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { ThemeTypes } from "../../../themeConstants";
 
 axios.defaults.baseURL = "https://task-manager-r8dz.onrender.com/api";
 
@@ -19,7 +20,8 @@ export const registerUser = createAsyncThunk(
       const response = await axios.post("/users/register", newUser);
       setAuthHeader(response.data.token);
       toast.success(`${response.data.name}, your account successfully created!`);
-      return response.data;
+      // return { ...response.data, theme: ThemeTypes.DARK };
+      return { user: response.data.user, theme: ThemeTypes.DARK };
     } catch (error) {
       toast.error("Oops! Something went wrong. Please try again");
       return thunAPI.rejectWithValue(error.message);
@@ -34,7 +36,8 @@ export const logIn = createAsyncThunk(
       const response = await axios.post("/users/login", userData);
       setAuthHeader(response.data.token);
       toast.success(`Your account successfully logged in!`);
-      return response.data;
+      // return response.data;
+      return { user: response.data.user, token: response.data.token, theme: response.data.theme }
     } catch (error) {
       toast.error("Oops! Something went wrong. Please try again");
       return thunkAPI.rejectWithValue(error.message);
@@ -65,6 +68,7 @@ export const refreshUser = createAsyncThunk(
     const response = await axios.get("/users/info");
     console.log(response.data);
     return response.data;
+    // return { user: response.data.user, theme: response.data.theme }; - пропонується
   },
   {
     condition: (_, { getState }) => {
