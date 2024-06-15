@@ -30,6 +30,3 @@
 
 // export default themeSlice.reducer;
 
-// // changeTheme(state, action) {
-// //   state.theme = action.payload;
-// // },
