@@ -17,7 +17,7 @@ const Column = ({ theme, column }) => {
         <div className={css.iconWrapper}>
           <button type="button" className={css.button}>
             <Icon
-              className={clsx(css.iconPensil, css[whiteTheme])}
+              className={clsx(css.iconPensil, css[whiteTheme], css[theme])}
               width="16px"
               height="16px"
               id="icon-pencil"
@@ -25,7 +25,7 @@ const Column = ({ theme, column }) => {
           </button>
           <button type="button" className={css.button}>
             <Icon
-              className={clsx(css.iconTrash, css[whiteTheme])}
+              className={clsx(css.iconTrash, css[whiteTheme], css[theme])}
               width="16px"
               height="16px"
               id="icon-trash"
@@ -34,7 +34,11 @@ const Column = ({ theme, column }) => {
         </div>
       </div>
       <div className={clsx(css.cardContainer, "secondScrol")}>
-        <CustomScrollBar className={css.scrolBar} theme={theme}>
+        <CustomScrollBar
+          className={css.scrolBar}
+          theme={theme}
+          isVisibal={false}
+        >
           <div className={css.cardWraper}>
             <Card theme={theme} />
             <Card theme={theme} />

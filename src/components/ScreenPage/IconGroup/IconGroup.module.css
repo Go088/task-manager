@@ -10,10 +10,12 @@
   line-height: 0;
   border: none;
   cursor: pointer;
+  outline: transparent;
 }
 .icon {
   stroke: rgba(255, 255, 255, 0.5);
   fill: transparent;
+  transition: stroke 250ms linear;
 }
 .white.icon {
   stroke: rgba(22, 22, 22, 0.5);
@@ -22,6 +24,7 @@
 .iconBell {
   stroke: rgba(190, 219, 176, 1);
   fill: none;
+  filter: drop-shadow(2px 2px 5px rgba(190, 219, 176, 0.5));
 }
 .violet.iconBell {
   stroke: rgba(82, 85, 188, 1);
@@ -32,8 +35,19 @@
 }
 .buttonBell {
   background-color: transparent;
+  border: transparent;
   padding: 0;
   line-height: 0;
   border: none;
   padding-right: 5px;
+}
+@media screen and (min-width: 1440px) {
+  .button:hover .icon,
+  .button:focus .icon {
+    stroke: #bedbb0;
+  }
+  .button:hover .violet.icon,
+  .button:focus .violet.icon {
+    stroke: #5255bc;
+  }
 }

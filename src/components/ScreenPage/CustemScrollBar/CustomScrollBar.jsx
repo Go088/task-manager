@@ -3,9 +3,9 @@ import "overlayscrollbars/overlayscrollbars.css";
 import "./CustomScrollBar.css";
 import clsx from "clsx";
 
-const CustomScrollBar = ({ children, className, theme }) => {
+const CustomScrollBar = ({ children, className, theme, isVisibal }) => {
   return (
-    <div className={clsx(theme + "secondScrol")}>
+    <div className={clsx(theme + "secondScrol", !isVisibal && "isHiden")}>
       <OverlayScrollbarsComponent
         options={{ scrollbars: { autoHide: "scroll" } }}
         className={className}

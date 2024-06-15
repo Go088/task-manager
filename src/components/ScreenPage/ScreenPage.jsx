@@ -38,7 +38,7 @@ const ScreanPage = ({ id = "666c45b30031e4827c3c972e" }) => {
         <FilterButton theme={theme} />
       </div>
       {isBoard ? (
-        <div className={clsx(theme + "firstScrol")}>
+        <div className={clsx(theme + "firstScrol", css.firstS)}>
           <SimpleBar autoHide={false}>
             <div className={css.columnWrapper}>
               {isColumns &&

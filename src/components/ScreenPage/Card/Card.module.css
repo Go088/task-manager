@@ -35,7 +35,7 @@
   font-weight: 600;
   line-height: normal;
   letter-spacing: -0.02em;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 .white.title {
   color: rgba(22, 22, 22, 1);
@@ -53,8 +53,16 @@
   line-height: 1.34;
   letter-spacing: -0.02em;
   /* ======================================================== */
-  padding-bottom: 3px;
+  padding-top: 3px;
   margin-bottom: 14px;
+}
+.limit {
+  height: 34px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 .white.text {
   color: rgba(22, 22, 22, 0.7);

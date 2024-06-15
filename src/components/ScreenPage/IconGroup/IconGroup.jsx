@@ -7,19 +7,19 @@ const IconGroup = ({ theme }) => {
   return (
     <ul className={css.iconList}>
       <li className={css.li}>
-        <button className={css.buttonBell}>
-          <Icon
-            className={clsx(css.iconBell, css[theme], css[whiteTheme])}
-            width="16px"
-            height="16px"
-            id="icon-bell"
-          />
-        </button>
+        {/* <button className={css.buttonBell}> */}
+        <Icon
+          className={clsx(css.iconBell, css[theme], css[whiteTheme])}
+          width="16px"
+          height="16px"
+          id="icon-bell"
+        />
+        {/* </button> */}
       </li>
       <li className={css.li}>
         <button className={css.button}>
           <Icon
-            className={clsx(css.icon, css[whiteTheme])}
+            className={clsx(css.icon, css[whiteTheme], css[theme])}
             width="16px"
             height="16px"
             id="icon-arrow-circle-broken-right"
@@ -29,7 +29,7 @@ const IconGroup = ({ theme }) => {
       <li className={css.li}>
         <button className={css.button}>
           <Icon
-            className={clsx(css.icon, css[whiteTheme])}
+            className={clsx(css.icon, css[whiteTheme], css[theme])}
             width="16px"
             height="16px"
             id="icon-pencil"
@@ -39,7 +39,7 @@ const IconGroup = ({ theme }) => {
       <li className={css.li}>
         <button className={css.button}>
           <Icon
-            className={clsx(css.icon, css[whiteTheme])}
+            className={clsx(css.icon, css[whiteTheme], css[theme])}
             width="16px"
             height="16px"
             id="icon-trash"

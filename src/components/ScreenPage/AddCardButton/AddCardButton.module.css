@@ -15,6 +15,8 @@
   font-weight: 500;
   letter-spacing: -0.02em;
   width: 335px;
+  outline: transparent;
+  transition: background-color 250ms linear;
 }
 .violet.button {
   background-color: #5255bc;
@@ -40,5 +42,13 @@
     width: 334px;
   }
 }
-/* @media screen and (min-width: 1440px) {
-} */
+@media screen and (min-width: 1440px) {
+  .button:hover,
+  .button:focus {
+    background-color: #9dc888;
+  }
+  .violet.button:hover,
+  .violet.button:focus {
+    background-color: #7b7ede;
+  }
+}

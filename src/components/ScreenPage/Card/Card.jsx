@@ -11,9 +11,9 @@ const Card = ({ theme }) => {
         <div className={clsx(css.line, css[whiteTheme])}></div>
         <div className={css.cardWrapper}>
           <h4 className={clsx(css.title, css[whiteTheme])}>cardName</h4>
-          <p className={clsx(css.text, css[whiteTheme])}>
+          <p className={clsx(css.text, css[whiteTheme], css.limit)}>
             Create a visually stunning and eye-catching watch dial design that
-            embodies our brand...
+            embodies odscsdcdsc rtdggg grreg rgreg ergeg ur brand...
           </p>
           <div className={clsx(css.innerLine, css[whiteTheme])}></div>
           <div className={css.bottomCardWrapper}>
