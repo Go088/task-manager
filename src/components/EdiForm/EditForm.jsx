@@ -1,5 +1,4 @@
 import { useId } from "react";
-import css from "./BoardForm.module.css";
 import clsx from "clsx";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -8,7 +7,9 @@ import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
 import { useDispatch } from 'react-redux';
-import { addBoard } from "../../redux/features/boards/operations";
+import css from "./Editform.module.css"
+import { editBoard } from "../../redux/features/boards/operations";
+
 
 const icons = [
   {
@@ -146,7 +147,7 @@ const schema = yup.object().shape({
     .trim(),
 });
 
-export default function BoardForm({ isOpen, onRequestClose }) {
+export default function EditForm({ isOpen, onRequestClose, _id}) {
   const themeType = "dark";
   const iconFieldId = useId();
   const backgroundFieldId = useId();
@@ -161,14 +162,14 @@ export default function BoardForm({ isOpen, onRequestClose }) {
 
     defaultValues: {
       title: "",
-      icon: "project",
+      icons: "project",
       background: "default",
     },
   });
   const dispatch = useDispatch()
 
   const onSubmit = (data) => {
-    dispatch(addBoard(data))
+    dispatch(editBoard(_id,data))
     reset();
     onRequestClose();
   };
@@ -179,13 +180,13 @@ export default function BoardForm({ isOpen, onRequestClose }) {
       onRequestClose={onRequestClose}
       className={css.Modal}
       overlayClassName={css.Overlay}
-      contentLabel="Modal window for create a new board"
+      contentLabel="Modal window for edit board"
     >
       <form
         className={clsx(css.form, css[themeType])}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h3 className={clsx(css.title, css[themeType])}> New board</h3>
+        <h3 className={clsx(css.title, css[themeType])}>Edit board</h3>
         <h4 className={css.visuallyHidden}>Title</h4>
         <input
           className={clsx(css.input, css[themeType])}
@@ -282,7 +283,7 @@ export default function BoardForm({ isOpen, onRequestClose }) {
               id={"icon-plus_card_modal"}
             />
           </div>
-          <span> Create</span>
+          <span> Edit</span>
         </button>
       </form>
       <button
