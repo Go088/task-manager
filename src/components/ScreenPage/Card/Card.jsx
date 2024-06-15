@@ -7,7 +7,7 @@ const Card = ({ theme, card }) => {
   return (
     <div className={css.test}>
       <div className={clsx(css.cardContainer, css[whiteTheme])}>
-        <div className={clsx(css.line, css[whiteTheme])}></div>
+        <div className={clsx(css.line, css[card.priority])}></div>
         <div className={css.cardWrapper}>
           <h4 className={clsx(css.title, css[whiteTheme])}>{card?.title}</h4>
           <p className={clsx(css.text, css[whiteTheme], css.limit)}>
@@ -19,7 +19,9 @@ const Card = ({ theme, card }) => {
               <div className={css.priorityWrapper}>
                 <p className={clsx(css.priority, css[whiteTheme])}>Priority</p>
                 <div className={css.innerPriorityWrapper}>
-                  <span className={css.circle}></span>
+                  <span
+                    className={clsx(css.circle, css[card?.priority])}
+                  ></span>
                   <p className={clsx(css.priorityType, css[whiteTheme])}>
                     {card.priority}
                   </p>

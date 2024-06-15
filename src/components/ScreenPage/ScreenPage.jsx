@@ -33,15 +33,13 @@ const ScreanPage = ({ id = "666c45b30031e4827c3c972e" }) => {
 
   const allCards = useSelector(selectAllCards);
   useEffect(() => {
-    console.log(board);
-    console.log(allCards);
+    // console.log(board);
+    // console.log(allCards);
   }, [allCards, board]);
 
   const isBoard = board._id ? true : false;
   const isColumns = board.columns?.length > 0;
-  // console.log(board);
-  // const the = useSelector(selectUserr);
-  // console.log(the);
+
   return (
     <div className={clsx(css.screenContainer, css[theme])}>
       <div className={css.titleFilterWrapper}>
@@ -52,7 +50,7 @@ const ScreanPage = ({ id = "666c45b30031e4827c3c972e" }) => {
       </div>
       {isBoard ? (
         <div className={clsx(theme + "firstScrol", css.firstS)}>
-          <SimpleBar autoHide={false}>
+          <SimpleBar autoHide={false} forceVisible="x">
             <div className={css.columnWrapper}>
               {isColumns &&
                 board.columns.map((column) => {
