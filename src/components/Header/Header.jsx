@@ -2,8 +2,39 @@ import css from "./Header.module.css";
 import layout from "../Layout/Layout.module.css";
 import clsx from "clsx";
 import Icon from "../Icon/Icon";
-export const Header = () => {
-  const themeType = "dark";
+import { ThemeTypes } from "../../themeConstants";
+import { useDispatch, useSelector } from "react-redux";
+import { selectTheme } from "../../redux/features/auth/selectors";
+import { changeTheme } from "../../redux/features/theme/operations";
+import { useEffect, useState } from "react";
+
+const Header = () => {
+  const actualTheme = useSelector(selectTheme);
+  const dispatch = useDispatch();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+ 
+  const ThemeOptions = [
+    { label: "Light", value: ThemeTypes.LIGHT },
+    { label: "Violet", value: ThemeTypes.VIOLET },
+    { label: "Dark", value: ThemeTypes.DARK },
+  ];
+
+  const themeType = actualTheme;
+
+  const handleThemeChange = (theme) => {
+    console.log("Changing theme to:", theme);
+    dispatch(changeTheme(theme));
+  };
+
+  const toggleDropdown = () => {
+    console.log("open dropDown");
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  useEffect(() => {
+    console.log("Theme updated to:", actualTheme);
+  }, [actualTheme]);
+
   return (
     <div
       className={clsx(layout.container, css.headerContainer, css[themeType])}
@@ -15,7 +46,7 @@ export const Header = () => {
         height="24"
       />
       <div className={css.infoWrapper}>
-        <div className={css.themeWrapper}>
+        <div className={css.themeWrapper} onClick={toggleDropdown}>
           <p className={clsx(css.selectTitle, css[themeType])}>Theme</p>
           <Icon
             className={clsx(css.selectThemeIcon, css[themeType])}
@@ -23,13 +54,25 @@ export const Header = () => {
             width="16"
             height="16"
           />
-          <ul className={clsx(css.themeList, css.isOpen, css[themeType])}>
-            <li className={clsx(css.themeListItem, css[themeType], css.active)}>
-              Light
-            </li>
-            <li className={clsx(css.themeListItem, css[themeType])}>Dark</li>
-            <li className={clsx(css.themeListItem, css[themeType])}>Violet</li>
-          </ul>
+          {isDropdownOpen && (
+            <ul className={clsx(css.themeList, css.isOpen, css[themeType])}>
+              {ThemeOptions.map((option) => (
+                <li
+                  key={option.value}
+                  className={clsx(css.themeListItem, css[actualTheme], {
+                    [css.active]: option.value === actualTheme,
+                  })}
+                  onClick={() => {
+                    console.log("Option clicked:", option.value);
+                    setIsDropdownOpen(false)
+                    handleThemeChange(option.value);
+                  }}
+                >
+                  {option.label}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
         <div className={css.userWrapper}>
@@ -42,3 +85,5 @@ export const Header = () => {
     </div>
   );
 };
+
+export default Header;

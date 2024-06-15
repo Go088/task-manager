@@ -15,7 +15,7 @@ const validationSchema = Yup.object().shape({
   message: Yup.string().min(3, "Too short!").trim().required("Required"),
 });
 
-export const NeedHelpModal = ({isOpen,onClick}) => {
+export const NeedHelpModal = ({ isOpen, setNeedHelpOpenModal }) => {
   const themeType = "dark";
   const dispatch = useDispatch();
   const {
@@ -31,65 +31,71 @@ export const NeedHelpModal = ({isOpen,onClick}) => {
     resolver: yupResolver(validationSchema),
   });
   const onSubmit = (data) => {
-    onClick
+    setNeedHelpOpenModal(false);
     console.log(data);
     dispatch(helpComment(data));
     reset();
   };
   return (
-    <div className={clsx(css.helpModal, css.isOpen, css[themeType])}>
-      <h2 className={clsx(css.helpModalTitle, css[themeType])}>Need help</h2>
-
-      <Icon
-        id="icon-x-close_modal"
-        className={clsx(css.helpModalIcon, css[themeType])}
-        width="18"
-        height="18"
-      />
-
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <div className={css.wrapper}>
-            <input
-              className={clsx(
-                css.helpFormInput,
-                errors.email && css.helpFormInputError,
-                css[themeType]
-              )}
-              {...register("email")}
-              type="email"
-              placeholder="Email address"
-            />
-            {errors.email && (
-              <p className={clsx(css.error, css[themeType])} role="alert">
-                {errors.email.message}
-              </p>
-            )}
-          </div>
-          <div className={css.wrapper}>
-            <textarea
-              className={clsx(css.helpFormTextarea, css[themeType])}
-              {...register("message")}
-              type="text"
-              placeholder="Comment"
-            />
-            {errors.message && (
-              <p
-                className={clsx(css.errorTextarea, css[themeType])}
-                role="alert"
-              >
-                {errors.message.message}
-              </p>
-            )}
-          </div>
-        </div>
+    <div className={clsx(css.backdrop, isOpen && css.isOpen)}>
+      <div className={clsx(css.helpModal, css[themeType])}>
+        <h2 className={clsx(css.helpModalTitle, css[themeType])}>Need help</h2>
         <button
-          className={clsx(css.helpModalButton, css[themeType])}
-          type="submit"
+          className={clsx(css.closeButton, css[themeType])}
+          onClick={() => setNeedHelpOpenModal(false)}
         >
-          Send
+          <Icon
+            className={clsx(css.helpModalIcon, css[themeType])}
+            id="icon-x-close_modal"
+            width="18"
+            height="18"
+          />
         </button>
-      </form>
+
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <div className={css.wrapper}>
+              <input
+                className={clsx(
+                  css.helpFormInput,
+                  errors.email && css.helpFormInputError,
+                  css[themeType]
+                )}
+                {...register("email")}
+                type="email"
+                placeholder="Email address"
+              />
+              {errors.email && (
+                <p className={clsx(css.error, css[themeType])} role="alert">
+                  {errors.email.message}
+                </p>
+              )}
+            </div>
+            <div className={css.wrapper}>
+              <textarea
+                className={clsx(css.helpFormTextarea, css[themeType])}
+                {...register("message")}
+                type="text"
+                placeholder="Comment"
+              />
+              {errors.message && (
+                <p
+                  className={clsx(css.errorTextarea, css[themeType])}
+                  role="alert"
+                >
+                  {errors.message.message}
+                </p>
+              )}
+            </div>
+          </div>
+          <button
+            className={clsx(css.helpModalButton, css[themeType])}
+            type="submit"
+          >
+            Send
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
