@@ -1,0 +1,141 @@
+.cardContainer {
+  border-radius: 8px;
+  background-color: #121212;
+  display: flex;
+  overflow: hidden;
+  width: 335px;
+}
+.white.cardContainer {
+  background-color: #ffffff;
+}
+.line {
+  width: 8px;
+  background-color: #e09cb5;
+  /* line-height: 0; */
+}
+.innerLine {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 14px;
+}
+.white.innerLine {
+  background-color: rgba(22, 22, 22, 0.1);
+}
+.cardWrapper {
+  padding: 14px 20px 14px 24px;
+}
+.title {
+  color: #fff;
+  /* font-family: Poppins; */
+  font-size: 14px;
+  /* font-style: normal; */
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+.white.title {
+  color: rgba(22, 22, 22, 1);
+}
+.text {
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 12px;
+
+  font-weight: 400;
+  line-height: 1.34;
+  letter-spacing: -0.02em;
+  /* ======================================================== */
+  padding-top: 3px;
+  margin-bottom: 14px;
+}
+.limit {
+  height: 34px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.white.text {
+  color: rgba(22, 22, 22, 0.7);
+}
+.priority {
+  color: rgba(255, 255, 255, 0.5);
+  /* font-family: Poppins; */
+  font-size: 8px;
+  letter-spacing: -0.02em;
+  line-height: normal;
+  margin-bottom: 4px;
+}
+.white.priority {
+  color: rgba(22, 22, 22, 0.5);
+}
+.innerPriorityWrapper {
+  display: flex;
+}
+.circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #e09cb5;
+  margin-right: 4px;
+  display: block;
+}
+.priorityType {
+  color: #fff;
+  /* font-family: Poppins; */
+  font-size: 10px;
+  letter-spacing: -0.02em;
+  line-height: normal;
+}
+.white.priorityType {
+  color: rgba(22, 22, 22, 1);
+}
+.deadlineText {
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 8px;
+  line-height: normal;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.white.deadlineText {
+  color: rgba(22, 22, 22, 0.5);
+}
+.date {
+  color: #fff;
+
+  font-size: 10px;
+  line-height: normal;
+  letter-spacing: -0.02em;
+}
+.white.date {
+  color: rgba(22, 22, 22, 1);
+}
+.priorityDateWrapper {
+  display: flex;
+}
+.priorityWrapper {
+  margin-right: 14px;
+}
+.bottomCardWrapper {
+  display: flex;
+}
+.test {
+  display: flex;
+}
+.test2 {
+  width: 12px;
+}
+@media screen and (min-width: 768px) {
+  .cardContainer {
+    width: 334px;
+  }
+  .line {
+    width: 12px;
+  }
+}
+@media screen and (min-width: 1440px) {
+}
