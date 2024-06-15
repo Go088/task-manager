@@ -1,0 +1,46 @@
+/* CustomScrollbar.css */
+.simplebar-track.simplebar-horizontal {
+  height: 12px;
+  bottom: -36px; /* Відстань від низу контейнера */
+
+  border-radius: 12px;
+  background: #161616;
+  position: absolute; /* Позиціонування */
+  padding: 0;
+}
+
+.simplebar-scrollbar:before {
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  top: 0px;
+  left: 0;
+}
+
+.simplebar-track.simplebar-horizontal .simplebar-scrollbar:before {
+  height: 12px;
+  border-radius: 5px;
+  padding: 0;
+}
+.lightfirstScrol .simplebar-track.simplebar-horizontal {
+  background-color: #ffffff;
+}
+.lightfirstScrol .simplebar-scrollbar:before {
+  background-color: #e8e8e8;
+}
+.violetfirstScrol .simplebar-track.simplebar-horizontal {
+  background-color: #ffffff;
+}
+.violetfirstScrol .simplebar-scrollbar:before {
+  background-color: #b8bcfd;
+}
+@media screen and (min-width: 768px) {
+  .simplebar-track.simplebar-horizontal {
+    bottom: -64px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .simplebar-track.simplebar-horizontal {
+    bottom: -28px;
+  }
+}

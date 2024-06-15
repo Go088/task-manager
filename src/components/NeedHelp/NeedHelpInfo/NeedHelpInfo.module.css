@@ -57,6 +57,10 @@
   height: 78px;
 }
 
+.helpIcon {
+  fill: transparent;
+}
+
 .helpIcon.dark {
   stroke: #fff;
 }
@@ -89,6 +93,18 @@
 }
 .helpButton.violet {
   color: #fff;
+}
+
+.helpButton.dark:hover .helpIcon,
+.helpButton.dark:focus .helpIcon,
+.helpButton.light:hover .helpIcon,
+.helpButton.light:focus .helpIcon {
+  stroke: #9dc888;
+}
+
+.helpButton.violet:hover .helpIcon,
+.helpButton.violet:focus .helpIcon {
+  stroke: #b8bcfd;
 }
 
 @media screen and (min-width: 768px) {

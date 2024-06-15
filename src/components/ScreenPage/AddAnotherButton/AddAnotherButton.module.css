@@ -1,0 +1,64 @@
+.iconSpan {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.light.iconSpan {
+  background-color: #161616;
+}
+.violet.iconSpan {
+  background-color: #5255bc;
+}
+.button {
+  border-radius: 8px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  background-color: #121212;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 335px;
+  column-gap: 8px;
+  outline: transparent;
+
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.02em;
+
+  height: 56px;
+  flex: 0 0 335px;
+  cursor: pointer;
+  transition: background-color 250ms linear;
+}
+.white.button {
+  background-color: #fff;
+  color: #161616;
+}
+.icon {
+  stroke: #121212;
+}
+.white.icon {
+  stroke: #ffffff;
+}
+@media screen and (min-width: 768px) {
+  .button {
+    width: 334px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .button:hover,
+  .button:focus {
+    background-color: #161616;
+  }
+  .violet.button:hover,
+  .violet.button:focus {
+    background-color: #7b7ede;
+  }
+}
