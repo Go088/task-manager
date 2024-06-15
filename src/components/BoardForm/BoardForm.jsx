@@ -207,7 +207,7 @@ export default function BoardForm({ isOpen, onRequestClose }) {
               <input
                 className={clsx(css.radioIcon, css.visuallyHidden)}
                 id={`${iconFieldId}${icons.indexOf(icon)}`}
-                {...register("icons", { required: true })}
+                {...register("icon", { required: true })}
                 type="radio"
                 value={icon.value}
               />

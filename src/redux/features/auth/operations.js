@@ -76,7 +76,7 @@ export const refreshUser = createAsyncThunk(
     } = thunkAPI.getState();
     setAuthHeader(token);
     const response = await axios.get("/users/info");
-    console.log(response.data);
+
     return response.data;
     // return { user: response.data.user, theme: response.data.theme }; - пропонується
   },

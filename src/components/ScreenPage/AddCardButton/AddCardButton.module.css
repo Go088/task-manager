@@ -1,0 +1,54 @@
+.button {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #bedbb0;
+
+  color: #161616;
+
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  width: 335px;
+  outline: transparent;
+  transition: background-color 250ms linear;
+}
+.violet.button {
+  background-color: #5255bc;
+  color: #ffffff;
+}
+.span {
+  padding: 7px;
+  background-color: #161616;
+  line-height: 0;
+  border-radius: 4px;
+}
+.iconPlus {
+  stroke: #ffffff;
+}
+.violet.span {
+  background-color: #ffffff;
+}
+.violet.iconPlus {
+  stroke: #161616;
+}
+@media screen and (min-width: 768px) {
+  .button {
+    width: 334px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .button:hover,
+  .button:focus {
+    background-color: #9dc888;
+  }
+  .violet.button:hover,
+  .violet.button:focus {
+    background-color: #7b7ede;
+  }
+}
