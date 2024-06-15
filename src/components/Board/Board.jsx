@@ -2,9 +2,9 @@ import { useDispatch } from 'react-redux';
 import { deleteBoard } from '../../redux/features/boards/operations';
 import css from './Board.module.css';
 import Icon from '../Icon/Icon';
-import EditForm from '../EdiForm/EditForm';
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
+import EditBoard from '../EdiForm/EditBoard';
 
 
 export const Board = ({ _id, title ,icon}) => {
@@ -36,7 +36,7 @@ return (
     </button>
     </div>
     {editIsOpen && (
-        <EditForm isOpen={editIsOpen} onRequestClose={closeModal}  onclick={handlEdit} _id={_id}/>
+        <EditBoard isOpen={editIsOpen} onRequestClose={closeModal}  onclick={handlEdit} _id={_id}/>
     )}
     </div>
 );

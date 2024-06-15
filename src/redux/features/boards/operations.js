@@ -4,20 +4,11 @@ import axios from 'axios';
 
 axios.defaults.baseURL = "https://task-manager-r8dz.onrender.com/api";
 
-// const setAuthHeader = (token) => {
-//     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-//   };
-  
-//   const clearAuthHeader = () => {
-//     axios.defaults.headers.common["Autorization"] = "";
-//   };
-
 export const fetchBoard = createAsyncThunk(
     'board/fetchAll',
     async (_, thunkAPI) => {
     try {
         const res = await axios.get('/getBoards');
-        console.log({res});
         return res.data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
@@ -53,11 +44,13 @@ export const deleteBoard = createAsyncThunk(
 
 export const editBoard = createAsyncThunk(
     'board/editBoard',
-    async (_id, data,thunkAPI) => {
+    async ({_id,data}, thunkAPI) => {
     try {
-        console.log({_id});
-        const response = await axios.put(`/board/${_id}`,{data});
+    
+        const response = await axios.put(`/editBoard/${_id}`,data);
+        console.log("resp",response.data);
         return response.data;
+        
         } catch (e) {
         return thunkAPI.rejectWithValue(e.message);
         }
