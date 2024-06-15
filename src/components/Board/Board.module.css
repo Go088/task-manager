@@ -48,7 +48,7 @@
 }
 
 .boxModel.isActive.dark,
-.boxModel.light {
+.boxModel.isActive.light {
   background-color: #bedbb0;
 }
 
@@ -90,17 +90,19 @@
   pointer-events: none;
 }
 .LogoSVG.isActive {
-  display: inline-block;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
   stroke: rgba(255, 255, 255, 0.5);
 }
 
 .titleSVG.isActive.dark,
 .titleSVG.isActive.violet {
-  color: #fff;
+  stroke: #fff;
 }
 
 .titleSVG.isActive.light {
-  color: #161616;
+  stroke: #161616;
 }
 .titleSVG.dark,
 .titleSVG.violet {
@@ -108,7 +110,7 @@
 }
 
 .tileSVG.light {
-  color: rgba(22, 22, 22, 0.5);
+  stroke: rgba(22, 22, 22, 0.5);
 }
 
 @media screen and (min-width: 768px) {
