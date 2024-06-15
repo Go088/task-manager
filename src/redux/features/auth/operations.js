@@ -23,7 +23,7 @@ export const registerUser = createAsyncThunk(
         `${response.data.name}, your account successfully created!`
       );
       // return { ...response.data, theme: ThemeTypes.DARK };
-      return { user: response.data.user, theme: ThemeTypes.DARK };
+      return { user: response.data.user, theme: ThemeTypes.DARK, token: response.data.token};
     } catch (error) {
       toast.error("Oops! Something went wrong. Please try again");
       return thunAPI.rejectWithValue(error.message);
