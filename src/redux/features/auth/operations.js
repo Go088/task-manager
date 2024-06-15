@@ -19,6 +19,7 @@ export const registerUser = createAsyncThunk(
       const response = await axios.post("/users/register", newUser);
       setAuthHeader(response.data.token);
       toast.success(`${response.data.name}, your account successfully created!`);
+      console.log(response.data.token);
       return response.data;
     } catch (error) {
       toast.error("Oops! Something went wrong. Please try again");
@@ -34,6 +35,7 @@ export const logIn = createAsyncThunk(
       const response = await axios.post("/users/login", userData);
       setAuthHeader(response.data.token);
       toast.success(`Your account successfully logged in!`);
+      console.log(response.data);
       return response.data;
     } catch (error) {
       toast.error("Oops! Something went wrong. Please try again");

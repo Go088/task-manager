@@ -1,4 +1,4 @@
-import css from "./CoulmnForm.module.css";
+import css from "./ColumnForm.module.css"
 import clsx from "clsx";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -15,7 +15,7 @@ const schema = yup.object().shape({
     .trim(),
 });
 
-export default function BoardForm({ isOpen, onRequestClose }) {
+export default function ColumnForm({ isOpen, onRequestClose }) {
   const themeType = "dark";
   const {
     register,
@@ -72,7 +72,7 @@ export default function BoardForm({ isOpen, onRequestClose }) {
               id={"icon-plus_card_modal"}
             />
           </div>
-          <span> Create</span>
+          <span>Add</span>
         </button>
       </form>
       <button
