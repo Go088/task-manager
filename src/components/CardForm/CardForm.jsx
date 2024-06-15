@@ -42,10 +42,13 @@ const schema = yup.object().shape({
 });
 
 export default function CardForm({ isOpen, onRequestClose }) {
-const [deadline, setDeadline] = useState(null);
+const [deadline, setDeadline] = useState(new Date().getTime());
 
   const handleDateChange = (date) => {
-    setDeadline(date)
+    setDeadline(date);
+    setValue("deadline", date);
+    // console.log(date);
+    // console.log(deadline);
   };
 
   const themeType = "dark";
@@ -54,7 +57,7 @@ const [deadline, setDeadline] = useState(null);
   const {
     register,
     handleSubmit,
-
+    setValue,
     formState: { errors },
     reset,
   } = useForm({
