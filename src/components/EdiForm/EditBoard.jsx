@@ -7,7 +7,7 @@ import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
 import { useDispatch } from 'react-redux';
-import css from "./Editform.module.css"
+import css from "./EditBoard.module.css"
 import { editBoard } from "../../redux/features/boards/operations";
 
 
