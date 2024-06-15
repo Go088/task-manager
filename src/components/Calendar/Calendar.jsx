@@ -5,12 +5,13 @@ import "./datepicker-overrides.css";
 import css from "./Calendar.module.css";
 import Icon from "../Icon/Icon";
 
-const Calendar = () => {
+const Calendar = ({setSelectedDateq}) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
+    setSelectedDateq(date);
     setIsCalendarOpen(false);
   };
 
@@ -29,15 +30,16 @@ const Calendar = () => {
     month: "long",
     day: "numeric",
   });
-
+  console.log(selectedDate ? formatDate(selectedDate) : today.getTime());
+  // setSelectedDateq(selectedDate ? formatDate(selectedDate) : today.getTime());
   return (
     <div className={css.wrap}>
-      <p className={css.text}>Deadline</p>
       <div className={css.wrapPicker}>
         <p>
           {selectedDate ? formatDate(selectedDate) : `Today, ${todayFormatted}`}
         </p>
         <button
+        type="button"
           className={css.button}
           onClick={() => setIsCalendarOpen(!isCalendarOpen)}
           aria-label="Select deadline date"

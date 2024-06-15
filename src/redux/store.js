@@ -12,6 +12,7 @@ import {
 import storage from "redux-persist/lib/storage";
 import authReducer from "./features/auth/authSlice.js";
 import boardsReducer from "./features/boards/boardsSlice.js";
+import cardsReducer from "./features/cards/cardsSlice.js";
 // import createBoardModalReducer from "./features/modals/createBoardModalSlice.js";
 // import createCardModalReducer from "./features/modals/createCardModalSlice.js";
 import needHelpModalReducer from "./features/modals/needHelpModal/slice";
@@ -30,6 +31,7 @@ const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
 const rootReducer = combineReducers({
   auth: persistedAuthReducer,
   boards: boardsReducer,
+  cards: cardsReducer,
   needHelpModal: needHelpModalReducer,
   // createBoardModal: createBoardModalReducer,
   // createCardModal: createCardModalReducer,

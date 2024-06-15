@@ -1,4 +1,5 @@
 import { useId } from "react";
+import { useState } from "react";
 import css from "./CardForm.module.css";
 import clsx from "clsx";
 import * as yup from "yup";
@@ -7,8 +8,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
+import Calendar from "../Calendar/Calendar";
 // import { useDispatch } from 'react-redux';
-// import { addBoard } from "../../redux/features/boards/operations";
+// import { addCard } from "../../redux/features/cards/operations";
 
 const labels = [
   {
@@ -17,10 +19,12 @@ const labels = [
   },
   { value: "medium", color: "pink" },
   {
-    value: "high", color: "green",
+    value: "high",
+    color: "green",
   },
   {
-    value: "without priority", color: "grey",
+    value: "without priority",
+    color: "grey",
   },
 ];
 
@@ -38,8 +42,11 @@ const schema = yup.object().shape({
 });
 
 export default function CardForm({ isOpen, onRequestClose }) {
-  const themeType = "violet";
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  const themeType = "dark";
   const labelFieldId = useId();
+
   const {
     register,
     handleSubmit,
@@ -52,14 +59,14 @@ export default function CardForm({ isOpen, onRequestClose }) {
     defaultValues: {
       title: "",
       description: "",
-      label: "low",
-      deadline: "",
+      priority: "low",
+      deadline: selectedDate,
     },
   });
-  //   const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
   const onSubmit = (data) => {
-    // dispatch(addBoard(data))
+    // dispatch(addCard(data))
     console.log(data);
     reset();
     onRequestClose();
@@ -107,7 +114,7 @@ export default function CardForm({ isOpen, onRequestClose }) {
               <input
                 className={clsx(css.radioLabel, css.visuallyHidden)}
                 id={`${labelFieldId}${labels.indexOf(label)}`}
-                {...register("label", { required: true })}
+                {...register("priority", { required: true })}
                 type="radio"
                 value={label.value}
               />
@@ -129,7 +136,7 @@ export default function CardForm({ isOpen, onRequestClose }) {
           ))}
         </ul>
         <p className={clsx(css.subtitle, css[themeType])}>Deadline</p>
-
+        <Calendar setSelectedDateq={setSelectedDate} />
         <button className={clsx(css.btn, css[themeType])} type="submit">
           <div className={clsx(css.btnWrapIcon, css[themeType])}>
             <Icon
