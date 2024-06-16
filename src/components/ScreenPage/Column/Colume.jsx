@@ -95,7 +95,7 @@ const Column = ({ theme, column }) => {
         <AddCardButton theme={theme} />
       </div>
       {modalIsOpen && (
-        <EditColumn isOpen={modalIsOpen} onRequestClose={closeModal} />
+        <EditColumn isOpen={modalIsOpen} onRequestClose={closeModal} column={column} />
       )}
     </>
   );

@@ -6,10 +6,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
-import { selectBoard } from "../../redux/features/boardss/selectors";
-import { useSelector,useDispatch } from "react-redux";
-import { addColumn } from "../../redux/features/boardss/operations";
-
+import { useDispatch } from "react-redux";
+import { editColumn } from "../../redux/features/boardss/operations";
 
 const schema = yup.object().shape({
   title: yup
@@ -19,11 +17,11 @@ const schema = yup.object().shape({
     .trim(),
 });
 
-export default function EditColumn({ isOpen, onRequestClose }) {
-
-
-  const board = useSelector(selectBoard);
-  
+export default function EditColumn({
+  isOpen,
+  onRequestClose, column,
+  column: { _id, title },
+}) {
   const themeType = "dark";
   const {
     register,
@@ -35,22 +33,20 @@ export default function EditColumn({ isOpen, onRequestClose }) {
     resolver: yupResolver(schema),
 
     defaultValues: {
-      title: "",
+      title,
     },
   });
 
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-
-
-    const id = board._id;
+    console.log(column);
     const columnData = {
       data,
-      id,
+      _id,
     };
-    dispatch(addColumn(columnData));
 
+    dispatch(editColumn(columnData));
 
     console.log(data);
     reset();

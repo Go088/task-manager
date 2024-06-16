@@ -18,7 +18,6 @@ export const fetchAllCards = createAsyncThunk(
   async (text, thunkAPI) => {
     try {
       const response = await axios.get("/getCards");
-
       return response.data;
     } catch (e) {
       console.log(e);
@@ -29,11 +28,9 @@ export const fetchAllCards = createAsyncThunk(
 
 export const addColumn = createAsyncThunk(
   "board/addColumn",
-  async (data, thunkAPI) => {
+  async ({ id, data }, thunkAPI) => {
     try {
-      console.log({ data });
-      const response = await axios.post(`/board/${data.id}/column`, data.data);
-      console.log(response.data);
+      const response = await axios.post(`/board/${id}/column`, data);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -45,10 +42,20 @@ export const deleteColumn = createAsyncThunk(
   "board/deleteColumn",
   async (id, thunkAPI) => {
     try {
-      const response = await axios.delete(`/deleteColumn/${id}`);
-      console.log(response);
-      console.log(id);
+      await axios.delete(`/deleteColumn/${id}`);
       return id;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const editColumn = createAsyncThunk(
+  "board/editColumn",
+  async ({ _id, data }, thunkAPI) => {
+    try {
+      const response = await axios.put(`/editColumn/${_id}`, data);
+      return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
