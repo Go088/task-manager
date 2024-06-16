@@ -40,3 +40,17 @@ export const addColumn = createAsyncThunk(
     }
   }
 );
+
+export const deleteColumn = createAsyncThunk(
+  "board/deleteColumn",
+  async (id, thunkAPI) => {
+    try {
+      const response = await axios.delete(`/deleteColumn/${id}`);
+      console.log(response);
+      console.log(id);
+      return id;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

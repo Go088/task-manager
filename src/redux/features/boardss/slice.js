@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 // import { logOut } from "../author/operations";
-import { fetchBoardById, fetchAllCards, addColumn } from "./operations.js";
+import {
+  fetchBoardById,
+  fetchAllCards,
+  addColumn,
+  deleteColumn,
+} from "./operations.js";
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -51,7 +56,16 @@ const boardSlice = createSlice({
         state.error = null;
         state.board.columns.push(action.payload);
       })
-      .addCase(addColumn.rejected, handleRejected);
+      .addCase(addColumn.rejected, handleRejected)
+      .addCase(deleteColumn.pending, handlePending)
+      .addCase(deleteColumn.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.board.columns = state.board.columns.filter(
+          (column) => column._id !== action.payload
+        );
+      })
+      .addCase(deleteColumn.rejected, handleRejected);
   },
 });
 export const { setToast, setContactError } = boardSlice.actions;

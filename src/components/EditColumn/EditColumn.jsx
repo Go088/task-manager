@@ -1,4 +1,4 @@
-import css from "./ColumnForm.module.css";
+import css from "./EditColumn.module.css";
 import clsx from "clsx";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -7,7 +7,7 @@ import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
 import { selectBoard } from "../../redux/features/boardss/selectors";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { addColumn } from "../../redux/features/boardss/operations";
 
 
@@ -19,11 +19,11 @@ const schema = yup.object().shape({
     .trim(),
 });
 
-export default function ColumnForm({ isOpen, onRequestClose }) {
+export default function EditColumn({ isOpen, onRequestClose }) {
 
 
   const board = useSelector(selectBoard);
-
+  
   const themeType = "dark";
   const {
     register,
@@ -42,6 +42,7 @@ export default function ColumnForm({ isOpen, onRequestClose }) {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
+
 
     const id = board._id;
     const columnData = {
@@ -68,7 +69,7 @@ export default function ColumnForm({ isOpen, onRequestClose }) {
         className={clsx(css.form, css[themeType])}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h3 className={clsx(css.title, css[themeType])}>Add column</h3>
+        <h3 className={clsx(css.title, css[themeType])}>Edit column</h3>
         <h4 className={css.visuallyHidden}>Title</h4>
         <input
           className={clsx(css.input, css[themeType])}
