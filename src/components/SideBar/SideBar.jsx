@@ -10,16 +10,29 @@ import { fetchBoard } from "../../redux/features/boards/operations";
 import { useEffect, useState } from "react";
 import { NeedHelpModal } from "../NeedHelp/NeedHelpModal/NeedHelpModal";
 
-export default function SideBar() {
+export default function SideBar({ isSidebarOpen, setIsSidebarOpen }) {
   const themeType = "dark";
   const dispatch = useDispatch();
   const [needHelpOpenModal, setNeedHelpOpenModal] = useState(false);
   useEffect(() => {
     dispatch(fetchBoard());
   }, [dispatch]);
+
+  const closeSideBar = () => {
+    setIsSidebarOpen(false);
+  };
+  const handleStop = (e) => {
+    e.stopPropagation();
+  };
   return (
-    <div className={clsx(css.backdrop, css.isOpen)}>
-      <div className={clsx(css.list, css.isOpen, css[themeType])}>
+    <div
+      onClick={closeSideBar}
+      className={clsx(css.backdrop, isSidebarOpen && css.isOpen)}
+    >
+      <div
+        onClick={handleStop}
+        className={clsx(css.list, isSidebarOpen && css.isOpenn, css[themeType])}
+      >
         <div className={css.box}>
           <div className={css.wrapper}>
             <div className={clsx(css.Logolist, css[themeType])}>
