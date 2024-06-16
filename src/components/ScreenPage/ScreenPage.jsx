@@ -1,7 +1,6 @@
 import AddAnotherButton from "./AddAnotherButton/AddAnotherButton";
 import Column from "./Column/Colume";
-import FilterButton from "./FilterButton/FilterButton";
-import NoBoardText from "./NoBoardText/NoBoardText";
+
 import css from "./ScreenPage.module.css";
 import clsx from "clsx";
 
@@ -17,58 +16,68 @@ import {
   selectAllCards,
   selectBoard,
 } from "../../redux/features/boardss/selectors";
-import { useEffect } from "react";
-// import { selectUserr } from "../../redux/features/auth/selectors";
-// import { ThreeCircles } from "react-loader-spinner";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const ScreanPage = ({ id = "666c45b30031e4827c3c972e" }) => {
+const ScreanPage = ({ idw = "666c45b30031e4827c3c972e" }) => {
+  const { id: boardName } = useParams();
+  const [id, setId] = useState(null);
+
+  useEffect(() => {
+    setId(boardName);
+  }, [boardName]);
+
   const theme = "dark";
   const dispatch = useDispatch();
   const board = useSelector(selectBoard);
 
   useEffect(() => {
-    dispatch(fetchBoardById(id));
-    dispatch(fetchAllCards());
+    if (id) {
+      dispatch(fetchBoardById(id));
+      dispatch(fetchAllCards());
+    }
   }, [dispatch, id]);
 
-  const allCards = useSelector(selectAllCards);
-  useEffect(() => {
-    console.log(board);
-    console.log(allCards);
-  }, [allCards, board]);
+  // const allCards = useSelector(selectAllCards);
+  // useEffect(() => {
+  //   console.log(board);
+  //   console.log(allCards);
+  // }, [allCards, board]);
 
   const isBoard = board._id ? true : false;
   const isColumns = board.columns?.length > 0;
-  // console.log(board);
-  // const the = useSelector(selectUserr);
-  // console.log(the);
+  console.log(board);
   return (
-    <div className={clsx(css.screenContainer, css[theme])}>
+    <>
       <div className={css.titleFilterWrapper}>
         {isBoard && (
           <h2 className={clsx(css.title, css[theme])}>{board?.title}</h2>
         )}
-        <FilterButton theme={theme} />
+        {/* <FilterButton theme={theme} /> */}
       </div>
-      {isBoard ? (
-        <div className={clsx(theme + "firstScrol", css.firstS)}>
-          <SimpleBar autoHide={false}>
-            <div className={css.columnWrapper}>
-              {isColumns &&
-                board.columns.map((column) => {
-                  return (
-                    <Column key={column._id} column={column} theme={theme} />
-                  );
-                })}
+      {isBoard && (
+        <div
+          className={clsx(
+            css.columnContainer,
+            theme + "firstScrol",
+            css[theme]
+          )}
+        >
+          {/* <SimpleBar autoHide={false} forceVisible="x"> */}
+          <div className={css.columnWrapper}>
+            {isColumns &&
+              board.columns.map((column) => {
+                return (
+                  <Column key={column._id} column={column} theme={theme} />
+                );
+              })}
 
-              <AddAnotherButton theme={theme} />
-            </div>
-          </SimpleBar>
+            <AddAnotherButton theme={theme} />
+          </div>
+          {/* </SimpleBar> */}
         </div>
-      ) : (
-        <NoBoardText theme={theme} />
       )}
-    </div>
+    </>
   );
 };
 export default ScreanPage;

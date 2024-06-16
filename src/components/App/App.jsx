@@ -52,13 +52,14 @@ const App = () => {
                 }
               />
               <Route
-              path="*"
-              element={
-                <RestrictedRoute
-                  component={<NotFoundPage />}
-                  redirectTo="/welcome"
-                />
-              }/>
+                path="*"
+                element={
+                  <RestrictedRoute
+                    component={<NotFoundPage />}
+                    redirectTo="/welcome"
+                  />
+                }
+              />
               <Route
                 path="/home"
                 element={
@@ -67,16 +68,9 @@ const App = () => {
                     redirectTo="/welcome"
                   />
                 }
-              />
-              <Route
-                path="/home/:boardName"
-                element={
-                  <PrivateRoute
-                    component={<ScreenPage />}
-                    redirectTo="/welcome"
-                  />
-                }
-              />
+              >
+                <Route path=":id" element={<ScreenPage />} />
+              </Route>
             </Routes>
           </Suspense>
         )}
