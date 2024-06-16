@@ -2,3 +2,30 @@
   display: flex;
   flex-direction: row;
 }
+.screenContainer {
+  background-color: #1f1f1f;
+  padding: 14px 8px 24px 20px;
+  min-height: 752px;
+  position: relative;
+  /* width: ; */
+}
+.light.screenContainer {
+  background-color: #f6f6f7;
+}
+.violet.screenContainer {
+  background-color: #ecedfd;
+}
+@media screen and (min-width: 768px) {
+  .screenContainer {
+    padding: 26px 18px 32px 32px;
+    min-height: 956px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .screenContainer {
+    padding: 10px 18px 8px 24px;
+    min-height: 702px;
+    width: 1180px;
+    margin-left: 260px;
+  }
+}

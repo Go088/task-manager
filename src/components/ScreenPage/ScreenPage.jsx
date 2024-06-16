@@ -1,7 +1,6 @@
 import AddAnotherButton from "./AddAnotherButton/AddAnotherButton";
 import Column from "./Column/Colume";
-import FilterButton from "./FilterButton/FilterButton";
-import NoBoardText from "./NoBoardText/NoBoardText";
+
 import css from "./ScreenPage.module.css";
 import clsx from "clsx";
 
@@ -19,11 +18,9 @@ import {
 } from "../../redux/features/boardss/selectors";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import { selectUserr } from "../../redux/features/auth/selectors";
-// import { ThreeCircles } from "react-loader-spinner";
 
 const ScreanPage = ({ idw = "666c45b30031e4827c3c972e" }) => {
-  const { boardName } = useParams();
+  const { id: boardName } = useParams();
   const [id, setId] = useState(null);
 
   useEffect(() => {
@@ -41,24 +38,24 @@ const ScreanPage = ({ idw = "666c45b30031e4827c3c972e" }) => {
     }
   }, [dispatch, id]);
 
-  const allCards = useSelector(selectAllCards);
-  useEffect(() => {
-    console.log(board);
-    console.log(allCards);
-  }, [allCards, board]);
+  // const allCards = useSelector(selectAllCards);
+  // useEffect(() => {
+  //   console.log(board);
+  //   console.log(allCards);
+  // }, [allCards, board]);
 
   const isBoard = board._id ? true : false;
   const isColumns = board.columns?.length > 0;
-
+  console.log(board);
   return (
-    <div className={clsx(css.screenContainer, css[theme])}>
+    <>
       <div className={css.titleFilterWrapper}>
         {isBoard && (
           <h2 className={clsx(css.title, css[theme])}>{board?.title}</h2>
         )}
-        <FilterButton theme={theme} />
+        {/* <FilterButton theme={theme} /> */}
       </div>
-      {isBoard ? (
+      {isBoard && (
         <div
           className={clsx(
             css.columnContainer,
@@ -79,10 +76,8 @@ const ScreanPage = ({ idw = "666c45b30031e4827c3c972e" }) => {
           </div>
           {/* </SimpleBar> */}
         </div>
-      ) : (
-        <NoBoardText theme={theme} />
       )}
-    </div>
+    </>
   );
 };
 export default ScreanPage;
