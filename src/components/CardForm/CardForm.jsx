@@ -9,8 +9,8 @@ import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
 import Calendar from "../Calendar/Calendar";
-// import { useDispatch } from 'react-redux';
-// import { addCard } from "../../redux/features/cards/operations";
+import { useDispatch } from "react-redux";
+import { addCard } from "../../redux/features/boardss/operations";
 
 const labels = [
   {
@@ -41,8 +41,9 @@ const schema = yup.object().shape({
     .trim(),
 });
 
-export default function CardForm({ isOpen, onRequestClose }) {
-const [deadline, setDeadline] = useState(new Date().getTime());
+export default function CardForm({ isOpen, onRequestClose, column: { _id } }) {
+  
+  const [deadline, setDeadline] = useState(new Date().getTime());
 
   const handleDateChange = (date) => {
     setDeadline(date);
@@ -70,11 +71,15 @@ const [deadline, setDeadline] = useState(new Date().getTime());
       deadline,
     },
   });
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    // dispatch(addCard(data))
     console.log(data);
+ console.log(_id);
+   const cardData = {
+      data, _id
+    }
+    dispatch(addCard(cardData));
     reset();
     onRequestClose();
   };

@@ -19,7 +19,7 @@ const schema = yup.object().shape({
 
 export default function EditColumn({
   isOpen,
-  onRequestClose, column,
+  onRequestClose,
   column: { _id, title },
 }) {
   const themeType = "dark";
@@ -40,7 +40,7 @@ export default function EditColumn({
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    console.log(column);
+
     const columnData = {
       data,
       _id,
@@ -48,7 +48,6 @@ export default function EditColumn({
 
     dispatch(editColumn(columnData));
 
-    console.log(data);
     reset();
     onRequestClose();
   };

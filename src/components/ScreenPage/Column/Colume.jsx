@@ -92,7 +92,7 @@ const Column = ({ theme, column }) => {
           </CustomScrollBar>
         </div>
 
-        <AddCardButton theme={theme} />
+        <AddCardButton theme={theme} column={column}/>
       </div>
       {modalIsOpen && (
         <EditColumn isOpen={modalIsOpen} onRequestClose={closeModal} column={column} />

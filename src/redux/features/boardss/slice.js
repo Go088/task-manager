@@ -6,6 +6,7 @@ import {
   addColumn,
   deleteColumn,
   editColumn,
+  addCard,
 } from "./operations.js";
 
 const handlePending = (state) => {
@@ -71,14 +72,18 @@ const boardSlice = createSlice({
       .addCase(editColumn.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        console.log(action.payload);
         const index = state.board.columns.findIndex(
           (column) => column._id === action.payload._id
         );
-        console.log(index);
         state.board.columns[index] = action.payload;
       })
-      .addCase(editColumn.rejected, handleRejected);
+      .addCase(editColumn.rejected, handleRejected)
+      .addCase(editColumn.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.cards.push(action.payload);
+      })
+      .addCase(addCard.rejected, handleRejected);
   },
 });
 export const { setToast, setContactError } = boardSlice.actions;

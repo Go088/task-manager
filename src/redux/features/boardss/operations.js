@@ -61,3 +61,16 @@ export const editColumn = createAsyncThunk(
     }
   }
 );
+
+export const addCard = createAsyncThunk(
+  "board/addCard",
+  async ({ _id, data }, thunkAPI) => {
+    try {
+      const response = await axios.post(`/column/${_id}/card`, data);
+      console.log(response.data);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
