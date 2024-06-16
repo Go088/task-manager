@@ -25,18 +25,18 @@ const icons = [
   },
   {
     value: "puzzle",
-    spriteId: "icon-puzzle-piece",
+    spriteId: "icon-puzzle",
   },
   {
     value: "cube",
     spriteId: "icon-cube",
   },
   {
-    value: " lightning",
+    value: "lightning",
     spriteId: "icon-lightning",
   },
   {
-    value: " colors",
+    value: "colors",
     spriteId: "icon-colors",
   },
   {

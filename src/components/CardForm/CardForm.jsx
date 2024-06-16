@@ -23,7 +23,7 @@ const labels = [
     color: "green",
   },
   {
-    value: "without priority",
+    value: "without",
     color: "grey",
   },
 ];

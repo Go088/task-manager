@@ -26,7 +26,7 @@ const icons = [
   },
   {
     value: "puzzle",
-    spriteId: "icon-puzzle-piece",
+    spriteId: "icon-puzzle",
   },
   {
     value: "cube",
@@ -50,11 +50,11 @@ const backgrounds = [
   {
     value: "sakura",
     srcSet: "/img/bg/sacura.png 1x, /img/bg/sacura.png 2x",
-    src: "/img/bg/3d.png.png",
+    src: "/img/bg/3d.png",
     alt: "sakura",
   },
   {
-    value: "nightMoutains.png",
+    value: "nightMoutains",
     srcSet: "/img/bg/nightMoutains.png 1x, /img/bg/nightMoutains.png 2x",
     src: "/img/bg/nightMoutains.png",
     alt: "3d sphere",
