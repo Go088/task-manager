@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { addBoard } from "../../redux/features/boards/operations";
 
 const icons = [
@@ -49,11 +49,11 @@ const backgrounds = [
   {
     value: "sakura",
     srcSet: "/img/bg/sacura.png 1x, /img/bg/sacura.png 2x",
-    src: "/img/bg/3d.png.png",
+    src: "/img/bg/3d.png",
     alt: "sakura",
   },
   {
-    value: "nightMoutains.png",
+    value: "nightMoutains",
     srcSet: "/img/bg/nightMoutains.png 1x, /img/bg/nightMoutains.png 2x",
     src: "/img/bg/nightMoutains.png",
     alt: "3d sphere",
@@ -88,6 +88,7 @@ const backgrounds = [
     src: "/img/bg/seaSunset.png",
     alt: "Sea sunset",
   },
+
   {
     value: "3d",
     srcSet: "/img/bg/3d.png 1x, /img/bg/3d.png 2x",
@@ -165,10 +166,10 @@ export default function BoardForm({ isOpen, onRequestClose }) {
       background: "default",
     },
   });
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    dispatch(addBoard(data))
+    dispatch(addBoard(data));
     reset();
     onRequestClose();
   };
