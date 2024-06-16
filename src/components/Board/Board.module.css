@@ -85,11 +85,13 @@
 }
 
 .LogoSVG {
+  fill: none;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   fill: none;
 }
+
 .LogoSVG.isActive {
   opacity: 1;
   visibility: visible;
@@ -110,15 +112,21 @@
   stroke: #fff;
 }
 
-.titleSVG.isActive.light {
+.iconSvg.isActive.light {
   stroke: #161616;
 }
-.titleSVG.dark,
-.titleSVG.violet {
+
+.iconSvg {
+  fill: none;
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.iconSvg.dark {
   stroke: rgba(255, 255, 255, 0.5);
 }
 
-.tileSVG.light {
+.iconSvg.light,
+.iconSvg.violet {
   stroke: rgba(22, 22, 22, 0.5);
 }
 

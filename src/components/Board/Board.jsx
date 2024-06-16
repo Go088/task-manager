@@ -12,7 +12,7 @@ export const Board = ({ _id, title, icon }) => {
   const dispatch = useDispatch();
   const handleDelete = () => dispatch(deleteBoard(_id));
   const handlEdit = () => dispatch(EditBoard({ _id }));
-  const titleSVG = `icon-${icon.trim()}`;
+  const titleSVG = `icon-${icon}`;
   const [editIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -28,10 +28,10 @@ export const Board = ({ _id, title, icon }) => {
     <div className={clsx(css.wrapper, css[themeType], css.isActive)}>
       <div className={css.infoWrapper}>
         <Icon
-          id={`icon-${titleSVG}`}
+          id={titleSVG}
           width="18"
           height="18"
-          className={css.titleSVG}
+          className={clsx(css.iconSvg, css[themeType])}
         />
         <h2 className={clsx(css.text, css[themeType], css.isActive)}>
           {title}
