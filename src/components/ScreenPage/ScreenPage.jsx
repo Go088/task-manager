@@ -35,8 +35,10 @@ const ScreanPage = ({ idw = "666c45b30031e4827c3c972e" }) => {
   const board = useSelector(selectBoard);
 
   useEffect(() => {
-    dispatch(fetchBoardById(id));
-    dispatch(fetchAllCards());
+    if (id) {
+      dispatch(fetchBoardById(id));
+      dispatch(fetchAllCards());
+    }
   }, [dispatch, id]);
 
   const allCards = useSelector(selectAllCards);

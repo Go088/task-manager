@@ -10,6 +10,7 @@ import Loader from "../Loader/Loader";
 import RestrictedRoute from "../RestrictedRoute";
 import PrivateRoute from "../PrivateRoute";
 import { Toaster } from "react-hot-toast";
+import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 
 const WelcomePage = lazy(() => import("../../pages/WelcomePage/WelcomePage"));
 const AuthPage = lazy(() => import("../../pages/AuthPage/AuthPage"));
@@ -51,6 +52,15 @@ const App = () => {
                 }
               />
               <Route
+                path="*"
+                element={
+                  <RestrictedRoute
+                    component={<NotFoundPage />}
+                    redirectTo="/welcome"
+                  />
+                }
+              />
+              <Route
                 path="/home"
                 element={
                   <PrivateRoute
@@ -58,16 +68,9 @@ const App = () => {
                     redirectTo="/welcome"
                   />
                 }
-              />
-              <Route
-                path="/home/:boardName"
-                element={
-                  <PrivateRoute
-                    component={<ScreenPage />}
-                    redirectTo="/welcome"
-                  />
-                }
-              />
+              >
+                <Route path=":id" element={<ScreenPage />} />
+              </Route>
             </Routes>
           </Suspense>
         )}
