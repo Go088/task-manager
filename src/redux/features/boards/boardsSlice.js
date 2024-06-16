@@ -61,8 +61,7 @@ const boardSlice = createSlice({
         const index = state.items.findIndex(
           (board) => board._id === action.payload._id
         );
-        state.items.splice(index, 1);
-        state.items.push(action.payload);
+        state.items[index] = action.payload;
       })
       .addCase(editBoard.rejected, (state, action) => {
         state.isLoading = false;
