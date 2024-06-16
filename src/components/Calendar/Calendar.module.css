@@ -2,6 +2,7 @@
   background-color: gray;
   height: 44px;
   position: relative;
+  width: 260px;
 }
 .text {
   color: rgba(255, 255, 255, 0.5);

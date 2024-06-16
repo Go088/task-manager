@@ -1,44 +1,51 @@
-import Avatar from '../UserAvatar/UserAvatar.jsx';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
-import { object, string } from 'yup';
-import { selectTheme, selectUser } from '../../redux/features/auth/selectors.js';
-import { useDispatch, useSelector } from 'react-redux';
-import { Close } from '../UserForm/Close/Close.jsx';
-import { Open } from '../UserForm/Open/Open.jsx';
-import { Loader } from '../Loader/Loader.jsx';
-import Modal from '../ModalContainer/ModalContainer.jsx'
-import { updateUser } from '../../redux/features/auth/operations.js';
-import { useState } from 'react';
+import Avatar from "../UserAvatar/UserAvatar.jsx";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import { object, string } from "yup";
+import {
+  selectTheme,
+  selectUser,
+} from "../../redux/features/auth/selectors.js";
+import { useDispatch, useSelector } from "react-redux";
+import { Close } from "../UserForm/Close/Close.jsx";
+import { Open } from "../UserForm/Open/Open.jsx";
+import { Loader } from "../Loader/Loader.jsx";
+import Modal from "../ModalContainer/ModalContainer.jsx";
+import { updateUser } from "../../redux/features/user/operations.js";
+import { useState } from "react";
 
-import styles from './EditUserProfile.module.css';
+import styles from "./EditUserProfile.module.css";
 
 const updateUserSchema = object({
   name: string()
-    .required('the field cannot be empty')
-    .min(2, 'minimum 2 characters')
-    .max(32, 'maximum 32 characters')
+    .required("the field cannot be empty")
+    .min(2, "minimum 2 characters")
+    .max(32, "maximum 32 characters")
     .test(
-      'only-allowed-chars',
-      'Must contain: only Latin, numbers, special characters',
-      value => !value || /^[\w !@#$%^&*()+,.:;’“?\-/]+$/.test(value)
+      "only-allowed-chars",
+      "Must contain: only Latin, numbers, special characters",
+      (value) => !value || /^[\w !@#$%^&*()+,.:;’“?\-/]+$/.test(value)
     )
-    .matches(/^[\w !@#$%^&*()+,.:;’“?\-/]+$/, 'Invalid name format'),
+    .matches(/^[\w !@#$%^&*()+,.:;’“?\-/]+$/, "Invalid name format"),
   email: string()
-    .required('the field cannot be empty')
+    .required("the field cannot be empty")
     .email()
 
-    .matches(/^[a-z0-9 .]+@[a-z]+\.[a-z]{2,3}$/i, 'Invalid email format'),
+    .matches(/^[a-z0-9 .]+@[a-z]+\.[a-z]{2,3}$/i, "Invalid email format"),
 
   password: string()
-    .min(8, 'minimum 8 characters')
-    .max(64, 'maximum 64 characters')
-    .test('no-spaces', 'Invalid format: without spaces', value => !value || !/\s/.test(value))
+    .min(8, "minimum 8 characters")
+    .max(64, "maximum 64 characters")
     .test(
-      'only-allowed-chars',
-      'Must contain: only Latin, numbers, special characters',
-      value => !value || /^[\w\-!@#$%^&*()+,.:;’“?/]+$/.test(value)
+      "no-spaces",
+      "Invalid format: without spaces",
+      (value) => !value || !/\s/.test(value)
     )
-    .matches(/^[\w\-!@#$%^&*()+,.:;’“?/]+$/, 'Invalid password format'),
+    .test(
+      "only-allowed-chars",
+      "Must contain: only Latin, numbers, special characters",
+      (value) => !value || /^[\w\-!@#$%^&*()+,.:;’“?/]+$/.test(value)
+    )
+    .matches(/^[\w\-!@#$%^&*()+,.:;’“?/]+$/, "Invalid password format"),
 });
 
 export const EditUserProfile = () => {
@@ -47,13 +54,13 @@ export const EditUserProfile = () => {
   const theme = useSelector(selectTheme);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const toggleModal = () => setIsModalOpen(state => !state);
+  const toggleModal = () => setIsModalOpen((state) => !state);
 
   const initialValues = {
     avatar: null,
     name: user.name,
     email: user.email,
-    password: '',
+    password: "",
   };
 
   const [passwordShown, setPasswordShown] = useState(false);
@@ -68,8 +75,10 @@ export const EditUserProfile = () => {
     return (
       <ErrorMessage
         name={name}
-        render={message => (
-          <p className={theme === 'violet' ? styles.errorViolet : styles.error}>{message}</p>
+        render={(message) => (
+          <p className={theme === "violet" ? styles.errorViolet : styles.error}>
+            {message}
+          </p>
         )}
       />
     );
@@ -79,12 +88,12 @@ export const EditUserProfile = () => {
     setSubmitting(true);
     let formData = new FormData();
 
-    formData.set('name', values.name);
-    formData.set('email', values.email);
+    formData.set("name", values.name);
+    formData.set("email", values.email);
 
-    if (values.avatar) formData.set('avatar', values.avatar);
+    if (values.avatar) formData.set("avatar", values.avatar);
 
-    if (values.password) formData.set('password', values.password);
+    if (values.password) formData.set("password", values.password);
 
     try {
       await dispatch(updateUser(formData));
@@ -103,10 +112,11 @@ export const EditUserProfile = () => {
       {isModalOpen && (
         <Modal onClose={toggleModal}>
           <Formik
-            autoComplete='off'
+            autoComplete="off"
             initialValues={initialValues}
             validationSchema={updateUserSchema}
-            onSubmit={handleSubmit}>
+            onSubmit={handleSubmit}
+          >
             {({ errors }) => (
               <Form className={styles.form}>
                 <div className={styles.wrap}>
@@ -114,45 +124,53 @@ export const EditUserProfile = () => {
                 </div>
                 <div className={styles.wrap}>
                   <Field
-                    className={theme === 'violet' ? styles.inputViolet : styles.input}
-                    type='text'
-                    name='name'
-                    placeholder='Enter your name'
+                    className={
+                      theme === "violet" ? styles.inputViolet : styles.input
+                    }
+                    type="text"
+                    name="name"
+                    placeholder="Enter your name"
                   />
-                  {errors.name && <FormError name='name' />}
+                  {errors.name && <FormError name="name" />}
                 </div>
                 <div className={styles.wrap}>
                   <Field
-                    className={theme === 'violet' ? styles.inputViolet : styles.input}
-                    type='email'
-                    name='email'
-                    placeholder='Enter your email'
+                    className={
+                      theme === "violet" ? styles.inputViolet : styles.input
+                    }
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
                   />
-                  {errors.email && <FormError name='email' />}
+                  {errors.email && <FormError name="email" />}
                 </div>
                 <div className={styles.wrap}>
                   <Field
-                    className={theme === 'violet' ? styles.inputViolet : styles.input}
-                    type={passwordShown ? 'text' : 'password'}
-                    name='password'
-                    placeholder='Change password'
+                    className={
+                      theme === "violet" ? styles.inputViolet : styles.input
+                    }
+                    type={passwordShown ? "text" : "password"}
+                    name="password"
+                    placeholder="Change password"
                   />
                   <span
                     className={styles.open}
-                    role='button'
-                    tabIndex='0'
+                    role="button"
+                    tabIndex="0"
                     onClick={togglePassword}
-                    onKeyDown={e => {
-                      if (e.key === 'Enter' || e.key === ' ') togglePassword();
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") togglePassword();
                     }}
-                    aria-label='Toggle password visibility'>
+                    aria-label="Toggle password visibility"
+                  >
                     {passwordIcon}
                   </span>
-                  {errors.password && <FormError name='password' />}
+                  {errors.password && <FormError name="password" />}
                 </div>
                 <button
-                  className={theme === 'violet' ? styles.btnViolet : styles.btn}
-                  type='submit'>
+                  className={theme === "violet" ? styles.btnViolet : styles.btn}
+                  type="submit"
+                >
                   <div className={styles.wrap}>
                     <span>Send</span>
                     <Loader />

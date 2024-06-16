@@ -12,7 +12,7 @@ const Header = () => {
   const actualTheme = useSelector(selectTheme);
   const dispatch = useDispatch();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
- 
+
   const ThemeOptions = [
     { label: "Light", value: ThemeTypes.LIGHT },
     { label: "Violet", value: ThemeTypes.VIOLET },
@@ -64,7 +64,7 @@ const Header = () => {
                   })}
                   onClick={() => {
                     console.log("Option clicked:", option.value);
-                    setIsDropdownOpen(false)
+                    setIsDropdownOpen(false);
                     handleThemeChange(option.value);
                   }}
                 >
