@@ -88,12 +88,21 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  fill: none;
 }
 .LogoSVG.isActive {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+}
+
+.LogoSVG.isActive.dark,
+.LogoSVG.isActive.violet {
   stroke: rgba(255, 255, 255, 0.5);
+}
+
+.LogoSVG.isActive.light {
+  stroke: rgba(22, 22, 22, 0.5);
 }
 
 .titleSVG.isActive.dark,
