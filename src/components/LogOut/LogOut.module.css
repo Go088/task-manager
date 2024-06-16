@@ -31,6 +31,10 @@
   stroke: #b8bcfd;
 }
 
+.logo {
+  fill: none;
+}
+
 .logo.dark,
 .logo.light {
   stroke: #bedbb0;
