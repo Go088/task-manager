@@ -1,4 +1,4 @@
-import css from "./ColumnForm.module.css"
+import css from "./ColumnForm.module.css";
 import clsx from "clsx";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -6,6 +6,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
+import { selectBoard } from "../../redux/features/boardss/selectors";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { addColumn } from "../../redux/features/boardss/operations";
+
 
 const schema = yup.object().shape({
   title: yup
@@ -16,6 +21,11 @@ const schema = yup.object().shape({
 });
 
 export default function ColumnForm({ isOpen, onRequestClose }) {
+
+
+  const board = useSelector(selectBoard);
+
+
   const themeType = "dark";
   const {
     register,
@@ -31,7 +41,19 @@ export default function ColumnForm({ isOpen, onRequestClose }) {
     },
   });
 
+  const dispatch = useDispatch();
+
   const onSubmit = (data) => {
+
+
+    const id = board._id;
+    const columnData = {
+      data,
+      id,
+    };
+    dispatch(addColumn(columnData));
+
+
     console.log(data);
     reset();
     onRequestClose();

@@ -26,3 +26,17 @@ export const fetchAllCards = createAsyncThunk(
     }
   }
 );
+
+export const addColumn = createAsyncThunk(
+  "board/addColumn",
+  async (data, thunkAPI) => {
+    try {
+      console.log({ data });
+      const response = await axios.post(`/board/${data.id}/column`, data.data);
+      console.log(response.data);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
