@@ -17,11 +17,19 @@ import {
   selectAllCards,
   selectBoard,
 } from "../../redux/features/boardss/selectors";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 // import { selectUserr } from "../../redux/features/auth/selectors";
 // import { ThreeCircles } from "react-loader-spinner";
 
-const ScreanPage = ({ id = "666c45b30031e4827c3c972e" }) => {
+const ScreanPage = ({ idw = "666c45b30031e4827c3c972e" }) => {
+  const { boardName } = useParams();
+  const [id, setId] = useState(null);
+
+  useEffect(() => {
+    setId(boardName);
+  }, [boardName]);
+
   const theme = "dark";
   const dispatch = useDispatch();
   const board = useSelector(selectBoard);
@@ -33,8 +41,8 @@ const ScreanPage = ({ id = "666c45b30031e4827c3c972e" }) => {
 
   const allCards = useSelector(selectAllCards);
   useEffect(() => {
-    // console.log(board);
-    // console.log(allCards);
+    console.log(board);
+    console.log(allCards);
   }, [allCards, board]);
 
   const isBoard = board._id ? true : false;
@@ -49,19 +57,25 @@ const ScreanPage = ({ id = "666c45b30031e4827c3c972e" }) => {
         <FilterButton theme={theme} />
       </div>
       {isBoard ? (
-        <div className={clsx(theme + "firstScrol", css.firstS)}>
-          <SimpleBar autoHide={false} forceVisible="x">
-            <div className={css.columnWrapper}>
-              {isColumns &&
-                board.columns.map((column) => {
-                  return (
-                    <Column key={column._id} column={column} theme={theme} />
-                  );
-                })}
+        <div
+          className={clsx(
+            css.columnContainer,
+            theme + "firstScrol",
+            css[theme]
+          )}
+        >
+          {/* <SimpleBar autoHide={false} forceVisible="x"> */}
+          <div className={css.columnWrapper}>
+            {isColumns &&
+              board.columns.map((column) => {
+                return (
+                  <Column key={column._id} column={column} theme={theme} />
+                );
+              })}
 
-              <AddAnotherButton theme={theme} />
-            </div>
-          </SimpleBar>
+            <AddAnotherButton theme={theme} />
+          </div>
+          {/* </SimpleBar> */}
         </div>
       ) : (
         <NoBoardText theme={theme} />
