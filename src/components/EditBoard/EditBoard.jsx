@@ -33,11 +33,11 @@ const icons = [
     spriteId: "icon-cube",
   },
   {
-    value: " lightning",
+    value: "lightning",
     spriteId: "icon-lightning",
   },
   {
-    value: " colors",
+    value: "colors",
     spriteId: "icon-colors",
   },
   {
@@ -147,7 +147,9 @@ const schema = yup.object().shape({
     .trim(),
 });
 
-export default function EditBoard({ isOpen, onRequestClose, _id}) {
+export default function EditBoard({ isOpen, onRequestClose, _id, background,
+  title,
+  icon }) {
   const themeType = "dark";
   const iconFieldId = useId();
   const backgroundFieldId = useId();
@@ -161,14 +163,15 @@ export default function EditBoard({ isOpen, onRequestClose, _id}) {
     resolver: yupResolver(schema),
 
     defaultValues: {
-      title: "",
-      icon: "project",
-      background: "default",
+      title,
+      icon,
+      background,
     },
   });
   const dispatch = useDispatch()
 
   const onSubmit = (data) => {
+    console.log(data);
     dispatch(editBoard({_id,data}))
     reset();
     onRequestClose();
