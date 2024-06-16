@@ -1,9 +1,31 @@
+.infoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .text {
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
+}
+
+.text.dark,
+.text.violet {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.text.light {
+  color: rgba(22, 22, 22, 0.5);
+}
+
+.text.isActive.dark,
+.text.isActive.violet {
   color: #fff;
-  margin-left: 8px;
+}
+
+.text.isActive.light {
+  color: #161616;
 }
 .button {
   padding: 0;
@@ -15,28 +37,105 @@
   background: transparent;
   border: none;
 }
+
+.boxModel.isActive {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 4px 0 0 4px;
+  width: 4px;
+  height: 100%;
+}
+
+.boxModel.isActive.dark,
+.boxModel.isActive.light {
+  background-color: #bedbb0;
+}
+
+.boxModel.isActive.violet {
+  background-color: #fff;
+}
 .wrapper {
+  position: relative;
   width: 100%;
-  height: 61px;
   display: flex;
   align-items: center;
-  background-color: rgba(31, 31, 31, 1);
+  justify-content: space-between;
+  padding-left: 14px;
+  padding-right: 14px;
   padding-top: 22px;
   padding-bottom: 22px;
-  padding-left: 24px;
-  padding-right: 24px;
+}
+
+.wrapper.dark.isActive {
+  background-color: rgba(31, 31, 31, 0.4);
+}
+
+.wrapper.light.isActive {
+  background-color: rgba(246, 246, 247, 0.4);
+}
+
+.wrapper.violet.isActive {
+  background: rgba(255, 255, 255, 0.5);
 }
 .btnList {
   display: flex;
   gap: 8px;
-  margin-left: auto;
   border: none;
 }
+
 .LogoSVG {
-  stroke: rgba(255, 255, 255, 0.5);
-  fill: transparent;
+  fill: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  fill: none;
 }
-.titleSVG {
+
+.LogoSVG.isActive {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.LogoSVG.isActive.dark,
+.LogoSVG.isActive.violet {
+  stroke: rgba(255, 255, 255, 0.5);
+}
+
+.LogoSVG.isActive.light {
+  stroke: rgba(22, 22, 22, 0.5);
+}
+
+.titleSVG.isActive.dark,
+.titleSVG.isActive.violet {
   stroke: #fff;
-  fill: transparent;
+}
+
+.iconSvg.isActive.light {
+  stroke: #161616;
+}
+
+.iconSvg {
+  fill: none;
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.iconSvg.dark {
+  stroke: rgba(255, 255, 255, 0.5);
+}
+
+.iconSvg.light,
+.iconSvg.violet {
+  stroke: rgba(22, 22, 22, 0.5);
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .infoWrapper {
+    gap: 8px;
+  }
 }

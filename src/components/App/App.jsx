@@ -61,6 +61,15 @@ const App = () => {
                 }
               />
               <Route
+                path="*"
+                element={
+                  <RestrictedRoute
+                    component={<NotFoundPage />}
+                    redirectTo="/welcome"
+                  />
+                }
+              />
+              <Route
                 path="/home"
                 element={
                   <PrivateRoute
