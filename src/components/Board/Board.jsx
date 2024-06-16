@@ -7,17 +7,19 @@ import EditBoard from "../EditBoard/EditBoard";
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
 
-export const Board = ({ _id, title, icon }) => {
+export const Board = ({ _id, title, icon, background }) => {
   const themeType = "dark";
+  const isActiveClass = "isActive";
+
   const dispatch = useDispatch();
   const handleDelete = () => dispatch(deleteBoard(_id));
   const handlEdit = () => dispatch(EditBoard({ _id }));
-  const titleSVG = `icon-${icon.trim()}`;
+  const titleSVG = `icon-${icon}`;
   const [editIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     Modal.setAppElement("#root");
-  }, []);
+  });
 
   const closeModal = () => {
     setIsOpen(false);
@@ -25,15 +27,21 @@ export const Board = ({ _id, title, icon }) => {
   const handleOpen = () => setIsOpen(true);
 
   return (
-    <div className={clsx(css.wrapper, css[themeType], css.isActive)}>
+    <div className={clsx(css.wrapper, css[isActiveClass], css[themeType])}>
       <div className={css.infoWrapper}>
         <Icon
-          id={`icon-${titleSVG}`}
+          id={titleSVG}
           width="18"
           height="18"
-          className={css.titleSVG}
+          className={clsx(css.iconSvg, css[isActiveClass], css[themeType])}
         />
-        <h2 className={clsx(css.text, css[themeType], css.isActive)}>
+        {/* <h2 className={(isActive) => {
+                    return clsx(css.text, css[themeType], isActive && css[isActiveClass])
+                  }}>
+          {title}
+        </h2> */}
+
+        <h2 className={clsx(css.text, css[isActiveClass], css[themeType])}>
           {title}
         </h2>
       </div>
@@ -43,7 +51,7 @@ export const Board = ({ _id, title, icon }) => {
             id="icon-pencil"
             width="16"
             height="16"
-            className={clsx(css.LogoSVG, css.isActive)}
+            className={clsx(css.LogoSVG, css[isActiveClass], css[themeType])}
           />
         </button>
         <button type="button" className={css.button} onClick={handleDelete}>
@@ -51,10 +59,12 @@ export const Board = ({ _id, title, icon }) => {
             id="icon-trash"
             width="16"
             height="16"
-            className={clsx(css.LogoSVG, css.isActive)}
+            className={clsx(css.LogoSVG, css[isActiveClass], css[themeType])}
           />
         </button>
-        <div className={clsx(css.boxModel, css[themeType], css.isActive)}></div>
+        <div
+          className={clsx(css.boxModel, css[isActiveClass], css[themeType])}
+        ></div>
       </div>
       {editIsOpen && (
         <EditBoard
@@ -62,6 +72,9 @@ export const Board = ({ _id, title, icon }) => {
           onRequestClose={closeModal}
           onclick={handlEdit}
           _id={_id}
+          background={background}
+          title={title}
+          icon={icon}
         />
       )}
     </div>

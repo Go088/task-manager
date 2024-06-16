@@ -26,18 +26,18 @@ const icons = [
   },
   {
     value: "puzzle",
-    spriteId: "icon-puzzle-piece",
+    spriteId: "icon-puzzle",
   },
   {
     value: "cube",
     spriteId: "icon-cube",
   },
   {
-    value: " lightning",
+    value: "lightning",
     spriteId: "icon-lightning",
   },
   {
-    value: " colors",
+    value: "colors",
     spriteId: "icon-colors",
   },
   {
@@ -50,11 +50,11 @@ const backgrounds = [
   {
     value: "sakura",
     srcSet: "/img/bg/sacura.png 1x, /img/bg/sacura.png 2x",
-    src: "/img/bg/3d.png.png",
+    src: "/img/bg/3d.png",
     alt: "sakura",
   },
   {
-    value: "nightMoutains.png",
+    value: "nightMoutains",
     srcSet: "/img/bg/nightMoutains.png 1x, /img/bg/nightMoutains.png 2x",
     src: "/img/bg/nightMoutains.png",
     alt: "3d sphere",
@@ -147,7 +147,9 @@ const schema = yup.object().shape({
     .trim(),
 });
 
-export default function EditBoard({ isOpen, onRequestClose, _id}) {
+export default function EditBoard({ isOpen, onRequestClose, _id, background,
+  title,
+  icon }) {
   const themeType = "dark";
   const iconFieldId = useId();
   const backgroundFieldId = useId();
@@ -161,14 +163,15 @@ export default function EditBoard({ isOpen, onRequestClose, _id}) {
     resolver: yupResolver(schema),
 
     defaultValues: {
-      title: "",
-      icon: "project",
-      background: "default",
+      title,
+      icon,
+      background,
     },
   });
   const dispatch = useDispatch()
 
   const onSubmit = (data) => {
+    console.log(data);
     dispatch(editBoard({_id,data}))
     reset();
     onRequestClose();

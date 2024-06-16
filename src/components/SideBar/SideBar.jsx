@@ -23,7 +23,7 @@ export default function SideBar() {
         <div className={css.box}>
           <div className={css.wrapper}>
             <div className={clsx(css.Logolist, css[themeType])}>
-              <div className={css.LogoContainer}>
+              <div className={clsx(css.LogoContainer, css[themeType])}>
                 <Icon
                   id="icon-logo"
                   width="12"

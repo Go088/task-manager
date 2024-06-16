@@ -5,14 +5,14 @@ import "./datepicker-overrides.css";
 import css from "./Calendar.module.css";
 import Icon from "../Icon/Icon";
 
-const Calendar = ({ onDateChange }) => {
+const Calendar = ({onDateChange = new Date()}) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
+    onDateChange(formatDate(date));
     setIsCalendarOpen(false);
-    onDateChange(date);
   };
 
   const formatDate = (date) => {
@@ -30,15 +30,14 @@ const Calendar = ({ onDateChange }) => {
     month: "long",
     day: "numeric",
   });
-
   return (
     <div className={css.wrap}>
-      <p className={css.text}>Deadline</p>
       <div className={css.wrapPicker}>
         <p>
           {selectedDate ? formatDate(selectedDate) : `Today, ${todayFormatted}`}
         </p>
         <button
+        type="button"
           className={css.button}
           onClick={() => setIsCalendarOpen(!isCalendarOpen)}
           aria-label="Select deadline date"
