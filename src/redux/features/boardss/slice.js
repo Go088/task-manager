@@ -78,7 +78,8 @@ const boardSlice = createSlice({
         state.board.columns[index] = action.payload;
       })
       .addCase(editColumn.rejected, handleRejected)
-      .addCase(editColumn.fulfilled, (state, action) => {
+      .addCase(addCard.pending, handlePending)
+      .addCase(addCard.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.cards.push(action.payload);
