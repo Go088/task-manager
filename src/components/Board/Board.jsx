@@ -43,7 +43,7 @@ export const Board = ({ _id, title, icon }) => {
             id="icon-pencil"
             width="16"
             height="16"
-            className={clsx(css.LogoSVG, css[themeType],css.isActive)}
+            className={clsx(css.LogoSVG, css[themeType], css.isActive)}
           />
         </button>
         <button type="button" className={css.button} onClick={handleDelete}>
@@ -51,7 +51,7 @@ export const Board = ({ _id, title, icon }) => {
             id="icon-trash"
             width="16"
             height="16"
-            className={clsx(css.LogoSVG, css.isActive)}
+            className={clsx(css.LogoSVG, css.isActive, css[themeType])}
           />
         </button>
         <div className={clsx(css.boxModel, css[themeType], css.isActive)}></div>
