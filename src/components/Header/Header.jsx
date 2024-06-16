@@ -22,17 +22,17 @@ const Header = () => {
   const themeType = actualTheme;
 
   const handleThemeChange = (theme) => {
-    console.log("Changing theme to:", theme);
+    // console.log("Changing theme to:", theme);
     dispatch(changeTheme(theme));
   };
 
   const toggleDropdown = () => {
-    console.log("open dropDown");
+    // console.log("open dropDown");
     setIsDropdownOpen(!isDropdownOpen);
   };
 
   useEffect(() => {
-    console.log("Theme updated to:", actualTheme);
+    // console.log("Theme updated to:", actualTheme);
   }, [actualTheme]);
 
   return (
@@ -63,7 +63,10 @@ const Header = () => {
                     [css.active]: option.value === actualTheme,
                   })}
                   onClick={() => {
-                    console.log("Option clicked:", option.value);
+                    // console.log("Option clicked:", option.value);
+                    if(option.value === actualTheme) {
+                      return
+                    }
                     setIsDropdownOpen(false)
                     handleThemeChange(option.value);
                   }}
