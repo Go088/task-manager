@@ -57,11 +57,11 @@ const boardSlice = createSlice({
       .addCase(editBoard.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+        console.log(action.payload);
         const index = state.items.findIndex(
           (board) => board._id === action.payload._id
         );
-        state.items.splice(index, 1);
-        state.items.push(action.payload);
+        state.items[index] = action.payload;
       })
       .addCase(editBoard.rejected, (state, action) => {
         state.isLoading = false;
