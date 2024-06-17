@@ -1,0 +1,128 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  width: 335px;
+  padding: 20px;
+  background-color: #1d1d1d;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  overflow: auto;
+  position: relative;
+}
+
+.title {
+  margin-bottom: 24px;
+  font-family: var(--font-medium);
+  font-size: 18px;
+  color: #fff;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 18px;
+  font-family: var(--font-regular);
+  font-size: 14px;
+  color: #fff;
+  background-color: #2d2d2d;
+  border: 1px solid rgb(190, 219, 176);
+  border-radius: 8px;
+  opacity: 0.4;
+}
+.input:focus {
+  opacity: 1;
+  outline: none;
+}
+.input:focus:valid {
+  background-color: #2d2d2d;
+}
+
+.input::placeholder {
+  color: #bbb;
+}
+
+.passwordInputWrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.passwordIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.avatarWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  position: relative;
+}
+
+.avatar .upload-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #8bc34a;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.btn {
+  width: 100%;
+  padding: 14px 0;
+  font-family: var(--font-medium);
+  font-size: 14px;
+  color: #1d1d1d;
+  background: rgb(190, 219, 176);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #9dc888;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fff;
+}
+.icon {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.4);
+}

@@ -4,9 +4,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/features/auth/operations";
 import css from "./LoginForm.module.css";
-import {Icon} from "react-icons-kit";
-import {eye} from 'react-icons-kit/feather/eye';
-import {eyeOff} from 'react-icons-kit/feather/eyeOff';
+import { Icon } from "react-icons-kit";
+import { eye } from "react-icons-kit/feather/eye";
+import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { useState } from "react";
 
 // Схема валідації
@@ -38,24 +38,22 @@ const LoginForm = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = (userData) => {
-    console.log(JSON.stringify(userData));
     dispatch(logIn(userData));
     reset();
   };
 
-
   const [icon, setIcon] = useState(eyeOff);
-  const [type, setType] = useState('password');
+  const [type, setType] = useState("password");
 
-  const handleToglePassword = () => {
-    if(type==='password'){
+  const handleTogglePassword = () => {
+    if (type === "password") {
       setIcon(eye);
-      setType('text');
+      setType("text");
     } else {
       setIcon(eyeOff);
-      setType('password');
+      setType("password");
     }
-  }
+  };
 
   return (
     <div>
@@ -67,21 +65,32 @@ const LoginForm = () => {
             {...register("email")}
             placeholder="Enter your email"
           />
-          {errors.email && <p className={css.errorMessage}>{errors.email.message}</p>}
+          {errors.email && (
+            <p className={css.errorMessage}>{errors.email.message}</p>
+          )}
         </label>
         <label>
           <div className={css.inputContainer}>
-          <input
-            className={css.input}
-            type={type}
-            {...register("password")}
-            placeholder="Confirm a password"
-          />
-          <Icon icon={icon} size={18} className={css.icon} onClick={handleToglePassword}/>
+            <input
+              className={css.input}
+              type={type}
+              {...register("password")}
+              placeholder="Confirm a password"
+            />
+            <Icon
+              icon={icon}
+              size={18}
+              className={css.icon}
+              onClick={handleTogglePassword}
+            />
           </div>
-          {errors.email && <p className={css.errorMessage}>{errors.email.message}</p>}
+          {errors.email && (
+            <p className={css.errorMessage}>{errors.email.message}</p>
+          )}
         </label>
-        <input type="submit" value={"Log In Now"} className={css.button} />
+        <button type="submit" className={css.button}>
+          Log In Now
+        </button>
       </form>
     </div>
   );

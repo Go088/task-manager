@@ -181,6 +181,30 @@
   display: flex;
   gap: 14px;
 }
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  width: 335px;
+  outline: none;
+  padding: 20px;
+  overflow: auto;
+  box-sizing: border-box;
+  border: 1px solid rgba(190, 219, 176, 0.5);
+  border-radius: 8px;
+  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.05);
+  background: rgb(21, 21, 21);
+}
+
 @media screen and (min-width: 768px) {
   .headerContainer {
     height: 68px;
