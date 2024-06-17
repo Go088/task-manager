@@ -4,6 +4,24 @@ import toast from "react-hot-toast";
 
 axios.defaults.baseURL = "https://task-manager-r8dz.onrender.com/api";
 
+export const getTheme = createAsyncThunk(
+  "theme/getTheme",
+  async (_, thunkAPI) => {
+    try { 
+     const response = await axios.get("/users/getTheme");
+     const theme = response.data.theme;
+      toast.success(`Actual theme is ${theme}`, {duration: 1500})
+      console.log(theme);
+      console.log("Theme fetched successfully:", theme);
+      return {theme};
+    } catch (error) {
+        toast.error('Failed to change theme', {duration: 1500})
+        return thunkAPI.rejectWithValue(error.message)
+    }
+  }
+)
+
+
 export const changeTheme = createAsyncThunk(
   "theme/changeTheme",
   async (newTheme, thunkAPI) => {
