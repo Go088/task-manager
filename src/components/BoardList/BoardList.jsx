@@ -2,10 +2,10 @@
 import { useSelector } from "react-redux";
 import { selectBoards } from "../../redux/features/boards/selectors.js";
 import css from "./BoardList.module.css";
-// import { clsx } from 'clsx';
+import { clsx } from 'clsx';
 import {
   //   useParams,
-//   NavLink,
+  NavLink,
   //   Link,
   //   Outlet,
   //   useLocation,
@@ -23,19 +23,19 @@ export default function BoardList() {
       <ul className={css.list}>
         {boards.map(({ _id, title, icon, background}) => (
           <li key={_id}>
-            {/* <NavLink
+            <NavLink
               className={({ isActive }) => {
                     return clsx(css.link, isActive && css.isActive);
                   }}
               to={_id}
-            > */}
+            >
                 <Board
                   _id={_id}
                   title={title}
                     icon={icon}
                     background={background}
                 />
-            {/* </NavLink> */}
+            </NavLink>
           </li>
         ))}
       </ul>

@@ -10,11 +10,12 @@ import { useEffect, useState } from "react";
 import Modal from "../ModalContainer/ModalContainer";
 import { EditUserProfile } from "../EditUserProfile/EditUserProfile";
 
-const Header = () => {
+const Header = ({ setIsSidebarOpen }) => {
   const actualTheme = useSelector(selectTheme);
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const ThemeOptions = [
@@ -38,17 +39,25 @@ const Header = () => {
   };
 
   useEffect(() => {}, [actualTheme]);
+  useEffect(() => {
+    // console.log("Theme updated to:", actualTheme);
+  }, [actualTheme]);
+  const openSidebar = () => {
+    setIsSidebarOpen(true);
+  };
 
   return (
     <div
       className={clsx(layout.container, css.headerContainer, css[themeType])}
     >
-      <Icon
-        id="icon-menu-01"
-        className={clsx(css.mobileMenuIcon, css[themeType])}
-        width="24"
-        height="24"
-      />
+      <div onClick={openSidebar}>
+        <Icon
+          id="icon-menu-01"
+          className={clsx(css.mobileMenuIcon, css[themeType])}
+          width="24"
+          height="24"
+        />
+      </div>
       <div className={css.infoWrapper}>
         <div className={css.themeWrapper} onClick={toggleDropdown}>
           <p className={clsx(css.selectTitle, css[themeType])}>Theme</p>
