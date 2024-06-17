@@ -18,8 +18,10 @@ import {
 } from "../../redux/features/boardss/selectors";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import FilterButton from "./FilterButton/FilterButton";
 
-const ScreanPage = ({ idw = "666c45b30031e4827c3c972e" }) => {
+const ScreanPage = ({ aaa }) => {
+  console.log(aaa);
   const { id: boardName } = useParams();
   const [id, setId] = useState(null);
 
@@ -48,7 +50,8 @@ const ScreanPage = ({ idw = "666c45b30031e4827c3c972e" }) => {
   const isColumns = board.columns?.length > 0;
   console.log(board);
   return (
-    <>
+    <div>
+      <FilterButton theme={theme} />
       <div className={css.titleFilterWrapper}>
         {isBoard && (
           <h2 className={clsx(css.title, css[theme])}>{board?.title}</h2>
@@ -77,7 +80,7 @@ const ScreanPage = ({ idw = "666c45b30031e4827c3c972e" }) => {
           {/* </SimpleBar> */}
         </div>
       )}
-    </>
+    </div>
   );
 };
 export default ScreanPage;

@@ -6,7 +6,10 @@ import AddCardButton from "../AddCardButton/AddCardButton";
 import CustomScrollBar from "../CustemScrollBar/CustomScrollBar";
 import clsx from "clsx";
 
-import { selectAllCards } from "../../../redux/features/boardss/selectors";
+import {
+  selectAllCards,
+  selectFilteredCards,
+} from "../../../redux/features/boardss/selectors";
 import { useSelector, useDispatch } from "react-redux";
 import useMedia from "../../../hooks/useMediaQuery";
 import { deleteColumn } from "../../../redux/features/boardss/operations";
@@ -32,9 +35,9 @@ const Column = ({ theme, column }) => {
   const handleDelete = () => {
     console.log(column);
     dispatch(deleteColumn(id));
-  }
+  };
 
-  const allCards = useSelector(selectAllCards);
+  const allCards = useSelector(selectFilteredCards);
 
   const getColumnCards = () => {
     if (allCards) {
@@ -57,9 +60,7 @@ const Column = ({ theme, column }) => {
             {column?.title}
           </h3>
           <div className={css.iconWrapper}>
-            <button type="button" className={css.button}
-              onClick={handleOpen}
-            >
+            <button type="button" className={css.button} onClick={handleOpen}>
               <Icon
                 className={clsx(css.iconPensil, css[whiteTheme], css[theme])}
                 width="16px"
@@ -92,10 +93,14 @@ const Column = ({ theme, column }) => {
           </CustomScrollBar>
         </div>
 
-        <AddCardButton theme={theme} column={column}/>
+        <AddCardButton theme={theme} column={column} />
       </div>
       {modalIsOpen && (
-        <EditColumn isOpen={modalIsOpen} onRequestClose={closeModal} column={column} />
+        <EditColumn
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          column={column}
+        />
       )}
     </>
   );

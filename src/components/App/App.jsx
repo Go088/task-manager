@@ -52,15 +52,6 @@ const App = () => {
                 }
               />
               <Route
-                path="*"
-                element={
-                  <RestrictedRoute
-                    component={<NotFoundPage />}
-                    redirectTo="/welcome"
-                  />
-                }
-              />
-              <Route
                 path="/home"
                 element={
                   <PrivateRoute
@@ -71,6 +62,15 @@ const App = () => {
               >
                 <Route path=":id" element={<ScreenPage />} />
               </Route>
+              <Route
+                path="*"
+                element={
+                  <RestrictedRoute
+                    component={<NotFoundPage />}
+                    redirectTo="/welcome"
+                  />
+                }
+              />
             </Routes>
           </Suspense>
         )}

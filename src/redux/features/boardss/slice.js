@@ -25,13 +25,16 @@ const boardSlice = createSlice({
   initialState: {
     board: {},
     cards: [],
+    filteredCards: [],
     isLoading: false,
     error: null,
     toast: "",
   },
   reducers: {
-    setToast: (state, action) => {
-      state.toast = action.payload;
+    setFilteredCards: (state, action) => {
+      const allCards = state.cards;
+
+      state.filteredCards = action.payload;
     },
     setContactError: (state, action) => {
       state.error = action.payload;
@@ -106,5 +109,5 @@ const boardSlice = createSlice({
       .addCase(editCard.rejected, handleRejected);
   },
 });
-export const { setToast, setContactError } = boardSlice.actions;
+export const { setFilteredCards, setContactError } = boardSlice.actions;
 export const boardReducer = boardSlice.reducer;

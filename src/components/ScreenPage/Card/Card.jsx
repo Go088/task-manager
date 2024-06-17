@@ -7,27 +7,40 @@ const Card = ({ theme, card }) => {
   const date = new Date();
   let corectedDate = "";
   let dateNow = "";
-  try {
-    const formatDate = (date) => {
-      const day = String(date.getDate()).padStart(2, "0");
-      const month = String(date.getMonth() + 1).padStart(2, "0");
-      const year = date.getFullYear();
-      return `${day}/${month}/${year}`;
-    };
-    const validateDate = (dateString) => {
-      return datePattern.test(dateString);
-    };
-    dateNow = formatDate(date);
-    corectedDate = validateDate(card.deadline)
-      ? card.deadline
-      : formatDate(Number(card.deadline));
-  } catch (error) {
-    console.log("card date error");
-  }
+  // try {
+  //   const formatDate = (date) => {
+  //     const day = String(date.getDate()).padStart(2, "0");
+  //     const month = String(date.getMonth() + 1).padStart(2, "0");
+  //     const year = date.getFullYear();
+  //     return `${day}/${month}/${year}`;
+  //   };
+  //   const validateDate = (dateString) => {
+  //     return datePattern.test(dateString);
+  //   };
+  //   dateNow = formatDate(date);
+  //   corectedDate = validateDate(card.deadline)
+  //     ? card.deadline
+  //     : formatDate(Number(card.deadline));
+  // } catch (error) {
+  //   // console.log("card date error");
+  // }
 
   const isBellVisible = dateNow === corectedDate;
 
   // const formattedDate = formatDate(date);
+
+  function convertDateStringToTimestamp(dateString) {
+    // Split the date string into day, month, and year
+    const [day, month, year] = dateString.split("/");
+
+    // Create a new Date object using the parsed values
+    const date = new Date(`${year}-${month}-${day}`);
+
+    // Return the timestamp
+    return date.getTime();
+  }
+  const datt = convertDateStringToTimestamp("25/06/2024");
+  console.log(typeof datt);
 
   const whiteTheme = theme === "dark" ? "" : "white";
 
