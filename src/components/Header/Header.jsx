@@ -8,11 +8,11 @@ import { selectTheme } from "../../redux/features/auth/selectors";
 import { changeTheme } from "../../redux/features/theme/operations";
 import { useEffect, useState } from "react";
 
-const Header = () => {
+const Header = ({ setIsSidebarOpen }) => {
   const actualTheme = useSelector(selectTheme);
   const dispatch = useDispatch();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
- 
+
   const ThemeOptions = [
     { label: "Light", value: ThemeTypes.LIGHT },
     { label: "Violet", value: ThemeTypes.VIOLET },
@@ -34,17 +34,22 @@ const Header = () => {
   useEffect(() => {
     // console.log("Theme updated to:", actualTheme);
   }, [actualTheme]);
+  const openSidebar = () => {
+    setIsSidebarOpen(true);
+  };
 
   return (
     <div
       className={clsx(layout.container, css.headerContainer, css[themeType])}
     >
-      <Icon
-        id="icon-menu-01"
-        className={clsx(css.mobileMenuIcon, css[themeType])}
-        width="24"
-        height="24"
-      />
+      <div onClick={openSidebar}>
+        <Icon
+          id="icon-menu-01"
+          className={clsx(css.mobileMenuIcon, css[themeType])}
+          width="24"
+          height="24"
+        />
+      </div>
       <div className={css.infoWrapper}>
         <div className={css.themeWrapper} onClick={toggleDropdown}>
           <p className={clsx(css.selectTitle, css[themeType])}>Theme</p>
@@ -64,10 +69,10 @@ const Header = () => {
                   })}
                   onClick={() => {
                     // console.log("Option clicked:", option.value);
-                    if(option.value === actualTheme) {
-                      return
+                    if (option.value === actualTheme) {
+                      return;
                     }
-                    setIsDropdownOpen(false)
+                    setIsDropdownOpen(false);
                     handleThemeChange(option.value);
                   }}
                 >
