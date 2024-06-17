@@ -63,7 +63,7 @@ const Header = ({ setIsSidebarOpen }) => {
           <p className={clsx(css.selectTitle, css[themeType])}>Theme</p>
           <Icon
             className={clsx(css.selectThemeIcon, css[themeType])}
-            id="icon-arror_edit_prifile"
+            id="icon-arrow_edit_profile"
             width="16"
             height="16"
           />
