@@ -74,3 +74,27 @@ export const addCard = createAsyncThunk(
     }
   }
 );
+
+export const deleteCard = createAsyncThunk(
+  "board/deleteCard",
+  async (id, thunkAPI) => {
+    try {
+      await axios.delete(`/deleteCard/${id}`);
+      return id;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const editCard = createAsyncThunk(
+  "board/editCard",
+  async ({ _id, data }, thunkAPI) => {
+    try {
+      const response = await axios.put(`/editCard/${_id}`, data);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

@@ -1,0 +1,420 @@
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+}
+
+.Overlay {
+  position: fixed;
+  z-index: 10000000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(21, 21, 21, 0.3);
+}
+
+.form {
+  padding: 24px;
+  border-radius: 8px;
+  width: 335px;
+  height: 100%;
+}
+
+.form.dark {
+  border: 1px solid rgba(190, 219, 176, 0.5);
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+  background-color: #151515;
+}
+
+.form.light {
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+  background-color: #fcfcfc;
+}
+
+.form.violet {
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+  background-color: #fcfcfc;
+}
+
+/* Title */
+
+.title {
+  margin-bottom: 24px;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+.title.dark {
+  color: #fff;
+}
+
+.title.light,
+.title.violet {
+  stroke: #161616;
+}
+
+/* Input */
+
+.input {
+  font-size: 14px;
+  outline: transparent;
+  font-family: "Poppins";
+  padding: 14px 18px;
+  opacity: 0.4;
+  background-color: transparent;
+  border-radius: 8px;
+  width: 100%;
+  height: 49px;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input:hover,
+.input:focus {
+  opacity: 1;
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+}
+
+.input.dark {
+  color: #fff;
+  border: 1px solid #bedbb0;
+}
+
+.input.light {
+  color: #161616;
+  border: 1px solid #bedbb0;
+}
+
+.input.violet {
+  color: #161616;
+  border: 1px solid #5255bc;
+}
+
+.input.dark::placeholder {
+  color: #fff;
+}
+
+.input.light::placeholder,
+.input.violet::placeholder {
+  color: #161616;
+}
+
+/*    Textarea   */
+
+.textarea {
+  font-size: 14px;
+  outline: transparent;
+  font-family: "Poppins";
+  opacity: 0.4;
+
+  margin-top: 14px;
+  padding: 14px 18px;
+  width: 100%;
+  resize: none;
+  background-color: transparent;
+  border: 1px solid #bedbb0;
+  border-radius: 8px;
+  height: 154px;
+  margin-bottom: 24px;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.textarea::placeholder {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.textarea.dark::placeholder {
+  color: #fff;
+}
+
+.textarea.light::placeholder,
+.textarea.violet::placeholder {
+  color: #161616;
+}
+
+.textarea:hover,
+.textarea:focus {
+  opacity: 1;
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+}
+
+.textarea.dark {
+  color: #fff;
+  border: 1px solid #bedbb0;
+}
+
+.textarea.light {
+  color: #161616;
+  border: 1px solid #bedbb0;
+}
+
+.textarea.violet {
+  color: #161616;
+  border: 1px solid #5255bc;
+}
+
+.textareaWrappper {
+  position: relative;
+}
+
+/* Error  */
+
+.error {
+  font-family: "Poppins";
+  font-size: 12px;
+}
+
+.error.dark,
+.error.light {
+  color: #bedbb0;
+}
+
+.error.violet {
+  color: #5255bc;
+}
+
+.errorTitle {
+  margin-top: 4px;
+}
+
+.errorTextarea {
+  position: absolute;
+  top: 172px;
+  left: 0px;
+}
+
+/*   Subtitle   */
+
+.subtitle {
+  margin-bottom: 4px;
+
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: -0.02em;
+}
+
+.subtitle.dark {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.subtitle.light,
+.subtitle.violet {
+  color: rgba(22, 22, 22, 0.5);
+}
+
+/*   Labels    */
+
+.labelList {
+  display: flex;
+  gap: 8px;
+}
+
+.labelItem {
+  line-height: 0;
+}
+
+.labelIcon {
+  position: relative;
+  /* display: flex; */
+
+  margin-bottom: 14px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.labelIcon.blue {
+  background-color: #8fa1d0;
+}
+
+.labelIcon.pink {
+  background-color: #e09cb5;
+}
+
+.labelIcon.green {
+  background-color: #bedbb0;
+}
+
+.labelIcon.grey.dark {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.labelIcon.grey.light,
+.labelIcon.grey.violet {
+  background-color: rgba(22, 22, 22, 0.3);
+}
+
+.labelCheked{
+  display: none;
+}
+
+.radioLabel:checked + .labelLabel > .labelIcon >.labelCheked {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: transparent;
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+
+.radioLabel:checked + .labelLabel > .labelIcon.dark >.labelCheked {
+  border: 2px solid #161616;
+}
+
+.radioLabel:checked + .labelLabel > .labelIcon.light >.labelCheked,
+.radioLabel:checked + .labelLabel > .labelIcon.violet >.labelCheked {
+  border: 2px solid #fff;
+}
+
+/*    Button    */
+
+.btn {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  padding: 10px;
+  outline: transparent;
+
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 8px;
+  width: 100%;
+  height: 49px;
+  border: transparent;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn.dark,
+.btn.light {
+  color: #161616;
+  background-color: #bedbb0;
+}
+
+.btn.dark:hover,
+.btn.dark:focus,
+.btn.light:hover,
+.btn.light:focus {
+  background-color: #9dc888;
+}
+
+.btn.violet {
+  color: #fff;
+  background-color: #5255bc;
+}
+
+.btn.violet:hover,
+.btn.violet:focus {
+  background-color: #7b7ede;
+}
+
+.btnWrapIcon {
+  display: flex;
+  padding: 7px;
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+}
+.btnWrapIcon.dark,
+.btnWrapIcon.light {
+  background-color: #161616;
+}
+
+.btnWrapIcon.violet {
+  background-color: #fff;
+}
+
+.btnIcon.dark,
+.btnIcon.light {
+  stroke: #fff;
+}
+
+.btnIcon.violet {
+  stroke: #161616;
+}
+
+/*    Button Close    */
+
+.btnClose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  line-height: 0;
+  padding: 0;
+
+  background-color: transparent;
+  outline: transparent;
+  border-radius: 4px;
+  border: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnClose.dark:hover,
+.btnClose.dark:focus,
+.btnClose.light:hover,
+.btnClose.light:focus {
+  background-color: #9dc888;
+}
+
+.btnClose.violet:hover,
+.btnClose.violet:focus {
+  background-color: #7b7ede;
+}
+
+.btnClose.dark:hover .btnCloseIcon,
+.btnClose.dark:focus .btnCloseIcon {
+  stroke: #161616;
+}
+
+.btnClose.violet:hover .btnCloseIcon,
+.btnClose.violet:focus .btnCloseIcon {
+  stroke: #fff;
+}
+
+.btnCloseIcon {
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnCloseIcon.dark {
+  stroke: #fff;
+}
+
+.btnCloseIcon.light,
+.btnCloseIcon.violet {
+  stroke: #161616;
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    width: 350px;
+  }
+}
