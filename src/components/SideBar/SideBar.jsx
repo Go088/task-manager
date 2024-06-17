@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { NeedHelpModal } from "../NeedHelp/NeedHelpModal/NeedHelpModal";
 
 export default function SideBar() {
+    
   const themeType = "dark";
   const dispatch = useDispatch();
   const [needHelpOpenModal, setNeedHelpOpenModal] = useState(false);

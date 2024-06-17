@@ -8,7 +8,7 @@ import { selectTheme } from "../../redux/features/auth/selectors";
 import { changeTheme } from "../../redux/features/theme/operations";
 import { useEffect, useState } from "react";
 
-const Header = () => {
+const Header = ({isOpen}) => {
   const actualTheme = useSelector(selectTheme);
   const dispatch = useDispatch();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -39,12 +39,13 @@ const Header = () => {
     <div
       className={clsx(layout.container, css.headerContainer, css[themeType])}
     >
+      <button onClick={isOpen}>
       <Icon
         id="icon-menu-01"
         className={clsx(css.mobileMenuIcon, css[themeType])}
         width="24"
         height="24"
-      />
+      /></button>
       <div className={css.infoWrapper}>
         <div className={css.themeWrapper} onClick={toggleDropdown}>
           <p className={clsx(css.selectTitle, css[themeType])}>Theme</p>
@@ -86,4 +87,5 @@ const Header = () => {
   );
 };
 
-export default Header;
+
+export default Header
