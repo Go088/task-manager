@@ -4,14 +4,19 @@ import clsx from "clsx";
 import Icon from "../Icon/Icon";
 import { ThemeTypes } from "../../themeConstants";
 import { useDispatch, useSelector } from "react-redux";
-import { selectTheme } from "../../redux/features/auth/selectors";
+import { selectTheme, selectUser } from "../../redux/features/auth/selectors";
 import { changeTheme } from "../../redux/features/theme/operations";
 import { useEffect, useState } from "react";
+import Modal from "../ModalContainer/ModalContainer";
+import { EditUserProfile } from "../EditUserProfile/EditUserProfile";
 
 const Header = ({ setIsSidebarOpen }) => {
   const actualTheme = useSelector(selectTheme);
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const ThemeOptions = [
     { label: "Light", value: ThemeTypes.LIGHT },
@@ -22,15 +27,18 @@ const Header = ({ setIsSidebarOpen }) => {
   const themeType = actualTheme;
 
   const handleThemeChange = (theme) => {
-    // console.log("Changing theme to:", theme);
     dispatch(changeTheme(theme));
   };
 
   const toggleDropdown = () => {
-    // console.log("open dropDown");
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  useEffect(() => {}, [actualTheme]);
   useEffect(() => {
     // console.log("Theme updated to:", actualTheme);
   }, [actualTheme]);
@@ -55,7 +63,7 @@ const Header = ({ setIsSidebarOpen }) => {
           <p className={clsx(css.selectTitle, css[themeType])}>Theme</p>
           <Icon
             className={clsx(css.selectThemeIcon, css[themeType])}
-            id="icon-arror_edit_prifile"
+            id="icon-arrow_edit_profile"
             width="16"
             height="16"
           />
@@ -68,10 +76,6 @@ const Header = ({ setIsSidebarOpen }) => {
                     [css.active]: option.value === actualTheme,
                   })}
                   onClick={() => {
-                    // console.log("Option clicked:", option.value);
-                    if (option.value === actualTheme) {
-                      return;
-                    }
                     setIsDropdownOpen(false);
                     handleThemeChange(option.value);
                   }}
@@ -84,12 +88,22 @@ const Header = ({ setIsSidebarOpen }) => {
         </div>
 
         <div className={css.userWrapper}>
-          <p className={clsx(css.userName, css[themeType])}>Ivetta</p>
-          <div className={css.avatarWrapper}>
-            <img src="/img/user.png" alt="Avatar"></img>
+          <p className={clsx(css.userName, css[themeType])}>
+            {user.name || "User"}
+          </p>
+          <div
+            className={clsx(css.avatarWrapper, css.clickable)}
+            onClick={toggleModal}
+          >
+            <img src={user.photo || "/img/user.png"} alt="Avatar" />
           </div>
         </div>
       </div>
+      {isModalOpen && (
+        <Modal onClose={toggleModal}>
+          <EditUserProfile />
+        </Modal>
+      )}
     </div>
   );
 };

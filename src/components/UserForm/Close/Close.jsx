@@ -1,7 +1,7 @@
-import sprite from '../../../assets/sprite.svg';
-import styles from './Close.module.css';
+import sprite from "../../../assets/sprite.svg";
+import styles from "./Close.module.css";
 
-export const EyeClose = () => {
+const Close = () => {
   return (
     <>
       <svg className={styles.svg}>
@@ -10,3 +10,4 @@ export const EyeClose = () => {
     </>
   );
 };
+export default Close;

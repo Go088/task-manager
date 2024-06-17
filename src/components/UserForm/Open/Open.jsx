@@ -1,7 +1,7 @@
-import sprite from '../../../assets/sprite.svg'
-import styles from './Open.module.css';
+import sprite from "../../../assets/sprite.svg";
+import styles from "./Open.module.css";
 
-export const Open = () => {
+const Open = () => {
   return (
     <>
       <svg className={styles.svg}>
@@ -10,3 +10,5 @@ export const Open = () => {
     </>
   );
 };
+
+export default Open;

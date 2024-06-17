@@ -10,7 +10,7 @@ const setAuthHeader = (token) => {
 };
 
 const clearAuthHeader = () => {
-  axios.defaults.headers.common["Autorization"] = "";
+  axios.defaults.headers.common["Authorization"] = "";
 };
 
 export const registerUser = createAsyncThunk(
@@ -42,6 +42,7 @@ export const logIn = createAsyncThunk(
       const response = await axios.post("/users/login", userData);
       setAuthHeader(response.data.token);
       toast.success(`Your account successfully logged in!`);
+      console.log(response.data);
       // return response.data;
       return {
         user: response.data.user,

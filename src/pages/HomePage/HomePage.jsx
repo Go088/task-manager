@@ -1,4 +1,3 @@
-import ScreenPage from "../../components/ScreenPage/ScreenPage";
 import SideBar from "../../components/SideBar/SideBar";
 import clsx from "clsx";
 import css from "./HomePage.module.css";
@@ -30,7 +29,7 @@ export default function HomePage() {
           </Suspense>
 
           {!isBoard && <NoBoardText theme={theme} />}
-          {/* <NavLink to="/home/666c45b30031e4827c3c972e">Home</NavLink> */}
+          <NavLink to="/home/666c45b30031e4827c3c972e">Home</NavLink>
         </div>
       </div>
     </div>
