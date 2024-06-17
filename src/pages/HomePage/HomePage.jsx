@@ -8,6 +8,8 @@ export default function HomePage() {
   const [isOpen,setIsOpen]=useState(false);
 
     useEffect(()=>{
+      const windowsSize =window.innerWidth
+      windowsSize<1440? setIsOpen ( true): setIsOpen ( false)
       function handlResize() {
           setWidth ( {width: window.innerWidth})
           handleOpen()
@@ -17,8 +19,8 @@ export default function HomePage() {
         window.removeEventListener('resize', handlResize);
       };
 
-  },);
-
+  });
+ 
 
   function handleOpen() {
     if (width.width<"1440") {
@@ -31,7 +33,7 @@ export default function HomePage() {
   function openSideBar() {
     setIsOpen ( true)
   }
-
+  
   return (
     <div>
       <Header handleOpen={openSideBar}/>
