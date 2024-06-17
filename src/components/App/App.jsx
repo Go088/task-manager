@@ -8,7 +8,7 @@ import { refreshUser } from "../../redux/features/auth/operations";
 import { selectIsRefreshing } from "../../redux/features/auth/selectors";
 import Loader from "../Loader/Loader";
 import RestrictedRoute from "../RestrictedRoute";
-import PrivateRoute from "../PrivateRoute";
+// import PrivateRoute from "../PrivateRoute";
 import { Toaster } from "react-hot-toast";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 
@@ -52,6 +52,18 @@ const App = () => {
                 }
               />
               <Route
+                path="/home"
+                element={
+                  // <PrivateRoute
+                  //   component={<HomePage />}
+                  //   redirectTo="/welcome"
+                  // />
+                  <HomePage />
+                }
+              >
+                <Route path=":id" element={<ScreenPage />} />
+                </Route>
+                              <Route
                 path="*"
                 element={
                   <RestrictedRoute
@@ -60,17 +72,6 @@ const App = () => {
                   />
                 }
               />
-              <Route
-                path="/home"
-                element={
-                  <PrivateRoute
-                    component={<HomePage />}
-                    redirectTo="/welcome"
-                  />
-                }
-              >
-                <Route path=":id" element={<ScreenPage />} />
-              </Route>
             </Routes>
           </Suspense>
         )}

@@ -12,6 +12,8 @@ import Calendar from "../Calendar/Calendar";
 import { useDispatch } from "react-redux";
 import { addCard } from "../../redux/features/boardss/operations";
 
+const datePattern = /^\d{2}\/\d{2}\/\d{4}$/;
+
 const labels = [
   {
     value: "low",
@@ -45,9 +47,23 @@ export default function CardForm({ isOpen, onRequestClose, column: { _id } }) {
   
   const [deadline, setDeadline] = useState(new Date().getTime());
 
+
+function convertDateStringToTimestamp(dateString) {
+  const [day, month, year] = dateString.split('/');
+  const date = new Date(`${year}-${month}-${day}`);
+  return date.getTime();
+}
+
+  const validateDate = (dateString) => {
+      return datePattern.test(dateString);
+    };
+  
   const handleDateChange = (date) => {
-    setDeadline(date);
-    setValue("deadline", date);
+
+    const dateConvert = `${validateDate(date) ? convertDateStringToTimestamp(date): date}`
+    setDeadline(dateConvert);
+    
+    setValue("deadline", dateConvert);
     // console.log(date);
     // console.log(deadline);
   };
@@ -63,19 +79,18 @@ export default function CardForm({ isOpen, onRequestClose, column: { _id } }) {
     reset,
   } = useForm({
     resolver: yupResolver(schema),
-
     defaultValues: {
       title: "",
       description: "",
-      priority: "low",
-      deadline,
+      priority: "without",
+      deadline
+      ,
     },
   });
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    console.log(data);
- console.log(_id);
+    console.log(data.deadline);
    const cardData = {
       data, _id
     }

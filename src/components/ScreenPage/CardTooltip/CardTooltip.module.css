@@ -1,0 +1,81 @@
+.ul {
+  z-index: 999999999;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+
+  padding: 18px;
+
+  min-width: 81px;
+  min-height: 57px;
+  border-radius: 8px;
+  transform: translate(-50%, -80%);
+
+box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
+    background-color: #1f1f1f;
+
+}
+
+.ul.dark {
+box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
+    background: #1f1f1f;
+}
+
+
+.ul.light,
+.ul.violet {
+box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
+    background: #fcfcfc;
+}
+
+.list {
+  position: relative;
+  display: block;
+  color: aqua;
+}
+
+.button {
+  background-color: transparent;
+  padding: 0;
+  line-height: 0;
+  border: none;
+  cursor: pointer;
+  outline: transparent;
+  /* position: relative; */
+
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  display: block;
+  color: #fcfcfc;
+}
+
+/* Icon */
+
+.icon {
+  stroke: rgba(255, 255, 255, 0.5);
+  fill: transparent;
+  transition: stroke 250ms linear;
+}
+
+.white.icon {
+  stroke: rgba(22, 22, 22, 0.5);
+  fill: transparent;
+}
+
+.button:hover .icon,
+.button:focus .icon {
+  stroke: #bedbb0;
+}
+
+.button:hover .violet.icon,
+.button:focus .violet.icon {
+  stroke: #5255bc;
+}

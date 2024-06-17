@@ -30,6 +30,7 @@
     "react-redux": "^9.1.0",
     "react-responsive": "^10.0.0",
     "react-router-dom": "^6.23.1",
+    "react-tooltip": "^5.27.0",
     "redux-persist": "^6.0.0",
     "simplebar": "^6.2.7",
     "simplebar-react": "^3.2.6",
