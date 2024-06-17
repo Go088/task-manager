@@ -4,19 +4,30 @@ import clsx from "clsx";
 import Icon from "../Icon/Icon";
 import { ThemeTypes } from "../../themeConstants";
 import { useDispatch, useSelector } from "react-redux";
-import { selectTheme, selectUser } from "../../redux/features/auth/selectors";
-import { changeTheme } from "../../redux/features/theme/operations";
+import { selectUser } from "../../redux/features/auth/selectors";
+import { selectTheme } from "../../redux/features/theme/selectors";
+import { changeTheme, getTheme } from "../../redux/features/theme/operations";
 import { useEffect, useState } from "react";
-import Modal from "../ModalContainer/ModalContainer";
-import { EditUserProfile } from "../EditUserProfile/EditUserProfile";
+// import Modal from "../ModalContainer/ModalContainer";
+// import { EditUserProfile } from "../EditUserProfile/EditUserProfile";
 
 const Header = ({ setIsSidebarOpen }) => {
+
+  const dispatch = useDispatch();
   const actualTheme = useSelector(selectTheme);
   const user = useSelector(selectUser);
-  const dispatch = useDispatch();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [themeType, setThemeType] = useState(actualTheme);
+
+  useEffect(() => { 
+    dispatch(getTheme());
+  }, [dispatch]);
+
+  useEffect(() => {
+    setThemeType(actualTheme)
+  }, [actualTheme])
 
   const ThemeOptions = [
     { label: "Light", value: ThemeTypes.LIGHT },
@@ -24,24 +35,20 @@ const Header = ({ setIsSidebarOpen }) => {
     { label: "Dark", value: ThemeTypes.DARK },
   ];
 
-  const themeType = actualTheme;
-
   const handleThemeChange = (theme) => {
     dispatch(changeTheme(theme));
   };
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
+    console.log("Open Theme Dropdown");
   };
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
+    console.log("модалка");
   };
 
-  useEffect(() => {}, [actualTheme]);
-  useEffect(() => {
-    // console.log("Theme updated to:", actualTheme);
-  }, [actualTheme]);
   const openSidebar = () => {
     setIsSidebarOpen(true);
   };
@@ -67,7 +74,8 @@ const Header = ({ setIsSidebarOpen }) => {
             width="16"
             height="16"
           />
-          {isDropdownOpen && (
+        </div>
+        {isDropdownOpen && (
             <ul className={clsx(css.themeList, css.isOpen, css[themeType])}>
               {ThemeOptions.map((option) => (
                 <li
@@ -85,7 +93,6 @@ const Header = ({ setIsSidebarOpen }) => {
               ))}
             </ul>
           )}
-        </div>
 
         <div className={css.userWrapper}>
           <p className={clsx(css.userName, css[themeType])}>
@@ -99,11 +106,11 @@ const Header = ({ setIsSidebarOpen }) => {
           </div>
         </div>
       </div>
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <Modal onClose={toggleModal}>
           <EditUserProfile />
         </Modal>
-      )}
+      )} */}
     </div>
   );
 };

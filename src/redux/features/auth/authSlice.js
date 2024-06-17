@@ -11,7 +11,7 @@ const authSlice = createSlice({
       photo: null,
     },
     token: null,
-    theme: ThemeTypes.DARK,
+    // theme: ThemeTypes.DARK,
     loading: false,
     error: null,
     isLoggedIn: false,
