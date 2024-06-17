@@ -42,6 +42,8 @@ export const logIn = createAsyncThunk(
       setAuthHeader(response.data.token);
       toast.success(`Your account successfully logged in!`);
 
+      console.log(response.data);
+      // return response.data;
       return {
         user: response.data.user,
         token: response.data.token,

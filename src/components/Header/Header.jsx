@@ -19,6 +19,8 @@ const Header = ({ setIsSidebarOpen }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  console.log();
+
   const ThemeOptions = [
     { label: "Light", value: ThemeTypes.LIGHT },
     { label: "Violet", value: ThemeTypes.VIOLET },
