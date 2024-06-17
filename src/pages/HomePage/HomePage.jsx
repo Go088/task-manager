@@ -18,16 +18,19 @@ export default function HomePage() {
       };
 
   },);
+
+
   function handleOpen() {
     if (width.width<"1440") {
       setIsOpen ( true)
-    }return setIsOpen ( false) 
+    } else{
+      setIsOpen ( false) 
+    }
   
   }
   function openSideBar() {
     setIsOpen ( true)
   }
-
 
   return (
     <div>
