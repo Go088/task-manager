@@ -29,7 +29,6 @@ export default function HomePage() {
           </Suspense>
 
           {!isBoard && <NoBoardText theme={theme} />}
-          <NavLink to="/home/666c45b30031e4827c3c972e">Home</NavLink>
         </div>
       </div>
     </div>

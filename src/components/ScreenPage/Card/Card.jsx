@@ -63,7 +63,11 @@ const Card = ({ theme, card }) => {
                 </p>
               </div>
             </div>
-            <IconGroup isBellVisible={isBellVisible} theme={theme} card={card} />
+            <IconGroup
+              isBellVisible={isBellVisible}
+              theme={theme}
+              card={card}
+            />
           </div>
         </div>
       </div>
