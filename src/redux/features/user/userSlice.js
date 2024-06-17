@@ -1,17 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { updateUser } from "./operations";
 
-const initialState = {
-  user: null,
-  theme: "dark",
-  token: null,
-  loading: false,
-  error: null,
-};
-
 const userSlice = createSlice({
   name: "user",
-  initialState,
+  initialState: {
+    name: null,
+    email: null,
+    photo: null,
+    theme: "dark",
+  },
   reducers: {
     setUser(state, action) {
       state.user = action.payload;

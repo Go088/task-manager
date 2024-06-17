@@ -156,6 +156,10 @@
   width: 32px;
   height: 32px;
   overflow: hidden;
+  background-color: yellow;
+}
+.clickable {
+  cursor: pointer;
 }
 
 .themeWrapper {

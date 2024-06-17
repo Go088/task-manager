@@ -6,9 +6,9 @@ import {
   selectUser,
 } from "../../redux/features/auth/selectors.js";
 import { useDispatch, useSelector } from "react-redux";
-import { Close } from "../UserForm/Close/Close.jsx";
-import { Open } from "../UserForm/Open/Open.jsx";
-import { Loader } from "../Loader/Loader.jsx";
+import Close from "../UserForm/Close/Close.jsx";
+import Open from "../UserForm/Open/Open.jsx";
+import Loader from "../Loader/Loader.jsx";
 import Modal from "../ModalContainer/ModalContainer.jsx";
 import { updateUser } from "../../redux/features/user/operations.js";
 import { useState } from "react";

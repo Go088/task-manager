@@ -8,6 +8,7 @@ const authSlice = createSlice({
     user: {
       name: null,
       email: null,
+      photo: null,
     },
     token: null,
     theme: ThemeTypes.DARK,
