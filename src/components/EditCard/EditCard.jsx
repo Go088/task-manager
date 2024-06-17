@@ -1,6 +1,5 @@
 import { useId } from "react";
-import { useState } from "react";
-import css from "./CardForm.module.css";
+import css from "./EditCard.module.css";
 import clsx from "clsx";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -10,7 +9,7 @@ import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
 import Calendar from "../Calendar/Calendar";
 import { useDispatch } from "react-redux";
-import { addCard } from "../../redux/features/boardss/operations";
+import { editCard } from "../../redux/features/boardss/operations";
 
 const labels = [
   {
@@ -41,15 +40,15 @@ const schema = yup.object().shape({
     .trim(),
 });
 
-export default function CardForm({ isOpen, onRequestClose, column: { _id } }) {
-  
-  const [deadline, setDeadline] = useState(new Date().getTime());
+export default function EditCard({
+  isOpen,
+  onRequestClose,
+  card: { _id, title, description, priority, deadline },
+}) {
 
   const handleDateChange = (date) => {
-    setDeadline(date);
     setValue("deadline", date);
-    // console.log(date);
-    // console.log(deadline);
+
   };
 
   const themeType = "dark";
@@ -65,9 +64,9 @@ export default function CardForm({ isOpen, onRequestClose, column: { _id } }) {
     resolver: yupResolver(schema),
 
     defaultValues: {
-      title: "",
-      description: "",
-      priority: "low",
+      title,
+      description,
+      priority,
       deadline,
     },
   });
@@ -75,11 +74,12 @@ export default function CardForm({ isOpen, onRequestClose, column: { _id } }) {
 
   const onSubmit = (data) => {
     console.log(data);
- console.log(_id);
-   const cardData = {
-      data, _id
-    }
-    dispatch(addCard(cardData));
+    console.log(_id);
+    const cardData = {
+      data,
+      _id,
+    };
+    dispatch(editCard(cardData));
     reset();
     onRequestClose();
   };
@@ -96,7 +96,7 @@ export default function CardForm({ isOpen, onRequestClose, column: { _id } }) {
         className={clsx(css.form, css[themeType])}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h3 className={clsx(css.title, css[themeType])}>Add card</h3>
+        <h3 className={clsx(css.title, css[themeType])}>Edit card</h3>
         <h4 className={css.visuallyHidden}>Title</h4>
         <input
           className={clsx(css.input, css[themeType])}
@@ -158,7 +158,7 @@ export default function CardForm({ isOpen, onRequestClose, column: { _id } }) {
               id={"icon-plus_card_modal"}
             />
           </div>
-          <span>Add</span>
+          <span>Edit</span>
         </button>
       </form>
       <button

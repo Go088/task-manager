@@ -1,4 +1,4 @@
-import css from "./ColumnForm.module.css";
+import css from "./EditColumn.module.css";
 import clsx from "clsx";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -6,10 +6,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
-import { selectBoard } from "../../redux/features/boardss/selectors";
-import { useSelector, useDispatch } from "react-redux";
-import { addColumn } from "../../redux/features/boardss/operations";
-
+import { useDispatch } from "react-redux";
+import { editColumn } from "../../redux/features/boardss/operations";
 
 const schema = yup.object().shape({
   title: yup
@@ -19,11 +17,11 @@ const schema = yup.object().shape({
     .trim(),
 });
 
-export default function ColumnForm({ isOpen, onRequestClose }) {
-
-
-  const board = useSelector(selectBoard);
-
+export default function EditColumn({
+  isOpen,
+  onRequestClose,
+  column: { _id, title },
+}) {
   const themeType = "dark";
   const {
     register,
@@ -35,7 +33,7 @@ export default function ColumnForm({ isOpen, onRequestClose }) {
     resolver: yupResolver(schema),
 
     defaultValues: {
-      title: "",
+      title,
     },
   });
 
@@ -43,15 +41,13 @@ export default function ColumnForm({ isOpen, onRequestClose }) {
 
   const onSubmit = (data) => {
 
-    const id = board._id;
     const columnData = {
       data,
-      id,
+      _id,
     };
-    dispatch(addColumn(columnData));
 
+    dispatch(editColumn(columnData));
 
-    console.log(data);
     reset();
     onRequestClose();
   };
@@ -68,7 +64,7 @@ export default function ColumnForm({ isOpen, onRequestClose }) {
         className={clsx(css.form, css[themeType])}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h3 className={clsx(css.title, css[themeType])}>Add column</h3>
+        <h3 className={clsx(css.title, css[themeType])}>Edit column</h3>
         <h4 className={css.visuallyHidden}>Title</h4>
         <input
           className={clsx(css.input, css[themeType])}
