@@ -9,9 +9,11 @@ import { useDispatch } from "react-redux";
 import { fetchBoard } from "../../redux/features/boards/operations";
 import { useEffect, useState } from "react";
 import { NeedHelpModal } from "../NeedHelp/NeedHelpModal/NeedHelpModal";
+import { useSelector } from "react-redux";
+import { selectTheme } from "../../redux/features/theme/selectors";
 
 export default function SideBar({ isSidebarOpen, setIsSidebarOpen }) {
-  const themeType = "dark";
+  const themeType = useSelector(selectTheme);
   const dispatch = useDispatch();
   const [needHelpOpenModal, setNeedHelpOpenModal] = useState(false);
   useEffect(() => {

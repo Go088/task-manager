@@ -6,9 +6,11 @@ import clsx from "clsx";
 import EditBoard from "../EditBoard/EditBoard";
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
+import { useSelector } from "react-redux";
+import { selectTheme } from "../../redux/features/theme/selectors";
 
 export const Board = ({ _id, title, icon, background }) => {
-  const themeType = "dark";
+  const themeType = useSelector(selectTheme);
   const isActiveClass = "isActive";
 
   const dispatch = useDispatch();

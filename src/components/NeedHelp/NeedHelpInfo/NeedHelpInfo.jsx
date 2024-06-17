@@ -1,9 +1,11 @@
 import css from "./NeedHelpInfo.module.css";
 import clsx from "clsx";
 import Icon from "../../Icon/Icon";
+import { useSelector } from "react-redux";
+import { selectTheme } from "../../../redux/features/theme/selectors";
 
 export const NeedHelpInfo = ({ setNeedHelpOpenModal }) => {
-  const themeType = "dark";
+  const themeType = useSelector(selectTheme);
   return (
     <div className={clsx(css.helpWrapper, css[themeType])}>
       <img

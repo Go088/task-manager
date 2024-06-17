@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import BoardForm from "../../components/BoardForm/BoardForm";
 import Icon from "../Icon/Icon";
+import { useSelector } from "react-redux";
+import { selectTheme } from "../../redux/features/theme/selectors";
 
 export default function ButtonCreate() {
-  const themeType = "dark";
+  const themeType = useSelector(selectTheme);
   const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -43,9 +45,6 @@ export default function ButtonCreate() {
     </div>
   );
 }
-
-
-
 
 // import css from "../Button Create/ButtonCreate.module.css";
 // import { useEffect, useState } from "react";

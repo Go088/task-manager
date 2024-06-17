@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { changeTheme } from "./operations";
+import { changeTheme, getTheme } from "./operations";
 import { ThemeTypes } from "../../../themeConstants";
 
 const initialState = {
@@ -29,13 +29,21 @@ const themeSlice = createSlice({
       .addCase(changeTheme.rejected, (state) => {
         state.error = true;
         state.loading = false;
+      })
+      .addCase(getTheme.pending, (state) => {
+        state.error = false;
+        state.loading = true;
+      })
+      .addCase(getTheme.fulfilled, (state, action) => {
+        state.theme = action.payload.theme;
+        state.loading = false;
+      })
+      .addCase(getTheme.rejected, (state) => {
+        state.error = true;
+        state.loading = false;
       }),
 });
 
 export const { setTheme } = themeSlice.actions;
 
 export default themeSlice.reducer;
-
-// changeTheme(state, action) {
-//   state.theme = action.payload;
-// },

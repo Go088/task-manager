@@ -8,9 +8,10 @@ import { refreshUser } from "../../redux/features/auth/operations";
 import { selectIsRefreshing } from "../../redux/features/auth/selectors";
 import Loader from "../Loader/Loader";
 import RestrictedRoute from "../RestrictedRoute";
-import PrivateRoute from "../PrivateRoute";
+// import PrivateRoute from "../PrivateRoute";
 import { Toaster } from "react-hot-toast";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
+import PrivateRoute from "../PrivateRoute";
 
 const WelcomePage = lazy(() => import("../../pages/WelcomePage/WelcomePage"));
 const AuthPage = lazy(() => import("../../pages/AuthPage/AuthPage"));
@@ -54,10 +55,11 @@ const App = () => {
               <Route
                 path="/home"
                 element={
-                  <PrivateRoute
-                    component={<HomePage />}
-                    redirectTo="/welcome"
-                  />
+                  <HomePage />
+                  // <PrivateRoute
+                  //   component={<HomePage />}
+                  //   redirectTo="/welcome"
+                  // />
                 }
               >
                 <Route path=":id" element={<ScreenPage />} />
