@@ -1,31 +1,31 @@
-import Icon from "../../Icon/Icon";
-import css from "./IconGroup.module.css";
 import clsx from "clsx";
-
-import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import Modal from "react-modal";
-import EditCard from "../../EditCard/EditCard";
-import { deleteCard } from "../../../redux/features/boardss/operations";
-import { Tooltip } from "react-tooltip";
-import CardTooltip from "../CardTooltip/CardTooltip";
 
-const IconGroup = ({ theme, bellIconColor, card, card: { _id } }) => {
-  const [modalIsOpen, setIsOpen] = useState(false);
+import Modal from "react-modal";
+import { Tooltip } from "react-tooltip";
+
+import Icon from "../../Icon/Icon";
+import EditCard from "../../EditCard/EditCard";
+import CardTooltip from "../CardTooltip/CardTooltip";
+import CardDeleteModal from "../CardDeleteModal/CardDeleteModal";
+import css from "./IconGroup.module.css";
+
+const IconGroup = ({ theme, bellIconColor, card }) => {
+  const [editIsOpen, setEditIsOpen] = useState(false);
+  const [deleteIsOpen, setDeleteIsOpen] = useState(false);
 
   useEffect(() => {
     Modal.setAppElement("#root");
   }, []);
 
-  const dispatch = useDispatch();
-
-  const handleDelete = () => {
-    console.log();
-    dispatch(deleteCard(_id));
+  const handleOpenEdit = () => setEditIsOpen(true);
+  const closeEditModal = () => {
+    setEditIsOpen(false);
   };
-  const handleOpen = () => setIsOpen(true);
-  const closeModal = () => {
-    setIsOpen(false);
+
+  const handleOpenDlete = () => setDeleteIsOpen(true);
+  const closeDeleteModal = () => {
+    setDeleteIsOpen(false);
   };
 
   const whiteTheme = theme === "dark" ? "" : "white";
@@ -59,7 +59,7 @@ const IconGroup = ({ theme, bellIconColor, card, card: { _id } }) => {
         <li className={css.li}>
           <button
             className={css.button}
-            onClick={handleOpen}
+            onClick={handleOpenEdit}
             type="button"
             aria-label="Edit the card"
           >
@@ -74,7 +74,7 @@ const IconGroup = ({ theme, bellIconColor, card, card: { _id } }) => {
         <li className={css.li}>
           <button
             className={css.button}
-            onClick={handleDelete}
+            onClick={handleOpenDlete}
             type="button"
             aria-label="Delete the card"
           >
@@ -87,10 +87,17 @@ const IconGroup = ({ theme, bellIconColor, card, card: { _id } }) => {
           </button>
         </li>
       </ul>
-      {modalIsOpen && (
+      {editIsOpen && (
         <EditCard
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
+          isOpen={editIsOpen}
+          onRequestClose={closeEditModal}
+          card={card}
+        />
+      )}
+      {deleteIsOpen && (
+        <CardDeleteModal
+          isOpen={deleteIsOpen}
+          onRequestClose={closeDeleteModal}
           card={card}
         />
       )}
