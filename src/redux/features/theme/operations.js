@@ -10,8 +10,6 @@ export const getTheme = createAsyncThunk(
     try { 
      const response = await axios.get("/users/getTheme");
      const theme = response.data.theme;
-      toast.success(`Actual theme is ${theme}`, {duration: 1500})
-      console.log(theme);
       console.log("Theme fetched successfully:", theme);
       return {theme};
     } catch (error) {
