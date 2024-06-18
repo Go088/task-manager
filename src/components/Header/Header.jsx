@@ -105,7 +105,6 @@ const Header = ({ setIsSidebarOpen }) => {
           </div>
         </div> */}
       </div>
-z
     </div>
   );
 };
