@@ -19,6 +19,8 @@ import {
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import FilterButton from "./FilterButton/FilterButton";
+import { __DO_NOT_USE__ActionTypes } from "@reduxjs/toolkit";
+import { selectTheme } from "../../redux/features/theme/selectors";
 
 const ScreanPage = ({ aaa }) => {
   console.log(aaa);
@@ -29,7 +31,7 @@ const ScreanPage = ({ aaa }) => {
     setId(boardName);
   }, [boardName]);
 
-  const theme = "dark";
+  const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
   const board = useSelector(selectBoard);
 

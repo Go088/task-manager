@@ -9,11 +9,12 @@ import { useSelector } from "react-redux";
 import { selectBoard } from "../../redux/features/boardss/selectors";
 import Header from "../../components/Header/Header";
 import useMedia from "../../hooks/useMediaQuery";
+import { selectTheme } from "../../redux/features/theme/selectors";
 
 export default function HomePage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const board = useSelector(selectBoard);
-  const theme = "dark";
+  const theme = useSelector(selectTheme);
   const isBoard = board._id ? true : false;
 
   const typeOfImage = useMedia.isMobile
