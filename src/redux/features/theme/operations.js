@@ -10,7 +10,6 @@ export const getTheme = createAsyncThunk(
     try { 
      const response = await axios.get("/users/getTheme");
      const theme = response.data.theme;
-      console.log("Theme fetched successfully:", theme);
       return {theme};
     } catch (error) {
         toast.error('Failed to change theme', {duration: 1500})
@@ -25,9 +24,7 @@ export const changeTheme = createAsyncThunk(
   async (newTheme, thunkAPI) => {
     try {
      const response = await axios.patch("/users/theme", {theme: newTheme});
-     const data = response.data;
       toast.success(`Theme changed to ${newTheme}`, {duration: 1500})
-      console.log(newTheme, data);
       return { theme: response.data.theme };
     } catch (error) {
         toast.error('Failed to change theme', {duration: 1500})

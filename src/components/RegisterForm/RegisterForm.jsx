@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { registerUser } from "../../redux/features/auth/operations";
 import css from "./RegisterForm.module.css";
 
-
 // Схема валідації
 const schema = yup.object().shape({
   name: yup
@@ -45,7 +44,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className={css}>
+    <div className={css.section}>
       <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
         <label>
           <input
