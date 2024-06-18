@@ -9,8 +9,9 @@ import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
 import Calendar from "../Calendar/Calendar";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addCard } from "../../redux/features/boardss/operations";
+import { selectTheme } from "../../redux/features/theme/selectors";
 
 const datePattern = /^\d{2}\/\d{2}\/\d{4}$/;
 
@@ -64,11 +65,10 @@ function convertDateStringToTimestamp(dateString) {
     setDeadline(dateConvert);
     
     setValue("deadline", dateConvert);
-    // console.log(date);
-    // console.log(deadline);
   };
 
-  const themeType = "dark";
+  const themeType = useSelector(selectTheme);
+
   const labelFieldId = useId();
 
   const {
