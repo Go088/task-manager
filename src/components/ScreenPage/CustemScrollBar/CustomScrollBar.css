@@ -3,7 +3,6 @@
   border-radius: 100px;
   width: 8px;
   padding: 0;
-  /* transform: translateX(-8px); */
   right: 7px;
 }
 .secondScrol .os-scrollbar .os-scrollbar-track {
@@ -40,8 +39,10 @@
     right: 0px;
   }
 }
-/* @media screen and (min-width: 1440px) {
-} */
+
 .isHiden .os-scrollbar.os-scrollbar-vertical.os-scrollbar-cornerless {
+  display: none;
+}
+.isHiden .os-scrollbar {
   display: none;
 }

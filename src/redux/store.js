@@ -30,7 +30,7 @@ const authPersistConfig = {
 const filterPersistConfig = {
   key: "filter",
   storage,
-  whitelist: ["filter"],
+  whitelist: ["text"],
 };
 
 const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);

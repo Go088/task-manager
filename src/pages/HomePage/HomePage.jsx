@@ -2,7 +2,7 @@ import SideBar from "../../components/SideBar/SideBar";
 import clsx from "clsx";
 import css from "./HomePage.module.css";
 import FilterButton from "../../components/ScreenPage/FilterButton/FilterButton";
-import { Suspense, useState } from "react";
+import { Suspense, useMemo, useState } from "react";
 import { Outlet } from "react-router-dom";
 import NoBoardText from "../../components/ScreenPage/NoBoardText/NoBoardText";
 import { useSelector } from "react-redux";
@@ -13,6 +13,7 @@ import { selectTheme } from "../../redux/features/theme/selectors";
 
 export default function HomePage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const board = useSelector(selectBoard);
   const theme = useSelector(selectTheme);
   const isBoard = board._id ? true : false;
@@ -23,11 +24,14 @@ export default function HomePage() {
     ? board?.background?.tablet
     : board?.background?.laptop;
 
-  const containerStyle = {
-    backgroundImage: ` url(${typeOfImage ? typeOfImage : ""})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  };
+  const containerStyle = useMemo(
+    () => ({
+      backgroundImage: `url(${typeOfImage ? typeOfImage : ""})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }),
+    [typeOfImage]
+  );
 
   return (
     <div>
@@ -41,13 +45,21 @@ export default function HomePage() {
           style={containerStyle}
           className={clsx(css.screenContainer, css[theme])}
         >
-          <FilterButton theme={theme} />
+          <FilterButton
+            isFilterOpen={isFilterOpen}
+            setIsFilterOpen={setIsFilterOpen}
+            theme={theme}
+          />
           <Suspense fallback={<div>Loading subpage...</div>}>
             <Outlet />
           </Suspense>
           {!isBoard && <NoBoardText theme={theme} />}
         </div>
       </div>
+      <div
+        onClick={() => setIsFilterOpen(false)}
+        className={clsx(css.backDropFprFilter, isFilterOpen && css.isActive)}
+      ></div>
     </div>
   );
 }

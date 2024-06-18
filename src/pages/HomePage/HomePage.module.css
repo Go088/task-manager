@@ -15,6 +15,22 @@
 .violet.screenContainer {
   background-color: #ecedfd;
 }
+.backDropFprFilter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 9;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 400ms linear, opacity 400ms linear;
+}
+.isActive.backDropFprFilter {
+  visibility: visible;
+  opacity: 1;
+}
 @media screen and (min-width: 768px) {
   .screenContainer {
     padding: 26px 18px 32px 32px;
