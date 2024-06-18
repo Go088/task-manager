@@ -143,7 +143,7 @@
   .list {
     height: 770px;
     transform: translateX(0%);
-    position: static;
+    /* position: static; */
   }
   .backdrop {
     position: static;
