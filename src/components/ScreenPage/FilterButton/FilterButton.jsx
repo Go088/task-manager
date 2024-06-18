@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import Icon from "../../Icon/Icon";
 import css from "./FilterButton.module.css";
 import clsx from "clsx";
