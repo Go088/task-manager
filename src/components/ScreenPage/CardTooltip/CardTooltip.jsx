@@ -12,11 +12,10 @@ import { selectTheme } from "../../../redux/features/theme/selectors";
 export default function CardTooltip({
   card: { _id, title, description, priority, deadline },
 }) {
+
   const board = useSelector(selectBoard);
   const columns = board.columns;
-
   const themeType = useSelector(selectTheme);
-
   const dispatch = useDispatch();
 
   const handleClick = (id, columnId) => {
@@ -49,9 +48,9 @@ export default function CardTooltip({
               onClick={handleClick(_id, column._id)}
               aria-label="button to change card's column"
             >
-              <span className={clsx(s.title, s[themeType])}>
+              <div className={clsx(s.title, s[themeType])}>
                 {column.title}
-              </span>
+              </div>
               <Icon
                 className={clsx(s.icon, s[themeType])}
                 width="16px"

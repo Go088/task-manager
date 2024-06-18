@@ -11,6 +11,7 @@
   padding: 18px;
 
   min-width: 81px;
+  max-width: 185px;
   min-height: 57px;
   border-radius: 8px;
   transform: translate(-50%, -50%);
@@ -53,7 +54,9 @@
 /* Title */
 
 .title {
+  min-width: 51px;
   display: block;
+  position: relative;
   transition: color 250ms linear;
 }
 
@@ -81,6 +84,8 @@
 /* Icon */
 
 .icon {
+  position: relative;
+  display: block;
   fill: transparent;
   transition: stroke 250ms linear;
 }
