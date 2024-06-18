@@ -29,9 +29,7 @@ const updateUserSchema = object({
   email: string()
     .required("the field cannot be empty")
     .email()
-
     .matches(/^[a-z0-9 .]+@[a-z]+\.[a-z]{2,3}$/i, "Invalid email format"),
-
   password: string()
     .min(8, "minimum 8 characters")
     .max(64, "maximum 64 characters")
@@ -96,11 +94,11 @@ export const EditUserProfile = () => {
     if (values.password) formData.set("password", values.password);
 
     try {
-      dispatch(updateUser(formData));
+      await dispatch(updateUser(formData)).unwrap();
       resetForm();
       setIsModalOpen(false);
     } catch (error) {
-      throw error.message;
+      console.error("Failed to update user: ", error);
     } finally {
       setSubmitting(false);
     }
@@ -117,7 +115,7 @@ export const EditUserProfile = () => {
             validationSchema={updateUserSchema}
             onSubmit={handleSubmit}
           >
-            {({ errors }) => (
+            {({ errors, isSubmitting }) => (
               <Form className={styles.form}>
                 <div className={styles.wrap}>
                   <p className={styles.title}>Edit profile</p>
@@ -170,10 +168,11 @@ export const EditUserProfile = () => {
                 <button
                   className={theme === "violet" ? styles.btnViolet : styles.btn}
                   type="submit"
+                  disabled={isSubmitting}
                 >
                   <div className={styles.wrap}>
                     <span>Send</span>
-                    <Loader />
+                    {isSubmitting && <Loader />}
                   </div>
                 </button>
               </Form>
