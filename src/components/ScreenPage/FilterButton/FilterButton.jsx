@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import Icon from "../../Icon/Icon";
 import css from "./FilterButton.module.css";
 import clsx from "clsx";
@@ -7,8 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectFilter } from "../../../redux/features/filter/selectors";
 import { setFilter } from "../../../redux/features/filter/slice";
 
-const FilterButton = ({ theme }) => {
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
+const FilterButton = ({ theme, isFilterOpen, setIsFilterOpen }) => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
 
@@ -20,14 +19,12 @@ const FilterButton = ({ theme }) => {
     <div className={css.cont}>
       <div onClick={() => setIsFilterOpen(true)} className={css.filterWrapper}>
         <Icon
-          className={clsx(css.iconFilter, css[theme])}
+          className={clsx(css.iconFilter, css[filter])}
           width="16px"
           height="16px"
           id="icon-filter"
         />
-        <span className={clsx(css.spanFilter, css[theme + "Filter"])}>
-          Filters
-        </span>
+        <span className={clsx(css.spanFilter, css[theme])}>Filters</span>
       </div>
       {isFilterOpen}
       <div className={clsx(css.backDrop, isFilterOpen && css.isActive)}>

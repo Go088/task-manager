@@ -6,9 +6,7 @@ import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import CardForm from "../../CardForm/CardForm";
 
-const AddCardButton = ({ theme , column}) => {
-  // const whiteTheme = theme === "dark" ? "" : "white";
-
+const AddCardButton = ({ theme, column }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -38,7 +36,11 @@ const AddCardButton = ({ theme , column}) => {
         Add another card
       </button>
       {modalIsOpen && (
-        <CardForm isOpen={modalIsOpen} onRequestClose={closeModal} column={column} />
+        <CardForm
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          column={column}
+        />
       )}
     </>
   );
