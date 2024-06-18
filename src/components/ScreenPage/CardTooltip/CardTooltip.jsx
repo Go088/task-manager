@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import Icon from "../../Icon/Icon";
-import css from "../../ScreenPage/IconGroup/IconGroup.module.css";
 import clsx from "clsx";
 import { selectBoard } from "../../../redux/features/boardss/selectors";
 import s from "./CardTooltip.module.css";
@@ -8,16 +7,15 @@ import {
   addCard,
   deleteCard,
 } from "../../../redux/features/boardss/operations";
+import { selectTheme } from "../../../redux/features/theme/selectors";
 
 export default function CardTooltip({
-  theme,
   card: { _id, title, description, priority, deadline },
 }) {
+
   const board = useSelector(selectBoard);
   const columns = board.columns;
-
-  const whiteTheme = theme === "dark" ? "" : "white";
-
+  const themeType = useSelector(selectTheme);
   const dispatch = useDispatch();
 
   const handleClick = (id, columnId) => {
@@ -40,20 +38,21 @@ export default function CardTooltip({
   };
 
   return (
-    <ul className={clsx(s.ul)}>
+    <ul className={clsx(s.ul, s[themeType])}>
       {columns.map((column) => {
         const columnId = column._id;
-        console.log(columnId);
         return (
-          <li className={s.list} key={columnId}>
+          <li className={s.item} key={columnId}>
             <button
               className={clsx(s.button)}
               onClick={handleClick(_id, column._id)}
               aria-label="button to change card's column"
             >
-              <span className={s.title}>{column.title}</span>
+              <div className={clsx(s.title, s[themeType])}>
+                {column.title}
+              </div>
               <Icon
-                className={clsx(s.icon, css[whiteTheme], css[theme])}
+                className={clsx(s.icon, s[themeType])}
                 width="16px"
                 height="16px"
                 id="icon-arrow-circle-broken-right"
@@ -65,23 +64,3 @@ export default function CardTooltip({
     </ul>
   );
 }
-
-//    <>
-//   <button className={css.button} onClick={handleClick}>
-//               <span>{columns[0].title}</span></button>
-//       <ul>
-//         {columns.map((column) => {
-//           <li key={column._id}>
-//             <button className={css.button} >
-//               <span>{column.title}</span>
-//               <Icon
-//                 className={clsx(css.icon, css[whiteTheme], css[theme])}
-//                 width="16px"
-//                 height="16px"
-//                 id="icon-arrow-circle-broken-right"
-//               />
-//             </button>
-//           </li>
-//         })}
-//       </ul>
-//     </>

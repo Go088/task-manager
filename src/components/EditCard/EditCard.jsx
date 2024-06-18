@@ -8,8 +8,9 @@ import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
 import Calendar from "../Calendar/Calendar";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { editCard } from "../../redux/features/boardss/operations";
+import { selectTheme } from "../../redux/features/theme/selectors";
 
 const labels = [
   {
@@ -51,7 +52,7 @@ export default function EditCard({
 
   };
 
-  const themeType = "dark";
+  const themeType = useSelector(selectTheme);
   const labelFieldId = useId();
 
   const {

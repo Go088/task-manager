@@ -1,73 +1,102 @@
+/* List */
+
 .ul {
-  z-index: 999999999;
+  z-index: 9999;
   position: absolute;
   top: 50%;
   left: 50%;
   display: flex;
   gap: 8px;
   flex-direction: column;
-
   padding: 18px;
 
   min-width: 81px;
+  max-width: 185px;
   min-height: 57px;
   border-radius: 8px;
-  transform: translate(-50%, -80%);
-
-box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
-    background-color: #1f1f1f;
-
+  transform: translate(-50%, -50%);
 }
 
 .ul.dark {
-box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
-    background: #1f1f1f;
+  box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
+  background: #1f1f1f;
 }
-
 
 .ul.light,
 .ul.violet {
-box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
-    background: #fcfcfc;
+  box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
+  background: #fcfcfc;
 }
 
-.list {
+/* Item */
+
+.item {
   position: relative;
   display: block;
-  color: aqua;
 }
 
+/* Button */
+
 .button {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+
   background-color: transparent;
   padding: 0;
   line-height: 0;
   border: none;
   cursor: pointer;
   outline: transparent;
-  /* position: relative; */
-
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  justify-content: space-between;
 }
 
+/* Title */
+
 .title {
+  min-width: 51px;
   display: block;
-  color: #fcfcfc;
+  position: relative;
+  transition: color 250ms linear;
+}
+
+.title.dark {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.title.light,
+.title.violet {
+  color: #161616;
+}
+
+.button:hover .title.dark,
+.button:focus .title.dark,
+.button:hover .title.light,
+.button:focus .title.light {
+  color: #bedbb0;
+}
+
+.button:hover .title.violet,
+.button:focus .title.violet {
+  color: #5255bc;
 }
 
 /* Icon */
 
 .icon {
-  stroke: rgba(255, 255, 255, 0.5);
+  position: relative;
+  display: block;
   fill: transparent;
   transition: stroke 250ms linear;
 }
 
-.white.icon {
-  stroke: rgba(22, 22, 22, 0.5);
-  fill: transparent;
+.icon.dark {
+  stroke: rgba(255, 255, 255, 0.5);
+}
+
+.icon.light,
+.icon.violet {
+  stroke: #161616;
 }
 
 .button:hover .icon,

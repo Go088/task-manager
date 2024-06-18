@@ -9,7 +9,7 @@ import Icon from "../Icon/Icon";
 import { selectBoard } from "../../redux/features/boardss/selectors";
 import { useSelector, useDispatch } from "react-redux";
 import { addColumn } from "../../redux/features/boardss/operations";
-
+import { selectTheme } from "../../redux/features/theme/selectors";
 
 const schema = yup.object().shape({
   title: yup
@@ -20,11 +20,10 @@ const schema = yup.object().shape({
 });
 
 export default function ColumnForm({ isOpen, onRequestClose }) {
-
-
   const board = useSelector(selectBoard);
 
-  const themeType = "dark";
+  const themeType = useSelector(selectTheme);
+
   const {
     register,
     handleSubmit,
@@ -42,14 +41,12 @@ export default function ColumnForm({ isOpen, onRequestClose }) {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-
     const id = board._id;
     const columnData = {
       data,
       id,
     };
     dispatch(addColumn(columnData));
-
 
     console.log(data);
     reset();
