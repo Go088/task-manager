@@ -46,6 +46,7 @@ const RegisterForm = () => {
   return (
     <div className={css.section}>
       <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
+        <div className={css.label}>
         <label>
           <input
             className={css.input}
@@ -55,6 +56,7 @@ const RegisterForm = () => {
           />
           {errors.name && <p className={css.errorMessage}>{errors.name.message}</p>}
         </label>
+        </div>
         <label>
           <div>
           <input
