@@ -21,10 +21,6 @@
   background-color: #fcfcfc;
 }
 
-.mobileMenuIcon{
-  cursor: pointer;
-}
-
 .mobileMenuIcon {
   display: inline-block;
 }
@@ -114,26 +110,6 @@
 .themeListItem {
   font-family: "Poppins";
   font-size: 14px;
-  cursor: pointer;
-  text-decoration: none;
-  position: relative;
-}
-
-.themeListItem::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: transparent;
-  transition: background-color 0.3s ease; /* Додаємо плавний перехід для кольору кружечка */
-}
-
-.themeListItem:hover::after {
-  background-color: #bedbb0; /* Колір кружечка при ховері */
 }
 
 .themeListItem.dark {
@@ -206,8 +182,6 @@
   position: relative;
   display: flex;
   gap: 14px;
-  cursor: pointer;
-  transition: border-bottom 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 @media screen and (min-width: 768px) {
   .headerContainer {
@@ -226,9 +200,4 @@
   .infoWrapper {
     margin-left: auto;
   }
-}
-
-
-.infoWrapper:hover {
-  border-bottom: 2px solid #9dc888;
 }

@@ -5,7 +5,6 @@ import css from "./Auth.module.css";
 import RegisterForm from "../RegisterForm/RegisterForm";
 import LoginForm from "../LoginForm/LoginForm";
 
-
 const Auth = () => {
   const { id } = useParams();
   const [register, setRegister] = useState(id === "register");

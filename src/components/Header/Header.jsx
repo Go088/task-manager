@@ -4,7 +4,7 @@ import clsx from "clsx";
 import Icon from "../Icon/Icon";
 import { ThemeTypes } from "../../themeConstants";
 import { useDispatch, useSelector } from "react-redux";
-// import { selectUser } from "../../redux/features/auth/selectors";
+import { selectUser } from "../../redux/features/auth/selectors";
 import { selectTheme } from "../../redux/features/theme/selectors";
 import { changeTheme, getTheme } from "../../redux/features/theme/operations";
 import { useEffect, useState } from "react";
@@ -14,10 +14,10 @@ import { useEffect, useState } from "react";
 const Header = ({ setIsSidebarOpen }) => {
   const dispatch = useDispatch();
   const actualTheme = useSelector(selectTheme);
-  // const user = useSelector(selectUser);
+  const user = useSelector(selectUser);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  // const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [themeType, setThemeType] = useState(actualTheme);
 
   useEffect(() => {
@@ -43,10 +43,10 @@ const Header = ({ setIsSidebarOpen }) => {
     console.log("Open Theme Dropdown");
   };
 
-  // const toggleModal = () => {
-  //   setIsModalOpen(!isModalOpen);
-  //   console.log("модалка");
-  // };
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+    console.log("модалка");
+  };
 
   const openSidebar = () => {
     setIsSidebarOpen(true);
@@ -105,6 +105,11 @@ const Header = ({ setIsSidebarOpen }) => {
           </div>
         </div> */}
       </div>
+      {/* {isModalOpen && (
+        <Modal onClose={toggleModal}>
+          <EditUserProfile />
+        </Modal>
+      )} */}
     </div>
   );
 };
