@@ -19,3 +19,31 @@ export const updateUser = createAsyncThunk(
     }
   }
 );
+
+export const getUserAvatar = createAsyncThunk(
+  "user/getUserAvatar",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get("/users/avatar");
+      setAuthHeader(response.data.token);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const editUserAvatar = createAsyncThunk(
+  "user/editUserAvatar",
+  async (formData, thunkAPI) => {
+    try {
+      const response = await axios.put("/users/edit-avatar", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      setAuthHeader(response.data.token);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);

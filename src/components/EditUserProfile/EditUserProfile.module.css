@@ -12,7 +12,7 @@
 
 .modalContent {
   width: 335px;
-  padding: 20px;
+  padding: 24px;
   background-color: #1d1d1d;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -74,32 +74,25 @@
 .avatarWrapper {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
-}
-
-.avatar {
+  align-items: center;
+  margin-bottom: 12px;
   position: relative;
 }
 
-.avatar .upload-icon {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background-color: #8bc34a;
-  border-radius: 50%;
-  padding: 5px;
-  cursor: pointer;
+.avatar {
+  width: 68px;
+  height: 68px;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 .btn {
   width: 100%;
   padding: 14px 0;
-  font-family: var(--font-medium);
   font-size: 14px;
-  color: #1d1d1d;
   background: rgb(190, 219, 176);
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
   margin-top: 10px;
 }
@@ -125,4 +118,59 @@
   transform: translateY(-50%);
   cursor: pointer;
   color: rgba(255, 255, 255, 0.4);
+}
+.btnClose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  line-height: 0;
+  padding: 0;
+  background-color: transparent;
+  outline: transparent;
+  border-radius: 4px;
+  border: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btnClose.dark:hover,
+.btnClose.dark:focus,
+.btnClose.light:hover,
+.btnClose.light:focus {
+  background-color: #9dc888;
+}
+.btnClose.violet:hover,
+.btnClose.violet:focus {
+  background-color: #7b7ede;
+}
+
+.btnClose.dark:hover .btnCloseIcon,
+.btnClose.dark:focus .btnCloseIcon {
+  stroke: #161616;
+}
+
+.btnClose.violet:hover .btnCloseIcon,
+.btnClose.violet:focus .btnCloseIcon {
+  stroke: #fff;
+}
+.btnCloseIcon {
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnCloseIcon.dark {
+  stroke: #fff;
+}
+
+.btnCloseIcon.light,
+.btnCloseIcon.violet {
+  stroke: #161616;
+}
+.btnEditPhoto {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+  border-radius: 6px;
+  background: rgb(190, 219, 176);
+  border: none;
 }

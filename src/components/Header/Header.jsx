@@ -5,8 +5,10 @@ import clsx from "clsx";
 import Icon from "../Icon/Icon";
 import { ThemeTypes } from "../../themeConstants";
 import { useDispatch, useSelector } from "react-redux";
-import { selectTheme, selectUser } from "../../redux/features/auth/selectors";
+import { selectUser } from "../../redux/features/auth/selectors";
+import { selectTheme } from "../../redux/features/theme/selectors";
 import { changeTheme } from "../../redux/features/theme/operations";
+// import { getUserAvatar } from "../../redux/features/user/operations";
 import EditUserProfile from "../EditUserProfile/EditUserProfile";
 import Modal from "react-modal";
 
