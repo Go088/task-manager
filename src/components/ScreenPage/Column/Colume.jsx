@@ -13,6 +13,7 @@ import { deleteColumn } from "../../../redux/features/boardss/operations";
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import EditColumn from "../../EditColumn/EditColumn";
+import { selectFilter } from "../../../redux/features/filter/selectors";
 
 const Column = ({ theme, column }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -33,22 +34,27 @@ const Column = ({ theme, column }) => {
     console.log(column);
     dispatch(deleteColumn(id));
   };
-
+  const filter = useSelector(selectFilter);
   const allCards = useSelector(selectAllCards);
+  const cardsFiltred = allCards.filter((c) => {
+    if (filter === "all") return true;
+    if (c?.priority === filter) return true;
+    return false;
+  });
 
   const getColumnCards = () => {
-    if (allCards) {
-      return allCards.filter((c) => c?.owner === column._id);
+    if (cardsFiltred) {
+      return cardsFiltred.filter((c) => c?.owner === column._id);
     }
     return [];
   };
 
   const cards = getColumnCards();
-  console.log(allCards);
 
   const isCards = cards.length > 0;
-  const quantityOfcards = useMedia.isTablet ? 4 : 3;
+  const quantityOfcards = useMedia().isTablet ? 4 : 3;
   const isVisibleScrol = cards.length > quantityOfcards;
+
   const whiteTheme = theme === "dark" ? "" : "white";
   return (
     <>

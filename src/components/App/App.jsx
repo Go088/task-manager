@@ -23,7 +23,6 @@ const App = () => {
 
   useEffect(() => {
     dispatch(refreshUser());
-    console.log("App component rendered");
   }, [dispatch]);
 
   return (

@@ -10,7 +10,7 @@ import { deleteCard } from "../../../redux/features/boardss/operations";
 import { Tooltip } from "react-tooltip";
 import CardTooltip from "../CardTooltip/CardTooltip";
 
-const IconGroup = ({ theme, isBellVisible, card, card: { _id } }) => {
+const IconGroup = ({ theme, bellIconColor, card, card: { _id } }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const IconGroup = ({ theme, isBellVisible, card, card: { _id } }) => {
   const handleDelete = () => {
     console.log();
     dispatch(deleteCard(_id));
-  }
+  };
   const handleOpen = () => setIsOpen(true);
   const closeModal = () => {
     setIsOpen(false);
@@ -31,20 +31,16 @@ const IconGroup = ({ theme, isBellVisible, card, card: { _id } }) => {
   const whiteTheme = theme === "dark" ? "" : "white";
   return (
     <>
-      {" "}
       <ul className={css.iconList}>
-        {isBellVisible && (
-          <li className={css.li}>
-            {/* <button className={css.buttonBell}> */}
-            <Icon
-              className={clsx(css.iconBell, css[theme], css[whiteTheme])}
-              width="16px"
-              height="16px"
-              id="icon-bell"
-            />
-            {/* </button> */}
-          </li>
-        )}
+        <li className={clsx(css.li, css.margin)}>
+          <Icon
+            className={clsx(css.iconBell, css[theme], css[bellIconColor])}
+            width="16px"
+            height="16px"
+            id="icon-bell"
+          />
+        </li>
+
         <li className={css.li}>
           <a id={`clickable-${card._id}`}>
             <button className={css.button}>
@@ -57,7 +53,7 @@ const IconGroup = ({ theme, isBellVisible, card, card: { _id } }) => {
             </button>
           </a>
           <Tooltip anchorSelect={`#clickable-${card._id}`} clickable>
-            <CardTooltip theme={theme} card={card } />
+            <CardTooltip theme={theme} card={card} />
           </Tooltip>
         </li>
         <li className={css.li}>

@@ -12,12 +12,11 @@ export const getTheme = createAsyncThunk(
      const theme = response.data.theme;
       return {theme};
     } catch (error) {
-        toast.error('Failed to change theme', {duration: 1500})
-        return thunkAPI.rejectWithValue(error.message)
+      toast.error("Failed to change theme", { duration: 1500 });
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
-)
-
+);
 
 export const changeTheme = createAsyncThunk(
   "theme/changeTheme",
@@ -27,8 +26,8 @@ export const changeTheme = createAsyncThunk(
       toast.success(`Theme changed to ${newTheme}`, {duration: 1500})
       return { theme: response.data.theme };
     } catch (error) {
-        toast.error('Failed to change theme', {duration: 1500})
-        return thunkAPI.rejectWithValue(error.message)
+      toast.error("Failed to change theme", { duration: 1500 });
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

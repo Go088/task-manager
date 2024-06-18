@@ -1,46 +1,26 @@
 import IconGroup from "../IconGroup/IconGroup";
 import css from "./Card.module.css";
 import clsx from "clsx";
-const datePattern = /^\d{2}\/\d{2}\/\d{4}$/;
 
 const Card = ({ theme, card }) => {
-  const date = new Date();
-  let corectedDate = "";
-  let dateNow = "";
-  // try {
-  //   const formatDate = (date) => {
-  //     const day = String(date.getDate()).padStart(2, "0");
-  //     const month = String(date.getMonth() + 1).padStart(2, "0");
-  //     const year = date.getFullYear();
-  //     return `${day}/${month}/${year}`;
-  //   };
-  //   const validateDate = (dateString) => {
-  //     return datePattern.test(dateString);
-  //   };
-  //   dateNow = formatDate(date);
-  //   corectedDate = validateDate(card.deadline)
-  //     ? card.deadline
-  //     : formatDate(Number(card.deadline));
-  // } catch (error) {
-  //   // console.log("card date error");
-  // }
-
-  const isBellVisible = dateNow === corectedDate;
-
-  // const formattedDate = formatDate(date);
-
-  function convertDateStringToTimestamp(dateString) {
-    // Split the date string into day, month, and year
-    const [day, month, year] = dateString.split("/");
-
-    // Create a new Date object using the parsed values
-    const date = new Date(`${year}-${month}-${day}`);
-
-    // Return the timestamp
-    return date.getTime();
+  function formatDate(date) {
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
   }
-  const datt = convertDateStringToTimestamp("25/06/2024");
-  console.log(typeof datt);
+  const date = formatDate(new Date(card?.deadline));
+  const dateToday = formatDate(new Date());
+
+  const isTimeOut = (dateToday, date) => {
+    const [day1, month1, year1] = dateToday.split("/").map(Number);
+    const [day2, month2, year2] = date.split("/").map(Number);
+    const d1 = new Date(year1, month1 - 1, day1);
+    const d2 = new Date(year2, month2 - 1, day2);
+    return d1 > d2;
+  };
+  const bellIconColor =
+    date === dateToday ? "green" : isTimeOut(dateToday, date) ? "red" : "";
 
   const whiteTheme = theme === "dark" ? "" : "white";
 
@@ -71,13 +51,11 @@ const Card = ({ theme, card }) => {
                 <p className={clsx(css.deadlineText, css[whiteTheme])}>
                   Deadline
                 </p>
-                <p className={clsx(css.date, css[whiteTheme])}>
-                  {corectedDate}
-                </p>
+                <p className={clsx(css.date, css[whiteTheme])}>{date}</p>
               </div>
             </div>
             <IconGroup
-              isBellVisible={isBellVisible}
+              bellIconColor={bellIconColor}
               theme={theme}
               card={card}
             />

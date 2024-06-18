@@ -22,12 +22,24 @@
   fill: transparent;
 }
 .iconBell {
-  stroke: rgba(190, 219, 176, 1);
+  display: none;
   fill: none;
   filter: drop-shadow(2px 2px 5px rgba(190, 219, 176, 0.5));
 }
 .violet.iconBell {
   stroke: rgba(82, 85, 188, 1);
+}
+.green.iconBell {
+  display: unset;
+  stroke: rgba(190, 219, 176, 1);
+}
+.green.violet.iconBell {
+  display: unset;
+  stroke: rgba(190, 219, 176, 1);
+}
+.red.iconBell {
+  display: unset;
+  stroke: rgb(184, 51, 51);
 }
 .li {
   display: block;
@@ -40,6 +52,9 @@
   line-height: 0;
   border: none;
   padding-right: 5px;
+}
+.margin {
+  margin-right: 5px;
 }
 @media screen and (min-width: 1440px) {
   .button:hover .icon,
