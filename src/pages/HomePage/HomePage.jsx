@@ -40,7 +40,7 @@ export default function HomePage() {
           style={containerStyle}
           className={clsx(css.screenContainer, css[theme])}
         >
-          {!isBoard && <FilterButton theme={theme} />}
+          <FilterButton theme={theme} />
           <Suspense fallback={<div>Loading subpage...</div>}>
             <Outlet />
           </Suspense>

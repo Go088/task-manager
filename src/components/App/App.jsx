@@ -56,7 +56,7 @@ const App = () => {
                 path="/home"
                 element={
                   <HomePage />
-                  // <PrivateRoute
+                  // <RestrictedRoute
                   //   component={<HomePage />}
                   //   redirectTo="/welcome"
                   // />

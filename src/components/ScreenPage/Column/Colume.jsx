@@ -37,7 +37,7 @@ const Column = ({ theme, column }) => {
     dispatch(deleteColumn(id));
   };
 
-  const allCards = useSelector(selectFilteredCards);
+  const allCards = useSelector(selectAllCards);
 
   const getColumnCards = () => {
     if (allCards) {
@@ -47,6 +47,7 @@ const Column = ({ theme, column }) => {
   };
 
   const cards = getColumnCards();
+  console.log(allCards);
 
   const isCards = cards.length > 0;
   const quantityOfcards = useMedia.isTablet ? 4 : 3;

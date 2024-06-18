@@ -25,17 +25,13 @@ const boardSlice = createSlice({
   initialState: {
     board: {},
     cards: [],
-    filteredCards: [],
+
     isLoading: false,
     error: null,
     toast: "",
   },
   reducers: {
-    setFilteredCards: (state, action) => {
-      const allCards = state.cards;
-
-      state.filteredCards = action.payload;
-    },
+    setFilteredCards: (state, action) => {},
     setContactError: (state, action) => {
       state.error = action.payload;
     },

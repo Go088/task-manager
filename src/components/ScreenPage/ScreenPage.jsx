@@ -50,8 +50,7 @@ const ScreanPage = ({ aaa }) => {
   const isColumns = board.columns?.length > 0;
   console.log(board);
   return (
-    <div>
-      <FilterButton theme={theme} />
+    <>
       <div className={css.titleFilterWrapper}>
         {isBoard && (
           <h2 className={clsx(css.title, css[theme])}>{board?.title}</h2>
@@ -80,7 +79,7 @@ const ScreanPage = ({ aaa }) => {
           {/* </SimpleBar> */}
         </div>
       )}
-    </div>
+    </>
   );
 };
 export default ScreanPage;
