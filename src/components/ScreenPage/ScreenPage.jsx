@@ -18,8 +18,10 @@ import {
 } from "../../redux/features/boardss/selectors";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import FilterButton from "./FilterButton/FilterButton";
 
-const ScreanPage = ({ idw = "666c45b30031e4827c3c972e" }) => {
+const ScreanPage = ({ aaa }) => {
+  console.log(aaa);
   const { id: boardName } = useParams();
   const [id, setId] = useState(null);
 

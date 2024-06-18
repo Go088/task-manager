@@ -7,7 +7,7 @@
   padding: 14px 8px 24px 20px;
   min-height: 752px;
   position: relative;
-  /* width: ; */
+  overflow: hidden;
 }
 .light.screenContainer {
   background-color: #f6f6f7;

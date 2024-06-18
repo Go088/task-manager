@@ -2,7 +2,6 @@ import css from "./NoBoardText.module.css";
 import clsx from "clsx";
 
 const NoBoardText = ({ theme }) => {
-  //   console.log(theme);
   return (
     <div className={clsx(css.textWrapper, css[theme])}>
       <p className={clsx(css.text, css[theme])}>

@@ -1,7 +1,7 @@
 .list {
- height:191px;
- overflow: scroll;
- margin-bottom: 51px;
+  height: 191px;
+  overflow: scroll;
+  margin-bottom: 51px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -10,4 +10,10 @@
   overflow-x: hidden;
   scroll-behavior: smooth;
   scrollbar-width: none;
+}
+
+@media screen and (min-width: 1440px) {
+  .list {
+    height: 126px;
+  }
 }

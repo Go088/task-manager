@@ -32,7 +32,7 @@ const Column = ({ theme, column }) => {
   const handleDelete = () => {
     console.log(column);
     dispatch(deleteColumn(id));
-  }
+  };
 
   const allCards = useSelector(selectAllCards);
 
@@ -44,6 +44,7 @@ const Column = ({ theme, column }) => {
   };
 
   const cards = getColumnCards();
+  console.log(allCards);
 
   const isCards = cards.length > 0;
   const quantityOfcards = useMedia.isTablet ? 4 : 3;
@@ -57,9 +58,7 @@ const Column = ({ theme, column }) => {
             {column?.title}
           </h3>
           <div className={css.iconWrapper}>
-            <button type="button" className={css.button}
-              onClick={handleOpen}
-            >
+            <button type="button" className={css.button} onClick={handleOpen}>
               <Icon
                 className={clsx(css.iconPensil, css[whiteTheme], css[theme])}
                 width="16px"
@@ -92,10 +91,14 @@ const Column = ({ theme, column }) => {
           </CustomScrollBar>
         </div>
 
-        <AddCardButton theme={theme} column={column}/>
+        <AddCardButton theme={theme} column={column} />
       </div>
       {modalIsOpen && (
-        <EditColumn isOpen={modalIsOpen} onRequestClose={closeModal} column={column} />
+        <EditColumn
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          column={column}
+        />
       )}
     </>
   );
