@@ -11,7 +11,6 @@ export default function PrivateRoute({
 }) {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const isTokenActive = useSelector(selectToken);
-  console.log(isTokenActive);
 
   if (!isLoggedIn || !isTokenActive) {
     return <Navigate to={redirectTo} />;
