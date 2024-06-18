@@ -149,8 +149,7 @@ const schema = yup.object().shape({
 });
 
 export default function BoardForm({ isOpen, onRequestClose }) {
-
-   const themeType = useSelector(selectTheme);
+  const themeType = useSelector(selectTheme);
 
   const iconFieldId = useId();
   const backgroundFieldId = useId();
@@ -180,7 +179,6 @@ export default function BoardForm({ isOpen, onRequestClose }) {
   return (
     <Modal
       isOpen={isOpen}
-      onRequestClose={onRequestClose}
       className={css.Modal}
       overlayClassName={css.Overlay}
       contentLabel="Modal window for create a new board"
