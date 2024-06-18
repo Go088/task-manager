@@ -55,11 +55,11 @@ const App = () => {
               <Route
                 path="/home"
                 element={
-                  <HomePage />
-                  // <RestrictedRoute
-                  //   component={<HomePage />}
-                  //   redirectTo="/welcome"
-                  // />
+                  // <HomePage />
+                  <PrivateRoute
+                    component={<HomePage />}
+                    redirectTo="/welcome"
+                  />
                 }
               >
                 <Route path=":id" element={<ScreenPage />} />

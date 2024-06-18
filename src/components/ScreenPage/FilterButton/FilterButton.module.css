@@ -64,6 +64,22 @@
     right: 24px;
   }
 }
+.backDrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 15;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 400ms linear, opacity 400ms linear;
+}
+.isActive.backDrop {
+  visibility: visible;
+  opacity: 1;
+}
 .modalWrapper {
   width: 300px;
   /* height: 300px; */
@@ -71,11 +87,17 @@
   background: #151515;
   border: 1px solid rgba(190, 219, 176, 0.5);
   position: absolute;
-  right: -20px;
-  top: -14px;
+  right: 0px;
+  top: 0px;
   padding: 24px;
   z-index: 5;
-  display: none;
+  /* display: none; */
+  transform: translateX(100%);
+  transition: transform 400ms linear;
+  z-index: 16;
+}
+.isActive.modalWrapper {
+  transform: translate(0%);
 }
 .filterText {
   color: #ffffff;
@@ -115,6 +137,11 @@
   padding: 0;
   line-height: 0;
   background-color: transparent;
+  transition: color 250ms linear;
+}
+.ChooseButton:hover,
+.ChooseButton:hover {
+  color: rgba(255, 255, 255, 0.748);
 }
 .priorityList {
   display: flex;
@@ -128,12 +155,17 @@
   letter-spacing: -0.02em;
   display: flex;
   column-gap: 8px;
-
   cursor: pointer;
+  transition: color 250ms linear;
+}
+.priorityLi:hover,
+.priorityLi:hover {
+  color: rgba(255, 255, 255, 0.748);
 }
 .isActive.priorityLi {
   color: #ffffff;
 }
+
 .withoutSpan {
   width: 14px;
   height: 14px;
@@ -172,8 +204,10 @@
   border: 2px solid #151515;
   background-color: transparent;
   top: 50%;
-  right: 50%;
-  transform: translate(50%, -50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  line-height: 0;
 }
 .closeButton {
   position: absolute;

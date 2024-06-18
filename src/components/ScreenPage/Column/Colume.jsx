@@ -6,10 +6,7 @@ import AddCardButton from "../AddCardButton/AddCardButton";
 import CustomScrollBar from "../CustemScrollBar/CustomScrollBar";
 import clsx from "clsx";
 
-import {
-  selectAllCards,
-  selectFilteredCards,
-} from "../../../redux/features/boardss/selectors";
+import { selectAllCards } from "../../../redux/features/boardss/selectors";
 import { useSelector, useDispatch } from "react-redux";
 import useMedia from "../../../hooks/useMediaQuery";
 import { deleteColumn } from "../../../redux/features/boardss/operations";
