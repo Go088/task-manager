@@ -19,7 +19,6 @@
 }
 .spanFilter {
   color: rgba(255, 255, 255, 0.8);
-
   font-size: 14px;
   font-weight: 500;
   line-height: normal;
@@ -37,6 +36,9 @@
 }
 .filterWrapper:hover .violet.spanFilter {
   color: #5255bc;
+}
+.filterWrapper:hover .dark.spanFilter {
+  color: #bedbb0;
 }
 
 .lightFilter {

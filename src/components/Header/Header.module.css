@@ -21,7 +21,7 @@
   background-color: #fcfcfc;
 }
 
-.mobileMenuIcon{
+.mobileMenuIcon {
   cursor: pointer;
 }
 
@@ -120,7 +120,7 @@
 }
 
 .themeListItem::after {
-  content: '';
+  content: "";
   position: absolute;
   right: 0;
   top: 50%;
@@ -228,7 +228,23 @@
   }
 }
 
-
-.infoWrapper:hover {
+/* .infoWrapper:hover {
   border-bottom: 2px solid #9dc888;
+} */
+.infoWrapper::after {
+  content: "";
+  line-height: 0;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 68px;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 250ms linear;
+}
+.infoWrapper:hover.infoWrapper::after {
+  background-color: #bedbb0;
+}
+.dark.infoWrapper:hover.infoWrapper::after {
+  background-color: #364332;
 }
