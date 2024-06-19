@@ -19,9 +19,7 @@ export const addBoard = createAsyncThunk(
   "board/addBoard",
   async (data, thunkAPI) => {
     try {
-      console.log({ data });
       const response = await axios.post("/board", data);
-      console.log(response.data);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -33,8 +31,7 @@ export const deleteBoard = createAsyncThunk(
   "board/deleteBoard",
   async (Id, thunkAPI) => {
     try {
-      const response = await axios.delete(`/deleteBoard/${Id}`);
-      console.log(response);
+      await axios.delete(`/deleteBoard/${Id}`);
       return Id;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

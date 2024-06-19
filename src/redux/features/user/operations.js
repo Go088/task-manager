@@ -1,22 +1,55 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://task-manager-r8dz.onrender.com/api";
-
-const setAuthHeader = (token) => {
-  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-};
+// axios.defaults.baseURL = "https://task-manager-r8dz.onrender.com/api";
 
 export const updateUser = createAsyncThunk(
   "user/updateUser",
   async (userData, thunkAPI) => {
     try {
-      const response = await axios.put("/users/edit", userData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+      const response = await axios.put("/users/edit", userData);
+
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const getUserAvatar = createAsyncThunk(
+  "user/getUserAvatar",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get("/users/avatar");
+
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const editUserAvatar = createAsyncThunk(
+  "user/editUserAvatar",
+  async (photo, thunkAPI) => {
+    console.log(photo);
+    try {
+      const response = await axios.put("/users/edit-avatar", photo, {
+        headers: { "Content-Type": "multipart/form-data" },
       });
-      setAuthHeader(response.data.token);
+
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
+export const refreshUser = createAsyncThunk(
+  "user/refreshUser",
+  async (formData, thunkAPI) => {
+    try {
+      const response = await axios.get("/users/info");
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
