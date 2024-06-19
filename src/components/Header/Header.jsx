@@ -103,13 +103,13 @@ const Header = ({ setIsSidebarOpen }) => {
 
         <div className={css.userWrapper}>
           <p className={clsx(css.userName, css[actualTheme])}>
-            {name || "User"}
+            {name ? name : "User"}
           </p>
           <div
             className={clsx(css.avatarWrapper, css.clickable)}
             onClick={toggleModal}
           >
-            <img src={photo || "/img/user.png"} alt="Avatar" />
+            <img src={photo ? photo : "/img/user.png"} alt="Avatar" />
           </div>
         </div>
       </div>
