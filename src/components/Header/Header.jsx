@@ -5,7 +5,7 @@ import clsx from "clsx";
 import Icon from "../Icon/Icon";
 import { ThemeTypes } from "../../themeConstants";
 import { useDispatch, useSelector } from "react-redux";
-// import { selectUser } from "../../redux/features/auth/selectors";
+import { selectUser } from "../../redux/features/auth/selectors";
 import { selectTheme } from "../../redux/features/theme/selectors";
 import { changeTheme } from "../../redux/features/theme/operations";
 // import { getUserAvatar } from "../../redux/features/user/operations";
@@ -15,21 +15,13 @@ import Modal from "react-modal";
 Modal.setAppElement("#root");
 
 const Header = ({ setIsSidebarOpen }) => {
-  const dispatch = useDispatch();
   const actualTheme = useSelector(selectTheme);
-  // const user = useSelector(selectUser);
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [themeType, setThemeType] = useState(actualTheme);
 
-  useEffect(() => {
-    dispatch(getTheme());
-  }, [dispatch]);
-
-  useEffect(() => {
-    setThemeType(actualTheme);
-  }, [actualTheme]);
+  console.log();
 
   const ThemeOptions = [
     { label: "Light", value: ThemeTypes.LIGHT },
@@ -45,10 +37,11 @@ const Header = ({ setIsSidebarOpen }) => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  // const toggleModal = () => {
-  //   setIsModalOpen(!isModalOpen);
-  //   console.log("модалка");
-  // };
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  useEffect(() => {}, [actualTheme]);
 
   const openSidebar = () => {
     setIsSidebarOpen(true);
@@ -75,28 +68,28 @@ const Header = ({ setIsSidebarOpen }) => {
             width="16"
             height="16"
           />
+          {isDropdownOpen && (
+            <ul className={clsx(css.themeList, css.isOpen, css[actualTheme])}>
+              {ThemeOptions.map((option) => (
+                <li
+                  key={option.value}
+                  className={clsx(css.themeListItem, css[actualTheme], {
+                    [css.active]: option.value === actualTheme,
+                  })}
+                  onClick={() => {
+                    setIsDropdownOpen(false);
+                    handleThemeChange(option.value);
+                  }}
+                >
+                  {option.label}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-        {isDropdownOpen && (
-          <ul className={clsx(css.themeList, css.isOpen, css[themeType])}>
-            {ThemeOptions.map((option) => (
-              <li
-                key={option.value}
-                className={clsx(css.themeListItem, css[actualTheme], {
-                  [css.active]: option.value === actualTheme,
-                })}
-                onClick={() => {
-                  setIsDropdownOpen(false);
-                  handleThemeChange(option.value);
-                }}
-              >
-                {option.label}
-              </li>
-            ))}
-          </ul>
-        )}
 
-        {/* <div className={css.userWrapper}>
-          <p className={clsx(css.userName, css[themeType])}>
+        <div className={css.userWrapper}>
+          <p className={clsx(css.userName, css[actualTheme])}>
             {user.name || "User"}
           </p>
           <div
@@ -105,8 +98,7 @@ const Header = ({ setIsSidebarOpen }) => {
           >
             <img src={user.photo || "/img/user.png"} alt="Avatar" />
           </div>
-        </div>{" "}
-        */}
+        </div>
       </div>
       <Modal
         isOpen={isModalOpen}
