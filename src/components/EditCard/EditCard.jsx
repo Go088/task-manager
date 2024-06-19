@@ -46,10 +46,8 @@ export default function EditCard({
   onRequestClose,
   card: { _id, title, description, priority, deadline },
 }) {
-
   const handleDateChange = (date) => {
     setValue("deadline", date);
-
   };
 
   const themeType = useSelector(selectTheme);
