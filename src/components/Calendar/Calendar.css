@@ -32,6 +32,15 @@
   stroke: rgb(82, 85, 188);
 }
 
+.datepicker-modal {
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 10px;
+}
+
 .react-datepicker {
   font-family: Poppins;
   font-weight: 400;
