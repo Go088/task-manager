@@ -16,9 +16,6 @@ export default function SideBar({ isSidebarOpen, setIsSidebarOpen }) {
   const themeType = useSelector(selectTheme);
   const dispatch = useDispatch();
   const [needHelpOpenModal, setNeedHelpOpenModal] = useState(false);
-  const closeModal = () => {
-    setNeedHelpOpenModal(false);
-  };
   useEffect(() => {
     dispatch(fetchBoard());
   }, [dispatch]);
@@ -36,7 +33,7 @@ export default function SideBar({ isSidebarOpen, setIsSidebarOpen }) {
     >
       <div
         onClick={handleStop}
-        className={clsx(css.list, isSidebarOpen && css.isOpen, css[themeType])}
+        className={clsx(css.list, isSidebarOpen && css.isOpenn, css[themeType])}
       >
         <div className={css.box}>
           <div className={css.wrapper}>
@@ -62,7 +59,10 @@ export default function SideBar({ isSidebarOpen, setIsSidebarOpen }) {
           <NeedHelpInfo setNeedHelpOpenModal={setNeedHelpOpenModal} />
           <LogOut />
         </div>
-        <NeedHelpModal isOpen={needHelpOpenModal} onRequestClose={closeModal} />
+        <NeedHelpModal
+          isOpen={needHelpOpenModal}
+          setNeedHelpOpenModal={setNeedHelpOpenModal}
+        />
       </div>
     </div>
   );
