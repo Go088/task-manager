@@ -123,9 +123,13 @@
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
 }
 
-.helpFormInput.dark,
-.helpFormInput.light {
+.helpFormInput.dark {
   color: #fff;
+  border: 1px solid #bedbb0;
+}
+
+.helpFormInput.light {
+  color: #161616;
   border: 1px solid #bedbb0;
 }
 
