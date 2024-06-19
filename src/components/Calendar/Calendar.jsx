@@ -1,13 +1,15 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import "./datepicker-overrides.css";
-import css from "./Calendar.module.css";
+import "./Calendar.css";
 import Icon from "../Icon/Icon";
+import { useSelector } from "react-redux";
+import { selectTheme } from "../../redux/features/theme/selectors";
 
-const Calendar = ({onDateChange = new Date()}) => {
+const Calendar = ({ onDateChange = new Date() }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const theme = useSelector(selectTheme);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -30,33 +32,33 @@ const Calendar = ({onDateChange = new Date()}) => {
     month: "long",
     day: "numeric",
   });
+
   return (
-    <div className={css.wrap}>
-      <div className={css.wrapPicker}>
-        <p>
-          {selectedDate ? formatDate(selectedDate) : `Today, ${todayFormatted}`}
-        </p>
-        <button
+    <div className={theme}>
+      <button
+        className="btn"
         type="button"
-          className={css.button}
-          onClick={() => setIsCalendarOpen(!isCalendarOpen)}
-          aria-label="Select deadline date"
-        >
-          <Icon id="icon-vector" width="9" className={css.icon} />
-        </button>
-        {isCalendarOpen && (
-          <div className={css.datePickerWrap}>
-            <DatePicker
-              selected={selectedDate}
-              onChange={handleDateChange}
-              calendarStartDay={1}
-              dateFormat="dd/MM/yyyy"
-              minDate={new Date()}
-              inline
-            />
-          </div>
-        )}
-      </div>
+        onClick={() => setIsCalendarOpen(!isCalendarOpen)}
+        aria-label="Select deadline date"
+      >
+        <div className="input">
+          {selectedDate ? formatDate(selectedDate) : `Today, ${todayFormatted}`}
+        </div>
+        <Icon id="icon-vector" width="9" className="icon" />
+      </button>
+
+      {isCalendarOpen && (
+        <div className="datepicker-modal">
+          <DatePicker
+            selected={selectedDate}
+            onChange={handleDateChange}
+            calendarStartDay={1}
+            dateFormat="dd/MM/yyyy"
+            minDate={new Date()}
+            inline
+          />
+        </div>
+      )}
     </div>
   );
 };

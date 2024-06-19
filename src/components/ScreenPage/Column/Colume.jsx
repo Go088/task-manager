@@ -7,33 +7,32 @@ import CustomScrollBar from "../CustemScrollBar/CustomScrollBar";
 import clsx from "clsx";
 
 import { selectAllCards } from "../../../redux/features/boardss/selectors";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import useMedia from "../../../hooks/useMediaQuery";
-import { deleteColumn } from "../../../redux/features/boardss/operations";
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import EditColumn from "../../EditColumn/EditColumn";
 import { selectFilter } from "../../../redux/features/filter/selectors";
+import ColumnDeleteModal from "../ColumnDeleteModal/ColumnDeleteModal";
 
 const Column = ({ theme, column }) => {
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [editIsOpen, setEditIsOpen] = useState(false);
+  const [deleteIsOpen, setDeleteIsOpen] = useState(false);
 
   useEffect(() => {
     Modal.setAppElement("#root");
   }, []);
 
-  const handleOpen = () => setIsOpen(true);
-  const closeModal = () => {
-    setIsOpen(false);
+  const handleOpenEdit = () => setEditIsOpen(true);
+  const closeEditModal = () => {
+    setEditIsOpen(false);
   };
 
-  const dispatch = useDispatch();
-  const id = column._id;
-
-  const handleDelete = () => {
-    console.log(column);
-    dispatch(deleteColumn(id));
+  const handleOpenDlete = () => setDeleteIsOpen(true);
+  const closeDeleteModal = () => {
+    setDeleteIsOpen(false);
   };
+
   const filter = useSelector(selectFilter);
   const allCards = useSelector(selectAllCards);
   const cardsFiltred = allCards.filter((c) => {
@@ -64,7 +63,11 @@ const Column = ({ theme, column }) => {
             {column?.title}
           </h3>
           <div className={css.iconWrapper}>
-            <button type="button" className={css.button} onClick={handleOpen}>
+            <button
+              type="button"
+              className={css.button}
+              onClick={handleOpenEdit}
+            >
               <Icon
                 className={clsx(css.iconPensil, css[whiteTheme], css[theme])}
                 width="16px"
@@ -72,7 +75,11 @@ const Column = ({ theme, column }) => {
                 id="icon-pencil"
               />
             </button>
-            <button type="button" className={css.button} onClick={handleDelete}>
+            <button
+              type="button"
+              className={css.button}
+              onClick={handleOpenDlete}
+            >
               <Icon
                 className={clsx(css.iconTrash, css[whiteTheme], css[theme])}
                 width="16px"
@@ -99,10 +106,17 @@ const Column = ({ theme, column }) => {
 
         <AddCardButton theme={theme} column={column} />
       </div>
-      {modalIsOpen && (
+      {editIsOpen && (
         <EditColumn
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
+          isOpen={editIsOpen}
+          onRequestClose={closeEditModal}
+          column={column}
+        />
+      )}
+      {deleteIsOpen && (
+        <ColumnDeleteModal
+          isOpen={deleteIsOpen}
+          onRequestClose={closeDeleteModal}
           column={column}
         />
       )}

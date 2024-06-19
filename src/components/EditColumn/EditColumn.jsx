@@ -23,8 +23,7 @@ export default function EditColumn({
   onRequestClose,
   column: { _id, title },
 }) {
-
-    const themeType = useSelector(selectTheme);
+  const themeType = useSelector(selectTheme);
 
   const {
     register,
@@ -43,7 +42,6 @@ export default function EditColumn({
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-
     const columnData = {
       data,
       _id,
@@ -81,7 +79,11 @@ export default function EditColumn({
         <p className={clsx(css.error, css[themeType])}>
           {errors.title?.message}
         </p>
-        <button className={clsx(css.btn, css[themeType])} type="submit">
+        <button
+          aria-label="button for edit column"
+          className={clsx(css.btn, css[themeType])}
+          type="submit"
+        >
           <div className={clsx(css.btnWrapIcon, css[themeType])}>
             <Icon
               className={clsx(css.btnIcon, css[themeType])}
@@ -90,10 +92,11 @@ export default function EditColumn({
               id={"icon-plus_card_modal"}
             />
           </div>
-          <span>Add</span>
+          <span>Edit</span>
         </button>
       </form>
       <button
+        aria-label="button for close modal window"
         className={clsx(css.btnClose, css[themeType])}
         type="button"
         onClick={onRequestClose}
