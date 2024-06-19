@@ -9,6 +9,7 @@ import EditCard from "../../EditCard/EditCard";
 import CardTooltip from "../CardTooltip/CardTooltip";
 import CardDeleteModal from "../CardDeleteModal/CardDeleteModal";
 import css from "./IconGroup.module.css";
+import DeadlineTooltip from "../DeadlineTooltip/DeadlineTooltip";
 
 const IconGroup = ({ theme, bellIconColor, card }) => {
   const [editIsOpen, setEditIsOpen] = useState(false);
@@ -33,12 +34,17 @@ const IconGroup = ({ theme, bellIconColor, card }) => {
     <>
       <ul className={css.iconList}>
         <li className={clsx(css.li, css.margin)}>
-          <Icon
-            className={clsx(css.iconBell, css[theme], css[bellIconColor])}
-            width="16px"
-            height="16px"
-            id="icon-bell"
-          />
+          <a id={`not-clickable-${card._id}`}>
+            <Icon
+              className={clsx(css.iconBell, css[theme], css[bellIconColor])}
+              width="16px"
+              height="16px"
+              id="icon-bell"
+            />
+          </a>
+          <Tooltip anchorSelect={`#not-clickable-${card._id}`} clickable>
+            <DeadlineTooltip />
+          </Tooltip>
         </li>
 
         <li className={css.li}>
@@ -53,7 +59,7 @@ const IconGroup = ({ theme, bellIconColor, card }) => {
             </button>
           </a>
           <Tooltip anchorSelect={`#clickable-${card._id}`} clickable>
-            <CardTooltip theme={theme} card={card} />
+            <CardTooltip card={card} />
           </Tooltip>
         </li>
         <li className={css.li}>

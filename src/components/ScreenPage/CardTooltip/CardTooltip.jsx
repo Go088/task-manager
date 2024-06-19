@@ -40,7 +40,6 @@ export default function CardTooltip({
       <ul className={clsx(s.list, s[themeType])}>
         {columns
           .filter((column) => {
-            console.log(length);
             return column._id !== owner;
           })
           .map((column) => {
@@ -68,7 +67,7 @@ export default function CardTooltip({
       </ul>
       {columns.length === 1 && (
         <p className={clsx(s.text, s[themeType])}>
-          create new <span className={clsx(s.span, s[themeType])}>column </span>{" "}
+          Create new <span className={clsx(s.span, s[themeType])}>column </span>{" "}
           for moving
         </p>
       )}
