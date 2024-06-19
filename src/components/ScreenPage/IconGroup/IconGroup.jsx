@@ -1,32 +1,31 @@
-import clsx from "clsx";
-import { useEffect, useState } from "react";
-
-import Modal from "react-modal";
-import { Tooltip } from "react-tooltip";
-
 import Icon from "../../Icon/Icon";
-import EditCard from "../../EditCard/EditCard";
-import CardTooltip from "../CardTooltip/CardTooltip";
-import CardDeleteModal from "../CardDeleteModal/CardDeleteModal";
 import css from "./IconGroup.module.css";
-import DeadlineTooltip from "../DeadlineTooltip/DeadlineTooltip";
+import clsx from "clsx";
 
-const IconGroup = ({ theme, bellIconColor, card }) => {
-  const [editIsOpen, setEditIsOpen] = useState(false);
-  const [deleteIsOpen, setDeleteIsOpen] = useState(false);
+import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import Modal from "react-modal";
+import EditCard from "../../EditCard/EditCard";
+import { deleteCard } from "../../../redux/features/boardss/operations";
+import { Tooltip } from "react-tooltip";
+import CardTooltip from "../CardTooltip/CardTooltip";
+
+const IconGroup = ({ theme, bellIconColor, card, card: { _id } }) => {
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     Modal.setAppElement("#root");
   }, []);
 
-  const handleOpenEdit = () => setEditIsOpen(true);
-  const closeEditModal = () => {
-    setEditIsOpen(false);
-  };
+  const dispatch = useDispatch();
 
-  const handleOpenDlete = () => setDeleteIsOpen(true);
-  const closeDeleteModal = () => {
-    setDeleteIsOpen(false);
+  const handleDelete = () => {
+    console.log();
+    dispatch(deleteCard(_id));
+  };
+  const handleOpen = () => setIsOpen(true);
+  const closeModal = () => {
+    setIsOpen(false);
   };
 
   const whiteTheme = theme === "dark" ? "" : "white";
@@ -34,17 +33,12 @@ const IconGroup = ({ theme, bellIconColor, card }) => {
     <>
       <ul className={css.iconList}>
         <li className={clsx(css.li, css.margin)}>
-          <a id={`not-clickable-${card._id}`}>
-            <Icon
-              className={clsx(css.iconBell, css[theme], css[bellIconColor])}
-              width="16px"
-              height="16px"
-              id="icon-bell"
-            />
-          </a>
-          <Tooltip anchorSelect={`#not-clickable-${card._id}`} clickable>
-            <DeadlineTooltip />
-          </Tooltip>
+          <Icon
+            className={clsx(css.iconBell, css[theme], css[bellIconColor])}
+            width="16px"
+            height="16px"
+            id="icon-bell"
+          />
         </li>
 
         <li className={css.li}>
@@ -59,13 +53,13 @@ const IconGroup = ({ theme, bellIconColor, card }) => {
             </button>
           </a>
           <Tooltip anchorSelect={`#clickable-${card._id}`} clickable>
-            <CardTooltip card={card} />
+            <CardTooltip theme={theme} card={card} />
           </Tooltip>
         </li>
         <li className={css.li}>
           <button
             className={css.button}
-            onClick={handleOpenEdit}
+            onClick={handleOpen}
             type="button"
             aria-label="Edit the card"
           >
@@ -80,7 +74,7 @@ const IconGroup = ({ theme, bellIconColor, card }) => {
         <li className={css.li}>
           <button
             className={css.button}
-            onClick={handleOpenDlete}
+            onClick={handleDelete}
             type="button"
             aria-label="Delete the card"
           >
@@ -93,17 +87,10 @@ const IconGroup = ({ theme, bellIconColor, card }) => {
           </button>
         </li>
       </ul>
-      {editIsOpen && (
+      {modalIsOpen && (
         <EditCard
-          isOpen={editIsOpen}
-          onRequestClose={closeEditModal}
-          card={card}
-        />
-      )}
-      {deleteIsOpen && (
-        <CardDeleteModal
-          isOpen={deleteIsOpen}
-          onRequestClose={closeDeleteModal}
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
           card={card}
         />
       )}
