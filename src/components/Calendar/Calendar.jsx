@@ -32,6 +32,7 @@ const Calendar = ({ onDateChange = new Date() }) => {
     month: "long",
     day: "numeric",
   });
+
   return (
     <div className={theme}>
       <button
@@ -47,7 +48,7 @@ const Calendar = ({ onDateChange = new Date() }) => {
       </button>
 
       {isCalendarOpen && (
-        <div>
+        <div className="datepicker-modal">
           <DatePicker
             selected={selectedDate}
             onChange={handleDateChange}
