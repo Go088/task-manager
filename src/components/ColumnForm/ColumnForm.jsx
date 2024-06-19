@@ -47,6 +47,8 @@ export default function ColumnForm({ isOpen, onRequestClose }) {
       id,
     };
     dispatch(addColumn(columnData));
+
+    console.log(data);
     reset();
     onRequestClose();
   };
