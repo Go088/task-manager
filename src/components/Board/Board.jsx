@@ -3,29 +3,23 @@ import { deleteBoard } from "../../redux/features/boards/operations";
 import css from "./Board.module.css";
 import Icon from "../Icon/Icon";
 import clsx from "clsx";
-import EditBoard from "../EditBoard/EditBoard";
-import { useEffect, useState } from "react";
+
 import Modal from "react-modal";
 import { useSelector } from "react-redux";
 import { selectTheme } from "../../redux/features/theme/selectors";
+import { useParams } from "react-router-dom";
 
-export const Board = ({ _id, title, icon, background }) => {
+export const Board = ({ _id, title, icon, background, setIsOpen }) => {
+  const { id: boardName } = useParams();
+
   const themeType = useSelector(selectTheme);
-  const isActiveClass = "isActive";
+  const isActiveClass = boardName === _id ? "isActive" : "";
 
   const dispatch = useDispatch();
   const handleDelete = () => dispatch(deleteBoard(_id));
-  const handlEdit = () => dispatch(EditBoard({ _id }));
+
   const titleSVG = `icon-${icon}`;
-  const [editIsOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    Modal.setAppElement("#root");
-  });
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
   const handleOpen = () => setIsOpen(true);
 
   return (
@@ -41,7 +35,7 @@ export const Board = ({ _id, title, icon, background }) => {
                     return clsx(css.text, css[themeType], isActive && css[isActiveClass])
                   }}>
           {title}
-        </h2> */}
+        </h2>     */}
 
         <h2 className={clsx(css.text, css[isActiveClass], css[themeType])}>
           {title}
@@ -68,17 +62,6 @@ export const Board = ({ _id, title, icon, background }) => {
           className={clsx(css.boxModel, css[isActiveClass], css[themeType])}
         ></div>
       </div>
-      {editIsOpen && (
-        <EditBoard
-          isOpen={editIsOpen}
-          onRequestClose={closeModal}
-          onclick={handlEdit}
-          _id={_id}
-          background={background}
-          title={title}
-          icon={icon}
-        />
-      )}
     </div>
   );
 };
