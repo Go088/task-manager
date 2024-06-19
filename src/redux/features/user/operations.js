@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://task-manager-r8dz.onrender.com/api";
+// axios.defaults.baseURL = "https://task-manager-r8dz.onrender.com/api";
 
 export const updateUser = createAsyncThunk(
   "user/updateUser",
