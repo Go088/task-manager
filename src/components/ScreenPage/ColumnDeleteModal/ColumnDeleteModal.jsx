@@ -1,21 +1,19 @@
 import clsx from "clsx";
+import css from "./ColumnDeleteModal.module.css";
 import Modal from "react-modal";
 import { useSelector } from "react-redux";
-import { selectTheme } from "../../../../redux/features/theme/selectors";
-import Icon from "../../../Icon/Icon";
+import { selectTheme } from "../../../redux/features/theme/selectors";
+import Icon from "../../Icon/Icon";
 import { useDispatch } from "react-redux";
-import { deleteBoard } from "../../../../redux/features/boards/operations";
-import { useNavigate } from "react-router-dom";
-import css from "./BoardDeleteModal.module.css";
+import { deleteColumn } from "../../../redux/features/boardss/operations";
 
-export default function DeleteModal({ isOpen, onRequestClose, _id, title }) {
+export default function DeleteModal({
+  isOpen,
+  onRequestClose,
+  column: { _id, title },
+}) {
   const dispatch = useDispatch();
-  const handleDelete = () => {
-    dispatch(deleteBoard(_id));
-    navigate(`/home`);
-  };
-
-  const navigate = useNavigate();
+  const handleDelete = () => dispatch(deleteColumn(_id));
 
   const themeType = useSelector(selectTheme);
 
@@ -26,7 +24,7 @@ export default function DeleteModal({ isOpen, onRequestClose, _id, title }) {
         onRequestClose={onRequestClose}
         className={css.Modal}
         overlayClassName={css.Overlay}
-        contentLabel="Modal window for delete board"
+        contentLabel="Modal window for delete contact"
       >
         <div className={clsx(css.wrapper, css[themeType])}>
           <Icon
@@ -51,7 +49,7 @@ export default function DeleteModal({ isOpen, onRequestClose, _id, title }) {
               Cancel
             </button>
             <button
-              aria-label="button for delete board"
+              aria-label="button for delete column"
               className={clsx(css.btn, css.delete, css[themeType])}
               onClick={handleDelete}
             >
