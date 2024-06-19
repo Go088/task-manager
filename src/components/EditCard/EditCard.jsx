@@ -12,6 +12,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { editCard } from "../../redux/features/boardss/operations";
 import { selectTheme } from "../../redux/features/theme/selectors";
 
+const datePattern = /^\d{2}\/\d{2}\/\d{4}$/;
+
 const labels = [
   {
     value: "low",
@@ -46,8 +48,21 @@ export default function EditCard({
   onRequestClose,
   card: { _id, title, description, priority, deadline },
 }) {
+  function convertDateStringToTimestamp(dateString) {
+    const [day, month, year] = dateString.split("/");
+    const date = new Date(`${year}-${month}-${day}`);
+    return date.getTime();
+  }
+
+  const validateDate = (dateString) => {
+    return datePattern.test(dateString);
+  };
+
   const handleDateChange = (date) => {
-    setValue("deadline", date);
+    const dateConvert = `${
+      validateDate(date) ? convertDateStringToTimestamp(date) : date
+    }`;
+    setValue("deadline", dateConvert);
   };
 
   const themeType = useSelector(selectTheme);
@@ -72,8 +87,6 @@ export default function EditCard({
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    console.log(data);
-    console.log(_id);
     const cardData = {
       data,
       _id,

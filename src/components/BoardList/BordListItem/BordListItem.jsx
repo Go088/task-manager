@@ -3,23 +3,33 @@ import css from "./BordListItem.module.css";
 import { Board } from "../../Board/Board";
 import clsx from "clsx";
 import EditBoard from "../../EditBoard/EditBoard";
+import BoardDeleteModal from "./BoardDeleteModal/BoardDeleteModal";
 import Modal from "react-modal";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+
 
 const BordListItem = ({ ...bord }) => {
-  const dispatch = useDispatch();
-  const _id = bord._id;
-  const handlEdit = () => dispatch(EditBoard({ _id }));
-  const [editIsOpen, setIsOpen] = useState(false);
+  
+  const [editIsOpen, setEditIsOpen] = useState(false);
+  const [deleteIsOpen, setDeleteIsOpen] = useState(false);
+
+  useEffect(() => {
+    Modal.setAppElement("#root");
+  }, []);
+
+  const handleOpenEdit = () => setEditIsOpen(true);
+  const closeEditModal = () => {
+    setEditIsOpen(false);
+  };
+
+  const handleOpenDlete = () => setDeleteIsOpen(true);
+  const closeDeleteModal = () => {
+    setDeleteIsOpen(false);
+  };
 
   useEffect(() => {
     Modal.setAppElement("#root");
   });
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
 
   return (
     <li>
@@ -29,17 +39,24 @@ const BordListItem = ({ ...bord }) => {
         }}
         to={bord._id}
       >
-        <Board {...bord} setIsOpen={setIsOpen} />
+        <Board {...bord} setEditIsOpen={setEditIsOpen} setDeleteIsOpen={setDeleteIsOpen} />
       </NavLink>
       <EditBoard
         isOpen={editIsOpen}
-        onRequestClose={closeModal}
-        onclick={handlEdit}
+        onRequestClose={closeEditModal}
+        onclick={handleOpenEdit }
         _id={bord._id}
         background={bord.background}
         title={bord.title}
         icon={bord.icon}
       />
+        <BoardDeleteModal
+          isOpen={deleteIsOpen}
+        onRequestClose={closeDeleteModal}
+        onclick={handleOpenDlete  }
+        _id={bord._id}
+         title={bord.title}
+        />
     </li>
   );
 };

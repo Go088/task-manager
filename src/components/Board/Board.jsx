@@ -1,26 +1,26 @@
-import { useDispatch } from "react-redux";
-import { deleteBoard } from "../../redux/features/boards/operations";
+// import { useDispatch } from "react-redux";
+// import { deleteBoard } from "../../redux/features/boards/operations";
 import css from "./Board.module.css";
 import Icon from "../Icon/Icon";
 import clsx from "clsx";
 
-import Modal from "react-modal";
 import { useSelector } from "react-redux";
 import { selectTheme } from "../../redux/features/theme/selectors";
 import { useParams } from "react-router-dom";
 
-export const Board = ({ _id, title, icon, background, setIsOpen }) => {
+export const Board = ({ _id, title, icon, setEditIsOpen, setDeleteIsOpen }) => {
   const { id: boardName } = useParams();
 
   const themeType = useSelector(selectTheme);
   const isActiveClass = boardName === _id ? "isActive" : "";
 
-  const dispatch = useDispatch();
-  const handleDelete = () => dispatch(deleteBoard(_id));
+  // const dispatch = useDispatch();
+  // const handleDelete = () => dispatch(deleteBoard(_id));
 
   const titleSVG = `icon-${icon}`;
 
-  const handleOpen = () => setIsOpen(true);
+  const handleOpen = () => setEditIsOpen(true);
+  const handleDelete = () => setDeleteIsOpen(true);
 
   return (
     <div className={clsx(css.wrapper, css[isActiveClass], css[themeType])}>
