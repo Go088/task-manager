@@ -64,7 +64,7 @@ const Header = ({ setIsSidebarOpen }) => {
           height="24"
         />
       </div>
-      <div className={clsx(css.infoWrapper, css[themeType])}>
+      <div className={css.infoWrapper}>
         <div className={css.themeWrapper} onClick={toggleDropdown}>
           <p className={clsx(css.selectTitle, css[themeType])}>Theme</p>
           <Icon
