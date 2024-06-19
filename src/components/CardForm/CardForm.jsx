@@ -47,6 +47,10 @@ const schema = yup.object().shape({
 export default function CardForm({ isOpen, onRequestClose, column: { _id } }) {
   const [deadline, setDeadline] = useState(new Date().getTime());
 
+  const themeType = useSelector(selectTheme);
+  const dispatch = useDispatch();
+  const labelFieldId = useId();
+
   function convertDateStringToTimestamp(dateString) {
     const [day, month, year] = dateString.split("/");
     const date = new Date(`${year}-${month}-${day}`);
@@ -66,10 +70,6 @@ export default function CardForm({ isOpen, onRequestClose, column: { _id } }) {
     setValue("deadline", dateConvert);
   };
 
-  const themeType = useSelector(selectTheme);
-
-  const labelFieldId = useId();
-
   const {
     register,
     handleSubmit,
@@ -85,7 +85,6 @@ export default function CardForm({ isOpen, onRequestClose, column: { _id } }) {
       deadline,
     },
   });
-  const dispatch = useDispatch();
 
   const onSubmit = (data) => {
     const cardData = {
