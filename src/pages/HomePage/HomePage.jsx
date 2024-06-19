@@ -3,7 +3,7 @@ import clsx from "clsx";
 import css from "./HomePage.module.css";
 import FilterButton from "../../components/ScreenPage/FilterButton/FilterButton";
 import { Suspense, useMemo, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import NoBoardText from "../../components/ScreenPage/NoBoardText/NoBoardText";
 import { useSelector } from "react-redux";
 import { selectBoard } from "../../redux/features/boardss/selectors";
@@ -12,6 +12,7 @@ import useMedia from "../../hooks/useMediaQuery";
 import { selectTheme } from "../../redux/features/theme/selectors";
 
 export default function HomePage() {
+  const { id: boarId } = useParams();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const board = useSelector(selectBoard);
