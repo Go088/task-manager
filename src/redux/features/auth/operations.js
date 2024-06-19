@@ -42,7 +42,7 @@ export const logIn = createAsyncThunk(
       const response = await axios.post("/users/login", userData);
       setAuthHeader(response.data.token);
       toast.success(`Your account successfully logged in!`);
-      
+
       console.log(response.data);
       // return response.data;
       return {

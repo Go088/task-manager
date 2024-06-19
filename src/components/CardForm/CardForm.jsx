@@ -87,6 +87,7 @@ export default function CardForm({ isOpen, onRequestClose, column: { _id } }) {
   });
 
   const onSubmit = (data) => {
+    console.log(data.deadline);
     const cardData = {
       data,
       _id,
