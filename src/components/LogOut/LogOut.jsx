@@ -3,9 +3,11 @@ import { logOut } from "../../redux/features/auth/operations";
 import clsx from "clsx";
 import Icon from "../Icon/Icon";
 import css from "./LogOut.module.css";
+import { useSelector } from "react-redux";
+import { selectTheme } from "../../redux/features/theme/selectors";
 
 export default function LogOut() {
-  const themeType = "dark";
+  const themeType = useSelector(selectTheme);
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(logOut());

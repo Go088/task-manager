@@ -4,9 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/features/auth/operations";
 import css from "./LoginForm.module.css";
-import { Icon } from "react-icons-kit";
-import { eye } from "react-icons-kit/feather/eye";
-import { eyeOff } from "react-icons-kit/feather/eyeOff";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { useState } from "react";
 
 // Схема валідації
@@ -38,21 +36,17 @@ const LoginForm = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = (userData) => {
+    console.log(JSON.stringify(userData));
     dispatch(logIn(userData));
     reset();
   };
 
-  const [icon, setIcon] = useState(eyeOff);
+  const [icon, setIcon] = useState(true);
   const [type, setType] = useState("password");
 
   const handleTogglePassword = () => {
-    if (type === "password") {
-      setIcon(eye);
-      setType("text");
-    } else {
-      setIcon(eyeOff);
-      setType("password");
-    }
+    setIcon(!icon);
+    setType(type === "password" ? "text" : "password");
   };
 
   return (
@@ -77,20 +71,25 @@ const LoginForm = () => {
               {...register("password")}
               placeholder="Confirm a password"
             />
-            <Icon
-              icon={icon}
-              size={18}
-              className={css.icon}
-              onClick={handleTogglePassword}
-            />
+            {icon ? (
+              <FaRegEyeSlash
+                size={18}
+                className={css.icon}
+                onClick={handleTogglePassword}
+              />
+            ) : (
+              <FaRegEye
+                size={18}
+                className={css.icon}
+                onClick={handleTogglePassword}
+              />
+            )}
           </div>
           {errors.email && (
             <p className={css.errorMessage}>{errors.email.message}</p>
           )}
         </label>
-        <button type="submit" className={css.button}>
-          Log In Now
-        </button>
+        <input type="submit" value={"Log In Now"} className={css.button} />
       </form>
     </div>
   );

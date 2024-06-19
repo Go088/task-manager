@@ -13,6 +13,7 @@ import { deleteColumn } from "../../../redux/features/boardss/operations";
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import EditColumn from "../../EditColumn/EditColumn";
+import { selectFilter } from "../../../redux/features/filter/selectors";
 
 const Column = ({ theme, column }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -32,13 +33,18 @@ const Column = ({ theme, column }) => {
   const handleDelete = () => {
     console.log(column);
     dispatch(deleteColumn(id));
-  }
-
+  };
+  const filter = useSelector(selectFilter);
   const allCards = useSelector(selectAllCards);
+  const cardsFiltred = allCards.filter((c) => {
+    if (filter === "all") return true;
+    if (c?.priority === filter) return true;
+    return false;
+  });
 
   const getColumnCards = () => {
-    if (allCards) {
-      return allCards.filter((c) => c?.owner === column._id);
+    if (cardsFiltred) {
+      return cardsFiltred.filter((c) => c?.owner === column._id);
     }
     return [];
   };
@@ -46,8 +52,9 @@ const Column = ({ theme, column }) => {
   const cards = getColumnCards();
 
   const isCards = cards.length > 0;
-  const quantityOfcards = useMedia.isTablet ? 4 : 3;
+  const quantityOfcards = useMedia().isTablet ? 4 : 3;
   const isVisibleScrol = cards.length > quantityOfcards;
+
   const whiteTheme = theme === "dark" ? "" : "white";
   return (
     <>
@@ -57,9 +64,7 @@ const Column = ({ theme, column }) => {
             {column?.title}
           </h3>
           <div className={css.iconWrapper}>
-            <button type="button" className={css.button}
-              onClick={handleOpen}
-            >
+            <button type="button" className={css.button} onClick={handleOpen}>
               <Icon
                 className={clsx(css.iconPensil, css[whiteTheme], css[theme])}
                 width="16px"
@@ -92,10 +97,14 @@ const Column = ({ theme, column }) => {
           </CustomScrollBar>
         </div>
 
-        <AddCardButton theme={theme} column={column}/>
+        <AddCardButton theme={theme} column={column} />
       </div>
       {modalIsOpen && (
-        <EditColumn isOpen={modalIsOpen} onRequestClose={closeModal} column={column} />
+        <EditColumn
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          column={column}
+        />
       )}
     </>
   );

@@ -20,11 +20,17 @@ import needHelpModalReducer from "./features/modals/needHelpModal/slice";
 import themeReducer from "./features/theme/themeSlice.js";
 import userReducer from "./features/user/userSlice.js";
 import { boardReducer } from "./features/boardss/slice.js";
+import { filterReducer } from "./features/filter/slice.js";
 
 const authPersistConfig = {
   key: "authSlice",
   storage,
-  whitelist: ["token"],
+  whitelist: ["token", "isLoggedIn"],
+};
+const filterPersistConfig = {
+  key: "filter",
+  storage,
+  whitelist: ["text"],
 };
 
 const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
@@ -40,6 +46,7 @@ const rootReducer = combineReducers({
   // createColumnModal: createColumnModalReducer,
   theme: themeReducer,
   user: userReducer,
+  filter: persistReducer(filterPersistConfig, filterReducer),
 });
 
 const store = configureStore({

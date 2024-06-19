@@ -7,13 +7,29 @@
   padding: 14px 8px 24px 20px;
   min-height: 752px;
   position: relative;
-  /* width: ; */
+  overflow: hidden;
 }
 .light.screenContainer {
   background-color: #f6f6f7;
 }
 .violet.screenContainer {
   background-color: #ecedfd;
+}
+.backDropFprFilter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 9;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 400ms linear, opacity 400ms linear;
+}
+.isActive.backDropFprFilter {
+  visibility: visible;
+  opacity: 1;
 }
 @media screen and (min-width: 768px) {
   .screenContainer {
@@ -26,6 +42,7 @@
     padding: 10px 18px 8px 24px;
     min-height: 702px;
     width: 1180px;
+    margin-left: 260px;
   }
   .desktop {
     display: flex;

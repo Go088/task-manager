@@ -6,8 +6,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { editColumn } from "../../redux/features/boardss/operations";
+import { selectTheme } from "../../redux/features/theme/selectors";
 
 const schema = yup.object().shape({
   title: yup
@@ -22,7 +23,9 @@ export default function EditColumn({
   onRequestClose,
   column: { _id, title },
 }) {
-  const themeType = "dark";
+
+    const themeType = useSelector(selectTheme);
+
   const {
     register,
     handleSubmit,

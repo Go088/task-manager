@@ -7,8 +7,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addBoard } from "../../redux/features/boards/operations";
+import { selectTheme } from "../../redux/features/theme/selectors";
 
 const icons = [
   {
@@ -148,7 +149,9 @@ const schema = yup.object().shape({
 });
 
 export default function BoardForm({ isOpen, onRequestClose }) {
-  const themeType = "dark";
+
+   const themeType = useSelector(selectTheme);
+
   const iconFieldId = useId();
   const backgroundFieldId = useId();
   const {

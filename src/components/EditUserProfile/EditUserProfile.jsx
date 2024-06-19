@@ -7,8 +7,10 @@ import { Icon } from "react-icons-kit";
 import { eye, eyeOff } from "react-icons-kit/feather";
 import Loader from "../Loader/Loader.jsx";
 import clsx from "clsx";
-import { selectUser } from "../../redux/features/auth/selectors.js";
-import { selectTheme } from "../../redux/features/theme/selectors.js";
+import {
+  selectUser,
+  selectTheme,
+} from "../../redux/features/auth/selectors.js";
 import {
   updateUser,
   editUserAvatar,

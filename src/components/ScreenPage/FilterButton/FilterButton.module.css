@@ -1,16 +1,20 @@
+.cont {
+  position: absolute;
+  right: 20px;
+  top: 14px;
+  z-index: 10;
+}
 .filterWrapper {
   display: inline-flex;
   column-gap: 8px;
   align-items: center;
-  margin-left: auto;
+
   cursor: pointer;
-  position: absolute;
-  right: 20px;
-  top: 14px;
 }
 .iconFilter {
   stroke: rgba(255, 255, 255, 0.8);
   fill: transparent;
+  filter: drop-shadow(2px 2px 5px rgba(190, 219, 176, 0.5));
   transition: stroke 250ms linear;
 }
 .spanFilter {
@@ -22,6 +26,19 @@
   letter-spacing: -0.02em;
   transition: color 250ms linear;
 }
+.light.spanFilter {
+  color: rgba(22, 22, 22, 0.8);
+}
+.violet.spanFilter {
+  color: rgba(22, 22, 22, 0.8);
+}
+.filterWrapper:hover .light.spanFilter {
+  color: #bedbb0;
+}
+.filterWrapper:hover .violet.spanFilter {
+  color: #5255bc;
+}
+
 .lightFilter {
   color: rgba(22, 22, 22, 0.8);
 }
@@ -36,19 +53,24 @@
   stroke: rgba(22, 22, 22, 0.8);
   fill: transparent;
 }
-.filterWrapper:hover .iconFilter,
-.filterWrapper:focus .iconFilter {
-  stroke: #bedbb0;
+
+.without.iconFilter {
+  stroke: rgba(181, 175, 175, 0.3);
+  fill: rgba(181, 175, 175, 0.3);
+}
+.low.iconFilter {
+  stroke: rgba(143, 161, 208, 1);
+  fill: #8fa1d0;
+}
+.medium.iconFilter {
+  stroke: rgba(224, 156, 181, 1);
+  fill: rgba(224, 156, 181, 1);
+}
+.high.iconFilter {
+  stroke: rgba(190, 219, 176, 1);
+  fill: rgba(190, 219, 176, 1);
 }
 
-.filterWrapper:hover .violet.iconFilter,
-.filterWrapper:focus .violrt.iconFilter {
-  stroke: #5255bc;
-}
-/* .filterWrapper:hover .spanFilter,
-.filterWrapper:focus .spanFilter {
-  color: #bedbb0;
-} */
 @media screen and (min-width: 768px) {
   .filterWrapper {
     top: 20px;
@@ -60,4 +82,165 @@
     top: 14px;
     right: 24px;
   }
+}
+
+.modalWrapper {
+  width: 300px;
+  border-radius: 8px;
+  background: #151515;
+  border: 1px solid rgba(190, 219, 176, 0.5);
+  position: absolute;
+  right: -24px;
+  top: -14px;
+  padding: 24px;
+  z-index: 155;
+  transform: translateX(100%);
+  transition: transform 400ms linear;
+  z-index: 16;
+}
+.isActive.modalWrapper {
+  transform: translate(0%);
+}
+.filterText {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.filterLine {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 14px;
+}
+.chooseAllWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.chooseText {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.02em;
+}
+.ChooseButton {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  line-height: normal;
+  letter-spacing: -0.02em;
+  text-decoration-line: underline;
+  border: none;
+  outline: transparent;
+  padding: 0;
+  line-height: 0;
+  background-color: transparent;
+  transition: color 250ms linear;
+}
+.ChooseButton:hover,
+.ChooseButton:hover {
+  color: rgba(255, 255, 255, 0.748);
+}
+.priorityList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.priorityLi {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  line-height: normal;
+  letter-spacing: -0.02em;
+  display: flex;
+  column-gap: 8px;
+  cursor: pointer;
+  transition: color 250ms linear;
+}
+.priorityLi:hover,
+.priorityLi:hover {
+  color: rgba(255, 255, 255, 0.748);
+}
+.isActive.priorityLi {
+  color: #ffffff;
+}
+
+.withoutSpan {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  position: relative;
+}
+
+.lowSpan {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #8fa1d0;
+  position: relative;
+}
+.mediumSpan {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #e09cb5;
+  position: relative;
+}
+.highSpan {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #bedbb0;
+  position: relative;
+}
+.isActive.selectSpan::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #151515;
+  background-color: transparent;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  line-height: 0;
+}
+.closeButton {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  transition: stroke 250ms linear;
+  cursor: pointer;
+  background-color: transparent;
+  outline: transparent;
+  border: none;
+  border-radius: 50%;
+  line-height: 0;
+  padding: 0;
+  transition: border 250ms linear;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconClose {
+  stroke: #ffffff;
+}
+.closeButton :hover .iconClose,
+.closeButton :focus .iconClose {
+  stroke: #b9dba7;
+}
+.closeButton:hover {
+  border: 1px solid #b9dba7;
+}
+@media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 1440px) {
 }

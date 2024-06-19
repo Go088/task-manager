@@ -9,8 +9,11 @@ import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
 import Calendar from "../Calendar/Calendar";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addCard } from "../../redux/features/boardss/operations";
+import { selectTheme } from "../../redux/features/theme/selectors";
+
+const datePattern = /^\d{2}\/\d{2}\/\d{4}$/;
 
 const labels = [
   {
@@ -45,14 +48,27 @@ export default function CardForm({ isOpen, onRequestClose, column: { _id } }) {
   
   const [deadline, setDeadline] = useState(new Date().getTime());
 
+
+function convertDateStringToTimestamp(dateString) {
+  const [day, month, year] = dateString.split('/');
+  const date = new Date(`${year}-${month}-${day}`);
+  return date.getTime();
+}
+
+  const validateDate = (dateString) => {
+      return datePattern.test(dateString);
+    };
+  
   const handleDateChange = (date) => {
-    setDeadline(date);
-    setValue("deadline", date);
-    // console.log(date);
-    // console.log(deadline);
+
+    const dateConvert = `${validateDate(date) ? convertDateStringToTimestamp(date): date}`
+    setDeadline(dateConvert);
+    
+    setValue("deadline", dateConvert);
   };
 
-  const themeType = "dark";
+  const themeType = useSelector(selectTheme);
+
   const labelFieldId = useId();
 
   const {
@@ -63,19 +79,18 @@ export default function CardForm({ isOpen, onRequestClose, column: { _id } }) {
     reset,
   } = useForm({
     resolver: yupResolver(schema),
-
     defaultValues: {
       title: "",
       description: "",
-      priority: "low",
-      deadline,
+      priority: "without",
+      deadline
+      ,
     },
   });
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    console.log(data);
- console.log(_id);
+    console.log(data.deadline);
    const cardData = {
       data, _id
     }
