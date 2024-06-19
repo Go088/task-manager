@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
+import { FaRegEye, FaRegEyeSlash, FaPlus } from "react-icons/fa6";
 import Loader from "../Loader/Loader.jsx";
 import Icon from "../Icon/Icon";
 import clsx from "clsx";
@@ -109,7 +109,10 @@ const EditUserProfile = ({ onClose }) => {
 
   return (
     <div className={css.modalOverlay} onClick={onClose}>
-      <div className={css.modalContent} onClick={(e) => e.stopPropagation()}>
+      <div
+        className={clsx(css.modalContent, css[themeType])}
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           className={clsx(css.btnClose, css[themeType])}
           type="button"
@@ -136,7 +139,9 @@ const EditUserProfile = ({ onClose }) => {
               {...register("photo")}
               onChange={handleAvatarChange}
             />
-            <label htmlFor="avatar" className={css.btnEditPhoto}></label>
+            <label htmlFor="avatar" className={css.btnEditPhoto}>
+              <FaPlus className={css.iconPlus} />
+            </label>
           </div>
           <div className={css.wrap}>
             <input
