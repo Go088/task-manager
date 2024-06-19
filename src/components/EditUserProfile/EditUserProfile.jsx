@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Icon } from "react-icons-kit";
+// import { Icon } from "react-icons-kit";
 import { eye, eyeOff } from "react-icons-kit/feather";
 import Loader from "../Loader/Loader.jsx";
 import clsx from "clsx";
