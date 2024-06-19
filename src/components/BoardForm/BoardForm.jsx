@@ -1,4 +1,4 @@
-import { useId } from "react";
+import { useId} from "react";
 import css from "./BoardForm.module.css";
 import clsx from "clsx";
 import * as yup from "yup";
@@ -10,6 +10,7 @@ import Icon from "../Icon/Icon";
 import { useDispatch, useSelector } from "react-redux";
 import { addBoard } from "../../redux/features/boards/operations";
 import { selectTheme } from "../../redux/features/theme/selectors";
+import { useNavigate } from "react-router-dom";
 
 const icons = [
   {
@@ -150,10 +151,11 @@ const schema = yup.object().shape({
 
 export default function BoardForm({ isOpen, onRequestClose }) {
 
-   const themeType = useSelector(selectTheme);
-
+  const themeType = useSelector(selectTheme);
   const iconFieldId = useId();
   const backgroundFieldId = useId();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -172,9 +174,13 @@ export default function BoardForm({ isOpen, onRequestClose }) {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    dispatch(addBoard(data));
-    reset();
-    onRequestClose();
+    dispatch(addBoard(data)).then((action) => {
+      if (action.type.endsWith('/fulfilled')) {
+        reset();
+        onRequestClose();
+        navigate(`/home/${action.payload._id}`); 
+      }
+    });
   };
 
   return (
@@ -277,6 +283,7 @@ export default function BoardForm({ isOpen, onRequestClose }) {
             </li>
           ))}
         </ul>
+        {/* <Link  to={BoardId}>     */}
         <button className={clsx(css.btn, css[themeType])} type="submit">
           <div className={clsx(css.btnWrapIcon, css[themeType])}>
             <Icon
@@ -287,7 +294,8 @@ export default function BoardForm({ isOpen, onRequestClose }) {
             />
           </div>
           <span> Create</span>
-        </button>
+          </button>
+        {/* </Link> */}
       </form>
       <button
         className={clsx(css.btnClose, css[themeType])}
