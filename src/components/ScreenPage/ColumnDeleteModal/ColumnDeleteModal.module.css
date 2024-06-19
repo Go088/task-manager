@@ -1,0 +1,164 @@
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+}
+
+.Overlay {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(21, 21, 21, 0.3);
+}
+
+/* Wrapper */
+
+.wrapper {
+  padding: 24px;
+  border-radius: 8px;
+  width: 335px;
+  height: 100%;
+}
+
+.wrapper.dark {
+  border: 1px solid rgba(190, 219, 176, 0.5);
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+  background-color: #151515;
+}
+
+.wrapper.light {
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+  background-color: #fcfcfc;
+}
+
+.wrapper.violet {
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+  background-color: #fcfcfc;
+}
+
+/* Icon */
+
+.icon {
+  display: block;
+  margin: auto;
+  fill: transparent;
+  transition: stroke 250ms linear;
+  margin-bottom: 16px;
+}
+
+.icon.dark {
+  stroke: rgba(255, 255, 255, 0.5);
+}
+
+.icon.light,
+.icon.violet {
+  stroke: #161616;
+}
+
+/* Title */
+
+.title {
+  text-align: center;
+  margin-bottom: 8px;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+.title.dark {
+  color: #fff;
+}
+
+.title.light,
+.title.violet {
+  color: #161616;
+}
+
+/* Text */
+
+.text {
+  display: block;
+  text-align: center;
+  margin-bottom: 16px;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+}
+
+.text.dark {
+  color: #fff;
+}
+
+.text.light,
+.text.violet {
+  color: #161616;
+}
+
+.container {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+/*  Span  */
+
+.span.dark,
+.span.light {
+  color: #bedbb0;
+}
+
+.span.violet {
+  color: #5255bc;
+}
+
+/* Button */
+
+.btn {
+  padding: 8px 16px;
+  outline: transparent;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 8px;
+  width: 80px;
+  /* height: 49px; */
+  border: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn.dark {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.cancel.dark:hover,
+.cancel.dark:focus,
+.cancel.light:hover,
+.cancel.light:focus {
+  background-color: #9dc888;
+}
+
+.cancel.violet:hover,
+.cancel.violet:focus {
+  background-color: #7b7ede;
+  color: #fff
+}
+
+.delete:hover,
+.delete:focus {
+  background-color: rgb(234 104 104);
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    width: 350px;
+  }
+}

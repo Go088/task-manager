@@ -45,25 +45,24 @@ const schema = yup.object().shape({
 });
 
 export default function CardForm({ isOpen, onRequestClose, column: { _id } }) {
-  
   const [deadline, setDeadline] = useState(new Date().getTime());
 
-
-function convertDateStringToTimestamp(dateString) {
-  const [day, month, year] = dateString.split('/');
-  const date = new Date(`${year}-${month}-${day}`);
-  return date.getTime();
-}
+  function convertDateStringToTimestamp(dateString) {
+    const [day, month, year] = dateString.split("/");
+    const date = new Date(`${year}-${month}-${day}`);
+    return date.getTime();
+  }
 
   const validateDate = (dateString) => {
-      return datePattern.test(dateString);
-    };
-  
-  const handleDateChange = (date) => {
+    return datePattern.test(dateString);
+  };
 
-    const dateConvert = `${validateDate(date) ? convertDateStringToTimestamp(date): date}`
+  const handleDateChange = (date) => {
+    const dateConvert = `${
+      validateDate(date) ? convertDateStringToTimestamp(date) : date
+    }`;
     setDeadline(dateConvert);
-    
+
     setValue("deadline", dateConvert);
   };
 
@@ -83,17 +82,16 @@ function convertDateStringToTimestamp(dateString) {
       title: "",
       description: "",
       priority: "without",
-      deadline
-      ,
+      deadline,
     },
   });
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    console.log(data.deadline);
-   const cardData = {
-      data, _id
-    }
+    const cardData = {
+      data,
+      _id,
+    };
     dispatch(addCard(cardData));
     reset();
     onRequestClose();
