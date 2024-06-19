@@ -35,7 +35,7 @@ export const Board = ({ _id, title, icon, background, setIsOpen }) => {
                     return clsx(css.text, css[themeType], isActive && css[isActiveClass])
                   }}>
           {title}
-        </h2> */}
+        </h2>     */}
 
         <h2 className={clsx(css.text, css[isActiveClass], css[themeType])}>
           {title}
