@@ -7,6 +7,7 @@ import Icon from "../../../Icon/Icon";
 import { useDispatch } from "react-redux";
 import { deleteBoard } from "../../../../redux/features/boards/operations";
 import { useNavigate } from "react-router-dom";
+import css from "./BoardDeleteModal.module.css";
 
 export default function DeleteModal({ isOpen, onRequestClose, _id, title }) {
   const dispatch = useDispatch();
