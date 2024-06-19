@@ -10,9 +10,11 @@ import { selectBoard } from "../../redux/features/boardss/selectors";
 import Header from "../../components/Header/Header";
 import useMedia from "../../hooks/useMediaQuery";
 import { selectTheme } from "../../redux/features/theme/selectors";
+import { selectBoards } from "../../redux/features/boards/selectors";
 
 export default function HomePage() {
   const { id: boarId } = useParams();
+  const allBords = useSelector(selectBoards());
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const board = useSelector(selectBoard);
