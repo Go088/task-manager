@@ -96,7 +96,7 @@ export const EditUserProfile = () => {
     if (values.password) formData.set("password", values.password);
 
     try {
-      await dispatch(updateUser(formData));
+      dispatch(updateUser(formData));
       resetForm();
       setIsModalOpen(false);
     } catch (error) {
