@@ -8,7 +8,6 @@
   background-color: #121212;
   border-radius: 8px;
   display: flex;
-
   margin-bottom: 14px;
 }
 .white.columnNameContainer {
@@ -17,9 +16,7 @@
 
 .columNameText {
   color: #fff;
-
   font-size: 14px;
-
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.02em;
@@ -59,8 +56,6 @@
   margin-left: auto;
 }
 .cardContainer {
-  /* overflow-y: auto;
-  height: 478px; */
   margin-bottom: 14px;
 }
 .cardWraper {
@@ -79,7 +74,7 @@
     width: 334px;
   }
   .scrolBar {
-    height: 638px;
+    height: 646px;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -94,7 +89,7 @@
   .button:focus .iconTrash {
     stroke: #bedbb0;
   }
-  /* ======================================= */
+
   .button:hover .violet.iconPensil,
   .button:focus .violet.iconPensil {
     stroke: #5255bc;

@@ -59,6 +59,10 @@
   }
   .violet.button:hover,
   .violet.button:focus {
-    background-color: #7b7ede;
+    background-color: #d6d8ff;
+  }
+  .light.button:hover,
+  .light.button:focus {
+    background-color: #cddec4;
   }
 }

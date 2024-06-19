@@ -1,11 +1,10 @@
-/* CustomScrollbar.css */
 .simplebar-track.simplebar-horizontal {
   height: 12px;
-  bottom: -36px; /* Відстань від низу контейнера */
+  bottom: -36px;
 
   border-radius: 12px;
   background: #161616;
-  position: absolute; /* Позиціонування */
+  position: absolute;
   padding: 0;
 }
 

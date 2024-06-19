@@ -13,7 +13,6 @@
 }
 .titleFilterWrapper {
   display: inline-flex;
-  /* justify-content: space-between; */
   margin-bottom: 39px;
 }
 .columnContainer {
@@ -23,14 +22,10 @@
 }
 .columnContainer::-webkit-scrollbar {
   height: 12px;
-  /* position: absolute; */
-  /* bottom: 24px; */
 }
 .columnContainer::-webkit-scrollbar-track {
   background: #161616;
   border-radius: 8px;
-  /* position: absolute;
-  bottom: 24px; */
 }
 .light.columnContainer::-webkit-scrollbar-track {
   background: #ffffff;
@@ -39,7 +34,7 @@
   background: #ffffff;
 }
 .columnContainer::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.1); /* Thumb color */
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
 }
 .light.columnContainer::-webkit-scrollbar-thumb {
@@ -48,20 +43,10 @@
 .violet.columnContainer::-webkit-scrollbar-thumb {
   background-color: #b8bcfd;
 }
-/* .columnContainer::-webkit-scrollbar-thumb:hover {
-  background: #161616; 
-} */
 
-/* IE and Edge custom scrollbar styling */
-/* .columnContainer {
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-} */
 .columnWrapper {
   display: flex;
-  /* flex-direction: row; */
   gap: 18px;
-  /* flex-wrap: nowrap; */
-  /* width: max-content; */
 }
 
 @media screen and (min-width: 768px) {
