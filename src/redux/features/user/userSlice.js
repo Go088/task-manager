@@ -4,10 +4,14 @@ import { updateUser } from "./operations";
 const userSlice = createSlice({
   name: "user",
   initialState: {
-    name: null,
-    email: null,
-    photo: null,
+    user: {
+      name: null,
+      email: null,
+      photo: null,
+    },
     theme: "dark",
+    loading: false,
+    error: null,
   },
   reducers: {
     setUser(state, action) {
