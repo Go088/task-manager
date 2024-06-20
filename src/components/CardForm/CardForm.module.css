@@ -177,6 +177,11 @@
   position: relative;
 }
 
+
+.textarea::-webkit-scrollbar {
+  display: none;
+}
+
 /* Error  */
 
 .error {
@@ -412,6 +417,9 @@
 .btnCloseIcon.violet {
   stroke: #161616;
 }
+
+
+
 
 @media screen and (min-width: 768px) {
   .form {
