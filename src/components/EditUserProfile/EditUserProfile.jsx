@@ -58,8 +58,8 @@ const EditUserProfile = ({ onClose }) => {
   });
 
   useEffect(() => {
-    setValue("name", user?.name || "");
-    setValue("email", user?.email || "");
+    setValue("name", user.name || "");
+    setValue("email", user.email || "");
   }, [user, setValue]);
 
   const [icon, setIcon] = useState(FaRegEye);

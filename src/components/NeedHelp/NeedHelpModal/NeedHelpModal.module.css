@@ -92,7 +92,6 @@
 .helpFormInput {
   font-size: 14px;
   outline: none;
-  font-family: "Poppins";
   padding: 14px 18px;
   opacity: 0.4;
   background-color: transparent;
@@ -123,8 +122,7 @@
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
 }
 
-.helpFormInput.dark,
-.helpFormInput.light {
+.helpFormInput.dark {
   color: #fff;
   border: 1px solid #bedbb0;
 }
@@ -132,6 +130,10 @@
 .helpFormInput.violet {
   color: #161616;
   border: 1px solid #5255bc;
+}
+.helpFormInput.light {
+  border: 1px solid #bedbb0;
+  color: #161616;
 }
 
 .helpFormInputError {
@@ -141,7 +143,6 @@
 .helpFormTextarea {
   font-size: 14px;
   outline: none;
-  font-family: "Poppins";
   opacity: 0.4;
   padding: 14px 18px;
   width: 100%;
