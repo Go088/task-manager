@@ -7,12 +7,14 @@ import { NeedHelpInfo } from "../NeedHelp/NeedHelpInfo/NeedHelpInfo";
 import BoardList from "../BoardList/BoardList";
 import { useDispatch } from "react-redux";
 import { fetchBoard } from "../../redux/features/boards/operations";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { NeedHelpModal } from "../NeedHelp/NeedHelpModal/NeedHelpModal";
 import { useSelector } from "react-redux";
 import { selectTheme } from "../../redux/features/theme/selectors";
+import useMedia from "../../hooks/useMediaQuery";
 
 export default function SideBar({ isSidebarOpen, setIsSidebarOpen }) {
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const themeType = useSelector(selectTheme);
   const dispatch = useDispatch();
   const closeModal = () => {
@@ -29,12 +31,21 @@ export default function SideBar({ isSidebarOpen, setIsSidebarOpen }) {
   const handleStop = (e) => {
     e.stopPropagation();
   };
+
+  const containerStyle = useMemo(
+    () => ({
+      height: `${windowHeight}px`,
+    }),
+    [windowHeight]
+  );
+
   return (
     <div
       onClick={closeSideBar}
       className={clsx(css.backdrop, isSidebarOpen && css.isOpen)}
     >
       <div
+        style={useMedia().isDesktop ? containerStyle : {}}
         onClick={handleStop}
         className={clsx(css.list, isSidebarOpen && css.isOpenn, css[themeType])}
       >

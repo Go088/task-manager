@@ -40,6 +40,7 @@ const ScreanPage = () => {
 
   const boardBackgroumd = allBords.filter((b) => b._id === boardName)[0];
   const isBackground = boardBackgroumd?.background.phone ? true : false;
+
   return (
     <>
       <div className={css.titleFilterWrapper}>

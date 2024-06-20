@@ -141,7 +141,7 @@
 
 @media (min-width: 1440px) {
   .list {
-    height: 770px;
+    /* height: 770px; */
     transform: translateX(0%);
     /* position: static; */
   }
