@@ -33,7 +33,6 @@ export const NeedHelpModal = ({ isOpen, onRequestClose }) => {
     resolver: yupResolver(validationSchema),
   });
   const onSubmit = (data) => {
-    console.log(data);
     dispatch(helpComment(data));
     reset();
     onRequestClose();

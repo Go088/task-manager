@@ -92,7 +92,6 @@
 .helpFormInput {
   font-size: 14px;
   outline: none;
-  font-family: "Poppins";
   padding: 14px 18px;
   opacity: 0.4;
   background-color: transparent;
@@ -137,6 +136,10 @@
   color: #161616;
   border: 1px solid #5255bc;
 }
+.helpFormInput.light {
+  border: 1px solid #bedbb0;
+  color: #161616;
+}
 
 .helpFormInputError {
   margin-bottom: 30px;
@@ -145,7 +148,6 @@
 .helpFormTextarea {
   font-size: 14px;
   outline: none;
-  font-family: "Poppins";
   opacity: 0.4;
   padding: 14px 18px;
   width: 100%;

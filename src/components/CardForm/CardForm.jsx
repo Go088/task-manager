@@ -4,7 +4,6 @@ import css from "./CardForm.module.css";
 import clsx from "clsx";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
@@ -87,7 +86,6 @@ export default function CardForm({ isOpen, onRequestClose, column: { _id } }) {
   });
 
   const onSubmit = (data) => {
-    console.log(data.deadline);
     const cardData = {
       data,
       _id,

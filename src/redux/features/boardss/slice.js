@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import { logOut } from "../author/operations";
 import {
   fetchBoardById,
   fetchAllCards,

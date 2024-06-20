@@ -63,7 +63,6 @@ const ScreanPage = () => {
             css[theme]
           )}
         >
-          {/* <SimpleBar autoHide={false} forceVisible="x"> */}
           <div className={css.columnWrapper}>
             {isColumns &&
               board.columns.map((column) => {
@@ -74,7 +73,6 @@ const ScreanPage = () => {
 
             <AddAnotherButton theme={theme} />
           </div>
-          {/* </SimpleBar> */}
         </div>
       )}
     </>

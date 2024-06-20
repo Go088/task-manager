@@ -1,4 +1,3 @@
-// import { Suspense } from 'react';
 import { useSelector } from "react-redux";
 import { selectBoards } from "../../redux/features/boards/selectors.js";
 import css from "./BoardList.module.css";

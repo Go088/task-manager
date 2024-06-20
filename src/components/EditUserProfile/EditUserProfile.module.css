@@ -21,12 +21,25 @@
   position: absolute;
   z-index: 20;
 }
+.violet.modalContent {
+  background: rgb(230, 230, 230);
+}
+.light.modalContent {
+  background: rgb(252, 252, 252);
+}
 
 .title {
   margin-bottom: 24px;
-  font-family: var(--font-medium);
   font-size: 18px;
+  font-weight: 500;
   color: #fff;
+}
+.violet .title {
+  color: rgb(22, 22, 22);
+}
+
+.light .title {
+  color: rgb(22, 22, 22);
 }
 
 .form {
@@ -38,7 +51,6 @@
 .input {
   width: 100%;
   padding: 14px 18px;
-  font-family: var(--font-regular);
   font-size: 14px;
   color: #fff;
   background-color: #2d2d2d;
@@ -46,12 +58,34 @@
   border-radius: 8px;
   opacity: 0.4;
 }
+.violet .input {
+  color: rgb(22, 22, 22);
+  background-color: rgb(252, 252, 252);
+  border: 1px solid rgb(82, 85, 188);
+  opacity: 0.4;
+}
+
+.light .input {
+  color: rgb(22, 22, 22);
+  background-color: rgb(252, 252, 252);
+}
+
 .input:focus {
   opacity: 1;
   outline: none;
 }
 .input:focus:valid {
   background-color: #2d2d2d;
+}
+
+.violet .input:focus:valid {
+  border-color: rgb(82, 85, 188);
+  background-color: rgb(252, 252, 252);
+}
+
+.light .input:focus:valid {
+  border: 1px solid rgb(190, 219, 176);
+  background-color: rgb(252, 252, 252);
 }
 
 .input::placeholder {
@@ -94,15 +128,21 @@
   font-size: 14px;
   background: rgb(190, 219, 176);
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   margin-top: 10px;
+  font-weight: 500;
+}
+.violet .btn {
+  background: rgb(82, 85, 188);
 }
 
 .btn:hover {
   background-color: #9dc888;
 }
-
+.violet .btn:hover {
+  background: rgb(123, 126, 222);
+}
 .closeButton {
   position: absolute;
   top: 10px;
@@ -121,6 +161,18 @@
   cursor: pointer;
   color: rgba(255, 255, 255, 0.4);
 }
+.violet .icon {
+  color: rgb(22, 22, 22, 0.4);
+}
+.iconPlus {
+  stroke: #161616;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+}
 .btnClose {
   position: absolute;
   top: 14px;
@@ -133,37 +185,38 @@
   border: transparent;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.btnClose.dark:hover,
-.btnClose.dark:focus,
-.btnClose.light:hover,
-.btnClose.light:focus {
+
+.btnClose:hover,
+.btnClose:focus {
   background-color: #9dc888;
 }
-.btnClose.violet:hover,
-.btnClose.violet:focus {
+.violet.btnClose:hover,
+.violet.btnClose:focus {
   background-color: #7b7ede;
 }
 
-.btnClose.dark:hover .btnCloseIcon,
-.btnClose.dark:focus .btnCloseIcon {
-  stroke: #161616;
+.btnClose:hover .btnCloseIcon,
+.btnClose:focus .btnCloseIcon {
+  stroke: rgb(22, 22, 22);
 }
 
-.btnClose.violet:hover .btnCloseIcon,
-.btnClose.violet:focus .btnCloseIcon {
+.violet.btnClose:hover .btnCloseIcon,
+.violet.btnClose:focus .btnCloseIcon {
   stroke: #fff;
 }
 .btnCloseIcon {
   transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btnCloseIcon.dark {
+.btnCloseIcon {
   stroke: #fff;
 }
+.violet .btnCloseIcon {
+  stroke: rgb(22, 22, 22);
+}
 
-.btnCloseIcon.light,
-.btnCloseIcon.violet {
-  stroke: #161616;
+.light.btnCloseIcon {
+  stroke: rgb(22, 22, 22);
 }
 .btnEditPhoto {
   position: absolute;
@@ -175,4 +228,12 @@
   border-radius: 6px;
   background: rgb(190, 219, 176);
   border: none;
+}
+.violet .btnEditPhoto {
+  background: rgb(236, 237, 253);
+}
+@media screen and (min-width: 768px) {
+  .modalContent {
+    width: 400px;
+  }
 }

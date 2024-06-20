@@ -5,13 +5,10 @@ import clsx from "clsx";
 import Icon from "../Icon/Icon";
 import { ThemeTypes } from "../../themeConstants";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser } from "../../redux/features/auth/selectors";
 import { selectTheme } from "../../redux/features/theme/selectors";
 import { changeTheme } from "../../redux/features/theme/operations";
-// import { getUserAvatar } from "../../redux/features/user/operations";
 import EditUserProfile from "../EditUserProfile/EditUserProfile";
 import Modal from "react-modal";
-// import { refreshUser } from "../../redux/features/user/operations";
 import {
   selectUserName,
   selectUserPhoto,
@@ -30,8 +27,6 @@ const Header = ({ setIsSidebarOpen }) => {
   const dispatch = useDispatch();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  console.log();
 
   const ThemeOptions = [
     { label: "Light", value: ThemeTypes.LIGHT },
