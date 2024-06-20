@@ -34,17 +34,24 @@ export default function HomePage() {
     : useMedia.isTablet
     ? board?.background?.tablet
     : board?.background?.laptop;
-
+  // const he = useMedia.isDesktop;
   const containerStyle = useMemo(
     () => ({
       backgroundImage: `url(${typeOfImage ? typeOfImage : ""})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
-      height: `${useMedia.isDesktop ? windowHeight - 68 : ""}px`,
+      height: `${windowHeight - 68}px`,
     }),
     [typeOfImage, windowHeight]
   );
-
+  const containerStyl2 = useMemo(
+    () => ({
+      backgroundImage: `url(${typeOfImage ? typeOfImage : ""})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }),
+    [typeOfImage]
+  );
   return (
     <div>
       <Header setIsSidebarOpen={setIsSidebarOpen} />
@@ -54,7 +61,7 @@ export default function HomePage() {
           setIsSidebarOpen={setIsSidebarOpen}
         />
         <div
-          style={containerStyle}
+          style={useMedia().isDesktop ? containerStyle : containerStyl2}
           className={clsx(css.screenContainer, css[theme])}
         >
           <FilterButton
