@@ -10,6 +10,7 @@ import RestrictedRoute from "../RestrictedRoute";
 import { Toaster } from "react-hot-toast";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import PrivateRoute from "../PrivateRoute";
+import Google from "../Google/Google";
 
 const WelcomePage = lazy(() => import("../../pages/WelcomePage/WelcomePage"));
 const AuthPage = lazy(() => import("../../pages/AuthPage/AuthPage"));
@@ -61,6 +62,16 @@ const App = () => {
               >
                 <Route path=":id" element={<ScreenPage />} />
               </Route>
+              <Route
+                path="/login/google"
+                element={
+                  <Google />
+                  // <RestrictedRoute
+                  //   component={<WelcomePage />}
+                  //   redirectTo="/welcome"
+                  // />
+                }
+              />
               <Route
                 path="*"
                 element={
