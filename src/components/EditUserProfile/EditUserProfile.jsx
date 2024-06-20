@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-// import { Icon } from "react-icons-kit";
-import { eye, eyeOff } from "react-icons-kit/feather";
+import { FaRegEye, FaRegEyeSlash, FaPlus } from "react-icons/fa6";
 import Loader from "../Loader/Loader.jsx";
+import Icon from "../Icon/Icon";
 import clsx from "clsx";
 import {
   selectUser,
@@ -29,9 +29,9 @@ const updateUserSchema = object({
     .email("Invalid email format")
     .matches(/^[a-z0-9 .]+@[a-z]+\.[a-z]{2,3}$/i, "Invalid email format"),
   password: string()
-    .min(6, "Minimum 6 characters")
     .max(32, "Maximum 32 characters")
-    .matches(/^[\w\-!@#$%^&*()+,.:;’“?/]+$/, "Invalid password format"),
+    .matches(/^[\w\-!@#$%^&*()+,.:;’“?/]*$/, "Invalid password format")
+    .nullable(),
 });
 
 const EditUserProfile = ({ onClose }) => {
@@ -41,8 +41,8 @@ const EditUserProfile = ({ onClose }) => {
   const themeType = useSelector(selectTheme);
 
   const initialValues = {
-    name: user?.name || "",
-    email: user?.email || "",
+    name: "",
+    email: "",
     password: "",
     photo: null,
   };
@@ -51,20 +51,24 @@ const EditUserProfile = ({ onClose }) => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    reset,
     setValue,
   } = useForm({
     defaultValues: initialValues,
     resolver: yupResolver(updateUserSchema),
   });
 
-  const [icon, setIcon] = useState(eyeOff);
+  useEffect(() => {
+    setValue("name", user.name || "");
+    setValue("email", user.email || "");
+  }, [user, setValue]);
+
+  const [icon, setIcon] = useState(FaRegEye);
   const [type, setType] = useState("password");
   const [preview, setPreview] = useState(userPhoto || "/img/unknown@2x.png");
 
   const handleTogglePassword = () => {
     setType((prevType) => (prevType === "password" ? "text" : "password"));
-    setIcon((prevIcon) => (prevIcon === eyeOff ? eye : eyeOff));
+    setIcon((prevIcon) => (prevIcon === FaRegEye ? FaRegEyeSlash : FaRegEye));
   };
 
   const handleAvatarChange = (e) => {
@@ -99,20 +103,27 @@ const EditUserProfile = ({ onClose }) => {
     formData.append("avatar", photo);
 
     dispatch(editUserAvatar(formData));
-
     dispatch(updateUser(otherData));
     onClose();
   };
 
   return (
     <div className={css.modalOverlay} onClick={onClose}>
-      <div className={css.modalContent} onClick={(e) => e.stopPropagation()}>
+      <div
+        className={clsx(css.modalContent, css[themeType])}
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           className={clsx(css.btnClose, css[themeType])}
           type="button"
           onClick={onClose}
         >
-          {/* Add your close icon here */}
+          <Icon
+            className={clsx(css.btnCloseIcon, css[themeType])}
+            width={18}
+            height={18}
+            id={"icon-x-close_modal"}
+          />
         </button>
         <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={css.wrap}>
@@ -129,7 +140,7 @@ const EditUserProfile = ({ onClose }) => {
               onChange={handleAvatarChange}
             />
             <label htmlFor="avatar" className={css.btnEditPhoto}>
-              {/* Add your photo edit icon here */}
+              <FaPlus className={css.iconPlus} />
             </label>
           </div>
           <div className={css.wrap}>
@@ -163,12 +174,19 @@ const EditUserProfile = ({ onClose }) => {
                 placeholder="Change password"
                 {...register("password")}
               />
-              {/* <Icon
-                icon={icon}
-                size={18}
-                className={css.icon}
-                onClick={handleTogglePassword}
-              /> */}
+              {icon === FaRegEye ? (
+                <FaRegEye
+                  size={18}
+                  className={css.icon}
+                  onClick={handleTogglePassword}
+                />
+              ) : (
+                <FaRegEyeSlash
+                  size={18}
+                  className={css.icon}
+                  onClick={handleTogglePassword}
+                />
+              )}
             </div>
             {errors.password && (
               <p className={css.error}>{errors.password.message}</p>

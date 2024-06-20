@@ -5,7 +5,6 @@ import clsx from "clsx";
 import Icon from "../Icon/Icon";
 import { ThemeTypes } from "../../themeConstants";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser } from "../../redux/features/auth/selectors";
 import { selectTheme } from "../../redux/features/theme/selectors";
 import { changeTheme } from "../../redux/features/theme/operations";
 // import { getUserAvatar } from "../../redux/features/user/operations";
