@@ -1,5 +1,4 @@
 import clsx from "clsx";
-// import css from "../../../ScreenPage/CardDeleteModal/CardDeleteModal.module.css";
 import Modal from "react-modal";
 import { useSelector } from "react-redux";
 import { selectTheme } from "../../../../redux/features/theme/selectors";
@@ -17,7 +16,6 @@ export default function DeleteModal({ isOpen, onRequestClose, _id, title }) {
   };
 
   const navigate = useNavigate();
-
   const themeType = useSelector(selectTheme);
 
   return (

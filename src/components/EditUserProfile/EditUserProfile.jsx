@@ -81,21 +81,11 @@ const EditUserProfile = ({ onClose }) => {
         setPreview(reader.result);
       };
       reader.readAsDataURL(file);
-
-      console.log("Selected file:", file);
     }
   };
 
   const onSubmit = (data) => {
     const { photo, ...otherData } = data;
-    console.log(photo);
-
-    console.log("Form Data:", JSON.stringify(otherData));
-
-    if (photo) {
-      console.log("Photo File:", photo);
-    }
-
     const formData = new FormData();
     formData.set("name", data.name);
     formData.set("email", data.email);

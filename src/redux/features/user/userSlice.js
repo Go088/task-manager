@@ -73,7 +73,6 @@ const userSlice = createSlice({
       })
       .addCase(editUserAvatar.fulfilled, (state, action) => {
         state.loading = false;
-        console.log(action.payload.photo);
         state.user.photo = action.payload.avatar;
       })
       .addCase(editUserAvatar.rejected, (state, action) => {

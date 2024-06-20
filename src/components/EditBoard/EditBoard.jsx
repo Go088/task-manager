@@ -6,11 +6,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
-import { useDispatch, useSelector } from 'react-redux';
-import css from "./EditBoard.module.css"
+import { useDispatch, useSelector } from "react-redux";
+import css from "./EditBoard.module.css";
 import { editBoard } from "../../redux/features/boards/operations";
 import { selectTheme } from "../../redux/features/theme/selectors";
-
 
 const icons = [
   {
@@ -148,11 +147,15 @@ const schema = yup.object().shape({
     .trim(),
 });
 
-export default function EditBoard({ isOpen, onRequestClose, _id, background,
+export default function EditBoard({
+  isOpen,
+  onRequestClose,
+  _id,
+  background,
   title,
-  icon }) {
-  
-    const themeType = useSelector(selectTheme);
+  icon,
+}) {
+  const themeType = useSelector(selectTheme);
 
   const iconFieldId = useId();
   const backgroundFieldId = useId();
@@ -171,11 +174,10 @@ export default function EditBoard({ isOpen, onRequestClose, _id, background,
       background,
     },
   });
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    console.log(data);
-    dispatch(editBoard({_id,data}))
+    dispatch(editBoard({ _id, data }));
     reset();
     onRequestClose();
   };

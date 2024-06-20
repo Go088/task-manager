@@ -1,9 +1,6 @@
 .headerContainer {
   height: 60px;
   padding: 14px 20px;
-
-  /* 14px */
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -129,11 +126,11 @@
   height: 10px;
   border-radius: 50%;
   background-color: transparent;
-  transition: background-color 0.3s ease; /* Додаємо плавний перехід для кольору кружечка */
+  transition: background-color 0.3s ease;
 }
 
 .themeListItem:hover::after {
-  background-color: #bedbb0; /* Колір кружечка при ховері */
+  background-color: #bedbb0;
 }
 
 .themeListItem.dark {
@@ -190,7 +187,6 @@
 }
 
 .themeWrapper {
-  /* position: relative; */
   display: flex;
   align-items: center;
   gap: 4px;
@@ -252,9 +248,6 @@
   }
 }
 
-/* .infoWrapper:hover {
-  border-bottom: 2px solid #9dc888;
-} */
 .themeWrapper::after {
   content: "";
   line-height: 0;

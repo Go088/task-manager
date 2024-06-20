@@ -267,9 +267,9 @@
 /*   Background Images      */
 
 .backgroundItem:hover .backgroundWrapIcon.dark,
-.backgroundtem:focus .backgroundWrapIcon.dark,
+.backgroundItem:focus .backgroundWrapIcon.dark,
 .backgroundItem:hover .img.dark,
-.backgroundtem:focus .img.dark {
+.backgroundItem:focus .img.dark {
   border: 1px solid #bedbb0;
 }
 

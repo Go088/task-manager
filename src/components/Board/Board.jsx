@@ -1,5 +1,3 @@
-// import { useDispatch } from "react-redux";
-// import { deleteBoard } from "../../redux/features/boards/operations";
 import css from "./Board.module.css";
 import Icon from "../Icon/Icon";
 import clsx from "clsx";
@@ -13,9 +11,6 @@ export const Board = ({ _id, title, icon, setEditIsOpen, setDeleteIsOpen }) => {
 
   const themeType = useSelector(selectTheme);
   const isActiveClass = boardName === _id ? "isActive" : "";
-
-  // const dispatch = useDispatch();
-  // const handleDelete = () => dispatch(deleteBoard(_id));
 
   const titleSVG = `icon-${icon}`;
 
@@ -31,12 +26,6 @@ export const Board = ({ _id, title, icon, setEditIsOpen, setDeleteIsOpen }) => {
           height="18"
           className={clsx(css.iconSvg, css[isActiveClass], css[themeType])}
         />
-        {/* <h2 className={(isActive) => {
-                    return clsx(css.text, css[themeType], isActive && css[isActiveClass])
-                  }}>
-          {title}
-        </h2>     */}
-
         <h2 className={clsx(css.text, css[isActiveClass], css[themeType])}>
           {title}
         </h2>

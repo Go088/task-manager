@@ -2,7 +2,6 @@ import css from "./EditColumn.module.css";
 import clsx from "clsx";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
@@ -23,8 +22,7 @@ export default function EditColumn({
   onRequestClose,
   column: { _id, title },
 }) {
-
-    const themeType = useSelector(selectTheme);
+  const themeType = useSelector(selectTheme);
 
   const {
     register,
@@ -43,7 +41,6 @@ export default function EditColumn({
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-
     const columnData = {
       data,
       _id,
