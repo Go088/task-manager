@@ -18,6 +18,7 @@
 }
 
 .helpForm {
+  min-width: 280px;
   max-width: 335px;
   min-height: 355px;
   display: flex;
