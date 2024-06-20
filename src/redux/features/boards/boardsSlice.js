@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import { addBoard, deleteBoard, fetchBoard, editBoard } from "./operations.js";
+import { useSelector } from "react-redux";
+import { selectBoard } from "../boardss/selectors.js";
 
 const boardSlice = createSlice({
   name: "boards",
