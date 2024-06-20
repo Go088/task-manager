@@ -6,7 +6,6 @@ import { Suspense, useEffect, useMemo, useState } from "react";
 import { Outlet, useParams } from "react-router-dom";
 import NoBoardText from "../../components/ScreenPage/NoBoardText/NoBoardText";
 import { useDispatch, useSelector } from "react-redux";
-import { selectBoard } from "../../redux/features/boardss/selectors";
 import Header from "../../components/Header/Header";
 import useMedia from "../../hooks/useMediaQuery";
 import { selectTheme } from "../../redux/features/theme/selectors";
@@ -19,7 +18,6 @@ export default function HomePage() {
   const allBords = useSelector(selectBoards);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  // const board = useSelector(selectBoard);
   const theme = useSelector(selectTheme);
   const board = allBords.filter((b) => b._id === boarId)[0];
   const isBoard = boarId ? true : false;
@@ -36,7 +34,6 @@ export default function HomePage() {
     ? board?.background?.tablet
     : board?.background?.laptop;
 
-  // const backgroudImg = typeOfImage ? typeOfImage : "";
   const containerStyle = useMemo(
     () => ({
       backgroundImage: `url(${typeOfImage ? typeOfImage : ""})`,

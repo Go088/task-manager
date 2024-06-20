@@ -22,7 +22,6 @@ export const registerUser = createAsyncThunk(
       toast.success(
         `${response.data.name}, your account successfully created!`
       );
-      // return { ...response.data, theme: ThemeTypes.DARK };
       return {
         user: response.data.user,
         token: response.data.token,
@@ -42,9 +41,6 @@ export const logIn = createAsyncThunk(
       const response = await axios.post("/users/login", userData);
       setAuthHeader(response.data.token);
       toast.success(`Your account successfully logged in!`);
-
-      console.log(response.data);
-      // return response.data;
       return {
         user: response.data.user,
         token: response.data.token,
@@ -64,7 +60,6 @@ export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
     toast.success(`Your account successfully logged out!`);
     return response.data;
   } catch (error) {
-    console.log(error);
     toast.error("Oops! Something went wrong. Please try again");
     return thunkAPI.rejectWithValue(error.message);
   }
@@ -80,7 +75,6 @@ export const refreshUser = createAsyncThunk(
     const response = await axios.get("/users/info");
 
     return response.data;
-    // return { user: response.data.user, theme: response.data.theme }; - пропонується
   },
   {
     condition: (_, { getState }) => {

@@ -1,8 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 import { addBoard, deleteBoard, fetchBoard, editBoard } from "./operations.js";
-import { useSelector } from "react-redux";
-import { selectBoard } from "../boardss/selectors.js";
 
 const boardSlice = createSlice({
   name: "boards",
@@ -11,10 +8,8 @@ const boardSlice = createSlice({
     isLoading: false,
     error: null,
   },
-
   extraReducers: (builder) => {
     builder
-
       .addCase(fetchBoard.pending, (state) => {
         state.isLoading = true;
       })
@@ -40,7 +35,6 @@ const boardSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-
       .addCase(deleteBoard.pending, (state) => {
         state.isLoading = true;
       })
@@ -59,7 +53,6 @@ const boardSlice = createSlice({
       .addCase(editBoard.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-
         const index = state.items.findIndex(
           (board) => board._id === action.payload._id
         );

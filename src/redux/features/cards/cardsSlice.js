@@ -1,15 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const cardSlice = createSlice({
-    name : 'cards',
-    initialState: {
-        items:[],
-        loading: false,
-        error: null,
-
-    }, 
-    // extraReducers: builder => builder.addCase()
-})
-
+  name: "cards",
+  initialState: {
+    items: [],
+    loading: false,
+    error: null,
+  },
+});
 
 export default cardSlice.reducer;

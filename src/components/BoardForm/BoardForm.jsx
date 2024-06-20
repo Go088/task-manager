@@ -1,9 +1,8 @@
-import { useId} from "react";
+import { useId } from "react";
 import css from "./BoardForm.module.css";
 import clsx from "clsx";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import Icon from "../Icon/Icon";
@@ -150,7 +149,6 @@ const schema = yup.object().shape({
 });
 
 export default function BoardForm({ isOpen, onRequestClose }) {
-
   const themeType = useSelector(selectTheme);
   const iconFieldId = useId();
   const backgroundFieldId = useId();
@@ -175,10 +173,10 @@ export default function BoardForm({ isOpen, onRequestClose }) {
 
   const onSubmit = (data) => {
     dispatch(addBoard(data)).then((action) => {
-      if (action.type.endsWith('/fulfilled')) {
+      if (action.type.endsWith("/fulfilled")) {
         reset();
         onRequestClose();
-        navigate(`/home/${action.payload._id}`); 
+        navigate(`/home/${action.payload._id}`);
       }
     });
   };
@@ -294,8 +292,7 @@ export default function BoardForm({ isOpen, onRequestClose }) {
             />
           </div>
           <span> Create</span>
-          </button>
-        {/* </Link> */}
+        </button>
       </form>
       <button
         className={clsx(css.btnClose, css[themeType])}

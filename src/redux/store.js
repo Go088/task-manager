@@ -13,10 +13,7 @@ import storage from "redux-persist/lib/storage";
 import authReducer from "./features/auth/authSlice.js";
 import boardsReducer from "./features/boards/boardsSlice.js";
 import cardsReducer from "./features/cards/cardsSlice.js";
-// import createBoardModalReducer from "./features/modals/createBoardModalSlice.js";
-// import createCardModalReducer from "./features/modals/createCardModalSlice.js";
 import needHelpModalReducer from "./features/modals/needHelpModal/slice";
-// import createColumnModalReducer from "./features/modals/createColumnModalSlice.js";
 import themeReducer from "./features/theme/themeSlice.js";
 import userReducer from "./features/user/userSlice.js";
 import { boardReducer } from "./features/boardss/slice.js";
@@ -41,9 +38,6 @@ const rootReducer = combineReducers({
   boards: boardsReducer,
   cards: cardsReducer,
   needHelpModal: needHelpModalReducer,
-  // createBoardModal: createBoardModalReducer,
-  // createCardModal: createCardModalReducer,
-  // createColumnModal: createColumnModalReducer,
   theme: themeReducer,
   user: userReducer,
   filter: persistReducer(filterPersistConfig, filterReducer),

@@ -7,9 +7,7 @@ import BoardDeleteModal from "./BoardDeleteModal/BoardDeleteModal";
 import Modal from "react-modal";
 import { useEffect, useState } from "react";
 
-
 const BordListItem = ({ ...bord }) => {
-  
   const [editIsOpen, setEditIsOpen] = useState(false);
   const [deleteIsOpen, setDeleteIsOpen] = useState(false);
 
@@ -39,24 +37,28 @@ const BordListItem = ({ ...bord }) => {
         }}
         to={bord._id}
       >
-        <Board {...bord} setEditIsOpen={setEditIsOpen} setDeleteIsOpen={setDeleteIsOpen} />
+        <Board
+          {...bord}
+          setEditIsOpen={setEditIsOpen}
+          setDeleteIsOpen={setDeleteIsOpen}
+        />
       </NavLink>
       <EditBoard
         isOpen={editIsOpen}
         onRequestClose={closeEditModal}
-        onclick={handleOpenEdit }
+        onclick={handleOpenEdit}
         _id={bord._id}
         background={bord.background}
         title={bord.title}
         icon={bord.icon}
       />
-        <BoardDeleteModal
-          isOpen={deleteIsOpen}
+      <BoardDeleteModal
+        isOpen={deleteIsOpen}
         onRequestClose={closeDeleteModal}
-        onclick={handleOpenDlete  }
+        onclick={handleOpenDlete}
         _id={bord._id}
-         title={bord.title}
-        />
+        title={bord.title}
+      />
     </li>
   );
 };
