@@ -1,8 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// axios.defaults.baseURL = "https://task-manager-r8dz.onrender.com/api";
-
 export const updateUser = createAsyncThunk(
   "user/updateUser",
   async (userData, thunkAPI) => {
@@ -32,7 +30,6 @@ export const getUserAvatar = createAsyncThunk(
 export const editUserAvatar = createAsyncThunk(
   "user/editUserAvatar",
   async (photo, thunkAPI) => {
-    console.log(photo);
     try {
       const response = await axios.put("/users/edit-avatar", photo, {
         headers: { "Content-Type": "multipart/form-data" },

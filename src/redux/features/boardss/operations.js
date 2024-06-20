@@ -20,7 +20,6 @@ export const fetchAllCards = createAsyncThunk(
       const response = await axios.get("/getCards");
       return response.data;
     } catch (e) {
-      console.log(e);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -67,7 +66,6 @@ export const addCard = createAsyncThunk(
   async ({ _id, data }, thunkAPI) => {
     try {
       const response = await axios.post(`/column/${_id}/card`, data);
-      console.log(response.data);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

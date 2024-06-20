@@ -7,7 +7,6 @@ export const helpComment = createAsyncThunk(
   "help/helpComment",
   async (newComment, thunkAPI) => {
     try {
-      console.log(newComment);
       const response = await axios.post("/need-help", newComment);
       return response.data.message;
     } catch (error) {

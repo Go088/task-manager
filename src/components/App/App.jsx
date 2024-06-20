@@ -2,13 +2,11 @@ import { Suspense, lazy, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "../Layout/Layout";
 import ScreenPage from "../ScreenPage/ScreenPage";
-
 import { useDispatch, useSelector } from "react-redux";
 import { refreshUser } from "../../redux/features/auth/operations";
 import { selectIsRefreshing } from "../../redux/features/auth/selectors";
 import Loader from "../Loader/Loader";
 import RestrictedRoute from "../RestrictedRoute";
-// import PrivateRoute from "../PrivateRoute";
 import { Toaster } from "react-hot-toast";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import PrivateRoute from "../PrivateRoute";
