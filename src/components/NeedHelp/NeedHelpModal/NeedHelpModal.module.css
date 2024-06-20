@@ -127,6 +127,11 @@
   border: 1px solid #bedbb0;
 }
 
+.helpFormInput.light {
+  color: #161616;
+  border: 1px solid #bedbb0;
+}
+
 .helpFormInput.violet {
   color: #161616;
   border: 1px solid #5255bc;

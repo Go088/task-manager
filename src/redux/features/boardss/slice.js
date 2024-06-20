@@ -31,7 +31,9 @@ const boardSlice = createSlice({
     toast: "",
   },
   reducers: {
-    setFilteredCards: (state, action) => {},
+    setDeletBord: (state, action) => {
+      state.board = action.payload;
+    },
     setContactError: (state, action) => {
       state.error = action.payload;
     },
@@ -105,5 +107,5 @@ const boardSlice = createSlice({
       .addCase(editCard.rejected, handleRejected);
   },
 });
-export const { setFilteredCards, setContactError } = boardSlice.actions;
+export const { setDeletBord, setContactError } = boardSlice.actions;
 export const boardReducer = boardSlice.reducer;

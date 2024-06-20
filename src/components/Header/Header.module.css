@@ -164,6 +164,7 @@
   font-family: "Poppins";
   font-weight: 500;
   font-size: 14px;
+  position: relative;
 }
 
 .userName.dark {
@@ -251,6 +252,49 @@
   }
 }
 
-.infoWrapper:hover {
+/* .infoWrapper:hover {
   border-bottom: 2px solid #9dc888;
+} */
+.themeWrapper::after {
+  content: "";
+  line-height: 0;
+  position: absolute;
+  bottom: 0px;
+  left: 2;
+  width: 60px;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 250ms linear;
+}
+.themeWrapper:hover.themeWrapper::after {
+  background-color: #bedbb0;
+}
+.dark.themeWrapper:hover.themeWrapper::after {
+  background-color: #2a3527;
+}
+
+.userName::after {
+  content: "";
+  line-height: 0;
+  position: absolute;
+  bottom: -7px;
+  left: 2px;
+  width: 56px;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 250ms linear;
+}
+.userName:hover.userName::after {
+  background-color: #bedbb0;
+}
+.dark.userName:hover.userName::after {
+  background-color: #2a3527;
+}
+.userWrapper:hover .userName::after,
+.userWrapper:focus .userName::after {
+  background-color: #bedbb0;
+}
+.userWrapper:hover .dark.userName::after,
+.userWrapper:focus .dark.userName::after {
+  background-color: #2a3527;
 }
