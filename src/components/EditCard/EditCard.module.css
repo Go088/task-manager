@@ -136,7 +136,25 @@
   height: 154px;
   margin-bottom: 24px;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
+
+
+.textarea::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .textarea::placeholder {
   font-weight: 400;
