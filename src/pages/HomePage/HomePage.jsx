@@ -40,7 +40,7 @@ export default function HomePage() {
       backgroundImage: `url(${typeOfImage ? typeOfImage : ""})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
-      height: `${windowHeight - 68}px`,
+      height: `${useMedia.isDesktop ? windowHeight - 68 : ""}px`,
     }),
     [typeOfImage, windowHeight]
   );

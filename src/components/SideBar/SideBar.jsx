@@ -11,6 +11,7 @@ import { useEffect, useMemo, useState } from "react";
 import { NeedHelpModal } from "../NeedHelp/NeedHelpModal/NeedHelpModal";
 import { useSelector } from "react-redux";
 import { selectTheme } from "../../redux/features/theme/selectors";
+import useMedia from "../../hooks/useMediaQuery";
 
 export default function SideBar({ isSidebarOpen, setIsSidebarOpen }) {
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
@@ -44,7 +45,7 @@ export default function SideBar({ isSidebarOpen, setIsSidebarOpen }) {
       className={clsx(css.backdrop, isSidebarOpen && css.isOpen)}
     >
       <div
-        style={containerStyle}
+        style={useMedia().isDesktop ? containerStyle : {}}
         onClick={handleStop}
         className={clsx(css.list, isSidebarOpen && css.isOpenn, css[themeType])}
       >
