@@ -15,6 +15,9 @@ import { selectTheme } from "../../redux/features/theme/selectors";
 export default function SideBar({ isSidebarOpen, setIsSidebarOpen }) {
   const themeType = useSelector(selectTheme);
   const dispatch = useDispatch();
+  const closeModal = () => {
+    setNeedHelpOpenModal(false);
+  };
   const [needHelpOpenModal, setNeedHelpOpenModal] = useState(false);
   useEffect(() => {
     dispatch(fetchBoard());
@@ -59,10 +62,7 @@ export default function SideBar({ isSidebarOpen, setIsSidebarOpen }) {
           <NeedHelpInfo setNeedHelpOpenModal={setNeedHelpOpenModal} />
           <LogOut />
         </div>
-        <NeedHelpModal
-          isOpen={needHelpOpenModal}
-          setNeedHelpOpenModal={setNeedHelpOpenModal}
-        />
+        <NeedHelpModal isOpen={needHelpOpenModal} onRequestClose={closeModal} />
       </div>
     </div>
   );

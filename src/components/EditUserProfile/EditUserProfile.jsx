@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Icon } from "react-icons-kit";
+// import { Icon } from "react-icons-kit";
 import { eye, eyeOff } from "react-icons-kit/feather";
 import Loader from "../Loader/Loader.jsx";
 import clsx from "clsx";
@@ -16,6 +16,7 @@ import {
 } from "../../redux/features/user/operations.js";
 import css from "./EditUserProfile.module.css";
 import { object, string } from "yup";
+import { selectUserPhoto } from "../../redux/features/user/selectors.js";
 
 const updateUserSchema = object({
   name: string()
@@ -36,12 +37,14 @@ const updateUserSchema = object({
 const EditUserProfile = ({ onClose }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  const userPhoto = useSelector(selectUserPhoto);
   const themeType = useSelector(selectTheme);
 
   const initialValues = {
-    name: user.name || "",
-    email: user.email || "",
+    name: user?.name || "",
+    email: user?.email || "",
     password: "",
+    photo: null,
   };
 
   const {
@@ -57,7 +60,7 @@ const EditUserProfile = ({ onClose }) => {
 
   const [icon, setIcon] = useState(eyeOff);
   const [type, setType] = useState("password");
-  const [preview, setPreview] = useState(user.photo || "/img/unknown@2x.png");
+  const [preview, setPreview] = useState(userPhoto || "/img/unknown@2x.png");
 
   const handleTogglePassword = () => {
     setType((prevType) => (prevType === "password" ? "text" : "password"));
@@ -66,38 +69,37 @@ const EditUserProfile = ({ onClose }) => {
 
   const handleAvatarChange = (e) => {
     const file = e.target.files[0];
+
     if (file) {
-      setValue("photo", file); // store the file directly
+      setValue("photo", file);
       const reader = new FileReader();
       reader.onloadend = () => {
         setPreview(reader.result);
       };
       reader.readAsDataURL(file);
-      dispatch(editUserAvatar(file));
-      console.log("Selected file:", file); // log the file
+
+      console.log("Selected file:", file);
     }
   };
 
   const onSubmit = (data) => {
-    // Make a copy of the form data and exclude the 'photo' field
     const { photo, ...otherData } = data;
+    console.log(photo);
 
-    // Log the form data as JSON
     console.log("Form Data:", JSON.stringify(otherData));
 
-    // Log the file if it exists
     if (photo) {
       console.log("Photo File:", photo);
     }
 
-    // Construct FormData to dispatch if needed
     const formData = new FormData();
     formData.set("name", data.name);
     formData.set("email", data.email);
     if (data.password) formData.set("password", data.password);
-    if (photo) formData.append("photo", photo);
+    formData.append("avatar", photo);
 
-    // Dispatch the formData
+    dispatch(editUserAvatar(formData));
+
     dispatch(updateUser(otherData));
     onClose();
   };

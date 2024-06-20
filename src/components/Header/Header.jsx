@@ -72,8 +72,11 @@ const Header = ({ setIsSidebarOpen }) => {
           height="24"
         />
       </div>
-      <div className={css.infoWrapper}>
-        <div className={css.themeWrapper} onClick={toggleDropdown}>
+      <div className={clsx(css.infoWrapper, css[actualTheme])}>
+        <div
+          className={clsx(css.themeWrapper, css[actualTheme])}
+          onClick={toggleDropdown}
+        >
           <p className={clsx(css.selectTitle, css[actualTheme])}>Theme</p>
           <Icon
             className={clsx(css.selectThemeIcon, css[actualTheme])}
@@ -101,15 +104,15 @@ const Header = ({ setIsSidebarOpen }) => {
           )}
         </div>
 
-        <div className={css.userWrapper}>
+        <div className={clsx(css.userWrapper, css[actualTheme])}>
           <p className={clsx(css.userName, css[actualTheme])}>
-            {name || "User"}
+            {name ? name : "User"}
           </p>
           <div
             className={clsx(css.avatarWrapper, css.clickable)}
             onClick={toggleModal}
           >
-            <img src={photo || "/img/user.png"} alt="Avatar" />
+            <img src={photo ? photo : "/img/user.png"} alt="Avatar" />
           </div>
         </div>
       </div>
