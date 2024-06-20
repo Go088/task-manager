@@ -5,7 +5,7 @@
 .screenContainer {
   background-color: #1f1f1f;
   padding: 14px 8px 24px 20px;
-  min-height: 752px;
+  /* min-height: 752px; */
   position: relative;
   overflow: hidden;
 }
@@ -40,8 +40,12 @@
 @media screen and (min-width: 1440px) {
   .screenContainer {
     padding: 10px 18px 8px 24px;
-    min-height: 702px;
-    width: 1180px;
+    /* min-height: 702px; */
+    /* width: 1180px;
+     */
+    /* height: 100vh; */
+    min-height: unset;
+    width: 100%;
     margin-left: 260px;
   }
   .desktop {

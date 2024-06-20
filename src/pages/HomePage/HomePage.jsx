@@ -18,6 +18,7 @@ export default function HomePage() {
   const allBords = useSelector(selectBoards);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const theme = useSelector(selectTheme);
   const board = allBords.filter((b) => b._id === boarId)[0];
   const isBoard = boarId ? true : false;
@@ -39,8 +40,9 @@ export default function HomePage() {
       backgroundImage: `url(${typeOfImage ? typeOfImage : ""})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
+      height: `${windowHeight - 68}px`,
     }),
-    [typeOfImage]
+    [typeOfImage, windowHeight]
   );
 
   return (
