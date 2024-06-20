@@ -4,6 +4,10 @@
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 200px;
 }
 .light.title {
   color: #161616;
@@ -77,4 +81,8 @@
   .columnContainer {
     padding-bottom: 16px;
   }
+}
+.background.light {
+  border-radius: 8px;
+  background-color: ;
 }

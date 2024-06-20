@@ -20,6 +20,10 @@
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 240px;
 }
 .white.columNameText {
   color: #161616;

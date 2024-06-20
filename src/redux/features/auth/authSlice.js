@@ -73,7 +73,14 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
-      .addCase(refreshUser.rejected, (state) => {
+      .addCase(refreshUser.rejected, (state, action) => {
+        console.log(action.payload?.message === "Not authorized!");
+        if (action.payload?.message === "Not authorized!") {
+          state.token = null;
+          state.isLoggedIn = false;
+          state.isRefreshing = false;
+        }
+        state.isRefreshing = false;
         state.error = true;
         state.loading = false;
       }),
