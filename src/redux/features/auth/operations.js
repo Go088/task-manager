@@ -79,21 +79,5 @@ export const refreshUser = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response?.data);
     }
-    // const {
-    //   auth: { token },
-    // } = thunkAPI.getState();
-    // setAuthHeader(token);
-    // const response = await axios.get("/users/info");
-
-    // return response.data;
-    // return { user: response.data.user, theme: response.data.theme }; - пропонується
   }
-  // {
-  //   condition: (_, { getState }) => {
-  //     const {
-  //       auth: { token },
-  //     } = getState();
-  //     return token !== null;
-  //   },
-  // }
 );

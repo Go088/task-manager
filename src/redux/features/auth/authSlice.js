@@ -16,6 +16,12 @@ const authSlice = createSlice({
     isLoggedIn: false,
     isRefreshing: false,
   },
+  reducers: {
+    setToken: (state, action) => {
+      state.isLoggedIn = true;
+      state.token = action.payload;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(registerUser.pending, (state) => {
@@ -73,7 +79,6 @@ const authSlice = createSlice({
         state.isRefreshing = false;
       })
       .addCase(refreshUser.rejected, (state, action) => {
-        console.log(action.payload?.message === "Not authorized!");
         if (action.payload?.message === "Not authorized!") {
           state.token = null;
           state.isLoggedIn = false;
@@ -86,3 +91,4 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
+export const { setToken } = authSlice.actions;

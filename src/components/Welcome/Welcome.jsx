@@ -43,12 +43,12 @@ const Welcome = () => {
               Log in
             </button>
           </Link>
-          {/* <a href="https://task-manager-r8dz.onrender.com/api/users/auth/google">
+          <a href="https://task-manager-r8dz.onrender.com/api/users/auth/google">
             <button type="submit" className={clsx(css.button, css.google)}>
               <FcGoogle className={css.googleIcon} />
               <p>Login with Google</p>
             </button>
-          </a> */}
+          </a>
         </div>
       </div>
     </div>
