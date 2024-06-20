@@ -12,7 +12,6 @@
 
 .modalContent {
   width: 335px;
-  height: 440px;
   padding: 24px;
   background-color: #1d1d1d;
   border-radius: 8px;
@@ -23,13 +22,21 @@
 .violet.modalContent {
   background: rgb(230, 230, 230);
 }
+.light.modalContent {
+  background: rgb(252, 252, 252);
+}
 
 .title {
   margin-bottom: 24px;
   font-size: 18px;
+  font-weight: 500;
   color: #fff;
 }
 .violet .title {
+  color: rgb(22, 22, 22);
+}
+
+.light .title {
   color: rgb(22, 22, 22);
 }
 
@@ -56,6 +63,11 @@
   opacity: 0.4;
 }
 
+.light .input {
+  color: rgb(22, 22, 22);
+  background-color: rgb(252, 252, 252);
+}
+
 .input:focus {
   opacity: 1;
   outline: none;
@@ -66,6 +78,11 @@
 
 .violet .input:focus:valid {
   border-color: rgb(82, 85, 188);
+  background-color: rgb(252, 252, 252);
+}
+
+.light .input:focus:valid {
+  border: 1px solid rgb(190, 219, 176);
   background-color: rgb(252, 252, 252);
 }
 
@@ -112,6 +129,7 @@
   border-radius: 8px;
   cursor: pointer;
   margin-top: 10px;
+  font-weight: 500;
 }
 .violet .btn {
   background: rgb(82, 85, 188);
@@ -166,8 +184,8 @@
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.dark.btnClose:hover,
-.dark.btnClose:focus {
+.btnClose:hover,
+.btnClose:focus {
   background-color: #9dc888;
 }
 .violet.btnClose:hover,
@@ -175,9 +193,9 @@
   background-color: #7b7ede;
 }
 
-.dark.btnClose:hover .btnCloseIcon,
-.dark.btnClose:focus .btnCloseIcon {
-  stroke: #161616;
+.btnClose:hover .btnCloseIcon,
+.btnClose:focus .btnCloseIcon {
+  stroke: rgb(22, 22, 22);
 }
 
 .violet.btnClose:hover .btnCloseIcon,
@@ -188,16 +206,15 @@
   transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btnCloseIcon.dark {
+.btnCloseIcon {
   stroke: #fff;
 }
 .violet .btnCloseIcon {
   stroke: rgb(22, 22, 22);
 }
 
-.light.btnCloseIcon,
 .light.btnCloseIcon {
-  stroke: #161616;
+  stroke: rgb(22, 22, 22);
 }
 .btnEditPhoto {
   position: absolute;
