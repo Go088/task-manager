@@ -36,31 +36,41 @@ export default function CardTooltip({
   };
 
   return (
-    <ul className={clsx(s.ul, s[themeType])}>
-      {columns
-        .filter((column) => column._id !== owner)
-        .map((column) => {
-          const columnId = column._id;
-          return (
-            <li className={s.item} key={columnId}>
-              <button
-                className={clsx(s.button)}
-                onClick={handleClick(_id, column._id)}
-                aria-label="button to change card's column"
-              >
-                <div className={clsx(s.title, s[themeType])}>
-                  {column.title}
-                </div>
-                <Icon
-                  className={clsx(s.icon, s[themeType])}
-                  width="16px"
-                  height="16px"
-                  id="icon-arrow-circle-broken-right"
-                />
-              </button>
-            </li>
-          );
-        })}
-    </ul>
+    <div className={clsx(s.wrap, s[themeType])}>
+      <ul className={clsx(s.list, s[themeType])}>
+        {columns
+          .filter((column) => {
+            return column._id !== owner;
+          })
+          .map((column) => {
+            const columnId = column._id;
+            return (
+              <li className={s.item} key={columnId}>
+                <button
+                  className={clsx(s.button)}
+                  onClick={handleClick(_id, column._id)}
+                  aria-label="button to change card's column"
+                >
+                  <div className={clsx(s.title, s[themeType])}>
+                    {column.title}
+                  </div>
+                  <Icon
+                    className={clsx(s.icon, s[themeType])}
+                    width="16px"
+                    height="16px"
+                    id="icon-arrow-circle-broken-right"
+                  />
+                </button>
+              </li>
+            );
+          })}
+      </ul>
+      {columns.length === 1 && (
+        <p className={clsx(s.text, s[themeType])}>
+          Create new <span className={clsx(s.span, s[themeType])}>column </span>{" "}
+          for moving
+        </p>
+      )}
+    </div>
   );
 }

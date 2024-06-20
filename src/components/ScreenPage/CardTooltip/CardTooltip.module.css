@@ -1,29 +1,32 @@
-.ul {
+.wrap {
   z-index: 9999;
   position: absolute;
   top: 50%;
   left: 50%;
-  display: flex;
-  gap: 8px;
-  flex-direction: column;
+
   padding: 18px;
 
-  min-width: 81px;
   max-width: 185px;
   min-height: 57px;
   border-radius: 8px;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -80%);
 }
 
-.ul.dark {
+.wrap.dark {
   box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
   background: #1f1f1f;
 }
 
-.ul.light,
-.ul.violet {
+.wrap.light,
+.wrap.violet {
   box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
   background: #fcfcfc;
+}
+
+.list {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
 }
 
 .item {
@@ -49,21 +52,53 @@
 
 /* Title */
 
-.title {
-  min-width: 51px;
+.title,
+.text {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+
   display: block;
   position: relative;
   transition: color 250ms linear;
 }
 
-.title.dark {
+.title.dark,
+.text.dark {
   color: rgba(255, 255, 255, 0.5);
 }
 
 .title.light,
-.title.violet {
+.text.light,
+.title.violet,
+.text.violet {
   color: #161616;
 }
+
+/*  Text*/
+
+.text {
+  position: relative;
+  display: block;
+  font-size: 12px;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
+/* Span */
+
+.span.dark,
+.span.light {
+  color: #bedbb0;
+}
+
+.span.violet {
+  color: #5255bc;
+}
+
+/* Button */
 
 .button:hover .title.dark,
 .button:focus .title.dark,
